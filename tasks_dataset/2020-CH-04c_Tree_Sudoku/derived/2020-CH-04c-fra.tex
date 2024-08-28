@@ -1,0 +1,158 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CH-04c Sudoku boisé 4\ensuremath{\times}4}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CH-04c Sudoku boisé 4\ensuremath{\times}4}
+
+
+\subsection*{Body}
+
+Les castors plantent $16$ arbres (quatre arbres de hauteur $4$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04c_tree4.svg}}, quatre arbres de hauteur $3$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04c_tree3.svg}}, quatre arbres de hauteur $2$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04c_tree2.svg}} et quatre arbres de hauteur $1$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04c_tree1.svg}}) dans un champ de taille 4\ensuremath{\times}$4$. Pour cela, ils suivent les règles suivantes:
+
+\begin{itemize}
+  \item dans chaque ligne, il y a exactement un arbre de chaque hauteur;
+  \item dans chaque colonne, il y a exactement un arbre de chaque hauteur.
+\end{itemize}
+
+{\centering%
+\includesvg[width=339.1px]{\taskGraphicsFolder/graphics/2020-CH-04c_taskbody1.svg}\par}
+
+Lorsque les castors observent une rangée d’arbres depuis l’une de ses extrémités, il ne peuvent \textbf{pas} voir les plus petits arbres qui sont cachés derrière de plus grands arbres. C’est écrit sur un panneau au bout de chaque rangée combien de sapins l’on peut voir depuis cet endroit-là. Les panneaux indiquant le nombre de sapins visibles sont plantés tout autour du champ.
+
+Kubko a essayé de représenter le champ d’après sa description sur une feuille de papier. Il a reporté les chiffres sur les panneaux correctement, mais il a fait des erreurs en dessinant quatre des arbres.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Entoure les quatre positions auxquelles les arbres dessinés sont faux et note à côté la hauteur de l’arbre qui devrait s’y trouver.
+
+{\centering%
+\includesvg[width=259.8px]{\taskGraphicsFolder/graphics/2020-CH-04c_taskbody2-interactive.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+On remarque d’abord que les deux règles du “sudoku” ont été suivies: il y a exactement un arbre de chaque hauteur dans chaque rangée.
+
+On peut ensuite vérifier pour quelles rangées les chiffres sur les panneaux sont justes et pour lesquels ils ne sont pas. On détermine ainsi que les chiffres pour les lignes $2$ et $3$ et les colonnes $2$ et $4$ sont justes. Les chiffres pour les autres rangées ne sont pas justes; on appelle ces rangées \emph{problématiques}.
+
+Cela ne suffit pas encore. On aimerait savoir quelles positions causent les chiffres erronés. Pour cela, on remarque qu’il y a exactement quatre positions qui se trouvent en même temps dans une ligne et dans une colonne problématique. C’est les positions auxquelles les lignes problématiques ($1$ et $4$) et les colonnes problématiques ($1$ et $3$) se croisent.
+
+On obtient la bonne solution en échangeant les deux arbres d’un ligne ou colonne se trouvant au croisement problématique de cette ligne et de cette colonne (marqués en rouge).
+
+{\centering%
+\includesvg[width=259.8px]{\taskGraphicsFolder/graphics/2020-CH-04c_explanation.svg}\par}
+
+On peut vérifier que ceci est en effet la seule solution possible de la manière suivante: d’après l’énoncé de l’exercice, il y a exactement quatre arbres qui ne sont pas indiqués correctement. Lorsque l’on change un arbre à une position, il faut en changer au minimum deux autres pour que la règle du sudoku soit respectée: un arbre dans la colonne concernée et un dans la ligne concernée. On a donc déjà changé trois arbres. Les deux derniers changements demandent à leur tour un changement chacun dans chaque nouvelles ligne et colonne concernées. Comme l’on ne peut faire que quatre changements en tout, c’est possible uniquement si les deux derniers changements tombent sur la même position et ne font qu’un, ce qui n’arrive que si les quatre positions à changer sont disposées de manière rectangulaire. Comme il fait faire au moins un changement dans chaque rangée problématique, la solution ci-dessus est la seule possible.
+
+
+\subsection*{It’s Informatics}
+
+Cet exercice est centré sur trois compétences fondamentales pour les informaticiennes et informaticiens.
+
+Premièrement, il s’agit de trouver une solution respectant certaines contrainte, ou si nécessaire de corriger une solution proposée.
+
+Deuxièmement, il s’agit de la capacité de reconstruire des objets en se basant sur leur représentation à partir d’informations partielles. Ceci est lié à la génération d’objets (\emph{représentation d’objets}) à partir d’informations disponibles limitées lorsque leur conformité aux lois est connue. On peut aussi utiliser de tels procédés dans la \emph{compression de données}.
+
+Troisièmement, on peut utiliser de tels champs d’arbres avec des panneaux pour créer des \emph{codes correcteurs}. Des erreurs arrivant lors de l’entrée des données ou du transfert d’information peuvent ainsi être automatiquement reconnues ou même corrigées.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Sudoku: \href{https://fr.wikipedia.org/wiki/Sudoku}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sudoku}}
+  \item Représentation d’objets
+  \item Compression de données: \href{https://fr.wikipedia.org/wiki/Compression_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Compression\_de\_données}}
+  \item Détection et correction d’erreurs: \href{https://fr.wikipedia.org/wiki/Code_correcteur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_correcteur}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,125 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Notation postfixe}
+\renewcommand{\taskCountry}{RO}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Une expression mathématique est constituée:
+
+\begin{itemize}
+  \item d’un \emph{opérateur}: \textbf{+}, \textbf{–}, \textbf{·} ou \textbf{:}
+  \item et d’\emph{opérandes}: des chiffres comme $1$, $2$, …, des lettres comme a, b, …, ou d’autres expressions comme ($1$ + $2$).
+\end{itemize}
+
+La structure d’une expression mathématique peut être représentée par un \emph{arborescence}. Ce diagramme composé d’opérateurs et d’opérandes est dessiné comme cela: un cercle contenant un opérateur est relié à l’arborescence de ses opérandes. Dans le cas le plus simple, il s’agit de cercles contenant des chiffres ou des lettres.
+
+On peut dériver la \emph{notation postfixe} d’une expression mathématique d’une telle arborescence. Dans cette notation, on écrit chaque expression en commençant par les opérandes suivis des opérateurs.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c @{} }
+  \textbf{Expression mathématique:} & a + b & (a + $1$) \ensuremath{\cdot} (b + c) \\ 
+  \textbf{Arborescence:} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example1-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example2-compatible.svg}} \\ 
+  \textbf{Notation postfixe:} & a b + & a $1$ + b c + \ensuremath{\cdot}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Voici la notation postfixe d’une autre expression:
+
+\begin{adjustwidth}{1.5em}{0em}
+a $1$ + b $2$ + · $25$ c : +
+\end{adjustwidth}
+
+
+
+% question (as \emph{})
+{\em
+Quelle arborescence correspond à cette expression?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerA-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerB-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerD-compatible.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C: \raisebox{-0.5ex}{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}}
+
+Comme décrit dans la donnée de l’exercice, l’opérateur central d’une expression mathématique se trouve toujours tout en haut de l’arborescence (il forme sa \emph{racine}) et tout à la fin de la notation postfixe. Si l’on veut trouver l’arborescence d’une expression en notation postfixe, il faut chercher le dernier signe de la notation postfixe tout en haut de l’arborescence, dans ce cas le +. Seules les arborescences des réponses A et C ont un + à leur racine.
+
+L’opérateur + a deux opérandes, un à gauche et un à droite. En notation postfixe, on voit directement (à l’avant-dernier signe) que l’opérande à droite de l’expression est également une expression avec l’opérateur :. L’arborescence doit donc avoir le signe : à droite sous la racine. Ce n’est le cas que pour l’arborescence de la réponse C, qui doit donc être la bonne réponse.
+
+On peut le vérifier en transformant toute l’arborescence de la réponse C en notation postfixe:
+
+\begin{itemize}
+  \item les trois plus “petits” arbres, constitués de $3$ éléments chacun, deviennent a $1$ +, b $2$ + et $25$ c :.
+  \item Les deux petits arbres de gauche deviennent les opérandes du \textbf{+} d’en haut; l’arbre partiel de gauche devient donc a $1$ + b $2$ + ·. Le troisième petit arbre est l’opérande de droite.
+  \item L’arborescence de la réponse C s’écrit donc a $1$ + b $2$ + · $25$ c : + en notation postfixe, ce qui est exactment l’expression de la donnée de l’exercice.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La \emph{notation postfixe}, aussi appelée \emph{notation polonaise inverse}, est souvent utilisée pour formuler des expressions, mathématiques ou autres (par exemple en programmation) de manière compacte et univoque. Si l’on écrivait l’expression de l’arborescence de la réponse C en notation normale (c’est à dire avec les opérateurs entre les opérandes, appelée aussi \emph{notation infixe}), il faudrait utiliser des parenthèses: ${(a + 1) \cdot (b + 2) + 25 : c}$, dont on n’a pas besoin avec la notation postfixe. La notation postfixe a été introduite sous la forme de notation préfixe, avec les opérateurs devant les opérandes, par Jan Łukasiewicz (1878$-1956$). On utilise cette notation entre autres pour les fonctions mathématiques ${f(x, y)}$ et en programmation \BrochureInlineCode{functionname(argument1, argument2, argument3)}. En informatique, elle est utilisée entre autres pour l’\emph{analyse syntaxique} (\emph{parsing} en anglais) des expressions d’un langage de programmation.
+
+Dans la passé récent, beaucoup de gens ont découvert la notation postfixe en utilisant les premières calculatrices scientifiques: elle permettait d’entrer et de calculer des expression mathématiques rapidement, de manière fiable et sans parenthèses. Il existe encore aujourd’hui une communauté de gens qui utilisent les calculatrices programmables (comme la HP-35s) avec la notation postfixe.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Notation polonaise inverse: \href{https://fr.wikipedia.org/wiki/Notation_polonaise_inverse}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Notation\_polonaise\_inverse}}
+  \item Arbre syntaxique: \href{https://fr.wikipedia.org/wiki/Arbre_syntaxique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_syntaxique}}
+  \item Jan Łukasiewicz: \href{https://fr.wikipedia.org/wiki/Jan_\%C5\%81ukasiewicz}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Jan\_Łukasiewicz}}
+  \item HP 35s: \href{https://fr.wikipedia.org/wiki/HP-35s}{\BrochureUrlText{https://fr.wikipedia.org/wiki/HP-35s}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorUngureanuL{} % \ifdefined\AuthorUngureanuL \BrochureFlag{ro}{} Laura Ungureanu\fi
+\def\AuthorConstantinescuR{} % \ifdefined\AuthorConstantinescuR \BrochureFlag{ro}{} Raluca Constantinescu\fi
+\def\AuthorIoannouT{} % \ifdefined\AuthorIoannouT \BrochureFlag{cy}{} Thomas Ioannou\fi
+\def\AuthorReyesO{} % \ifdefined\AuthorReyesO \BrochureFlag{pr}{} Omar Colon Reyes\fi
+\def\AuthorAnwarK{} % \ifdefined\AuthorAnwarK \BrochureFlag{my}{} Khairul Anwar\fi
+\def\AuthorKhachatryanG{} % \ifdefined\AuthorKhachatryanG \BrochureFlag{am}{} Gohar Khachatryan\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,124 @@
+{
+    "id": "2023-CH-05",
+    "title": "Les troncs de Timea",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "medium",
+        "3": "easy",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "medium",
+        "12-14": "easy",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "computer processes and hardware"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple select with images",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko, by Darija Dasović",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko",
+                "Darija Dasović"
+            ]
+        },
+        {
+            "src": "2023-CH-05-Comments-DACHHU.txt by Liam Baumann",
+            "file_pattern": "2023-CH-05-Comments-DACHHU.txt",
+            "authors": [
+                "Liam Baumann"
+            ]
+        },
+        {
+            "src": "reviews.txt by Jean-Philippe Pellet",
+            "file_pattern": "reviews.txt",
+            "authors": [
+                "Jean-Philippe Pellet"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Jean-Philippe Pellet, jean-philippe.pellet@hepl.ch, Switzerland (author, interactivity)",
+            "name": "Jean-Philippe Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "author",
+                "interactivity"
+            ],
+            "email": "jean-philippe.pellet@hepl.ch"
+        },
+        {
+            "src": "Susanne Datzko, susanne.datzko@informatik-biber.ch, Switzerland (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "graphics"
+            ],
+            "email": "susanne.datzko@informatik-biber.ch"
+        },
+        {
+            "src": "Darija Dasović, darija.dasovic@ucitelji.hr, Croatia (graphics)",
+            "name": "Darija Dasović",
+            "country": "Croatia",
+            "country_code": "HR",
+            "roles": [
+                "graphics"
+            ],
+            "email": "darija.dasovic@ucitelji.hr"
+        },
+        {
+            "src": "Liam Baumann, liam.baumann@ocg.at, Austria (translation from English into German, support files)",
+            "name": "Liam Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "translation from English into German",
+                "support files"
+            ],
+            "email": "liam.baumann@ocg.at"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.4
+    },
+    "name": "Log Storage",
+    "difficulties": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CH",
+        "country": "Switzerland",
+        "num": 5
+    }
+}

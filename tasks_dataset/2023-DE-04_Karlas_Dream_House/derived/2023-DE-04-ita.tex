@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-04 La casa dei sogni di Karla}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-04 La casa dei sogni di Karla}
+
+
+\subsection*{Body}
+
+Karla ha tre mappe che mostrano esattamente la stessa area. Una mappa mostra le foreste, una i fiumi e una le case della zona. La casa dei sogni di Karla si trova nella foresta e vicino a un fiume.
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Forest-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Rivers-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}} \\ 
+  Mappa delle foreste & Mappa dei fiumi & Mappa delle case
+\end{tabular}
+
+\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Qual è la casa dei sogni di Karla?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fa clic sulla casa giusta nella mappa delle case. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Karla’s dream house shall be selected by click on the rightmost map \href{./graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}{\BrochureUrlText{maph}}. All houses are clickable on that map, and the selection can be seen. Next click on the house or a click on another house will remove the selection.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La casa in alto a sinistra della mappa è la casa dei sogni di Karla:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-solution-compatible.svg}\par}
+
+Per trovare la casa dei sogni di Karla, è necessario valutare le informazioni contenute in tutte e tre le mappe. La casa dei sogni deve trovarsi in una zona boscosa e vicino a un fiume. Questo vale solo per la casa in alto a sinistra. Questo è facile da vedere quando le carte vengono messe una sopra l’altra:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Maps_Overlay-compatible.svg}\par}
+
+
+\subsection*{This is Informatics}
+
+Quando le informazioni sulle foreste, sui fiumi e sulle case sono presentate su un’unica mappa è facile trovare la casa che si sta cercando.
+
+Un \emph{geoinformation system} (GIS, sistema informativo geografico) riunisce una serie di informazioni spaziali (ad esempio, foreste, strade, confini nazionali, stazioni di servizio, municipi, pianure alluvionali, ecc.). Un GIS serve quindi alla visualizzazione e all’analisi dei cosiddetti \emph{geodati}. Con l’aiuto di un GIS è possibile, ad esempio, per gli addetti al controllo delle catastrofi, compilare informazioni per i piani di evacuazione.
+
+L’uso di più livelli con diverse informazioni sull’immagine è noto anche nei programmi di grafica. Una questione importante è sempre quale livello, con gli oggetti che contiene, è il più alto e quindi viene visualizzato in primo piano. Nell’esempio, la mappa delle case dovrebbe essere il livello superiore, in modo che le case non siano nascoste dalle aree boschive.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item GIS: \href{https://it.wikipedia.org/wiki/Geographic_information_system}{\BrochureUrlText{https://it.wikipedia.org/wiki/Geographic\_information\_system}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Abstraction
+  \item Data structure analysis
+\end{itemize}
+
+
+\end{document}

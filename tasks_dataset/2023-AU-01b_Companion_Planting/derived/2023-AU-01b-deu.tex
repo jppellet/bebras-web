@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-AU-01b Gemüsebeet}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-AU-01b Gemüsebeet}
+
+
+\subsection*{Body}
+
+Lisa legt ein Gemüsebeet an. Darauf will sie fünf verschiedene Gemüse pflanzen. Manche Gemüse vertragen sich gut miteinander \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-AU-01-good.svg}}, andere nicht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2023-AU-01-bad.svg}}:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-taskbody.svg}\par}
+
+Lisa hat das Beet in sechseckige Bereiche aufgeteilt. In jeden Bereich will sie genau ein Gemüse pflanzen.
+
+In drei Bereiche hat Lisa schon Lauch \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-leek.svg}} gepflanzt.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-question.svg}\par}
+
+Beim Pflanzen beachtet Lisa folgende Regel: Gemüse, die sich nicht vertragen, dürfen nicht in Bereiche gepflanzt werden, die sich berühren.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Bepflanze alle noch freien Bereiche und beachte Lisas Regel!
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Ziehe das Gemüse auf die richtigen Felder. Wenn du fertig bist, klicke \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The vegetables are draggable and can be placed on any hexagonal field, but not the ones with the leek. To change the already planted vegetables you can move over another vegetable or click on the planted vegatable to pull it out ;).
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Weil Erbsen sich mit Lauch nicht vertragen, pflanzt Lisa keine Erbsen in die gelben Bereiche. Für die Erbsen bleiben nur die übrigen Bereiche. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation01.svg}} \\ 
+  Weil Tomaten sich mit Erbsen nicht vertragen, pflanzt Lisa keine Tomaten in die gelben Bereiche. In die übrigen Bereiche kann sie Tomaten pflanzen; Tomaten vertragen sich mit Lauch. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation02.svg}} \\ 
+  Weil Tomaten sich mit Fenchel nicht vertragen, pflanzt Lisa keinen Fenchel in die gelben Bereiche. Den Fenchel kann sie in die beiden Bereiche zwischen Lauch und Erbsen pflanzen.  In die gelben Bereiche kann sie Salat pflanzen: Für Salat ist Lisa keine Unverträglichkeit bekannt. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation03.svg}}
+\end{tabularx}
+
+
+\subsection*{This is Informatics}
+
+Wer Gemüse so pflanzen will, dass die Ernte möglichst gross wird, muss viele \emph{Bedingungen} beachten: Die einzelnen Sorten haben zum Beispiel unterschiedlichen Bedarf an Platz, Nährstoff und Licht. In dieser Biberaufgabe betrachten wir nur eine Art von Bedingung: die Verträglichkeit zwischen den Gemüsesorten.
+
+Um eine Bepflanzung von Lisas Beet zu finden, die alle Verträglichkeitsbedingungen beachtet, könnte man so vorgehen: Man probiert systematisch alle Kombinationen aus, die Gemüse auf dem Beet zu platzieren. Erst wenn das Beet voll ist, wird geprüft, ob diese Kombination alle Bedingungen erfüllt und eine Lösung für Lisas Problem ist. In der Informatik ist solch ein Ausprobieren aller Kombinationen als \emph{Brute-Force}-Methode bekannt. Bei Problemen mit vielen Kombinationen und nur wenigen Lösungen kann ein Vorgehen nach dieser Methode sehr lange dauern.
+
+Deshalb ist es meist besser, schrittweise vorzugehen und bei jedem Schritt alle Bedingungen zu berücksichtigen. Auf diese Weise haben wir die Lösung für Lisas Problem gefunden, und eine \enquote{falsche} Kombination bzw. Bepflanzung des Beets konnte gar nicht entstehen.
+
+Zum Glück liess sich die Lösung auf direktem Weg finden: Es gab immer Bereiche, in die wir einige der noch übrigen Gemüse pflanzen konnten. Das gelingt im Allgemeinen nicht immer.
+
+Wenn man versucht, die Lösung schrittweise zusammenzusetzen, kann es bei einem Schritt A mehrere Möglichkeiten geben, alle Bedingungen zu erfüllen.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01b-itsinformatics-compatible.svg}\par}
+
+Je nach Wahl kann es bei einem späteren Schritt B keine Möglichkeit mehr geben. Dann nimmt man die letzten Schritte solange zurück, bis man beim Schritt A mit den mehreren Möglichkeiten wieder angekommen ist. Dort wählt man eine andere Möglichkeit und versucht damit eine Lösung zu finden.
+
+In der Informatik ist diese Rücknahme von Schritten als \emph{Backtracking} bekannt.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Brute Force: \href{https://de.wikipedia.org/wiki/Brute-Force-Methode}{\BrochureUrlText{https://de.wikipedia.org/wiki/Brute-Force-Methode}}
+  \item Backtracking: \href{https://de.wikipedia.org/wiki/Backtracking}{\BrochureUrlText{https://de.wikipedia.org/wiki/Backtracking}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Decomposition: \href{https://en.wikipedia.org/wiki/Decomposition_(computer_science)}{\BrochureUrlText{https://en.wikipedia.org/wiki/Decomposition\_(computer\_science)}}
+\end{itemize}
+
+
+\end{document}

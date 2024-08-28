@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<style> /* Do Not Change */
+			html, body, div, span, p, h1, h2, h3, h4, h5, li, td, th { font-family: Arial, sans-serif; }
+			h1 { text-align: center; }
+			p, h1, h2, h3, h4, h5, li, td, th, .edithere { background-color: #dfffdf; }
+			p + p, table + p, ol + p, ul + p { /* vertical space before paragraphs */ margin-top: 0.5em; }
+			.question { /* identify the question paragraph */ font-style: italic; }
+			.answers { /* identify the answer list */ list-style-type: upper-alpha; }
+			.code { /* for code in p or span */ font-family: "Consolas", "Courier New", monospace; }
+			.donotchange { background-color: #ffffff; }
+			table { border: 1px solid; border-collapse: collapse; margin-left:auto; margin-right:auto; }
+			td, th { border: 1px solid; padding: 3px; }
+		</style>
+
+<!-- EDIT HERE: TASK-ID and task title (a student friendly version of the task name; it will usually be translated); same as below -->
+		<title>2023-DE-06: Tile Land</title>
+<!-- FINISH EDITING-->
+
+	</head>
+
+	<body>
+<!-- EDIT HERE: TASK-ID and task title; same as above -->
+		<h1>2023-DE-06: Tile Land</h1>
+<!-- FINISH EDITING-->
+
+		<table>
+			<tr>
+<!-- EDIT HERE: easy/medium/hard/–; assign task to an age group and select its diffulty, only change the value but not the age categories itself -->
+				<td class="donotchange"><em>6yo-8yo:</em> <span class="edithere">-</span></td>
+				<td class="donotchange"><em>8yo-10yo:</em> <span class="edithere">medium</span></td>
+				<td class="donotchange"><em>10yo-12yo:</em> <span class="edithere"></span></td>
+				<td class="donotchange"><em>12yo-14yo:</em> <span class="edithere">-</span></td>
+				<td class="donotchange"><em>14yo-16yo:</em> <span class="edithere">-</span></td>
+				<td class="donotchange"><em>16yo-19yo:</em> <span class="edithere">-</span></td>
+<!-- FINISH EDITING-->
+      </tr>
+
+<!-- EDIT HERE: various; name answer type of the task; typical answer types are:
+  * Multiple-Choice
+	* Multiple-Choice with Images
+	* Multiple-Select
+	* Multiple-Select with Images
+	* Dropdown-Select
+	* Open Integer
+	* Open Text
+	* Interactive (Click-On-Object)
+	* Interactive (Drag & Drop)
+	* Interactive (Other)
+	* Other (please specify)
+	For Multiple-Choice and Multiple-Select if necessary add "Keep Order".
+-->
+			<tr>
+				<td colspan="6" class="donotchange"><em>Answer Type:</em> <span class="edithere">Interactive (Drag & Drop)</span></td>
+   		</tr>
+<!-- FINISH EDITING-->
+
+<!-- EDIT HERE: X/–; assign task to a category, select by writing X in front, deselect by writing – in front, only change the marker but not the age categories itself -->
+			<tr>
+        <td colspan="3" class="donotchange"><span class="edithere">–</span> <em>algorithms and programming</em></td>
+				<td colspan="3" class="donotchange"><span class="edithere">–</span> <em class="donotchange">computer processes and hardware</em></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="donotchange"><span class="edithere">X</span> <em class="donotchange">data, data structures, and representations</em></td>
+				<td colspan="3" class="donotchange"><span class="edithere">–</span> <em class="donotchange">communication and networking</em></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="donotchange"><span class="edithere">–</span> <em class="donotchange">interactions, systems, and society</em></td>
+				<td colspan="3" class="donotchange"></td>
+			</tr>
+			<tr>
+				<td colspan="6" class="donotchange"><em>Equivalent Tasks:</em> <span class="edithere">None that the author remembers.</span></td>
+			</tr>
+<!-- FINISH EDITING-->
+		</table>
+
+		<hr/>
+
+		<h2 class="donotchange">Body</h2>
+
+<!-- EDIT HERE: insert task text and images here. -->
+    <p>
+	    Edu has a new game: Tile Land. It has tiles that show areas of water and land.
+	</p>
+	<p>
+		Using the tiles, Edu can form landscapes. Neighbouring tiles must <em>match</em>: where tiles touch each other, land must touch land and water must touch water.  
+	</p>
+	<p>
+		For example, two tiles may be aligned like on the left, but not like on the right:
+    </p>
+    <p>
+    	<img src="graphics/example1.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="graphics/example2.svg">
+    </p>
+    <p>
+    	Now, Edu placed two tiles like below, with gaps for two more tiles.
+    </p>
+
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Question / Challenge</h2>
+
+<!-- EDIT HERE: formulate the question (in case of multiple-choice or open-answer task) or challenge (or instruction; in case of a constructive task) here. -->
+		<p class="question">
+			Fill the gaps with matching tiles.
+		</p>
+
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Answer Options / Interactivity Description</h2>
+
+<!-- EDIT HERE:
+     - for multiple-choice tasks: formulate the answer choices here. Please explain and motivate your choice of wrong answers in the comment section. Use the following template:
+       <ol class="answers">
+         <li>answer 1</li>
+         <li>answer 2</li>
+         <li>answer 3</li>
+         <li>answer 4</li>
+      </ol>
+	   - For open-answer tasks: formulate the range of answers here that an implementation of a task should accept. (Examples: Integer numbers from [0, 99]; strings of 4 capital letters; … ).
+	   - For interactive tasks: describe the interactivity here.
+-->
+		<p>
+			<img src="graphics/challenge.svg" style="width: 672px;">
+		</p>
+		<p>
+			Tiles on the right must be draggable to the gap positions on the left.
+		</p>
+
+<!-- FINISH EDITING-->
+
+		<hr/>
+
+		<h2 class="donotchange">Answer Explanation</h2>
+<!-- EDIT HERE: explain which is the correct answer and why. For multiple-choice tasks, also explain why the other answer choices are wrong.
+     This must be understandable for the target age group. Use about 2 to 5 sentences for the correct answer, and somewhat less for the wrong answers. Focus narrowly on the task, do not explain yet what this has to do with informatics or computational thinking.
+-->
+		<p>
+			This is the correct answer:
+		</p>
+		<p>
+			<img src="graphics/solution.svg" style="width: 320px;">
+		</p>
+		<p>
+			We immediately see that this answer is correct:  Each added tile matches its two neighbouring tiles.
+			For each gap, we can look at all six tiles and see that only one tile can fill the gap, matching both neighbouring tiles.
+			Hence, this is the only correct answer.
+		</p>
+
+
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">This is Informatics</h2>
+<!-- EDIT HERE: explain to the target age group, why this task is about informatics: What are the informatics concepts, what is the informatics “story” behind this task? Use about 3 to 8 sentences. Do not explain the correct answers of the task, but give a larger picture. You may, however, relate your explanation to the “Answer Explanation” section. -->
+		<p>
+			Let us take another, closer look at Edu's tiles.
+			First, we realize that the tiles can be divided into sections, with the two outside borders of each section showing either both land or both water.
+		</p>
+		<p>
+			<img src="graphics/tile-divided.svg" style="width: 144px;">
+		</p>
+		<p>
+			Hence, there are only two different types of sections.  We can label them "W" (for sections with their outside borders showing water) and "L" (for sections with their outside border showing land).
+		</p>
+		<p>
+			<img src="graphics/ItsInformatics.svg" style="width: 640px;">
+		</p>
+		<p>
+			We also realize that two tiles match if their neighbouring section types are equal.
+			Hence, for most sections of the gaps, we can fill in the required types already.
+			For the two sections in the outer corners of the gaps, we do not care about the type and fill in a '*'.
+			Thus, for each gap, we get a section type pattern.  The tiles to fill the gaps must fit these patterns.
+			For each pattern, only one tile on the right fits the pattern.
+		</p>
+		<p>
+			In summary, we discovered a special property of the tile images, and used this discovery to replace them by an arrangement of characters L and W.  By this step, we reduced the information contained in the images significantly, in order to focus on what was needed to solve this Bebras task.  Computer Scientists would refer to the character arrangements as <em>models</em> of the images.  Modeling involves abstraction, and abstraction reduces information.  Computers need to work on models of reality.  In the process of creating such models, it must be taken care that important properties of reality will not get lost.
+		</p>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">This is Computational Thinking</h2>
+<!-- EDIT HERE: explain computational thinking competencies are necessary to solve this task. Use about 3 to 8 sentences. Do not explain the correct answers of the task, also do not explain the computer science behind the task. You may, however, relate your explanation to the “Answer Explanation” section and the “This is Informatics” section. -->
+		<p>
+			It certainly is; you may explicitly mention "abstraction" here.
+		</p>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Informatics Keywords and Websites</h2>
+<!-- EDIT HERE (delete this): give some keywords, useful to find further information on the web. The target are the teachers and interested students. // Indicate websites (in English and other languages) which offer further information on the particular domain of informatics mentioned in the “This is Informatics” section. Wikipedia is often a good start. -->
+		<p>
+			modeling, encoding
+		</p>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Computational Thinking Keywords and Websites</h2>
+<!-- EDIT HERE (delete this): give some keywords, useful to find further information on the web. The target are the teachers and interested students. // Indicate websites (in English and other languages) which offer further information on the particular domain of computational thinking mentioned in the “This is Computational Thinking” section. -->
+		<p>
+			abstraction
+		</p>
+<!-- FINISH EDITING-->
+
+		<hr/>
+
+		<h2 class="donotchange">Wording and Phrases</h2>
+<!-- EDIT HERE: list of words and phrases used to name important things mentioned in the task body (actors, activities/processes, concepts, definitions, objects, names, etc.) This is to ensure the consequent use of terminology in the task body and to facilitate translation. -->
+		<p>
+			<em>tile</em>: square-shaped image, with bordes / sides showing either water or land<br>
+			<em>neighbouring tiles</em>: tiles that are placed immediately next to each other<br>
+			<em>tiles match, matching tiles</em>: two neighbouring tiles may match (as defined in the task) or not<br>
+			<em>gaps, fill the gaps</em>: a gap is an empty space in an arrangement of tiles.  If a tile is placed at exactly this space, then the tile fills the gap.
+		</p>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Comments</h2>
+<!-- EDIT HERE: use the following template:
+      <li>author, e-mail, date (YYYY-MM-DD): <em>Comment, including documentation of and reasons for changes, and precautions to take when further developing this task.</em>.</li>
+-->
+		<ul>
+			<li>Wolfgang Pohl, pohl@bwinf.de (2023-03-12): <em>Obviously, there are 16 different tiles, considering their section borders.  The challenge can be varied by present more than six (different) tiles to fill the gaps.  Depending on what tiles are presented, there may be more than one correct solution, with a maximum of four.</em></li>
+			<li>Wolfgang Pohl, pohl@bwinf.de (2023-04-29): <em>I corrected the mistake in image <tt>Itsinformatics.svg</tt> that was mentioned in a review.</em></li>
+			<li>Wolfgang Pohl, pohl@bwinf.de (2023-04-29): <em>A review suggests to modify the tile images in order to clarify they cannot be rotated. This is difficult to do as the images are top-view. So I'd prefer to not change the images, but leave it to the interaction (drag-and-drop) to not allow rotation.</em></li>
+			<li>WG L5: We added signs to indicate the correct and wrong answer in the example. We asked the German team to provide us with the full SVG picture and not the PNG in SVG picture.</li>
+		</ul>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Graphics and Other Files</h2>
+<!-- EDIT HERE: filename, author, source/self-made, license
+     Please indicate:
+       - Source of each image or of each other file to produce the task image(s): (URL and/or author)
+			 - License for each image.
+    Note: If the source of an image is unclear, it might be copyrighted and cannot be used in the task.
+		Use the following template:
+		  <li><tt>filename</tt>, author, source/self-made, license</li>
+-->
+		<ul>
+			<li>2023-DE-06-eng.html: This File</li>
+			<li>challenge.svg: Gunnar Collier, BWINF</li>
+			<li>example1.svg: Gunnar Collier, BWINF</li>
+			<li>example2.svg: Gunnar Collier, BWINF</li>
+			<li>ItsInformatics.svg: Gunnar Collier, BWINF</li>
+			<li>solution.svg: Gunnar Collier, BWINF</li>
+			<li>tile-divided.svg: Gunnar Collier, BWINF</li>
+		</ul>
+		<p>
+			The organisation of the task author (BWINF) owns the tile images and gladly CC-licenses their use in this task. Unfortunately, at this time the images exist as pixel graphics only (embedded in the SVGs). If this task is accepted, BWINF will possibly be able to provide vectorized versions.
+			WG L5: Please do.
+		</p>
+<!-- FINISH EDITING-->
+
+		<h2 class="donotchange">Authors and Contributors (incl. Graphics)</h2>
+
+<!-- EDIT HERE (keep this template and add above this line): author / contributor / editor, e-mail, country. Use the following template:
+      <li>Author / contributor / editor, <a href="e-mail">email</a>, country.</li>
+-->
+    	<ul>
+	    	<li>Author: Wolfgang Pohl, pohl@bwinf.de, Germany</li>
+			<li>Contributer: Špela Cerar, spela.cerar@pef.uni-lj.si, Slovenia - added signs to the example pictures</li>
+		</ul>
+<!-- FINISH EDITING-->
+
+		<hr/>
+
+		<h2 class="donotchange">License</h2>
+
+		<p class="donotchange">Copyright &copy; 2023 Bebras &ndash; International Challenge on Informatics and Computational Thinking.  This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+	</body>
+</html>

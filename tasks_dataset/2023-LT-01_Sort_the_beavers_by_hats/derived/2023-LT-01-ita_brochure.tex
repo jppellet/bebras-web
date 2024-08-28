@@ -1,0 +1,127 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Cappelli nuovi}
+\renewcommand{\taskCountry}{LT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+I castori hanno nuovi cappelli.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-LT-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Ordina i cappelli in base alle dimensioni.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+In questo modo i cappelli sono ordinati correttamente:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer01.svg}} \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer02.svg}}\par}
+
+Ci sono due soluzioni corrette, i cappelli sono da sinistra a destra
+
+\begin{itemize}
+  \item sempre più grandi o
+  \item sempre più piccoli.
+\end{itemize}
+
+Quando ordiniamo i castori, prestiamo attenzione solo ai cappelli. In questo modo è molto più facile ordinarli in base alla taglia.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation.svg}} \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation_alt.svg}}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Molte cose nel nostro ambiente sono ordinate per facilitare la scelta dei singoli oggetti: se gli utensili sono ordinati per dimensione, è più facile trovare l’utensile giusto. Poiché le voci di un dizionario sono ordinate alfabeticamente, è possibile trovare più rapidamente la pagina con la parola cercata.
+
+In questo compito si deve ordinare i castori in base alla dimensione dei cappelli. La difficoltà, tuttavia, è che la \emph{proprietà} \enquote{dimensione dei cappelli} non è facilmente identificabile. Potremmo ordinare in base ad almeno tre dimensioni diverse:
+
+\begin{itemize}
+  \item Dimensione del castoro (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+  \item Dimensione dei cappelli (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}})
+  \item dimensione totale (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+\end{itemize}
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics01-compatible.svg}\par}
+
+La classificazione dei castori è diversa per ciascuna delle tre caratteristiche dimensionali.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Castoro}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}}}} \\ 
+\midrule
+  A & 3 & 9 & 12 \\ 
+  B & 6 & 3 & 9 \\ 
+  C & 2 & 4 & 6 \\ 
+  D & 4 & 5 & 9 \\ 
+  E & 5 & 7 & 12
+\end{tabular}
+
+\par}
+
+Per l’ordinamento, è quindi importante innanzitutto definire esattamente la proprietà in base alla quale deve avvenire l’ordinamento.  In secondo luogo, i valori di questa proprietà devono essere ordinabili.  Possiamo ordinare in base a proprietà espresse in numeri (come dimensione, lunghezza, peso, …): per due numeri diversi, possiamo dire quale numero è il più piccolo.  Le parole possono essere ordinate perché l’ordine delle lettere dell’alfabeto è fisso e quindi per due parole diverse è chiaro quale deve essere in testa al dizionario. In generale, possiamo dire che una proprietà è ordinabile se possiamo specificare una relazione unica \enquote{meno di} (un \emph{ordine}) per i suoi singoli valori.
+
+I computer vengono utilizzati per gestire grandi quantità di dati. Per poter trovare rapidamente i singoli dati, è necessario ordinarli. L’informatica conosce molti metodi di ordinamento rapido ed è ben studiata in quali casi si debbano utilizzare tali metodi.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ordinamento: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ordinamento}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ordinamento}}
+  \item Relazione d’ordine: \href{https://it.wikipedia.org/wiki/Relazione_d\%27ordine}{\BrochureUrlText{https://it.wikipedia.org/wiki/Relazione\_d’ordine}}
+  \item Algoritmo di ricerca: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ricerca}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ricerca}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

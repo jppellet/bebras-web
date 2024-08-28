@@ -1,0 +1,131 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Nombres en billes}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors ont une manière particulière de représenter les nombres.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody00-compatible.svg}\par}
+
+Les différentes cases ont des poids différents et la présence d’une bille sur la case détermine que la valeur est prise en compte. Le nombre $52$ est représenté dans l’exemple ci-dessus.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Le castor se déplace sur un ruban d’une case à la suivante de gauche à droite. Sur chaque case du ruban peut se trouver une bille. & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody01a.svg}} \\ 
+  Si le castor arrive sur une case avec une bille et a les mains libres, il la soulève et la prend avec en la portant dans ses bras. & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody01b-v2.svg}} \\ 
+  Il dépose la bille sur la prochaine case libre. & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody01c-v2.svg}}
+\end{tabularx}
+
+Le castor ne peut porter qu’une seul bille à la fois, et il n’y a la place que pour une bille sur chaque case.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Si le castor porte déjà une bille en arrivant sur une case avec une autre bille… & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody02a-v2.svg}} \\ 
+  … il dépasse celle-ci… & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody02b-v2.svg}} \\ 
+  … et pose sa bille sur la prochaine case vide. & \makecell[r]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CH-07b-taskbody02c-v2.svg}}
+\end{tabularx}
+
+Il peut ensuite à nouveau soulever la bille suivante.
+
+
+
+% question (as \emph{})
+{\em
+Quel nombre les billes représentent-elles une fois que le castor a traversé cette partie du ruban?
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2021-CH-07b-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r J @{} }
+  A) & 10 \\ 
+  B) & 26 \\ 
+  C) & 28 \\ 
+  D) & 104
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B) $26$.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2021-CH-07b-solution-compatible.svg}\par}
+
+L’image suivante montre le déroulement:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2021-CH-07b-explanation.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+En informatique, des opérations relativement simples donnent souvent des résultats intéressants. Cet exercice en est un bon exemple. La démarche du castor est un \emph{algorithme}. Il se base sur le fait que le castor peut adopter deux états différents (portant une bille ou n’en portant pas) et qu’il peut trouver deux sortes de cases sur son chemin (occupées ou libres).
+
+Le résultat final de l’algorithme est le même que si l’on avait déplacé chaque bille d’une case vers la droite. Cela repésente une division par deux dans le système numérique des castors. Si le castor se déplaçait de droite à gauche sur le ruban, le nombre serait multiplié par deux. Lorsque toute une rangée de uns et de zéros est décalée vers la gauche ou vers la droite, on appelle cela un \emph{décalage de bits} en informatique.
+
+Aussi simple que soit l’exemple dans cet exercice, il contient plusieurs des éléments essentiels d’une \emph{machine de Turing}.
+Une machine de Turing (qui doit son nom au mathématicien Alan Turing) est un ordinateur particulier qui a une structure très simple. En principe, une machine de Turing peut exécuter tous les algorithmes qu’un ordinateur traditionnel peut exécuter. En pratique, les machines de Turing ne sont pas utilisées comme ordinateur, car nous pouvons construire des ordinateurs qui sont bien plus efficaces, même s’ils sont plus compliqués. Les machines de Turing sont surtout utiles pour la théorie. Leur structure simple permet de prouver des affirmations simples les concernant; et si l’on peut prouver qu’un exercice ne peut pas être résolu par une machine de Turing, cela veut dire qu’aucun de nos ordinateurs ne peut le résoudre non plus.
+
+Une machine de Turing est composée:
+
+\begin{itemize}
+  \item D’un \emph{ruban} de longueur infinie divisé en \emph{cases}. Chaque case peut contenir un \emph{symbole}. Dans notre cas, il s’agit des cases sur lesquelles le castor se déplace.
+  \item D’une quantité finie de \emph{symboles}. Souvent, on n’utilise que \BrochureInlineCode{0} et \BrochureInlineCode{1} comme symboles. Dans notre exemple, une bille représente le \BrochureInlineCode{1} et une position libre le \BrochureInlineCode{0}.
+  \item D’une tête de lecture/écriture qui peut se déplacer sur le ruban dans les deux directions tout en lisant les symboles écrits et en écrivant de nouveaux symboles sur le ruban. Dans notre exemple, le castor joue le rôle de la tête de lecture/écriture.
+  \item D’un registre d’\emph{états} de taille finie. Le comportement de la tête de lecture/écriture peut changer en fonction de l’état. Dans notre cas, il n’y a que deux états: “portant une bille” ou “ne portant pas de bille”.
+  \item D’un ensemble de règles, ou \emph{table d’actions}: que ce passe-t-il, en fonction de l’état, lorsqu’un symbole précis est lu sur le ruban? Les actions possibles sont: un changement d’état, l’écriture d’un nouveau symbole et le déplacement de la tête de lecture d’une case vers la gauche ou vers la droite.
+\end{itemize}
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Machine de Turing: \href{https://fr.wikipedia.org/wiki/Machine_de_Turing}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Machine\_de\_Turing}}
+  \item Opération bit à bit, décalage de bit: \href{https://fr.wikipedia.org/wiki/Op\%C3\%A9ration_bit_\%C3\%A0_bit\#D\%C3\%A9calages_de_bit}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Opération\_bit\_à\_bit\#Décalages\_de\_bit}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

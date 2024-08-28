@@ -1,0 +1,140 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Braccialetto}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+\begin{wrapfigure}{R}{115.4px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody1-compatible.svg}}
+\end{wrapfigure}
+
+Marie vorrebbe avere il braccialetto a destra.
+
+Per questo motivo dà a Jonas le seguenti istruzioni:
+
+\begin{itemize}
+  \item Prendi una stella (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_star-compatible.svg}}) e una luna (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_moon-compatible.svg}}) e collegale a formare una coppia. Fallo tre volte in totale, in modo da avere tre coppie.
+  \item Prendi queste tre coppie, girale come vuoi e collegale in una lunga catena.
+  \item Aggiungi altre due stelle ad un’estremità della catena. Ora collega le due estremità della catena per ottenere un braccialetto.
+\end{itemize}
+
+Jonas non ha una foto del braccialetto desiderato. È possibile che ottenga un braccialetto dall’aspetto completamente diverso, anche se Jonas segue esattamente le istruzioni di Marie.
+
+
+
+% question (as \emph{})
+{\em
+Uno dei quattro braccialetti \textbf{NON} si può ottenere se Jonas segue esattamente le istruzioni di Marie. Quale?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerA-squarecentered-compatible.svg}} & B) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerB-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}} & D) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerD-squarecentered-compatible.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta è C) \raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}}.
+
+Solo questo braccialetto non si può ottenere seguendo le istruzioni di Marie.
+
+I braccialetti delle altre tre risposte sono corretti seguendo le istruzioni di Marie. Lo si può vedere, ad esempio, perché ognuno di questi braccialetti può essere diviso in tre coppie stella-luna e una coppia stella-stella, come mostrato nelle foto.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationA-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationB-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationD-compatible.svg}}\par}
+
+Una luna può essere inserita nel braccialetto solo come parte di una coppia stella-luna. Pertanto, ogni luna ha almeno una stella accanto ad essa. Quindi tre lune di fila come nel braccialetto C non sono possibili. Anche cinque o più stelle di fila sono impossibili.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationC-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Quando i programmatori danno istruzioni a un computer, è importante che specifichino esattamente ciò che il computer deve fare. Altrimenti si potrebbe ottenere un risultato indesiderato. Per esempio, Marie ha dimenticato di specificare nella sua lista di istruzioni esattamente come le tre coppie stella-luna devono essere collegate tra loro. Nel braccialetto che voleva, una luna è sempre circondata da stelle. Quindi mancava qualcosa, anche se le istruzioni sembrano molto precise. Se ci fosse un computer che controlla una macchina per fare braccialetti, le istruzioni di Marie non sarebbero abbastanza precise. Fortunatamente, i veri computer di solito si fermano e dicono: “Non so cosa intendi, perché le istruzioni non sono abbastanza chiare”.
+
+Nell’informatica ci sono molti meccanismi per descrivere le cose in modo molto preciso. Un meccanismo sono le cosiddette \emph{grammatiche (formali)}. Una grammatica contiene \emph{regole} che descrivono esattamente come creare determinate \emph{parole} (una sequenza di lettere). Ad esempio, è possibile esprimere le istruzioni di Marie in una grammatica come questa:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\rightarrow} CSS & ($1$) \\ 
+  C \ensuremath{\rightarrow} PPP & ($2$) \\ 
+  P \ensuremath{\rightarrow} SL & ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Qui B sta per braccialetto, C per catena, P per coppia, S per stella e L per luna. Si inizia con B e poi si possono creare nuove parole applicando le tre regole di sostituzione tutte le volte che si desidera. Lo si fa fino a quando la parola è composta solo dai simboli S e L. Per esempio:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\Rightarrow} CSS & per regola ($1$) \\ 
+  CSS \ensuremath{\Rightarrow} PPPSS & per regola ($2$) \\ 
+  PPPSS \ensuremath{\Rightarrow} SLPPSS \ensuremath{\Rightarrow} SLSLPSS \ensuremath{\Rightarrow} SLSLSLSS & per regola ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Si può considerare che la grammatica di cui sopra corrisponde esattamente alle istruzioni di Marie.
+
+L’informatica non è solo programmazione. Spesso si tratta di descrivere gli oggetti. Un insieme di regole di creazione (la grammatica o le istruzioni di Marie) può essere utilizzato per descrivere esattamente una classe di oggetti (alcune parole o i possibili braccialetti). La classe contiene esattamente quegli oggetti che possono essere creati con le regole.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grammatica formale: \href{https://it.wikipedia.org/wiki/Grammatica_formale}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grammatica\_formale}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+
+\newpage}{}

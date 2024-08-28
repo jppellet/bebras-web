@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2019 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2019-KR-04 Anprobieren}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2019-KR-04 Anprobieren}
+
+
+\subsection*{Body}
+
+Christian braucht neue Hosen. Im Geschäft gibt es seine Lieblings-Hose in sieben Längen und sieben Breiten. Hosen in allen $49$ Grössen sind im Regal, nach Länge und Breite sortiert.
+
+Weil Christian seine richtige Grösse nicht weiss, muss er sie durch Anprobieren herausfinden.
+Bei jeder Anprobe merkt Christian, ob die Hose passt oder ob er eine kürzere, längere, schmalere oder breitere Hose braucht.
+Damit eine Hose passt, müssen Länge und Breite stimmen.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-deu/2019-KR-04-taksbody-deu_compatible.svg}\par}
+
+Der Verkäufer stöhnt: Bei $49$ Grössen die richtige zu finden – das kann dauern.
+
+Doch Christian ist eine Methode eingefallen, die richtige Grösse in jedem Fall nach möglichst wenigen Anproben zu wissen.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Wie viele Anproben braucht er mit dieser Methode höchstens, bis er die richtige Grösse weiss?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+$2$ ist die richtige Antwort.
+
+Natürlich kann Christian Glück haben und direkt bei der ersten Anprobe die Hose in der richtigen Grösse erwischen. Aber auf Glück kann er sich nicht verlassen und geht nach dieser Methode vor:
+
+Zuerst probiert er die Hose in der Mitte an (Position + im Bild). Bei der Anprobe prüft er Länge und Breite der Hose.
+
+\begin{itemize}
+  \item Wenn Länge und Breite stimmen, hat der die Hose mit der richtigen Grösse gefunden.
+  \item Wenn die Hose zu kurz und zu breit ist, ist die passende Hose in Bereich $1$.
+  \item Wenn die Hose zu kurz ist aber die richtige Breite hat, ist die passende Hose in Bereich $2$.
+  \item Wenn die Hose zu kurz und zu schmal ist, ist die passende Hose in Bereich $3$.
+  \item Dies kann man für die Bereiche $4$ bis $8$ fortführen.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-deu/2019-KR-04-explanation-deu_compatible.svg}\par}
+
+Nehmen wir an, die Hose mit der richtigen Grösse ist in Bereich $1$. Christian wählt für die zweite Anprobe die Hose in der Mitte von Bereich $1$.
+
+Nun gibt es wieder mehrere Möglichkeiten:
+
+\begin{itemize}
+  \item Wenn die Hose passt, hat er die richtige Grösse gefunden.
+  \item Wenn die Hose immer noch zu kurz und zu breit ist, weiss Christian, dass die Hose an Position A die richtige Grösse hat.
+  \item Wenn die Hose zu kurz ist, aber die passende Breite hat, weiss Christian, dass die Hose an Position B die richtige Grösse hat.
+  \item Dies kann man für die anderen Positionen rund um die Mitte von Bereich $1$ fortführen.
+\end{itemize}
+
+Weil in jedem nummerierten Bereich das mittlere Regalfach in jeder Richtung nur ein Nachbarfach hat, sind keine weiteren Anproben notwendig. Christian braucht also in jedem Fall höchstens zwei Anproben, um die richtige Grösse zu wissen.
+
+
+\subsection*{It’s Informatics}
+
+Die Methode, die Christian bei der Anprobe anwendet, heisst in der Informatik binäre Suche. Der Begriff \emph{binär} kommt vom lateinischen Wort bis (zweimal). Bei der binären Suche nach einem Objekt in einer Folge sortierter Objekte wird deren mittleres Objekt mit dem gesuchten verglichen. Wenn das mittlere Objekt nicht schon das gesuchte ist, weiss man immerhin, in welcher Hälfte der Folge sich das gesuchte Objekt befindet und durchsucht diese Hälfte wieder binär. In jedem Schritt wird die Folge also in zwei Teile geteilt – deshalb \enquote{binär}. Auf diese Weise kommt man sehr schnell beim gesuchten Objekt an. Bei $1.000$ Objekten werden etwa $10$ Suchschritte benötigt, bei $1.000$.$000$ Objekten etwa $20$. Allgemein kann man sagen: Bei \emph{n} Objekten werden etwa log(\emph{n}) Schritte benötigt; die Funktion log ist der \enquote{Zweier-Logarithmus} oder der Logarithmus zur Basis $2$. Weil die binäre Suche so schnell ist, wird sie in Computerprogrammen häufig für die Suche in sortierten Daten verwendet.
+
+In dieser Biberaufgabe ist der Suchraum, nämlich die Hosen im Regal, in zwei Dimensionen (Länge und Breite) sortiert. Deshalb kann Christian die binäre Suche gleich auf beide Dimensionen anwenden. Dann teilt sich die Suchmenge in einem Schritt nicht in $2$, sondern gleich in $8$ Teile auf - falls Christian nicht direkt die richtige Grösse erwischt hat.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Binäre Suche: \href{https://de.wikipedia.org/wiki/Bin\%C3\%A4re_Suche}{\BrochureUrlText{https://de.wikipedia.org/wiki/Binäre\_Suche}}
+  \item Suchverfahren: \href{https://de.wikipedia.org/wiki/Suchverfahren}{\BrochureUrlText{https://de.wikipedia.org/wiki/Suchverfahren}}
+\end{itemize}
+
+
+}
+\end{document}

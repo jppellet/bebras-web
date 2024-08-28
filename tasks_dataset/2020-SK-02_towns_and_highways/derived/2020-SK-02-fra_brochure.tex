@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Réseau ferroviaire}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Voici une carte de cinq villes et quatre lignes de train. Les points noirs représentent les villes, les lignes colorées les lignes de train.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-SK-02_taskbody-compatible.svg}\par}
+
+Un diagramme doit représenter cette carte de manière à ce que:
+
+\begin{itemize}
+  \item les villes soient représentées par des cercles;
+  \item deux villes soient reliées d’un trait si elles sont situées sur la même ligne de train.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Quel diagramme représente la carte correctement?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-02_answerA-compatible.svg}} & B) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-02_answerB-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-02_answerC-compatible.svg}} & D) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-02_answerD-compatible.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C).
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-02_explanation-compatible.svg}\par}
+
+En observant bien la carte, on voit que:
+
+\begin{itemize}
+  \item les villes A et D sont les deux sur la ligne de train jaune;
+  \item les villes B et C sont les deux sur la ligne de train orange;
+  \item les villes B et D sont les deux sur la ligne de train bleue; et
+  \item les villes C, D et E sont les trois sur la ligne de train verte.
+\end{itemize}
+
+Toutes les autres réponses sont fausses:
+
+\begin{itemize}
+  \item Dans la réponse A, il manque le trait entre les villes C et E, qui doit être présent en raison de la ligne de train verte.
+  \item Dans la réponse B, il y a le même problème que dans la réponse A, et il y a en plus un trait qui relie les villes A et B alors qu’elles ne sont pas sur la même ligne.
+  \item Dans la réponse D, il y a deux traits entre les villes A et B ainsi qu’A et E, alors que la ville A n’est ni sur la même ligne que la ville B, ni que la ville E.
+\end{itemize}
+
+Il faut porter attention aux deux points suivants:
+
+\begin{itemize}
+  \item Même s’il l’on peut arriver de la ville A à la ville B en prenant plusieurs lignes de train, les deux villes ne sont pas sur la même ligne.
+  \item Même si une autre ville se trouve entre la ville C et la ville E sur la ligne verte, les deux villes sont sur la même ligne de train.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il y a plusieurs manières possibles de représenter la réalité. La carte plus haut avec les lignes colorées, par exemple, est déjà une représentation relativement abstraite de la situation réelle. Une forme de représentation très importante est le \emph{graphe} – un diagramme qui comporte de nœuds (les cercles) et des arêtes (les traits entre les cercles). Cette forme de représentation est utilisée dans la solution.
+
+Beaucoup de choses sont simplifiées par l’utilisation d’une forme de représentation adaptée. C’est pour cela qu’il est important de connaître beaucoup de formes de représentation pour programmer. En général, on ne peut pas dire qu’une forme de représentation soit mieux qu’une autre. Suivant l’usage prévu, une forme de représentation sera plus adaptée qu’une autre. Le graphe de la solution, par exemple, est pratique car on peut directement y voir que l’on peut aller de C à E sans changer de train. On perd par contre l’information présente sur la carte que l’on passe par la ville D en allant de C à E avec cette ligne de train.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Théorie des graphes: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorBudinskaL{} % \ifdefined\AuthorBudinskaL \BrochureFlag{sk}{} Lucia Budinská\fi
+\def\AuthorZakiK{} % \ifdefined\AuthorZakiK \BrochureFlag{my}{} Khairul Anwar Mohamad Zaki\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,168 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-CA-04 Pierres précieuses}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-CA-04 Pierres précieuses}
+
+
+\subsection*{Body}
+
+\begin{wrapfigure}{R}{313.2px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-04-illustration.svg}}
+\end{wrapfigure}
+
+Peter a plusieurs pierres précieuses. Elles ont toutes une valeur différente.
+
+Sarah connait les pierres précieuses de Peter, mais pas leur valeur. Elle aimerait savoir quelle pierre a le plus de valeur.
+
+Pour cela, elle fait la chose suivante trois fois de suite:
+
+\begin{itemize}
+  \item Elle choisit quatre pierres parmi la collection de Peter et lui demande laquelle des quatre a le plus de valeur.
+\end{itemize}
+
+Elle choisit à chaque étape quatre pierres comme elle veut, et Peter lui répond toujours honnêtement.
+
+À la fin, Sarah sait quelle pierre précieuse a le plus de valeur.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Combien de pierres précieuses Peter peut-il avoir au maximum?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) $8$ pierres précieuses
+
+B) $10$ pierres précieuses
+
+C) $11$ pierres précieuses
+
+D) $12$ pierres précieuses
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La réponse B): $10$ pierres précieuses est correcte.
+
+Si Peter a $10$ pierres précieuses, Sarah peut choisir en tout huit pierres différentes lors de ses deux premières questions. Les deux pierres “gagnantes” de chaque question (c’est à dire le deux qui ont la plus grande valeur parmi les deux groupes de quatre) peuvent chaucune être la “grande gagnante”, c’est à dire la pierre ayant la plus grande valeur de toutes. Les six autres pierres comparées sont éliminées. Pour sa dernière question, Sarah compare les deux gagnantes et les deux pierres qu’elle n’a pas encore choisi jusque-là. La gagnante de la dernière question est aussi la grande gagnante.
+
+Sarah peut donc (entre autres) procéder de cette façon pour trouver la pierre ayant la plus grande valeur parmi $10$ pierres. Si Peter a $11$ pierres, cela ne fonctionne pas:
+
+Si Sarah procède comme décrit plus haut et compare huit pierres différentes lors de ses deux premières questions, il lui reste ensuite les deux gagnantes et trois autres pierres à comparer pour trouver la grande gagnante, donc trop de pierres pour sa troisième question. Si Sarah décide de comparer la gagnate de sa première question avec trois nouvelles pierres lors de sa deuxième question, cela lui apprend quelle pierre a le plus de valeur parmi les sept pierres comparées. Elle doit ensuite encore comparer cette pierre avec les quatre autres pierres qu’elle n’a pas encore choisies, ce qui fait une pierre de trop pour sa troisième question.
+
+Si Sarah choisisait six pierres ou moins parmi $11$ pour ses deux premières questions, ou si Peter avait plus de $12$ pierres, elle aurait besoin d’encore plus de questions pour déterminer laquelle a le plus de valeur.
+
+
+\subsection*{It’s Informatics}
+
+Cet exercice présente un \emph{algorithme} qui est limité par des conditions. Ici, ces conditions sont que Sarah ne peut poser que trois questions et que chaque question ne peut contenir que quatre éléments.
+
+Malgré cette limite, l’algorithme fonctionne bien pour des collections de moins de $11$ éléments, mais échoue pour de plus grandes collections.
+
+Il existe plusieurs raisons d’imposer des contraintes à un algorithme. On pourrait par exemple imposer qu’une opération soit effectuée en un temps limite, ce qui est nécessaire pour les systèmes d’exploitation temps réel. De plus, certains procédés peuvent engendrer des coûts externes ou endommager des composants.
+
+Ce n’est pas un problème que l’algorithme échoue à partir d’un certain seuil du moment que l’on contrôle que ce seuil ne soit jamais dépassé. La stratégie limitée de cet exercice ne doit par exemple jamais être utilisée pour des collections de plus de $10$ éléments.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Complexité en temps: \href{https://fr.wikipedia.org/wiki/Complexit\%C3\%A9_en_temps}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Complexité\_en\_temps}}
+\end{itemize}
+
+
+}
+\end{document}

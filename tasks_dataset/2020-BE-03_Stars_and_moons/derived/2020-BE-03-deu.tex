@@ -1,0 +1,185 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-BE-03 Armband}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-BE-03 Armband}
+
+
+\subsection*{Body}
+
+\begin{wrapfigure}{R}{115.4px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody1-compatible.svg}}
+\end{wrapfigure}
+
+Marie möchte das Armband rechts.
+
+Daher gibt sie Jonas folgende Anweisungen:
+
+\begin{itemize}
+  \item Nimm einen Stern (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_star-compatible.svg}}) und einen Mond (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_moon-compatible.svg}}) und verbinde die beiden irgendwie zu einem Paar. Mach dies insgesamt dreimal, sodass du also drei Paare hast.
+  \item Nimm diese drei Paare und verbinde sie zu einer langen Kette.
+  \item Füge an einem Ende der Kette zwei weitere Sterne hinzu. Verbinde jetzt die beide Enden der Kette, um ein Armband zu erhalten.
+\end{itemize}
+
+Jonas hat kein Bild des gewünschten Armbands. Es kann sein, dass ein ganz anders aussehendes Armband herauskommt, obwohl sich Jonas exakt an Maries Anweisungen hält.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Eines der vier Armbänder kann \textbf{nicht} herauskommen, wenn sich Jonas genau an Maries Anweisungen hält. Welches?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerA-squarecentered-compatible.svg}} & B) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerB-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}} & D) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerD-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Die richtige Antwort ist C) \raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}}.
+
+Nur dieses Armband kann nach Maries Anweisungen nicht herauskommen.
+
+Die Armbänder der anderen drei Antworten hingegen sind nach Maries Anweisungen korrekt. Dies sieht man zum Beispiel, weil jedes von diesen Armbändern in drei Stern-Mond-Paare und ein Stern-Stern-Paar aufgeteilt werden kann, so wie im Bild gezeigt.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationA-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationB-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationD-compatible.svg}}\par}
+
+Ein Mond kann nur als Teil von einem Mond-Stern-Paar in das Armband kommen. Deshalb hat jeder Mond mindestens einen Stern neben sich. Drei Monde hintereinander wie in Armband C können also nicht entstehen. Auch fünf oder mehr Sterne hintereinander sind unmöglich.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationC-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Wenn Programmierer einem Computer Anweisungen geben, dann ist es wichtig, dass sie exakt spezifizieren, was der Computer zu tun hat. Andernfalls könnte man ein unerwünschtes Ergebnis erhalten. Zum Beispiel vergass Marie in ihrer Anweisungsliste genau zu sagen, wie die drei Stern-Mond-Paare aneinandergefügt werden müssen. Im von ihr gewünschten Armband ist ein Mond stets von Sternen umgeben. Es fehlte also etwas, obwohl die Anweisungen sehr genau aussehen. Gäbe es einen Computer, der eine Maschine für die Herstellung von Armbändern steuerte, wären Maries Anweisungen nicht genau genug. Glücklicherweise würden reale Computer gewöhnlich einfach anhalten, mit der Meldung: “Ich weiss nicht, was du meinst, weil die Anweisungen nicht ausreichend klar sind.”
+
+In der Informatik gibt es viele Mechanismen, um Dinge sehr exakt zu beschreiben. Ein Mechanismus sind sogenannte \emph{(formale) Grammatiken}. Eine Grammatik enthält \emph{Regeln}, die genau beschreiben, wie man bestimmte \emph{Wörter} (eine Abfolge von Buchstaben) erzeugen kann. Zum Beispiel kann man die Anweisungen von Marie in einer Grammatik so ausdrücken:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  A \ensuremath{\rightarrow} KSS & ($1$) \\ 
+  K \ensuremath{\rightarrow} PPP & ($2$) \\ 
+  P \ensuremath{\rightarrow} SM & ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Hier steht A für Armband, K für Kette, P für Paar, S für Stern und M für Mond. Man beginnt mit A und kann dann neue Wörter erzeugen, indem man die drei Ersetzungsregeln beliebig oft anwendet. Dies macht man so lange, bis das Wort nur noch aus den Symbolen S und M bestehen. Zum Beispiel:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  A \ensuremath{\Rightarrow} KSS & mittels Regel ($1$) \\ 
+  KSS \ensuremath{\Rightarrow} PPPSS & mittels Regel ($2$) \\ 
+  PPPSS \ensuremath{\Rightarrow} SMPPSS \ensuremath{\Rightarrow} SMSMPSS \ensuremath{\Rightarrow} SMSMSMSS & mittels Regel ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Man kann sich überlegen, dass die obige Grammatik genau den Anweisungen von Marie entspricht.
+
+In der Informatik geht es nicht nur um das Programmieren. Oft geht es um das Beschreiben von Objekten. Eine Menge von Erzeugungsregeln (die Grammatik bzw. Maries Anweisungen) kann eine Klasse von Objekten (bestimmte Wörter bzw. die möglichen Armbänder) genau beschreiben. In der Klasse sind nämlich genau diejenigen Objekte, die man mit den Regeln erzeugen kann.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Formale Grammatik: \href{https://de.wikipedia.org/wiki/Formale_Grammatik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Formale\_Grammatik}}
+\end{itemize}
+
+
+}
+\end{document}

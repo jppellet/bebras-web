@@ -1,0 +1,126 @@
+{
+    "id": "2023-BR-05",
+    "title": "Fontaine",
+    "ages": {
+        "0": "--",
+        "1": "bonus",
+        "2": "bonus",
+        "3": "hard",
+        "4": "medium",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "bonus",
+        "10-12": "bonus",
+        "12-14": "hard",
+        "14-16": "medium",
+        "16-19": "--"
+    },
+    "categories": [
+        "data structures and representations",
+        "interactions, systems and society"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "graphics-deu/*.svg by Susanne Datzko",
+            "file_pattern": "graphics-deu/*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Leonardo Barichello, leo@mais.mat.br, Brazil (author)",
+            "name": "Leonardo Barichello",
+            "country": "Brazil",
+            "country_code": "BR",
+            "roles": [
+                "author"
+            ],
+            "email": "leo@mais.mat.br"
+        },
+        {
+            "src": "Natalia, natalia@unpar.ac.id, Indonesia (contributor)",
+            "name": "Natalia",
+            "country": "Indonesia",
+            "country_code": "ID",
+            "roles": [
+                "contributor"
+            ],
+            "email": "natalia@unpar.ac.id"
+        },
+        {
+            "src": "Carlos Luna, carlos.luna@generaciontec.com, Perú (contributor)",
+            "name": "Carlos Luna",
+            "country": "Perú",
+            "roles": [
+                "contributor"
+            ],
+            "email": "carlos.luna@generaciontec.com"
+        },
+        {
+            "src": "Somayah Albaradei, salbaradei@kau.edu.sa, Saudi Arabia (contributor)",
+            "name": "Somayah Albaradei",
+            "country": "Saudi Arabia",
+            "country_code": "SA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "salbaradei@kau.edu.sa"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (author)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "author"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.4
+    },
+    "name": "Juice Carts",
+    "difficulties": [
+        0,
+        4,
+        4,
+        3,
+        2,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "BR",
+        "country": "Brazil",
+        "num": 5
+    }
+}

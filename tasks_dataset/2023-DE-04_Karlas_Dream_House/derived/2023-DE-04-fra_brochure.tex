@@ -1,0 +1,97 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{La maison de Karla}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Karla a trois cartes qui montrent exactement la même région. Une carte montre les forêts; une autre, les rivières, et la troisième, les maisons dans cette région. La maison de rêve de Karla se trouve dans la forêt et près d’une rivière.
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Forest-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Rivers-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}} \\ 
+  Carte des forêts & Carte des rivières & Carte des maisons
+\end{tabular}
+
+\par}
+
+
+
+% question (as \emph{})
+{\em
+Quelle est la maison de rêve de Karla?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La maison en haut à gauche de la carte des maisons est la maison de rêve de Karla:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-solution-compatible.svg}\par}
+
+Pour trouver la maison de rêve de Karla, il faut analyser les informations des trois cartes. La maison de rêve doit se trouver dans une forêt et près d’une rivière. Ce n’est vrai que pour la maison en haut à gauche. C’est facile à voir en superposant les trois cartes:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Maps_Overlay-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Lorsque les informations sur les forêts, les rivières et les maisons sont représentées sur une seule carte, c’est facile de trouver la maison recherchée.
+
+Un \emph{système d’information géographique} (SIG) assemble une multitude d’informations spatiales (par exemple les forêts, routes, frontières, stations service, maisons, etc.) et les représente sur une carte. Un SIG sert donc à la visualisation et à l’analyse de \emph{données géographiques}. Un SIG permet par exemple à la protection civile de mettre en place des plans d’évacuation.
+
+Les programmes graphiques utilisent aussi plusieurs \emph{niveaux} avec des informations graphiques différentes (appelés \emph{calques}). Une question importante est toujours quel niveau est le plus haut et est donc représenté au premier plan. Ici, ce sont par exemple les maisons qui doivent être au premier plan afin qu’elles ne soient pas cachées par les forêts.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item SIG: \href{https://fr.wikipedia.org/wiki/Syst\%C3\%A8me_d\%27information_g\%C3\%A9ographique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Système\_d'information\_géographique}}
+  \item Calque: \href{https://fr.wikipedia.org/wiki/Calque_(infographie)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Calque\_(infographie)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorParviainenM{} % \ifdefined\AuthorParviainenM \BrochureFlag{fi}{} Marika Parviainen\fi
+\def\AuthorMatsuzawaY{} % \ifdefined\AuthorMatsuzawaY \BrochureFlag{jp}{} Yoshiaki Matsuzawa\fi
+\def\AuthorJeonH{} % \ifdefined\AuthorJeonH \BrochureFlag{kr}{} Hyun-seok Jeon\fi
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios Omar Choudary\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

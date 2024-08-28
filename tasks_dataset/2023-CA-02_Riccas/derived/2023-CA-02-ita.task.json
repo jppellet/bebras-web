@@ -1,0 +1,139 @@
+{
+    "id": "2023-CA-02",
+    "title": "Ricca",
+    "ages": {
+        "0": "--",
+        "1": "bonus",
+        "2": "medium",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "bonus",
+        "10-12": "medium",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg from https://pixabay.com/ (CC https://pixabay.com/service/license/, https://pixabay.com/vectors/halloween-cute-scary-monster-icon-4576728/), modified by Sarah Chan, refined by Susanne Datzko",
+            "file_pattern": "*.svg from https://pixabay.com/ (CC https://pixabay.com/service/license/, https://pixabay.com/vectors/halloween-cute-scary-monster-icon-4576728/), modified",
+            "authors": [
+                "Sarah Chan",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Sarah Chan, sarah.chan@uwaterloo.ca, Canada (author,graphics)",
+            "name": "Sarah Chan",
+            "country": "Canada",
+            "country_code": "CA",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "sarah.chan@uwaterloo.ca"
+        },
+        {
+            "src": "David Khachatryan, david@example.org, Armenia (contributor)",
+            "name": "David Khachatryan",
+            "country": "Armenia",
+            "country_code": "AM",
+            "roles": [
+                "contributor"
+            ],
+            "email": "david@example.org"
+        },
+        {
+            "src": "Javier Bilbao, javier.bilbao@ehu.eus, Spain (contributor)",
+            "name": "Javier Bilbao",
+            "country": "Spain",
+            "country_code": "ES",
+            "roles": [
+                "contributor"
+            ],
+            "email": "javier.bilbao@ehu.eus"
+        },
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (contributor)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Liam Baumann, liam.baumann@ocg.at, Austria (translation from English into German)",
+            "name": "Liam Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "liam.baumann@ocg.at"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics, contributor)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics",
+                "contributor"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.15
+    },
+    "name": "Riccas",
+    "difficulties": [
+        0,
+        4,
+        2,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CA",
+        "country": "Canada",
+        "num": 2
+    }
+}

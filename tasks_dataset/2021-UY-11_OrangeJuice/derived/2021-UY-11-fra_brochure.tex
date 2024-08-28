@@ -1,0 +1,92 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Timber!}
+\renewcommand{\taskCountry}{UY}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un castor aimerait construire un barrage. Afin de toujours abattre les bons arbres, il s’est fixé deux règles. Il n’abat un arbre que si:
+
+\begin{itemize}
+  \item un arbre plus petit pousse directement à sa gauche et
+  \item un arbre plus grand pousse directement à sa droite.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Quels arbres le castor va-t-il abattre?
+
+{\centering%
+\includesvg[scale=0.075]{\taskGraphicsFolder/graphics/2021-UY-11-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Seuls les arbres à la quatrième et septième positions remplissent les conditions données: il y a un arbre plus petit directement à gauche ET un arbre plus grand directement à droite.
+
+{\centering%
+\includesvg[scale=0.075]{\taskGraphicsFolder/graphics/2021-UY-11-solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+En informatique, il faut souvent résoudre des problèmes qui sont spécifiés par une série de \emph{contraintes} logiques. La tâche consiste à trouver une solution qui respecte toutes les contraintes. Des problème plus complexes que celui-ci peuvent être résolus en utilisant des \emph{opérateurs logiques} pour combiner les contraintes. La conjonction (${\wedge}$ ou encore opérateur ET) donne par exemple le résultat “vrai” pour l’expression A ${\wedge}$ B lorsque les deux contraintes A et B sont vraies. Dans cet exercice, ce serait donc: “l’arbre de gauche est plus petit” ${\wedge}$ “l’arbre de droite est plus grand”. On retrouve ce principe fondamental dans presque tous les domaines de l’informatique, par exemple dans beaucoup d’algorithmes de tri comme le \emph{tri à bulles} lors duquel la satisfaction aux contraintes de plusieurs objets d’une liste est évaluée avant de les déplacer, si nécessaire, à une autre position. Ce procédé est répété jusqu’à ce que la liste soit complètement triée.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pensée algorithmique (\emph{algorithmic thinking})
+  \item Opérateur logique: \href{https://fr.wikipedia.org/wiki/Connecteur_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Connecteur\_logique}}
+  \item Tri à bulles: \href{https://fr.wikipedia.org/wiki/Tri_\%C3\%A0_bulles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tri\_à\_bulles}}
+  \item Tri: \href{https://sorting.at/}{\BrochureUrlText{https://sorting.at/}}
+  \item Problème de satisfaction de contraintes: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_satisfaction_de_contraintes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_satisfaction\_de\_contraintes}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorOyhenardG{} % \ifdefined\AuthorOyhenardG \BrochureFlag{uy}{} Graciela Oyhenard\fi
+\def\AuthorSchunkR{} % \ifdefined\AuthorSchunkR \BrochureFlag{uy}{} Rosario Schunk\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorHirschB{} % \ifdefined\AuthorHirschB \BrochureFlag{at}{} Benjamin Hirsch\fi
+\def\AuthorKandlhoferM{} % \ifdefined\AuthorKandlhoferM \BrochureFlag{at}{} Martin Kandlhofer\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

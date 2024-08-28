@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Costruiamo ponti!}
+\renewcommand{\taskCountry}{NZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+I bambini si sono trasferiti nell’isola all’estrema sinistra.
+Bianca deve costruire dei ponti che permettano ai bambini di andare a scuola sull’isola all’estrema destra.
+
+La mappa delle isole mostra quanti tronchi d’albero ci sono su ogni isola.
+Bianca può prendere questi tronchi d’albero per costruire ponti lungo le linee.
+Il numero su una linea indica quanti tronchi sono utilizzati in quel punto per un ponte.
+Quando c’è un ponte tra due isole, Bianca può attraversarlo e portare con sé i tronchi che ha ancora.
+Naturalmente, può usare ogni tronco d’albero per un solo ponte.
+
+Bianca inizia sull’isola a sinistra.  Il suo obiettivo è utilizzare il minor numero possibile di tronchi.
+
+
+
+% question (as \emph{})
+{\em
+Su quali linee Bianca deve costruire i ponti per raggiungere la sua destinazione?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Questa è la risposta corretta:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-solution_compatible.svg}\par}
+
+Le linee verdi mostrano dove Bianca ha costruito i ponti. Le frecce rosse mostrano come Bianca ha attraversato i ponti:
+
+\begin{itemize}
+  \item Sull’isola A prende i tre tronchi e ne usa due per il primo ponte. Con il tronco rimanente, attraversa il ponte e sull’isola B ha ${3 - 2 + 2 = 3}$ tronchi.  Questo non è sufficiente per costruire un ponte verso l’isola D.
+  \item Pertanto, costruisce un ponte con $2$ tronchi fino all’isola C. Attraversa il ponte, prende i $3$ tronchi dall’isola C e torna indietro.  Ora ha ${3 - 2 + 3 = 4}$ tronchi.
+  \item Con essi costruisce un ponte verso l’isola D, attraversa il ponte e poi ha i due tronchi dell’isola D.
+  \item In seguito, costruisce un ponte per l’isola E e può prendere $3$ tronchi. Costruisce altri ponti per le isole F e G. Così sull’isola E ha $3$ tronchi, sull’isola F ${3 - 1 + 1 = 3}$ tronchi e sull’isola G ancora $2$ tronchi.
+  \item Questi sono esattamente sufficienti per costruire un ponte verso l’Isola H, dove si trova la scuola.
+\end{itemize}
+
+In totale, Bianca è riuscita a costruire i ponti per un percorso dall’isola A all’isola H, utilizzando $14$ tronchi d’albero.  Ma è possibile anche con un numero inferiore di tronchi? A tal fine, è necessario esaminare tutti i possibili percorsi. Poiché tutti conducono attraverso la lunga isola D, il problema può essere diviso in due parti: dall’isola A all’isola D e dall’isola D all’isola H:
+
+\begin{itemize}
+  \item Per i ponti dall’isola A all’isola D, Bianca ha utilizzato $8$ tronchi ed è arrivata sull’isola D senza tronchi.  Il suo percorso è il seguente: ${2-[2,2]-4}$ (dall’isola A attraverso la linea con il $2$ fino all’isola B, poi tra B e C e ritorno attraverso il $2$, poi attraverso il $4$ fino all’isola D). Un percorso con meno tronchi sarebbe di ${3-4}$, ma può essere costruito solo con una deviazione (${3-[2,2]-4}$), quindi consuma $9$ tronchi, e Bianca arriva sull’isola D con un tronco in più. Tutti gli altri percorsi dall’isola A a D consumano $9$ o più tronchi.
+  \item Per i ponti dall’isola D alla H, Bianca ha utilizzato $6$ tronchi. Non può costruire il percorso diretto ${3-2}$, nemmeno con un tronco in più. Tutti gli altri percorsi dall’isola D all’isola H utilizzano $6$ tronchi o più.
+\end{itemize}
+
+Non è quindi possibile costruire ponti con meno di $14$ tronchi su cui i bambini possano camminare dall’isola A del villaggio all’isola H della scuola.  Con i ponti che ha costruito, Bianca ha quindi raggiunto il suo obiettivo.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La mappa dell’isola con i \enquote{siti di costruzione dei ponti} indicati dalle linee può essere modellata come un \emph{grafo}: si tratta di una struttura matematica che mette in relazione gli oggetti (chiamati anche nodi) tra loro a coppie (le coppie sono chiamate anche bordi).  In un grafo, le isole sono modellate come nodi e le linee come bordi. In questo caso, gli spigoli hanno dei \emph{pesi}, cioè il numero di tronchi utilizzati per costruire un ponte lungo una linea, ma anche i nodi (il numero di tronchi su un’isola) - questo è piuttosto insolito. Per i grafi in cui solo i bordi sono ponderati, l’informatica conosce diversi algoritmi efficienti in grado di calcolare il percorso più breve (tramite bordi con somma minima di pesi) tra due nodi.
+
+Il problema che Bianca vuole risolvere in modo ottimale in questo compito è più complicato: anche lei vuole fare il percorso più breve, ma ha un vincolo: la somma dei pesi dei nodi sul suo percorso fino a quel momento (i tronchi che potrebbe utilizzare) meno la somma dei pesi dei bordi sul suo percorso (i tronchi che ha usato per costruire il ponte) deve essere maggiore del peso del bordo che vuole percorrere dopo o dove vuole costruire un ponte. Per trovare il percorso ottimale, potrebbe essere necessario provare tutte le possibilità. La suddivisione del problema in due parti aiuta a ridurre il numero di possibilità. Inoltre, grazie al vincolo, è possibile escludere molte possibilità prima di averle provate tutte. In informatica, una procedura di questo tipo (provare ed tornare indietro per esclusione) è nota come \emph{backtracking}.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grafo: \href{https://it.wikipedia.org/wiki/Grafo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo}}
+  \item Backtracking: \href{https://it.wikipedia.org/wiki/Backtracking}{\BrochureUrlText{https://it.wikipedia.org/wiki/Backtracking}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorHendersonT{} % \ifdefined\AuthorHendersonT \BrochureFlag{nz}{} Tracy Henderson\fi
+\def\AuthorBellT{} % \ifdefined\AuthorBellT \BrochureFlag{nz}{} Tim Bell\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorTruuA{} % \ifdefined\AuthorTruuA \BrochureFlag{ee}{} Ahto Truu\fi
+\def\AuthorSayehK{} % \ifdefined\AuthorSayehK \BrochureFlag{dz}{} Karima Sayeh\fi
+\def\AuthorKaleliogluF{} % \ifdefined\AuthorKaleliogluF \BrochureFlag{tr}{} Filiz Kalelioğlu\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

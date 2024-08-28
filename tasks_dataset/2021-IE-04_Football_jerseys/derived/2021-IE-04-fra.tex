@@ -1,0 +1,152 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-IE-04 Le bon maillot}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-IE-04 Le bon maillot}
+
+
+\subsection*{Body}
+
+\begin{wrapfigure}{R}{219.78px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/fra/2021-IE-04-taskbody-compatible-fra.svg}}
+\end{wrapfigure}
+Anne prépare son sac pour aller au match. Aujourd’hui, elle doit prendre le maillot avec des manches claires et un col noir, mais sans rayures.
+
+% leave room for the figure by faking some text (vskip doesn't work because of the floating figure)
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quel maillot Anne met-elle dans son sac?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-IE-04-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-IE-04-answerB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-IE-04-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-IE-04-answerD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+\begin{tabularx}{\columnwidth}{ @{} c J @{} }
+  \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2021-IE-04-answerB.svg}} & La bonne réponse est le maillot B. \\ 
+  \raisebox{-0.5ex}{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2021-IE-04-answerA.svg}} et \raisebox{-0.5ex}{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2021-IE-04-answerD.svg}} & Les maillots A et D ne vont pas aujourd’hui parce qu’ils ont des manches noires, et le noir n’est pas une couleur claire. \\ 
+  \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2021-IE-04-answerC.svg}} & Le maillot C a des rayures et ne va donc pas pour le match d’aujourd’hui.
+\end{tabularx}
+
+Le maillot B est parfait pour aujourd’hui: il a des manches claires, un col noir et n’a pas de rayures.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice du castor, tu devais trouver dans un ensemble d’objets celui qui remplit ou ne remplit pas certaines \emph{conditions}.
+
+Ici, plusieurs sous-conditions ont été définies, comme par exemple la couleur des manches et le motif du tissu, et ont été combinées pour former une condition globale. Pour ce genre de combinaisons, on utilise en informatique des \emph{connecteurs logiques}.
+
+Lorsque toutes les sous-conditions doivent être remplies en même temps, on utilise le connecteur \emph{ET}: “la couleur des manches est claire” \emph{ET} “le col est noir”. S’il suffit qu’au moins une des sous-conditions soit remplie, on utilise le connecteur \emph{OU}. Si l’une des sous-conditions ne peut pas être remplie, on peut utiliser le connecteur \emph{NON}, comme par exemple \emph{NON}(le maillot a des rayures).
+
+Pour effectuer des recherches dans des bases de données, des langages de requête peuvent être utilisés pour formuler des conditions très complexes. Pour cela, les conditions doivent être clairement définies. Par exemple, la condition que les manches doivent être claires n’est pas forcément très bien définie. En informatique, dans un cas comme celui-ci, on écrit un programme ou une fonction qui vérifie si une couleur est claire ou pas. Pour cela, il faut avoir une définition exacte de quand une couleur est claire, sinon, c’est impossible d’écrire un programme qui fonctionne.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Algèbre de Boole: \href{https://fr.wikipedia.org/wiki/Alg\%C3\%A8bre_de_Boole_(logique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algèbre\_de\_Boole\_(logique)}}
+  \item Connecteurs logiques: \href{https://fr.wikipedia.org/wiki/Connecteur_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Connecteur\_logique}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,180 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-BR-05 Brunnen}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-BR-05 Brunnen}
+
+
+\subsection*{Body}
+
+Der Sommer in der Stadt ist heiss.  Die Bürgermeisterin lässt deshalb Brunnen mit Trinkwasser aufstellen.
+
+Die Brunnen sollen so stehen, dass man von jeder Strassenecke aus höchstens zwei Strassenabschnitte gehen muss, um einen Brunnen zu erreichen. Dann ist die Bürgermeisterin zufrieden.
+
+Hier ist ein Stadtplan. Die Linien sind Strassenabschnitte, und die Punkte sind Strassenecken.
+An drei Ecken stehen bereits Brunnen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-fountain.svg}}.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-challenge.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Stelle einen weiteren Brunnen so auf, dass die Bürgermeisterin zufrieden ist.
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Klicke auf eine Strassenecke, um dort einen Brunnen aufzustellen. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Wenn eine unbesetzte Strassenecke angeklickt wird, wird dort ein Brunnen angezeigt. Ein evtl. vorher durch Klick aufgestellter Brunnen verschwindet durch einen Klick auf die gleiche oder eine andere Strassenecke wieder. Strassenecken mit vorab aufgestellten Brunnen können nicht angeklickt werden.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-solution.svg}\par}
+
+Wenn ein weiterer Brunnen unten in der Mitte aufgestellt wird, muss man von jeder Strassenecke aus höchstens zwei Strassenabschnitte gehen, um einen Brunnen zu erreichen.
+Dann ist die Bürgermeisterin zufrieden.
+
+Wie können wir herausfinden, an welcher Strassenecke
+ein weiterer Brunnen aufgestellt werden soll?
+Im Stadtplan markieren wir alle Strassenecken mit einem \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-mark.svg}},
+die höchstens zwei Strassenabschnitte von einem der Brunnen entfernt sind, die bereits aufgestellt sind.
+In Bezug auf diese Ecken kann die Bürgermeisterin bereits zufrieden sein.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-explanation_compatible.svg}\par}
+
+Für die fünf übrigen Strassenecken A, B, C, D und E stellen wir einen weiteren Brunnen bei C auf. Damit muss man auch von diesen Ecken höchstens zwei Strassenabschnitte zum nächsten Brunnen gehen.
+
+Die Ecke C ist die einzige Stelle für einen neuen Brunnen, die das ermöglicht:
+Wenn wir für die Ecken A und E jeweils alle anderen Ecken betrachten, die über zwei Strassenabschnitte erreichbar sind (im Bild mit gestrichtelten Linien umrandet),
+ist die Strassenecke C die einzige, die diese Bedingung für A \emph{und} E erfüllt.
+
+
+\subsection*{This is Informatics}
+
+Der Stadtplan kann als \emph{Graph} modelliert werden.
+Das ist ein für die Informatik wichtiges Werkzeug, um Beziehungen zwischen Objekten zu modellieren
+und Fragen in Bezug auf diese Beziehungen zu beantworten.
+Hier kann man die Strassenecken als Objekte und damit \emph{Knoten} des Graphen auffassen.
+Die Beziehung zwischen zwei Objekten wird im Graph durch \emph{Kanten} modelliert, die man als Verbindungslinien darstellt. Hier bedeutet eine Kante zwischen zwei Strassenecken, dass sie durch einen Strassenabschnitt verbunden sind. Diese Beziehung kann man Nachbarschaft nennen. Kanten können aber auch andere Beziehungen modellieren, wie z.B. Freundschaft.
+
+In dieser Biberaufgabe soll eine Teilmenge der Knoten gefunden werden (zum Aufstellen der Brunnen), so dass jeder Knoten ausserhalb dieser Teilmenge über einen Weg mit einem \enquote{Brunnen-Knoten} verbunden ist, der höchstens zwei Kanten lang ist.  In der Fachsprache der Informatik würde dies als Suche nach einem \enquote{distance$-2$ dominating set} bezeichnet. Im allgemeinen (für alle Weglängen ${k \geq 1}$) gehört diese Suche nach einer möglichst kleinen solchen Teilmenge zu den schwierigsten Problemen der Informatik.
+
+Solche \enquote{minimum distance \emph{k}-dominating sets} spielen in der letzten Zeit eine grössere Rolle, insbesondere im Bereich des \emph{Social Computing} (auf Deutsch auch \emph{Sozioinformatik}):
+Zur automatischen Verarbeitung von Daten über soziale Netzwerke (etwa um die Verbreitung von Fake News zu erkennen)
+werden die Fan- oder Follower-Beziehungen zwischen den Nutzern als Graph modelliert.
+Diese Graphen können so gross sein, dass nur eine (möglichst kleine) repräsentative Auswahl von Nutzern betrachtet werden kann - zum Beispiel ein \enquote{minimum distance 3-dominating set}.
+Da die wirklich kleinste Auswahl nicht effizient berechnet werden kann, entwickelt die Informatik Verfahren,
+die in kurzer Zeit möglichst kleine, aber nicht garantiert kleinste Auswahlen berechnen.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Minimum Distance k-Dominating Sets: \href{https://computationalsocialnetworks.springeropen.com/articles/10.1186/s40649-020-00078-5}{\BrochureUrlText{https://computationalsocialnetworks.springeropen.com/articles/$10.1186$/s40649-020-00078-5}}
+  \item Sozioinformatik: \href{https://de.wikipedia.org/wiki/Sozioinformatik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Sozioinformatik}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Optional - not to be filled 2023
+
+
+\end{document}

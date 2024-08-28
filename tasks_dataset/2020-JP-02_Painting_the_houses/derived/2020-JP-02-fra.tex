@@ -1,0 +1,174 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-JP-02 Quartier coloré}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-JP-02 Quartier coloré}
+
+
+\subsection*{Body}
+
+Les habitants d’une rue veulent peindre leurs maisons blanches en couleur. Chaque maison doit être peinte en l’une de ces trois couleurs: vert clair, rouge ou bleu foncé. Pour que ça n’ait pas l’air ennuyeux, ils suivent les règles suivantes:
+
+\begin{itemize}
+  \item Deux maisons directement l’une à côté de l’autre ne doivent pas être de la même couleur.
+  \item Deux maisons directement face à face dans la rue ne doivent pas avoir la même couleur.
+\end{itemize}
+
+Quelques habitants ont déjà peint leur maison en couleur. Les autres habitants doivent maintenant peindre leur maison de manière à respecter les règles.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Trouve les couleurs appropriées pour les habitants.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_taskbody-interactive.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Le plus facile est de trouver la couleur de chaque maison l’une après l’autre.
+
+Les deux maisons blanches du côté supérieur de la route sont chacune entourées de deux maisons de couleurs différentes à gauche et à droite. On ne peut donc les peindre qu’en une seule couleur si l’on suit les règles: La maison blanche en haut à gauche en vert clair et la maison blanche en haut à droite en rouge.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution1-interactive.svg}\par}
+
+Ensuite, on peut voir que la maison blanche en bas à gauche doit être peinte en rouge, car la maison directement à sa gauche est bleu foncé et la maison directement en face est vert clair:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution2-interactive.svg}\par}
+
+On peut faire presque le même raisonnement pour la maison au milieu du côté inférieur de la rue: Elle doit être peinte en vert clair, car directement à sa droite est la maison que l’on vient de peindre en rouge et directement en face se trouve une maison bleu foncé.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution3-interactive.svg}\par}
+
+\begin{samepage}
+Finalement, on peut aussi trouver la couleur appropriée pour la maison blanche en bas à droite: la maison directement à sa droite et celle directement en face sont les deux rouges, mais comme la maison directement à sa gauche est maintenant vert clair, il ne reste plus que la possibilité de peindre la maison en bleu foncé:
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution4-interactive.svg}\par}
+\end{samepage}
+
+
+\subsection*{It’s Informatics}
+
+Vu de manière abstraite, il s’agit dans cet exercice de trouver une solution qui satisfasse certaines contraintes (règles). C’est un problème rencontré très souvent en informatique.
+
+Les maisons et leur voisinage direct (aussi bien à gauche qu’à droite et que de l’autre côté de la rue en face) peuvent très bien être représentées à l’aide d’un \emph{graphe}, une structure de données très répandue en informatique. Dans ce graphe, chaque maison est un \emph{nœud} est chaque lien de voisinage direct est une \emph{arête}:
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-JP-02_itsinformatics1.svg}\par}
+
+Sur l’image, les nœuds sont déjà colorés comme les maisons correspondantes. Les maisons devaient suivre la règle de ne pas avoir la même couleur que leurs voisines. C’est pour cela que les nœuds reliés directement par une arête sur l’image ne sont jamais de la même couleur. Le fait qu’il existe une \emph{coloration valable} du graphe avec trois couleurs ne va pas de soi. Si l’on ajoute deux arêtes au graphe comme sur l’image suivante, il n’y a plus de coloration valable: qu’importe comment on répartit les couleurs dans ce graphe, il y a toujours deux nœuds directement reliés qui sont de la même couleur.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-JP-02_itsinformatics2.svg}\par}
+
+C’est à nouveau possible en utilisant quatre couleurs. Peut-être que c’est toujours possible avec quatre couleurs? La réponse est à nouveau non. Mais il existe au moins une certaine sorte de graphe que l’on peut toujours colorer de manière valable avec quatre couleurs: on les appelle les graphes planaires. Ce sont des graphes que l’on peut dessiner sans que leurs arêtes ne se croisent (le graphe sur la dernière image n’est pas planaire à cause des liens entre les quatre nœuds à gauche). Le fait que les graphes planaires aient toujours une coloration à quatre couleurs valable est décrit par le \emph{théorème des quatre couleurs}.
+
+Le théorème des quatre couleurs est spécialement intéressant pour la réalisation de cartes géographiques. Si l’on se représente chaque pays comme un nœud et que l’on relie les pays voisins par une arête, on obtient toujours un graphe planaire (pour être exact, nous devons pour cela exclure l’existence d’enclaves et d’exclaves, c’est-à-dire de parties de pays se trouvant au milieu d’un autre pays). On peut donc colorer ces graphes de manière valable avec quatre couleurs, et on peut donc aussi colorier ces pays sur la carte de manière à ce que les pays voisins ne soient jamais de la même couleur.
+
+La preuve que quatre couleurs suffisent n’est pas facile à faire. On savait déjà il y a $200$ ans que cinq couleurs suffisent. La preuve que quatre couleurs suffisent a été faite en $1976$ par les mathématiciens Kenneth Appel and Wolfgang Haken. Ils ont pour cela utilisé un ordinateur pour tester un grand nombre d’exceptions et de contre-exemples. L’ordinateur a eu besoin de plus de mille heures pour faire cela. Cela aurait été totalement impossible à faire à la main. Beaucoup de mathématiciens se sont demandé si une telle preuve était valable, car il faut pour cela faire confiance à l’ordinateur.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Théorème des quatre couleurs: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me_des_quatre_couleurs}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorème\_des\_quatre\_couleurs}}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+\end{itemize}
+
+
+}
+\end{document}

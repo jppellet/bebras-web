@@ -1,0 +1,129 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Excursion de groupe}
+\renewcommand{\taskCountry}{SI}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Huit familles de castors veulent prendre le “Glacier Express”. La table suivante liste les familles, leur nombre de membres et le poids de leurs bagages:
+
+{\centering%
+\begin{tabular}{ @{} l c c @{} }
+  {\setstretch{1.0}\thead[lb]{Nom de famille}} & {\setstretch{1.0}\thead[cb]{Nombre de membres}} & {\setstretch{1.0}\thead[cb]{Poids des bagages en kg}} \\ 
+\midrule
+  Ammann & 3 & 50 \\ 
+  Bernasconi & 4 & 80 \\ 
+  Camenzind & 5 & 110 \\ 
+  Donetta & 4 & 80 \\ 
+  Emery & 2 & 40 \\ 
+  Favre & 3 & 70 \\ 
+  Gerber & 6 & 130 \\ 
+  Huber & 5 & 100
+\end{tabular}
+
+\par}
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-SI-01_taskbody-fra-compatible.svg}\par}
+
+L’image montre combien de castors et quelle quantité de bagages peuvent être transportés au maximum dans chaque wagon. De plus, les familles et leurs bagages doivent rester ensemble dans le même wagon et ne peuvent pas se séparer.
+
+
+
+% question (as \emph{})
+{\em
+Combien de familles de castors le “Glacier Express” peut-il transporter au maximum?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & $1$ famille de castors \\ 
+  B) & $2$ familles de castors \\ 
+  C) & $3$ familles de castors \\ 
+  D) & $4$ familles de castors \\ 
+  E) & $5$ familles de castors \\ 
+  F) & $6$ familles de castors \\ 
+  G) & $7$ familles de castors \\ 
+  H) & $8$ familles de castors
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Le “Glacier Express” peut transporter au maximum $7$ familles de castors. Une des répartitions possibles est:
+
+{\centering%
+\begin{tabular}{ @{} l l c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[lb]{Nom de famille}} & {\setstretch{1.0}\thead[cb]{Nombre de membres}} & {\setstretch{1.0}\thead[cb]{Bagages en kg}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-SI-01_explanation1-fra-compatible.svg}} & \makecell[l]{Gerber \\ \textbf{Total:}} & \makecell[c]{6 \\ \textbf{6}} & \makecell[c]{130 \\ \textbf{130}} \\ 
+   &  &  &  \\ 
+  \makecell[l]{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-SI-01_explanation2-fra-compatible.svg}} & \makecell[l]{Ammann \\ Camenzind \\ Emery \\ \textbf{Total:}} & \makecell[c]{3 \\ 5 \\ 2 \\ \textbf{10}} & \makecell[c]{50 \\ 110 \\ 40 \\ \textbf{200}} \\ 
+   &  &  &  \\ 
+  \makecell[l]{\includesvg[width=43.3px]{\taskGraphicsFolder/graphics/2020-SI-01_explanation3-fra-compatible.svg}} & \makecell[l]{Bernasconi \\ Donetta \\ Huber \\ \textbf{Total:}} & \makecell[c]{4 \\ 4 \\ 5 \\ \textbf{13}} & \makecell[c]{80 \\ 80 \\ 100 \\ \textbf{260}}
+\end{tabular}
+
+\par}
+
+Les $8$ familles de castors comptent en tout $32$ personnes, alors que le train n’a que $31$ places à disposition. C’est donc exclu que toutes les familles prennent le “Glacier Express”.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’informatique s’occupe souvent de problèmes d’optimisation, dans lesquels des ressources limitées – comme ici les places disponibles et le poids maximal – doivent être utilisées le mieux possible. En réalité, aucun passager ne devrait être laissé à la traîne, mais la compagnie de transport pourrait par exemple décider de transporter les voyageurs seuls en taxi plutôt que d’utiliser un train complet qui roulerait presque vide.
+
+Ce genre de problème est appelé \emph{problème de découpe et de conditionnement}. Le célèbre problème du sac à dos appartient aussi à cette catégorie.
+
+Parfois, de tels problèmes peuvent être simplifiés de manière à pouvoir être résolus à l’aide de la \emph{programmation dynamique}, c’est-à-dire en commençant par chercher des solutions partielles que l’on peut ensuite combiner en une solution complète. Dans beaucoup de cas, ces problèmes sont cependant ce que l’on appelle des problèmes \emph{NP-complets}, ce qui veut dire que l’on ne connaît actuellement pas de meilleure méthode de résolution que le tâtonnement. C’est aussi ainsi que la plupart d’entre vous avez résolu cet exercice.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Problème du sac à dos: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_du_sac_\%C3\%A0_dos}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_du\_sac\_à\_dos}}
+  \item Programmation dynamique: \href{https://fr.wikipedia.org/wiki/Programmation_dynamique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_dynamique}}
+  \item Problème de découpe et conditionnement
+  \item NP-complet: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_NP-complet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_NP-complet}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorOzebekD{} % \ifdefined\AuthorOzebekD \BrochureFlag{si}{} Dejan Ozebek\fi
+\def\AuthorCerarS{} % \ifdefined\AuthorCerarS \BrochureFlag{si}{} Špela Cerar\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorPhillippsM{} % \ifdefined\AuthorPhillippsM \BrochureFlag{nz}{} Margot Phillipps\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

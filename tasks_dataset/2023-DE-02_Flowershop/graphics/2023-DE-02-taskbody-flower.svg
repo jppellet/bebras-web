@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.026407mm"
+   height="24.069168mm"
+   viewBox="0 0 17.026407 24.069168"
+   version="1.1"
+   id="svg1879"
+   sodipodi:docname="2023-DE-02-taskbody-flower.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1881"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.4467452"
+     inkscape:cx="372.90602"
+     inkscape:cy="40.435592"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1876" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-41.962166,-61.849653)">
+    <g
+       transform="matrix(0.24935215,-0.08847511,0.08847511,0.24935215,-31.830667,-21.344657)"
+       id="g35-2"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+      <path
+         d="m 175.791,436.641 c 4.386,-1.618 3.822,-32.881 -9.989,-28.761 -2.09,0.624 -3.983,5.17 -3.983,6.799 0,5.526 7.342,19.992 8.141,20.791 0.478,0.477 0.727,1.89 0.727,1.89 0,0 -0.541,-1.268 -1.017,-1.744 -1.019,-1.019 -8.299,-13.664 -12.595,-18.455 -3.694,-4.119 -10.023,1.374 -10.629,4.232 -1.597,7.541 8.995,11.04 13.337,14.659 0.914,0.761 5.67,2.852 5.67,3.925 0,0.261 -0.51,-0.146 -0.727,-0.291 -0.497,-0.331 -1.595,-0.484 -2.18,-0.581 -1.48,-0.247 -18.635,-3.077 -20.646,5.815 -2.393,10.583 12.661,7.846 17.883,5.234 1.308,-0.653 3.098,-1.051 4.216,-1.89 0.279,-0.208 1.291,-1.471 1.6,-1.163 0.117,0.117 -0.491,0.3 -0.582,0.436 -0.343,0.515 -1,0.925 -1.454,1.454 -1.175,1.371 -1.674,3.204 -2.471,4.798 -2.977,5.953 -5.702,18.748 3.634,21.082 1.456,0.364 2.233,-2.984 2.472,-3.78 1.449,-4.83 3.571,-8.652 4.216,-13.812 0.269,-2.147 0.146,-4.119 0.146,-6.252 0,-0.19 -0.424,-1.758 -0.582,-1.599 -0.377,0.377 1.612,4.739 1.745,5.67 0.633,4.429 3.474,10.991 7.269,13.521 1.122,0.748 4.632,2.582 6.107,1.599 5.656,-3.771 0.935,-14.33 -3.054,-18.319 -1.066,-1.066 -2.203,-2.196 -3.489,-3.053 -0.741,-0.494 -2.472,-1.018 -2.472,-1.018 0,0 2.23,0.097 3.199,0.582 1.716,0.858 3.774,1.707 5.67,2.181 6.145,1.536 19.38,2.417 20.5,-6.543 0.75,-6.001 -9.129,-9.084 -13.666,-7.269 -2.695,1.078 -5.735,1.938 -7.997,3.634 -0.786,0.59 -1.632,1.241 -2.471,1.745 -0.448,0.269 -1.454,0.582 -1.454,0.582 0,0 1.927,-0.619 2.617,-1.309 1.635,-1.636 3.522,-2.864 5.67,-3.489 8.687,-2.53 16.121,-16.761 9.531,-20.06 -8.424,-4.216 -20.569,14.483 -22.892,18.759 z"
+         style="fill:#ffeba8"
+         id="path33-2" />
+    </g>
+    <g
+       transform="matrix(0.20762833,-0.07367085,0.08847508,0.24935206,-10.900773,-17.635166)"
+       id="g39"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5">
+      <ellipse
+         cx="125.147"
+         cy="403.56299"
+         rx="10.356"
+         ry="7.6160002"
+         style="fill:#ffc400"
+         id="ellipse37" />
+    </g>
+  </g>
+</svg>

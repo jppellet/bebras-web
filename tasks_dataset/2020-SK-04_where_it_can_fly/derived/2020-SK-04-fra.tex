@@ -1,0 +1,145 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-SK-04 Abeille assidue}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-SK-04 Abeille assidue}
+
+
+\subsection*{Body}
+
+Une abeille \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-SK-04_taskbody3-compatible.svg}} met $10$ minutes pour voler d’une case vers le haut, le bas, la gauche ou la droite. Après être partie de la ruche \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=12.3px]{\taskGraphicsFolder/graphics/2020-SK-04_taskbody2-compatible.svg}}, elle vole pendant $30$ minutes au maximum avant de revenir en arrière.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Entoure les fleurs qui peuvent être atteintes en 30 minutes au maximum depuis la ruche.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-SK-04_taskbody-interactive-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Les fleurs sur lesquelles une abeille est posée peuvent être atteinte en $30$ minutes au maximum depuis la ruche:
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-SK-04_explanation1-compatible.svg}\par}
+
+L’image ci-dessous montre pour chaque fleur le nombre de minutes dont l’abeille a besoin pour y arriver en partant de la ruche. En une demi-heure, l’abeille pour donc atteindre toutes les cases dans lesquelles $10$, $20$ ou $30$ est écrit.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-SK-04_explanation2-compatible.svg}\par}
+
+Pour remplir les cases avec les nombres, on procède ainsi: dans les cases à côté de la ruche, on écrit $10$, car l’abeille met $10$ minutes à y arriver depuis la ruche. Ensuite, on écrit $20$ dans toutes les cases vides à côté des cases “$10$”, car l’abeille met $10$ minutes pour passer d’une case à une autre. On continue à faire comme cela. On écrit donc $30$ dans toutes le cases vides à côté des cases “$20$”, puis $40$ dans toutes les cases vides à côté des cases “$30$”, et pour finir $50$ dans toutes les cases vides à côté des cases “$40$”.
+
+
+\subsection*{It’s Informatics}
+
+Pour résoudre l’exercice, nous avons calculé pour chaque case le temps dont l’abeille a besoin pour y arriver depuis la ruche. D’abord, on détermine quelles cases sont atteignables en $10$ minutes. On les utilise ensuite pour déterminer quelles cases sont atteignables en $20$ minutes. À l’aide des cases éloignées de $20$ minutes, on trouve les cases atteignables en $30$ minutes, et ainsi de suite.
+
+Nous utilisons donc des résultats déjà calculés et enregistrés (les nombres dans les cases remplies) pour calculer les résultats suivants (les nombres dans les cases voisines encore vides). Ce principe très général s’appelle \emph{programmation dynamique}. L’ordre dans lequel les résultats sont calculés est pour cela en général très important. Il faut aussi y faire attention pour le vol de l’abeille.
+
+Dans l’exercice, l’abeille ne vole que vers le haut, le bas, la gauche ou la droite en $10$ minutes. C’est un peu irréaliste, car en réalité, une abeille vole sûrement aussi en diagonale par dessus les cases. Avec cette hypothèse plus réaliste, les cases atteignables en $30$ minutes seraient délimitées par un cercle et non par un losange comme dans l’exercice.
+
+La mesure de distance habituelle qui génère un cercle s’appelle \emph{distance euclidienne}. La mesure de distance utilisée dans l’exercice avec laquelle on ne peut se déplacer que verticalement ou horizontalement sur des carrés s’appelle la \emph{distance de Manhattan} (le nom vient de l’arrangement quadrillé des villes modernes comme Manhattan).
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Programmation dynamique: \href{https://fr.wikipedia.org/wiki/Programmation_dynamique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_dynamique}}
+  \item Distance euclidienne: \href{https://fr.wikipedia.org/wiki/Distance_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_(mathématiques)}}
+  \item Distance de Manhattan: \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Manhattan}}
+  \item \href{https://fr.wikipedia.org/wiki/Espace_euclidien}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Espace\_euclidien}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Spass im Zoo}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Heute ist Anja im Zoo. Sie will möglichst viele verschiedene Vorführungen besuchen.
+
+Hier ist ein Plan mit allen Vorführungen.
+Zum Beispiel siehst du ganz unten:
+Die Vorführung der Affen beginnt um $13$:$45$ Uhr und endet um $14$:$45$ Uhr.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AT-01-taskbody-compatible.svg}\par}
+
+Anja besucht eine Vorführung immer ganz, von Anfang bis Ende.
+Kannst du Anja helfen?
+
+
+
+% question (as \emph{})
+{\em
+Wähle so viele Vorführungen wie möglich aus, die Anja nacheinander besuchen kann.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Anja kann höchstens $5$ Vorführungen nacheinander besuchen.
+Das sind die beiden richtigen Antworten:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution01_compatible.svg}}   \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution02_compatible.svg}}\par}
+
+Es gibt unterschiedliche Wege, die richtigen Antworten zu finden.
+
+Ein Besuchsplan für Anja ist eine Auswahl von Vorführungen, die sie nacheinander besuchen kann.  Ein Weg zu  den richtigen Antworten ist es, alle Besuchspläne aufzulisten.  In dieser Liste sind die Pläne mit den meisten Vorführungen die richtigen Antworten.  Alle Besuchspläne zu finden, ist leider sehr zeitaufwändig.
+
+Aber könnte es nicht auch einen Besuchsplan mit $6$ Vorführungen geben?  Wir versuchen einmal, einen zu erstellen. Vorher schauen wir uns die Dauer der Vorführungen genauer an:  Der gesamte Tag ist auf dem Plan in $19$ Zeiteinheiten zu je einer Viertelstunde unterteilt. Die Vorführungen dauern $2$, $3$, $4$, $5$ oder $6$ Zeiteinheiten.
+
+{\centering%
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Zeiteinheiten}} & {\setstretch{1.0}\thead[lb]{Vorstellungen}} \\ 
+\midrule
+  2 & C \\ 
+  3 & B, D, E, I \\ 
+  4 & F, H, J \\ 
+  5 & A \\ 
+  6 & G
+\end{tabular}
+
+\par}
+
+Um möglichst viele Vorführungen in einen Besuchsplan zu packen, wählen wir so \emph{kurze} Vorführungen wie möglich. Die $6$ kürzesten Vorführungen dauern zusammen $18$ Zeiteinheiten ${(2 + 3 + 3 + 3 + 3 + 4)}$. Zu diesen kurzen Vorführungen gehören auch die Vorführungen C, D und E. Da die Vorführungen C und E aber genau hintereinander liegen, kann Anja Vorführung D dazwischen nicht besuchen.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-explanation_compatible.svg}\par}
+
+Wir müssen also die Vorführung D durch eine andere möglichst kurze ersetzen.  Es sind nur noch Vorführungen mit mindestens $4$ Zeiteinheiten übrig.  Ohne die Vorführung D benötigen wir deshalb insgesamt mindestens $19$ Zeiteinheiten für $6$ Vorführungen: ${2 + 3 + 3 + 3 + 4 + 4}$.  Aber: Welche zwei Vorführungen mit $4$ Zeiteinheiten wir auch wählen, eine davon überschneidet sich immer mit einer Vorführung mit $3$ Zeiteinheiten.  Wir müssten auch diese durch eine Vorführung mit mindestens $4$ Zeiteinheiten ersetzen und würden dann mindestens $20$ Zeiteinheiten für $6$ Vorführungen benötigen.  Es stehen aber nur $19$ Zeiteinheiten zur Verfügung!  Wir schlussfolgern, dass es keinen Besuchsplan geben kann, der mehr als $5$ Vorführungen enthält.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Diese Biberaufgabe enthält einen Zeitplan der Vorführungen im Zoo. Solche Zeitpläne herzustellen, ist nicht einfach und wird in der Informatik als \emph{Scheduling-Problem} bezeichnet. Natürlich möchte der Zoo seinen Besuchern ermöglichen, möglichst viele Vorführungen zu sehen, aber es müssen auch andere Bedingungen beachtet werden. Beispielsweise können Vorführungen nur angeboten werden, wenn die Tierpfleger Zeit haben, die verfügbaren Arenas frei sind und die Vorführungen sich mit den Lebensrhythmen der Tiere vereinbaren lassen.
+
+Es gibt viele ähnliche Probleme im Leben, auf die sich dieselben Überlegungen anwenden lassen. Ein Beispiel ist die Erstellung eines Stundenplanes in der Schule, oder die Zuteilung von Kinofilmen zu Kinosälen. Die Erstellung dieser Zeitpläne ist so aufwändig, dass man dies schon für relativ kleine Beispiele (die Stundenpläne deiner Schule) oft nicht mehr von Hand erarbeiten kann. Auch die \emph{Prozessoren} deines Computers müssen viele Aufgaben übernehmen und diese nacheinander abarbeiten. Der Zeitplan, wann welcher Prozessor was tut, wird vom \emph{Betriebssystem} blitzschnell und ohne dass man es merkt erstellt. Scheduling ist eines der grossen Themen der Informatik, mit welchen sich die Forschung auch heute noch beschäftigt.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Sheduling-Problem: \href{https://de.wikipedia.org/wiki/Scheduling}{\BrochureUrlText{https://de.wikipedia.org/wiki/Scheduling}}
+  \item Betriebssystem: \href{https://de.wikipedia.org/wiki/Betriebssystem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Betriebssystem}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorUnkovicS{} % \ifdefined\AuthorUnkovicS \BrochureFlag{at}{} Svetlana Unković\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorAsuncionA{} % \ifdefined\AuthorAsuncionA \BrochureFlag{ph}{} Aldrich Ellis Catapang Asuncion\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

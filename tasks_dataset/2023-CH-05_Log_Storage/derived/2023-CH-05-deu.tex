@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CH-05 Timeas Sägerei}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CH-05 Timeas Sägerei}
+
+
+\subsection*{Body}
+
+Biber Timea schneidet Holzstämme in verschiedenen Längen zu und verkauft sie dann.
+Sobald sie einen Stamm zugeschnitten hat, legt sie ihn auf dem $18$ Meter langen Weg ab.
+Dabei beachtet Timea folgende Regel: Sie legt den Stamm in die erste Lücke von links, in die der Stamm passt.
+
+Sie verkauft einige Stämme. Danach gibt es drei Lücken auf dem Weg:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-body2-compatible.svg}\par}
+
+Nun will Timea vier Stämme zuschneiden, mit Längen von $1$, $2$, $3$ und $4$ Metern.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+In welcher Reihenfolge muss Timea die Stämme zuschneiden, damit sie alle vier in die Lücken legen kann?
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/interactive/2023-CH-05-question-interactive.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The logs are draggables. They can be placed in the $4$ squares in the right order from left to right.
+
+\endgroup
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Schiebe die Baumstämme in eine richtige Reihenfolge. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-solution-compatible.svg}\par}
+
+Schneidet Timea die Stämme in der Reihenfolge (3\thinspace{}m, 4\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m) zu, passen sie alle auf den Weg: Für den 3\thinspace{}m-Stamm ist die 3\thinspace{}m-Lücke ganz links die erste  freie Lücke von links, in die der Stamm passt; dort legt Timea den Stamm ab. Der 4\thinspace{}m-Stamm kommt dann in die 6\thinspace{}m-Lücke links. Dann ist die verbleibende 2\thinspace{}m-Lücke die erste freie Lücke von links; darein passt der nächste Stamm, und den letzten Stamm legt Timea in die 1\thinspace{}m-Lücke ab.
+
+Weitere richtige Reihenfolgen sind (3\thinspace{}m, 2\thinspace{}m, 4\thinspace{}m, 1\thinspace{}m) und (4\thinspace{}m, 3\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m).
+
+Alle anderen Reihenfolgen führen dazu, dass Timea nicht in der Lage ist alle Baumstämme abzulegen: Der 1\thinspace{}m lange Stamm muss immer als letztes an der Reihe sein, weil nur dieser Stamm den letzten freien Platz ausfüllen kann. Der 2\thinspace{}m-Stamm darf nicht vor dem 3\thinspace{}m-Stamm kommen, weil er sonst in die 3\thinspace{}m-Lücke gelegt würde und dadurch eine zweite 1\thinspace{}m-Lücke entsteht. Ausser den drei genannten Reihenfolgen gibt es keine Reihenfolgen, die diese Bedingungen erfüllen.
+
+
+\subsection*{This is Informatics}
+
+Diese Biberaufgabe ist ein Spezialfall des \emph{Behälterproblems} (Englisch auch \emph{bin packing problem}). Beim Behälterproblem müssen Objekte unterschiedlicher Grössen in einer bestimmten Anzahl von Behältern untergebracht werden, die selbst auch wieder unterschiedliche Grössen haben können. Die Objekte sind hier die Baumstämme, die Behälter die Lücken auf dem Weg.
+
+Das Behälterproblem kommt in ganz unterschiedlichen Lebensbereichen vor. Einige Beispiele: (a) In einem Möbellager müssen kleine und grosse Möbel platzsparend untergebracht werden. (b) Eine Spedition kann Geld sparen, wenn sie zum Transport von Gütern durch geschicktes Packen weniger Lastwagen braucht. (c) Das Betriebssystem eines Computers muss Dateien unterschiedlicher Grösse auf der Festplatte speichern. Wenn Dateien gelöscht werden, entstehen Lücken auf der Festplatte. Diese Lücken müssen gefüllt werden, damit kein Speicherplatz verschwendet wird, ganz ähnlich wie auf der Strasse bei dieser Biberaufgabe.
+
+In der Informatik gilt das Behälterproblem als eines der schwersten Probleme; garantiert optimale Lösungen können auch von Computerprogrammen nur für kleine Fälle mit wenigen Objekten und wenigen Behältern gelöst werden. Es gibt aber verschiedene Verfahren und Strategien, mit denen gute Lösungen des Behälterproblems bestimmt werden können. In dieser Biberaufgabe ist die Strategie durch Timeas Regel vorgegeben. Sie legt jeden Baumstamm immer in die erste Lücke von links, in die er passt. Diese Strategie nennt man \emph{First Fit}. Man sieht am Beispiel dieser Aufgabe, dass diese Strategie zu schlechten Ergebnissen führen kann: Nur wenn die Stämme in einer bestimmten Reihenfolge abgelegt werden, können alle Lücken gefüllt werden.
+
+
+\subsection*{This is Computational Thinking}
+
+Um die Aufgabe zu lösen, muss man die verschiedenen vorgeschlagenen Strategien gemäss der beschriebenen Regeln bewerten und herausfinden, welche zu einer möglichen Lösung führen und welche nicht. Dabei kann man Faustregeln ableiten, die helfen können, Kriterien dafür zu formulieren, ob eine bestimmte Reihenfolge (oder der Anfang einer Reihenfolge) eher erfolgversprechend ist oder wahrscheinlich zu einer schwierigen Situation führen wird (z. B. durch die Schaffung mehrerer kleiner Speicherfragmente, die später wahrscheinlich nicht verwendet werden können).
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Behälterproblem: \href{https://de.wikipedia.org/wiki/Beh\%C3\%A4lterproblem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Behälterproblem}}, \href{https://lamarr-institute.org/de/blog/bin-packing/}{\BrochureUrlText{https://lamarr-institute.org/de/blog/bin-packing/}}
+  \item Speicherverwaltung: \href{https://de.wikipedia.org/wiki/Speicherverwaltung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Speicherverwaltung}}
+  \item Fragmentierung: \href{https://de.wikipedia.org/wiki/Fragmentierung_(Dateisystem)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Fragmentierung\_(Dateisystem)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

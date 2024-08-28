@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Riccas}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Evelyn hat fünf Bilder von Riccas. Sie beschreibt in Sätzen, wie Riccas aussehen.
+
+\raisebox{-0.5ex}{\includesvg[width=68.5px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca1.svg}}
+\raisebox{-0.5ex}{\includesvg[width=119.1px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca2.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca4.svg}}
+\raisebox{-0.5ex}{\includesvg[width=97.4px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca5.svg}}
+
+Ihre Freundin Lydia zeigt ihr ein sechstes Bild von einem Ricca:
+
+{\centering%
+\includesvg[width=79.4px]{\taskGraphicsFolder/graphics/2023-CA-02-riccaException.svg}\par}
+
+Nun stellt Evelyn fest: Einer ihrer Sätze über Riccas ist sicher falsch.
+
+
+
+% question (as \emph{})
+{\em
+Welcher dieser Sätze über Riccas ist nun sicher falsch?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) Alle Riccas haben Zähne.
+
+B) Einige Riccas haben Flügel.
+
+C) Riccas haben entweder Hörner oder drei Augen, aber nie Hörner \emph{und} drei Augen.
+
+D) Wenn Riccas genau zwei Arme haben, dann haben sie auch genau zwei Beine.
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Antwort D) ist richtig: \emph{Wenn Riccas genau zwei Arme haben, dann haben sie auch genau zwei Beine.}
+
+Antwort A) enthält eine Aussage, die für alle Riccas gelten muss. Wenn auch nur ein Ricca keine Zähne hätte, wäre sie falsch. Jedoch haben alle sechs Riccas, die Evelyn nun kennt, Zähne. Also kann Evelyns Satz nicht sicher falsch sein.
+
+Antwort B) enthält eine Aussage, die nur für einige Riccas gelten soll.  Da eines der sechs Riccas, die Evelyn nun kennt, Flügel hat, ist dieser Satz für die sechs Riccas richtig.  Aber selbst wenn keines der sechs Riccas Flügel hätte, könnten andere, weitere Riccas Flügel haben, und der Satz könnte noch richtig sein.  Dieser Satz kann nur dann sicher falsch sein, wenn Evelyn alle Riccas kennen würde und keines Flügel hätte.
+
+Antwort C) verknüpft zwei Aussagen mit \enquote{entweder}-\enquote{oder}. Diese verknüpfte Aussage ist genau dann wahr, wenn genau eine der beiden Aussagen wahr ist. Das ist für alle sechs Bilder der Fall: vier Riccas haben Hörner, aber keine drei Augen, die übrigen beiden Riccas haben keine Hörner, aber dafür drei Augen. Damit der Satz falsch wäre, müsste es mindestens ein Ricca mit drei Augen und Hörnern oder ein Ricca ohne Hörner und mit einer anderen Zahl als drei Augen geben.  Unter den sechs Riccas, die Evelyn nun kennt, ist kein solches Ricca. Also ist der Satz für die sechs Riccas richtig, und nicht sicher falsch.
+
+Bleibt der Satz von Antwort D). Er ist in Form einer \enquote{Wenn}-\enquote{Dann}-Aussage formuliert. Nur wenn die Wenn-Bedingung stimmt, muss auch die Dann-Aussage wahr sein. Die Bedingung ist wahr für alle sechs Riccas, die Evelyn nun kennt: sie alle haben genau zwei Arme. Alle Riccas auf Evelyns ersten fünf Bildern haben ebenfalls genau zwei Beine; für sie ist Evelyns Satz also richtig. Jedoch hat das Ricca auf Lydias Bild mehr als zwei Beine, nämlich fünf. Deshalb ist dieser Satz nun sicher falsch.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Die Anzahl der Arme, Beine und Augen, und ob Riccas Zähne, Hörner oder Flügel haben, sind \emph{Eigenschaften} von Riccas. Wenn man Riccas beschreibt, formuliert man \emph{Aussagen} über diese Eigenschaften. Das führt zu einem \emph{Modell} davon, was Riccas sind.
+
+Computer haben ebenfalls viele Modelle. Einige sind explizit formuliert wie beispielsweise ein Modell von Schülerinnen und Schülern, das aus Name, Geburtsdatum und Wohnadresse in einer Datenbank besteht. Andere Modelle bilden Computer aus Daten, wenn man ihnen beispielsweise Bilder zum Vergleich beim Training eines neuronalen Netzes gibt.
+
+Evelyns Sätze –~also ihr Modell der Riccas in dieser Biberaufgabe – sind als \emph{logische Ausdrücke} formuliert. Einige haben \emph{Quantoren} (\enquote{(für) alle} oder \enquote{es gibt}/\enquote{einige}), andere nutzen \emph{logische Operatoren} (\enquote{entweder}-\enquote{oder} bzw. \enquote{wenn}-\enquote{dann}). Diese logischen Ausdrücke sind \emph{formalisiert}: Das heisst, dass es eine Festlegung gibt, wie man sie verwendet und was sie bedeuten.
+
+\begin{samepage}
+Anhand dieser Festlegungen
+
+\nopagebreak
+
+\begin{itemize}
+  \item können (einfache) Ausdrücke mit Hilfe von Quantoren und Operatoren zu komplexeren Ausdrücken verknüpft werden.
+  \item kann die Bedeutung der komplexeren Ausdrücke aus den einfacheren Ausdrücken berechnet werden.
+\end{itemize}
+
+
+\end{samepage}
+
+Logische Ausdrücke sind eine in der Informatik verbreitete Methode, Modelle zu beschreiben.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+Modellbildung: \href{https://de.wikipedia.org/wiki/Modell\#Modellbildung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Modell\#Modellbildung}}, \href{https://de.wikipedia.org/wiki/Objektorientierte_Analyse_und_Design}{\BrochureUrlText{https://de.wikipedia.org/wiki/Objektorientierte\_Analyse\_und\_Design}}
+Maschinelles Lernen: \href{https://de.wikipedia.org/wiki/Maschinelles_Lernen}{\BrochureUrlText{https://de.wikipedia.org/wiki/Maschinelles\_Lernen}}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorKhachatryanD{} % \ifdefined\AuthorKhachatryanD \BrochureFlag{am}{} David Khachatryan\fi
+\def\AuthorBilbaoJ{} % \ifdefined\AuthorBilbaoJ \BrochureFlag{es}{} Javier Bilbao\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-06 Acqua -- Terra}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-06 Acqua – Terra}
+
+
+\subsection*{Body}
+
+Edu ha un nuovo gioco. È composto da carte con aree d’acqua e di terra.
+Edu può usare le carte per disporre i paesaggi. Le carte devono combaciare: terra con terra; acqua con acqua.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu piazza due carte e lascia due spazi vuoti.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quali carte si inseriscono negli spazi vuoti?
+Non puoi girare le carte.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Trascina le carte corrispondenti negli spazi vuoti. Fa clic su una carta per rimetterla a posto. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The tiles are all draggables (not the already placed), the gray spaces are containers. You can drag the tiles into the gray spaces. When clicking the tiles spring back to the first postion.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Questa è la risposta giusta:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Le due carte si inseriscono negli spazi vuoti: ovunque c’è acqua su acqua e terra su terra. Delle sei carte possibili, solo queste due si inseriscono negli spazi vuoti.
+
+Solo se si potesse girare le carte sarebbe possibile inserire altre combinazioni negli spazi vuoti.
+
+
+\subsection*{This is Informatics}
+
+Diamo un’occhiata più da vicino alle carte di Edu. Tutte le carte possono essere divise in quattro aree. I bordi esterni di queste aree mostrano terra o acqua.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Esistono quindi solo due tipi di aree diverse, perché i bordi esterni mostrano l’acqua (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) o la terra (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Due tessere si incastrano tra loro solo se i tipi di area vicini sono uguali. Pertanto, possiamo inserire il tipo richiesto per tre aree degli spazi vuoti. La quarta area può essere acqua o terra, quindi inseriamo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}.
+
+In questo modo si crea un modello per ogni spazio vuoto. Le tessere che devono riempire gli spazi vuoti devono rientrare in questi schemi: per \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, l’area della tessera deve avere rispettivamente \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Con \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}, l’area può avere \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} o \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}.
+
+Abbiamo scoperto una proprietà dei cartoncini. Abbiamo utilizzato questa scoperta per sostituirli con una disposizione dei caratteri \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Con questo passo, abbiamo ridotto in modo significativo le informazioni contenute nelle immagini. Ci concentriamo sulle informazioni necessarie per risolvere il compito. Gli informatici, in questo caso, fanno capo alla disposizione dei caratteri nelle immagini. Riducendo le immagini ai tipi di area \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, si crea un modello per le carte mancanti. Modellare significa astrarre (o semplificare) e l’astrazione riduce l’informazione. I computer devono lavorare con modelli della realtà. Quando si creano tali modelli, bisogna fare attenzione a non perdere importanti proprietà della realtà.
+
+
+\subsection*{This is Computational Thinking}
+
+Natürlich, man kann hier ausdrücklich \enquote{Abstraktion} erwähnen.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Modellizzazione: \href{https://it.wikipedia.org/wiki/Modellizzazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Modellizzazione}}
+  \item Codice: \href{https://it.wikipedia.org/wiki/Codice_(teoria_dell\%27informazione)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Codice\_(teoria\_dell'informazione)}}
+  \item Astrazione: \href{https://it.wikipedia.org/wiki/Astrazione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Astrazione\_(informatica)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Abstraktion
+
+
+\end{document}

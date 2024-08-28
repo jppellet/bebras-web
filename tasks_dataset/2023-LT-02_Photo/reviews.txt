@@ -1,0 +1,37 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Lidia Feklistova (svn: feklistova)
+on 2023-04-07
+Assigned review
+[AGE] In my opinion this task can be too hard for 6-8 yo, they may not have enough experience with spatial thinking. But for 8-10yo this task might be appropriate. I suggest hard level for 6-8 yo and medium for 8-10 yo.
+[IDEA] The idea is good. 
+[TEXT] Short and clear. 
+[EXPL] Some examples-explanations why other figures are incorrect could be helpful.
+[TiI] This part is missing.
+[TiCT] OK
+[GRAPH] Figures are clear and appealing, in SVG format. Unfortunately, there is no information about CC-license.
+[AUTH] OK
+[NAME] OK
+[OTHER] Why the order of multiple-choice/-select should be kept? Informatics Keywords and Websites are missing.
+========================================
+By: Heikki Hyyrö (svn: hyrroe)
+on 2023-04-11
+Assigned review
+[AGE] The task could be categorized as an easy one for also little bit older age groups?
+[IDEA] The idea is good and seems original. Brings a new twist to the often appearing object ordering perception tasks.
+[TEXT] The task text is very concise (only one sentence, and it already poses the question itself) while also being sufficient. No much room for improvement here!
+[EXPL] The provided answer explanation seems like a quickly drafted sketch. It should be expanded into a more elaborate description (especially given that the task is directed towards the youngest students).
+[TiI] The “It’s informatics” section is empty.
+[TiCT] The “This is Computational Thinking” section exists and gives a short but reasonable description about how the task relates to computational thinking.
+[GRAPH] The figures are cute cartoonish descriptions of a beaver and logs in svg format. No much room for improvement here, either.
+[AUTH] Authors' names and emails are given.
+[NAME] Seems ok.
+[OTHER] -
+========================================
+By: Judith Lin (svn: lin)
+on 2023-04-19
+Assigned review
+The idea of the task is good-- having the students to observe and find out the "ordering" of the logs. However, it is unclear to me why the answer is D. Maybe a more elaborate answer explanation would help. Also, the It's informatics section is missing.
+Since two logs can be propped against each other to form an arch like the shape of "ʌ" (which means both logs are the same order), it might be a bit hard for the students to determine the order of the logs. This issue can be easily fixed by re-drawing the image.
+Over all, it's an interesting and fun easy task.
+========================================

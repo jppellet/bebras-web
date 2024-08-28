@@ -1,0 +1,107 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Chasse à l’ours}
+\renewcommand{\taskCountry}{IS}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Dans le quartier de Susanne, on peut voir les nounours suivants devant les maisons:
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody1-compatible.svg}\par}
+
+Susanne a fait un tour depuis chez elle en passant devant exactement quatre maisons. Elle n’a pas passé deux fois devant la même maison. Elle n’a pas vu le nounours devant l’une des maisons. Les trois autres nounours étaient:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody2.svg}}
+\raisebox{-0.5ex}{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody4.svg}}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quel est le nounours que Susanne n’a pas vu?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-answerA.svg}} & B) & \makecell[l]{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-answerB.svg}} & C) & \makecell[l]{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-answerC.svg}} & D) & \makecell[l]{\includesvg[width=39.7px]{\taskGraphicsFolder/graphics/2020-IS-02-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy6-inline.svg}}.
+
+Susanne doit être passée devant les maisons avec les trois nounours \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy1-inline.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy2-inline.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy3-inline.svg}} en faisant son tour. Ces trois nounours sont directement reliés par un chemin. Le premier nounours \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy1-inline.svg}} est directement après sa maison. À la fin de ce chemin, elle se trouve près du troisième nounours \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy3-inline.svg}}. Depuis là, il n’y a qu’un chemin qui va chez elle en ne passant devant qu’une seule quatrième maison, et c’est le chemin qui passe devant le nounours \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-IS-02-taskbody_teddy6-inline.svg}}. D’autres chemins possibles passent devant au moins deux autres nounours, et elle n’a passé que devant quatre maisons. La carte suivante montre le chemin:
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-IS-02-explanation.svg}\par}
+
+Susanne peut faire son tour dans les deux directions, cela ne change rien.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Des textes à trous en cours de français, des exercices de mathématiques avec des champs vides ou une chasse à l’ours à laquelle il manque une image: ce sont tous des exercices dans lesquels on recherche une information manquante. Les exercices sont construits (ou \emph{structurés}) de façon à ce que l’information manquante puisse être trouvée par \emph{raisonnement logique} ou \emph{déduction}.
+
+Ce genre de choses arrivent fréquemment en informatique. Il peut y avoir des erreurs lors de la transmission ou de la sauvegarde de données. C’est pour cela que l’on travaille avec des méthodes qui \emph{détectent} ou même \emph{corrigent les erreurs}. Si l’erreur n’est pas trop importante, on peut le faire en enregistrant volontairement plus d’informations que nécessaire. Dans cet exercice, il s’agit de la carte et du fait que Susanne passe devant exactement quatre nounours. Ainsi, elle peut trouver l’information manquante, c’est-à-dire quel nounours elle n’a pas vu.
+
+En $2020$, de telles chasses aux ours lors desquelles des peluches étaient cachées aux fenêtres de différentes maisons ont été organisées dans plusieurs pays du monde. Cela permettait aux enfants de jouer ensemble à cacher et découvrir malgré les règles de distanciation durant la pandémie de coronavirus. L’idée de jouer à faire une chasse à l’ours vient à l’origine du livre d’image “\emph{We’re Going on a Bear Hunt}” de Michael Rosen ($1989$). En français, on connaît le livre et le jeu correspondant sous le nom de “La chasse à l’ours”.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Détection et correction d’erreurs: \href{https://fr.wikipedia.org/wiki/Code_correcteur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_correcteur}}
+  \item Déduction logique: \href{https://fr.wikipedia.org/wiki/D\%C3\%A9duction_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Déduction\_logique}}
+  \item Chasse à l’ours: \href{https://www.insider.com/coronavirus-pandemic-sparked-worldwide-bear-hunt-to-entertain-kids-2020-4}{\BrochureUrlText{https://www.insider.com/coronavirus-pandemic-sparked-worldwide-bear-hunt-to-entertain-kids-2020-4}}, \href{https://www.actualitte.com/article/zone-51/pendant-toute-la-duree-du-confinement-la-chasse-a-l-ours-est-ouverte/100109}{\BrochureUrlText{https://www.actualitte.com/article/zone-51/pendant-toute-la-duree-du-confinement-la-chasse-a-l-ours-est-ouverte/100109}}, \href{https://www.youtube.com/watch?v=0gyI6ykDwds}{\BrochureUrlText{https://www.youtube.com/watch?v=0gyI6ykDwds}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBergsveinsdottirL{} % \ifdefined\AuthorBergsveinsdottirL \BrochureFlag{is}{} Linda Björk Bergsveinsdóttir\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorJungU{} % \ifdefined\AuthorJungU \BrochureFlag{kr}{} Ungyeol Jung\fi
+\def\AuthorMoonK{} % \ifdefined\AuthorMoonK \BrochureFlag{kr}{} Kwangsik Moon\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

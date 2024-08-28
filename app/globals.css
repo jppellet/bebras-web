@@ -7,3 +7,9 @@ body,
 :root {
   height: 100%
 }
+
+.task-summary {
+  /* font-style: italic; */
+  margin-top: 1ex;
+  font-size: 80%;
+}

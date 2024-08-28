@@ -1,0 +1,128 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Tri par chapeau}
+\renewcommand{\taskCountry}{LT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors ont de nouveaux chapeaux.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-LT-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Trie les chapeaux selon leur taille.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici les deux manières de trier les chapeaux:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer01.svg}}   \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer02.svg}}\par}
+
+Il y a deux bonnes réponses, les chapeaux peuvent devenir
+
+\begin{itemize}
+  \item de plus en plus grands, ou
+  \item de plus en plus petits
+en allant de gauche à droite.
+\end{itemize}
+
+En triant les castors, on ne fait attention qu’aux chapeaux. C’est alors beaucoup plus facile de les trier par taille.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation.svg}}    \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation_alt.svg}}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Beaucoup d’objets autour de nous sont triés pour mieux pouvoir choisir parmi eux: si les outils sont triés par taille, c’est plus facile de trouver un outil précis. On peut trouver un mot facilement dans un dictionnaire parce que les mots y sont triés par ordre alphabétique.
+
+Dans cet exercice, tu devais trier les castors d’après la taille de leur chapeau. La difficulté est que la \emph{propriété} “taille du chapeau” n’est pas facile à reconnaître. Nous pouvons trier les castors d’après au moins trois tailles:
+
+\begin{itemize}
+  \item Taille des castors (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+  \item Taille des chapeaux (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}})
+  \item Taille totale (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+\end{itemize}
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics01-compatible.svg}\par}
+
+Le tri des castors est différent pour chacune de trois propriétés de taille.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Castor}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}}}} \\ 
+\midrule
+  A & 3 & 9 & 12 \\ 
+  B & 6 & 3 & 9 \\ 
+  C & 2 & 4 & 6 \\ 
+  D & 4 & 5 & 9 \\ 
+  E & 5 & 7 & 12
+\end{tabular}
+
+\par}
+
+Pour trier, il est donc important de commencer par bien définir la propriété d’après laquelle il faudra trier. Ensuite, les valeurs de cette propriété doivent être triables: on peut trier d’après des propriétés qui sont exprimées en nombre (comme la taille, la longueur, le poids…): on peut dire quel nombre est le plus petit entre deux nombres. On peut trier des mots car l’ordre des lettres dans l’alphabet est défini et que c’est donc clair lequel de deux mots vient avant dans le dictionnaire. De manière générale, on peut dire que l’on peut trier d’après une propriété s’il existe une relation “plus petit que” (une \emph{relation d’ordre}) entre ses valeurs individuelles.
+
+Les ordinateurs gèrent de grands volumes de données. Pour pouvoir y trouver des données précises, les données doivent être triées. Il existe beaucoup de méthodes rapides de tri en informatique, et quelle méthode doit être utilisée dans quel cas est un sujet bien étudié.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme de tri: \href{https://fr.wikipedia.org/wiki/Algorithme_de_tri}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_tri}}
+  \item Relation d’ordre: \href{https://fr.wikipedia.org/wiki/Relation_d\%27ordre}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Relation\_d’ordre}}
+  \item Algorithme de recherche: \href{https://fr.wikipedia.org/wiki/Algorithme_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_recherche}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

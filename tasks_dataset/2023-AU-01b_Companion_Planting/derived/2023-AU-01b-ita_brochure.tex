@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Orto di Lisa}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lisa crea un orto. Vuole piantare cinque ortaggi diversi. Alcuni ortaggi vanno d’accordo tra loro \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-AU-01-good.svg}}, altri no \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2023-AU-01-bad.svg}}:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-taskbody.svg}\par}
+
+Lisa ha diviso l’orto in aree esagonali. Vuole piantare esattamente un ortaggio in ogni area.
+
+Lisa ha già piantato porri \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-leek.svg}} in tre aree.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-question.svg}\par}
+
+Quando si pianta, Lisa osserva la seguente regola: gli ortaggi che non vanno d’accordo non devono essere piantati in zone che si toccano.
+
+
+
+% question (as \emph{})
+{\em
+Pianta tutte le aree ancora libere seguendo la regola di Lisa!
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta gista:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Poiché i piselli non vanno d’accordo con i porri, Lisa non pianta i piselli nelle aree chiare. Solo le aree rimanenti rimangono per i piselli. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation01.svg}} \\ 
+  Poiché i pomodori non vanno d’accordo con i piselli, Lisa non pianta i pomodori nelle aree chiare. Può piantare i pomodori nelle altre zone; i pomodori vanno d’accordo con i porri. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation02.svg}} \\ 
+  Poiché i pomodori non vanno d’accordo con i finocchi, Lisa non li pianta nelle aree chiare. Può piantare il finocchio nelle due aree tra i porri e i piselli.  Può piantare la lattuga nelle aree chiare: Lisa non è a conoscenza di alcuna discordanza tra gli ortaggi vicini e la lattuga. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation03.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Se si vuole piantare ortaggi in modo che il raccolto sia il più abbondante possibile, si deve osservare molte \emph{condizioni}: Ad esempio, le singole varietà hanno esigenze diverse in termini di spazio, nutrienti e luce. In questo compito consideriamo solo un tipo di condizione: la compatibilità tra le varietà di ortaggi.
+
+Per trovare un piano per l’orto di Lisa che rispetti tutte le condizioni di compatibilità, si potrebbe procedere in questo modo: si provano sistematicamente tutte le combinazioni per disporre gli ortaggi sull’orto. Solo quando l’orto è pieno, si verifica se questa combinazione soddisfa tutte le condizioni ed è una soluzione al problema di Lisa. In informatica, tale prova di tutte le combinazioni è nota come metodo \emph{forza bruta}. Per problemi con molte combinazioni e poche soluzioni, procedere secondo questo metodo può richiedere molto tempo.
+
+Pertanto, di solito è meglio procedere per gradi e considerare tutte le condizioni a ogni passo. In questo modo possiamo trovare la soluzione al problema di Lisa, una combinazione o una piantumazione \enquote{sbagliata} dell’orto infatti non può verificarsi.
+
+Fortunatamente, la soluzione si può trovare in modo diretto: ci sono sempre aree in cui possiamo piantare alcuni degli ortaggi rimasti. Questo di solito non funziona sempre.
+
+Se si cerca di assemblare la soluzione passo dopo passo, ci possono essere diverse possibilità di soddisfare tutte le condizioni in un unico passo A.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01b-itsinformatics-compatible.svg}\par}
+
+A seconda della scelta, in una fase successiva B potrebbero non esserci più opzioni. Quindi si fanno gli ultimi passi indietro fino ad arrivare al passo A con diverse possibilità. A questo punto si sceglie un’altra possibilità e si cerca di trovare una soluzione.
+
+In informatica, questo ritorno sui propri passi è noto come \emph{backtracking}.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Metodo forza bruta: \href{https://it.wikipedia.org/wiki/Metodo_forza_bruta}{\BrochureUrlText{https://it.wikipedia.org/wiki/Metodo\_forza\_bruta}}
+  \item Backtracking: \href{https://it.wikipedia.org/wiki/Backtracking}{\BrochureUrlText{https://it.wikipedia.org/wiki/Backtracking}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGatesE{} % \ifdefined\AuthorGatesE \BrochureFlag{au}{} Emily Gates\fi
+\def\AuthorKingM{} % \ifdefined\AuthorKingM \BrochureFlag{au}{} Mhairi King\fi
+\def\AuthorRamicE{} % \ifdefined\AuthorRamicE \BrochureFlag{ba}{} Estela Ramić\fi
+\def\AuthorHironM{} % \ifdefined\AuthorHironM \BrochureFlag{fr}{} Mathias Hiron\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorThutM{} % \ifdefined\AuthorThutM \BrochureFlag{ch}{} Marianne Thut\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

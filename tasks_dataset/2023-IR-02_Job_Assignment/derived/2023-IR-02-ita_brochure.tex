@@ -1,0 +1,119 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Assegnazione di lavoro}
+\renewcommand{\taskCountry}{IR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Una scuola di lingue ha in programma quattro corsi estivi.
+Le linee nell’immagine mostrano quale insegnante della scuola è adatto a quale corso.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2023-IR-02-taskbody.svg}\par}
+
+Un insegnante può insegnare solo un corso.
+Tuttavia, ci sono diversi modi per assegnare un insegnante adatto a ciascun corso.
+
+
+
+% question (as \emph{})
+{\em
+Assegna un insegnante appropriato a ciascun corso.
+A tal fine, segna la linea tra la persona e il corso.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  D è l’unico insegnante che può insegnare il corso di ungherese. Deve essere assegnato a questo corso e non può insegnare altri corsi. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation01-compatible-ita.svg}} \\ 
+  L’insegnante E è ora l’unico adatto per il corso di spagnolo. Deve essere assegnato a questo corso e non può insegnare altri corsi. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation02-compatible-ita.svg}} \\ 
+  Per i due corsi rimanenti (inglese e italiano), si può scegliere liberamente. Tuttavia, B e F possono essere assegnati a un solo corso, anche se sono adatti a entrambi & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation03-compatible-ita.svg}}
+\end{tabularx}
+
+Questo dà un totale di $10$ possibilità di assegnare un insegnante adatto a ciascun corso:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Inglese}} & {\setstretch{1.0}\thead[cb]{Italiano}} & {\setstretch{1.0}\thead[cb]{Ungherese}} & {\setstretch{1.0}\thead[cb]{Spagnolo}} \\ 
+\midrule
+  A & B & D & E \\ 
+  A & F & D & E \\ 
+  A & G & D & E \\ 
+  B & F & D & E \\ 
+  B & G & D & E \\ 
+  C & B & D & E \\ 
+  C & F & D & E \\ 
+  C & G & D & E \\ 
+  F & B & D & E \\ 
+  F & G & D & E
+\end{tabular}
+
+
+\end{adjustwidth}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Un \emph{grafo} è costituito da \emph{nodi} (punti) collegati da \emph{bordi} (linee). Una classe speciale di grafi è costituita dai \emph{grafi bipartiti}: i nodi possono essere suddivisi in due sottoinsiemi separati, in modo che esistano solo bordi tra nodi di sottoinsiemi diversi.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-IR-02-itsinformatics.svg}\par}
+
+La situazione in questo compito può essere rappresentata da un grafo bipartito: Un sottoinsieme è costituito dai corsi e l’altro dai docenti. I grafi bipartiti sono ottimi per modellare e risolvere i problemi di assegnazione. Nella vita di tutti i giorni incontriamo spesso problemi di assegnazione, ad esempio negli orari o nella distribuzione del lavoro ai dipendenti o alle macchine. Per i problemi più piccoli è facile trovare un’assegnazione ottimale; per quelli più grandi, invece, diventa molto complesso in tempi relativamente brevi. Per questo motivo, in informatica sono stati sviluppati diversi algoritmi per trovare il maggior numero possibile di coppie corrispondenti nel minor tempo possibile.
+
+Ad esempio, il cosiddetto problema del matrimonio viene rappresentato anche con l’aiuto di un grafo bipartito. In questo caso, un insieme di uomini che vogliono sposarsi viene confrontato con un insieme di donne che vogliono sposarsi. Lo scopo della procedura è quello di far sposare tutti gli uomini o tutte le donne, tenendo conto dei rispettivi desideri. Il matematico inglese Philip Hall ha formulato le condizioni per cui tale allocazione è possibile nel teorema del matrimonio nel $1935$.
+
+Nella nostra variante, non si tratta di un’assegnazione completa, ma piuttosto di assegnare il maggior numero possibile di nodi di un sottoinsieme (i corsi) a un nodo dell’altro sottoinsieme.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grafo bipartito: \href{https://it.wikipedia.org/wiki/Grafo_bipartito}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo\_bipartito}}
+  \item Problema di assegnazione: \href{https://it.wikipedia.org/wiki/Problema_di_assegnazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Problema\_di\_assegnazione}}
+  \item Programma per la risoluzione del compito: \href{https://www.coding4you.at/dachu_2023/ir02/index.html}{\BrochureUrlText{https://www.coding4you.at/dachu\_2023/ir02/index.html}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNedaeepourJ{} % \ifdefined\AuthorNedaeepourJ \BrochureFlag{ir}{} Jalil Nedaeepour\fi
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorOzdemirO{} % \ifdefined\AuthorOzdemirO \BrochureFlag{tr}{} Özgür Özdemir\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

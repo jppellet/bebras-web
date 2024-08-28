@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Brücken bauen!}
+\renewcommand{\taskCountry}{NZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Auf der Insel ganz links sind Kinder eingezogen.
+Bianca soll Brücken bauen, über die die Kinder zur Schule auf der Insel ganz rechts gehen können.
+
+Die Insel-Karte zeigt, wie viele Baumstämme es auf jeder Insel gibt.
+Diese Baumstämme kann Bianca nehmen, um an den Linien Brücken zu bauen.
+Die Zahl an einer Linie sagt, wie viele Baumstämme dort für eine Brücke benutzt werden.
+Sobald es zwischen zwei Inseln eine Brücke gibt, kann Bianca darüber gehen
+und Stämme, die sie noch hat, mitnehmen.
+Natürlich kann sie jeden Baumstamm nur für eine Brücke benutzen.
+
+Bianca fängt auf er Insel links an.  Ihr Ziel ist, möglichst wenige Baumstämme zu benutzen.
+
+
+
+% question (as \emph{})
+{\em
+An welchen Linien soll Bianca Brücken bauen, damit sie ihr Ziel erreicht?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-solution_compatible.svg}\par}
+
+Die grünen Linien zeigen, wo Bianca Brücken gebaut hat.  Die roten Pfeile zeigen, wie Bianca über die Brücken gegangen ist:
+
+\begin{itemize}
+  \item Auf der Insel A nimmt sie die drei Baumstämme und benutzt zwei davon für die erste Brücke. Mit dem verbleibenden Baumstamm geht sie über die Brücke und hat auf der Insel B ${3 - 2 + 2 = 3}$ Baumstämme.  Das sind nicht genug, um eine Brücke zur Insel D zu bauen.
+  \item Deshalb baut sie mit $2$ Stämmen eine Brücke zur Insel C.  Sie geht über die Brücke, nimmt die $3$ Stämme von der Insel C und geht zurück.  Nun hat sie ${3 - 2 + 3 = 4}$ Stämme.
+  \item Damit baut sie eine Brücke zur Insel D, geht über die Brücke und hat dann die $2$ Stämme von Insel D.
+  \item Damit baut sie eine Brücke zur Insel E und kann dort $3$ Stämme nehmen.  Sie baut weitere Brücken zu den Inseln F und G.  Auf der Insel E hat sie also $3$ Stämme, auf der Insel F ${3 - 1 + 1 = 3}$ Stämme und auf der Insel G noch $2$ Stämme.
+  \item Die reichen genau, um eine Brücke zur Insel H mit der Schule zu bauen.
+\end{itemize}
+
+Insgesamt konnte Bianca also Brücken für einen Weg von Insel A zu Insel H bauen und hat dafür $14$ Baumstämme benutzt.  Aber geht es auch mit weniger Stämmen?  Dazu müssen alle möglichen Wege untersucht werden.  Weil die alle über die lange Insel D führen, lässt sich das Problem in zwei Teile zerlegen: Von Insel A zu Insel D, und von Insel D zu Insel H:
+
+\begin{itemize}
+  \item Für die Brücken von Insel A bis Insel D hat Bianca $8$ Stämme benutzt und kam ohne Stamm auf Insel D an.  Wir notieren ihren Weg so: ${2-[2,2]-4}$ (von der Insel A über die Linie mit der $2$ zur Insel B, dann zwischen B und C hin und zurück über die $2$, dann über die $4$ zu Insel D).  Ein Weg mit weniger Stämmen wäre ${3-4}$, kann aber nur mit Umweg gebaut werden (${3-[2,2]-4}$), verbraucht also $9$ Stämme, wobei Bianca auf Insel D mit einem Stamm im Vorrat ankommt.  Alle anderen Wege von Insel A bis D verbrauchen $9$ Stämme oder mehr.
+  \item Für die Brücken von Insel D bis H hat Bianca $6$ Stämme benutzt. Den direkten Weg ${3-2}$ kann sie nicht bauen, auch nicht mit einem Stamm im Vorrat. Alle anderen Wege von Insel D zu Insel H verbrauchen $6$ Stämme oder mehr.
+\end{itemize}
+
+Es ist also nicht möglich, mit weniger als $14$ Stämmen Brücken zu bauen, über die die Kinder von der Dorf-Insel A zur Schul-Insel H gehen können.  Mit den von ihr gebauten Brücken hat Bianca also ihr Ziel erreicht.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Die Insel-Karte mit den durch Linien angezeigten \enquote{Brücken-Bauplätzen} kann als \emph{Graph} modelliert werden:  Das ist eine mathematische Struktur, die Objekte (auch Knoten genannt) paarweise miteinander in Relation setzt (die Paare nennt man auch Kanten).  In einem Graphen man die Inseln als Knoten und die Linien als Kanten modellieren.  Dabei haben die Kanten \emph{Gewichte}, nämlich die Anzahl der für den Brückenbau entlang einer Linie benutzten Baumstämme, aber auch die Knoten (die Anzahl der Stämme auf einer Insel) – das ist eher ungewöhnlich.  Für Graphen, bei denen nur die Kanten gewichtet sind, kennt die Informatik mehrere effiziente Algorithmen, die einen kürzesten Weg (über Kanten mit minimaler Summe der Gewichte) zwischen zwei Knoten berechnen können.
+
+Das Problem, das Bianca in dieser Biberaufgabe optimal lösen möchte, ist komplizierter:  Sie möchte zwar auch einen kürzesten Weg gehen, hat aber eine Randbedingung:  Die Summe der Knotengewichte auf ihrem bisherigen Weg (die Stämme, die sie nehmen konnte) abzüglich der Summe der Kantengewichte auf ihrem Weg (die Stämme, die sie für den Brückenbau benutzt hat) muss grösser sein als das Gewicht der Kante, die sie als nächste gehen bzw. wo sie eine Brücke bauen möchte.  Um den optimalen Weg zu finden, müssen hier eventuell alle Möglichkeiten ausprobiert werden.  Die Zerlegung des Problems in zwei Teile hilft, die Anzahl der Möglichkeiten zu reduzieren.  Und wegen der Randbedingung kann man viele Möglichkeiten ausschliessen, bevor man sie komplett probiert hat.  In der Informatik ist ein~solches Vorgehen (Probieren und Ausschliessen) als \emph{Backtracking} bekannt (siehe auch die Biberaufgabe \enquote{Gemüsebeet}).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graph: \href{https://de.wikipedia.org/wiki/Graph_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Graph\_(Graphentheorie)}}
+  \item gewichteter Graph: \href{https://de.wikipedia.org/wiki/Kantengewichteter_Graph}{\BrochureUrlText{https://de.wikipedia.org/wiki/Kantengewichteter\_Graph}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorHendersonT{} % \ifdefined\AuthorHendersonT \BrochureFlag{nz}{} Tracy Henderson\fi
+\def\AuthorBellT{} % \ifdefined\AuthorBellT \BrochureFlag{nz}{} Tim Bell\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorTruuA{} % \ifdefined\AuthorTruuA \BrochureFlag{ee}{} Ahto Truu\fi
+\def\AuthorSayehK{} % \ifdefined\AuthorSayehK \BrochureFlag{dz}{} Karima Sayeh\fi
+\def\AuthorKaleliogluF{} % \ifdefined\AuthorKaleliogluF \BrochureFlag{tr}{} Filiz Kalelioğlu\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+
+\newpage}{}

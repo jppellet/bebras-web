@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-SK-02 Graines de carottes}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-SK-02 Graines de carottes}
+
+
+\subsection*{Body}
+
+Le robot lapin peut exécuter les instructions suivantes:
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_L.svg}} Saute vers la \textbf{gauche} sur la prochaine colline
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_R.svg}} Saute vers la \textbf{droite} sur la prochaine colline
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_seed.svg}} \textbf{Plante} une graine de carotte sur la colline sur laquelle tu es
+
+Le robot lapin a suivi la suite d’instructions suivante:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_prog.svg}\par}
+
+Il a passé sur quatre collines. Nous ne savons pas sur quelle colline il a commencé.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quelles collines le robot a-t-il planté des graines de carottes?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02_mounds.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les graines sur les bonnes collines. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse: \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02-solution-compatible.svg}}
+
+Pour mieux pouvoir expliquer la bonne réponse, nous donnons des lettres aux collines (voir ci-dessus) et des numéros aux instructions:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_explanation-compatible.svg}\par}
+
+Nous commençons par déterminer le point de départ du robot: avant de sauter trois fois de suite vers la gauche (instructions $3$, $5$ et $6$), il doit se trouver sur la colline D. Avant cela, il saute une fois vers la droite (instruction $1$). Le robot a donc commencé sur la colline C. Les graines de carottes sont donc plantées sur les collines D, puis C et finalement A, d’après les instructions $2$, $4$ et $7$.
+
+
+\subsection*{This is Informatics}
+
+Les vrais robots ont des ordinateurs intégrés, et ils sont programmés de manière similaire au robot lapin. Un programme informatique est constitué de plusieurs \emph{instructions} individuelles.
+
+Dans notre cas, la suite d’instructions pour l’ordinateur du robot est donnée sous forme d’images. Le résultat (\emph{sortie}, \emph{output} en anglais) du programme ne dépend pas que de la position de départ (\emph{entrée}, \emph{input} en anglais), mais aussi des instructions et de l’ordre dans lequel elles sont données.
+
+Cet exercice du Castor illustre l’utilisation de robot dans l’agriculture. Les robots ne peuvent pas seulement planter, mais aussi arroser, polliniser et répandre des produits de protection de manière ciblée.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item Smart Farming: \href{https://www.agroscope.admin.ch/agroscope/fr/home/themes/economie-technique/smart-farming.html}{\BrochureUrlText{https://www.agroscope.admin.ch/agroscope/fr/home/themes/economie-technique/smart-farming.html}}
+  \item Les robots et l’agriculture: \href{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/fr}{\BrochureUrlText{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/fr}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Modelling and Simulation,
+  \item Evaluation
+\end{itemize}
+
+
+\end{document}

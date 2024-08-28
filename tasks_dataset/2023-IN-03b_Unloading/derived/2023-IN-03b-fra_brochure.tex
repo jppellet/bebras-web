@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Train de marchandises}
+\renewcommand{\taskCountry}{IN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un train tire des wagons chargés de caisses numérotées. La grue est à une position fixe et décharge les caisses. Pour décharger une caisse, la caisse doit être positionnée directement sous la grue.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-taskbody.svg}\par}
+
+La grue doit décharger les caisses dans l’ordre croissant de leurs numéros en commençant par la caisse $1$. Le train ne peut rouler qu’en avant. Il doit faire un tour complet pour pouvoir décharger d’autres caisses après avoir dépassé la grue.
+
+Voilà comment il décharge les caisses $1$, $2$, $3$ et $4$:
+
+\begin{tabularx}{\columnwidth}{ @{} C C C @{} }
+  {\setstretch{1.0}\thead[cb]{Tour 1:}} & {\setstretch{1.0}\thead[cb]{Tour 2:}} & {\setstretch{1.0}\thead[cb]{Tour 3:}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example1.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example2.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example3.svg}} \\ 
+  Il saute la caisse $4$, décharge & Il saute la caisse $4$ et & Il décharge la caisse $4$. \\ 
+  la caisse $1$, saute la caisse 3 & décharge la caisse $3$. &  \\ 
+  et décharge la caisse $2$. &  & 
+\end{tabularx}
+
+Le train ci-dessus doit donc faire trois tours pour décharger toutes les caisses dans le bon ordre.
+
+
+
+% question (as \emph{})
+{\em
+Combien de tours faut-il pour décharger le train suivant?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} l l l @{} }
+  A) $1$ tour & E) $5$ tours & I) $9$ tours \\ 
+  B) $2$ tours & F) $6$ tours & J) $10$ tours \\ 
+  C) $3$ tours & G) $7$ tours &  \\ 
+  D) $4$ tours ${~~~}$ & H) $8$ tours ${~~~}$ & 
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est sept tours.
+
+L’ordre imposé pour décharger est $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$ et $10$. Au premier tour, les caisse $1$ et $2$ sont déchargées ensemble. Au deuxième tour, les caisses $3$ et $4$ sont déchargées ensemble, puis la caisse $5$, puis la $6$, puis les caisses $7$ et $8$ ensemble, puis la $9$ et finalement la $10$. Cela fait sept tours en tout.
+
+Alternativement, on peut utiliser le fait qu’un tour supplémentaire est nécessaire chaque fois que la caisse suivante se trouve à la gauche de la caisse actuelle.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-explanation.svg}\par}
+
+Par exemple, comme la caisse $3$ est à gauche de la caisse $2$, elle sera sautée pour décharger la caisse $2$ et nécessitera un tour supplémentaire pour la ramener à la hauteur de la grue. Ici, c’est le cas pour les paires de caisses ($2$,$3$), ($4$,$5$), ($5$,$6$), ($6$,$7$), ($8$,$9$) et ($9$, $10$); il faut donc six tours en plus du premier, ce qui fait sept tours en tout.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Lorsque, pour n’importe quel numéro de la suite $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$, le numéro suivant se trouve plus à gauche dans le train, on appelle cela une \emph{inversion}. Chaque inversion nécessite un tour supplémentaire. On obtient la réponse de l’exercice en comptant le nombre d’inversions.
+
+Il y a beaucoup d’applications liées au nombre d’inversions présentes dans une suite. Pour certains algorithmes de tri, comme le \emph{tri à bulles}, le nombre d’inversions nous renseigne sur le nombre de permutations nécessaire pour obtenir la suite désirée. Si deux clients classent le même ensemble d’articles par préférence, le nombre d’inversions entre leurs classements nous informe sur leurs préférences communes. C’est utilisé par les magasins en ligne pour identifier des clients “similaires” et recommander des produits.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme de tri: \href{https://fr.wikipedia.org/wiki/Algorithme_de_tri}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_tri}}
+  \item Tri à bulles: \href{https://fr.wikipedia.org/wiki/Tri_\%C3\%A0_bulles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tri\_à\_bulles}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorMukundM{} % \ifdefined\AuthorMukundM \BrochureFlag{in}{} Madhavan Mukund\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorAlharthiL{} % \ifdefined\AuthorAlharthiL \BrochureFlag{sa}{} Laila Alharthi\fi
+\def\AuthorCesarD{} % \ifdefined\AuthorCesarD \BrochureFlag{py}{} Diego César\fi
+\def\AuthorNaughtonT{} % \ifdefined\AuthorNaughtonT \BrochureFlag{ie}{} Tom Naughton\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

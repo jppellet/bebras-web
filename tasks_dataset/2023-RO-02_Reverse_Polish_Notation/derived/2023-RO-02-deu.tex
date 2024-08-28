@@ -1,0 +1,183 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-RO-02 Postfix-Notation}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-RO-02 Postfix-Notation}
+
+
+\subsection*{Body}
+
+Ein mathematischer Ausdruck besteht aus …
+
+\begin{itemize}
+  \item … einem \emph{Operator}: \textbf{+}, \textbf{–}, \textbf{·} oder \textbf{:}
+  \item … und den \emph{Operanden}: Zahlen wie $1$, $2$, …, Buchstaben wie a, b, …~ oder wieder Ausdrücke wie ($1$ + $2$).
+\end{itemize}
+
+Die Struktur eines mathematischen Ausdrucks kann man als \emph{Strukturbaum} darstellen.
+Dieses Diagramm aus Operatoren und Operanden wird so gezeichnet:
+Ein Kringel mit dem Operator wird durch Pfeile mit den Strukturbäumen der Operanden verbunden.
+Das sind im einfachsten Fall Kringel mit einer Zahl oder einem Buchstaben.
+
+Aus einem Strukturbaum wiederum kann man die \emph{Postfix-Notation} eines mathematischen Ausdrucks ablesen.
+In dieser Notation werden für jeden Ausdruck zunächst die Operanden und dahinter der Operator geschrieben.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c @{} }
+  \textbf{Mathematischer Ausdruck:} & a + b & (a + $1$) \ensuremath{\cdot} (b + c) \\ 
+  \textbf{Strukturbaum:} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example1-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example2-compatible.svg}} \\ 
+  \textbf{Postfix-Notation:} & a b + & a $1$ + b c + \ensuremath{\cdot}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Hier ist die Postfix-Notation eines anderen Ausdrucks:
+
+\begin{adjustwidth}{1.5em}{0em}
+a $1$ + b $2$ + · $25$ c : +
+\end{adjustwidth}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Welchen Strukturbaum hat dieser Ausdruck?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerA-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerB-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerD-compatible.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Antwort C ist richtig: \raisebox{-0.5ex}{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}}
+
+Wie in der Aufgabenstellung beschrieben ist, findet sich der zentrale Operator eines mathematischen Ausdrucks im Strukturbaum ganz oben (er ist dessen \emph{Wurzel}) und in der Postfix-Notation ganz hinten.  Möchte man den Strukturbaum eines Ausdrucks in Postfix-Notation finden oder erstellen, muss man das in der Postfix-Notation letzte Zeichen oben im Baum suchen, in diesem Fall das +. Nur bei den Bäumen der Antworten A und C findet sich ein + in der Wurzel.
+
+Der Operator + hat zwei Operanden, einer links und einer rechts.  In der Postfix-Notation sieht man direkt (am vorletzten Zeichen), dass der rechte Operand des Ausdrucks wiederum ein Ausdruck ist, der den Operator : hat.  Im Strukturbaum muss also rechts unter der Wurzel ein : zu sehen sein.  Das ist nur im Baum aus Antwort C der Fall.  Also muss das die richtige Antwort sein.
+
+Das kann man auch zeigen, indem man den Strukturbaum aus Antwort C vollständig in Postfix-Notation umwandelt:
+
+\begin{itemize}
+  \item Die untersten drei \enquote{kleinsten} Teilbäume, die jeweils aus $3$ Elementen bestehen, werden zu a $1$ +, b $2$ + und $25$ c :.
+  \item Die beiden linken dieser drei \enquote{kleinsten} Teilbäume werden zum linken Operanden des oberen \textbf{+}, so dass die Umwandlung des linken Teilbaum nun a $1$ + b $2$ + · lautet. Der dritte der \enquote{kleinsten} Teilbäume ist bereits der rechte Operand.
+  \item Damit lautet die Postfix-Notation des Strukturbaums aus Antwort C insgesamt so:  a $1$ + b $2$ + · $25$ c : +.  Das ist genau der in der Aufgabenstellung vorgegebenen Ausdruck.
+\end{itemize}
+
+
+\subsection*{This is Informatics}
+
+Die \emph{Postfix-Notation}, auch \emph{umgekehrte polnische Notation} (engl. \emph{reverse Polish notation RPN}) genannt, wird oftmals verwendet, um mathematische oder andere Ausdrücke (z. B. in Programmiersprachen) missverständnisfrei und kompakt zu formulieren. Würde man den durch den Strukturbaum aus Antwort C gegebenen Ausdruck in normaler Notation schreiben (also mit Operatoren zwischen den Operanden, deshalb auch \emph{Infix-Notation} genannt), müsste man Klammern setzen (a + $1$) · (b + $2$) + $25$ : c, die man für die Postfix-Notation nicht braucht. Die Postfix-Notation wurde von Jan Łukasiewicz (1878$-1956$) zunächst als Präfix-Notation eingeführt, mit dem Operator vor den Operanden.  So schreibt man u.a. die Anwendung von Funktionen auf: in der Mathematik ${f(x, y)}$, beim Programmieren \BrochureInlineCode{funktionsname(argument1, argument2, argument3)}.  Im Computer wird sie unter anderem beim \emph{Parsen} von Ausdrücken einer Programmiersprache verwendet.
+
+In der jüngeren Vergangenheit haben viele Menschen die Postfix-Notation vor allem bei der Nutzung der ersten wissenschaftlichen Taschenrechner kennengelernt:  Dort konnte man damit schnell und zuverlässig und vor allem ohne Klammern komplexe mathematische Ausdrücke eingeben und berechnen lassen.  Noch heute gibt es eine eingeschworene Gemeinschaft, die programmierbare Taschenrechner (wie z. B. den HP 35s) mit Postfix-Notation nutzen.
+
+
+\subsection*{This is Computational Thinking}
+
+Um die Aufgabe zu lösen, muss ein komplexer mathematischer Ausdruck durch \emph{Zerlegen} oder \emph{Dekomposition} in kleinere mathematische Ausdrücke verwandelt werden, die für sich im Kontext verständlich sind. Zudem muss ein Vorgang dahingehend \emph{analysiert} werden, dass seine Funktionsweise auch in rückwärtiger Reihenfolge verständlich wird. Im Grunde wird dabei dieselbe Information zwischen unterschiedlichen Darstellungsweisen konvertiert.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Umgekehrte polnische Notation UPN: \href{https://de.wikipedia.org/wiki/Umgekehrte_polnische_Notation}{\BrochureUrlText{https://de.wikipedia.org/wiki/Umgekehrte\_polnische\_Notation}}
+  \item Syntaxbaum: \href{https://de.wikipedia.org/wiki/Syntaxbaum}{\BrochureUrlText{https://de.wikipedia.org/wiki/Syntaxbaum}}
+  \item Jan Łukasiewicz: \href{https://de.wikipedia.org/wiki/Jan_\%C5\%81ukasiewicz}{\BrochureUrlText{https://de.wikipedia.org/wiki/Jan\_Łukasiewicz}}
+  \item HP 35s: \href{https://en.wikipedia.org/wiki/HP_35s}{\BrochureUrlText{https://en.wikipedia.org/wiki/HP\_35s}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Zerlegen, Dekomposition: \href{https://de.wikipedia.org/wiki/Modell\#Modellbildung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Modell\#Modellbildung}}
+\end{itemize}
+
+
+\end{document}

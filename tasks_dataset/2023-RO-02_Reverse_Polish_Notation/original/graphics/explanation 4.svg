@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="36.724167mm"
+   height="37.041664mm"
+   viewBox="0 0 36.724167 37.041664"
+   version="1.1"
+   id="svg219"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   sodipodi:docname="explanation 4a.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview221"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="68.96837"
+     inkscape:cy="-128.42386"
+     inkscape:window-width="1309"
+     inkscape:window-height="456"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs216" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-87.349781,-182.8351)">
+    <circle
+       class="st6"
+       cx="105.23562"
+       cy="189.05281"
+       r="5.8208332"
+       id="circle76"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:10" />
+    <text
+       class="st3 st4"
+       id="text78"
+       style="font-size:7.57939px;font-family:Times-Roman;stroke-width:0.264583"
+       x="104.25991"
+       y="191.18317">/</text>
+    <circle
+       class="st6"
+       cx="117.85624"
+       cy="213.65906"
+       r="5.8208332"
+       id="circle80"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:10" />
+    <text
+       class="st3 st4"
+       id="text82"
+       style="font-size:7.57939px;font-family:Times-Roman;stroke-width:0.264583"
+       x="115.42808"
+       y="215.79971">C</text>
+    <circle
+       class="st6"
+       cx="93.56749"
+       cy="213.65906"
+       r="5.8208332"
+       id="circle84"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:10" />
+    <text
+       class="st3 st4"
+       id="text86"
+       style="font-size:7.57939px;font-family:Times-Roman;stroke-width:0.264583"
+       x="89.866127"
+       y="215.79971">25</text>
+    <line
+       class="st7"
+       x1="116.71854"
+       y1="207.94405"
+       x2="109.83936"
+       y2="193.12738"
+       id="line88"
+       style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:10" />
+    <line
+       class="st7"
+       x1="94.414154"
+       y1="207.94405"
+       x2="101.29332"
+       y2="193.12738"
+       id="line90"
+       style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:10" />
+  </g>
+</svg>

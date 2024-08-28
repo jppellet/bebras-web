@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Sommerkurse}
+\renewcommand{\taskCountry}{IR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Eine Sprachschule plant vier Sommerkurse.
+Die Linien im Bild zeigen, welche Lehrperson der Schule für welchen Kurs geeignet ist.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2023-IR-02-taskbody.svg}\par}
+
+Eine Lehrperson kann nur einen Kurs halten.
+Trotzdem gibt es mehrere Möglichkeiten, jedem Kurs eine geeignete Lehrperson zuzuordnen.
+
+
+
+% question (as \emph{})
+{\em
+Ordne jedem Kurs eine geeignete Lehrperson zu.
+Markiere dazu die Linie zwischen Person und Kurs.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  D ist die einzige Lehrperson, die für den Ungarischkurs geeignet ist.  Sie muss diesem Kurs zugeordnet werden und kann keine weiteren Kurse übernehmen. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-deu/2023-IR-02-explanation01-compatible-deu.svg}} \\ 
+  E ist jetzt die einzige Lehrperson, die für den Spanischkurs geeignet ist.  Sie muss diesem Kurs zugeordnet werden und kann keine weiteren Kurse übernehmen. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-deu/2023-IR-02-explanation02-compatible-deu.svg}} \\ 
+  Bei den beiden verbleibenden Kursen (Englisch und Italienisch) kann man recht frei wählen. B und F dürfen aber nur einem Kurs zugeordnet werden, auch wenn sie für beide geeignet sind. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-deu/2023-IR-02-explanation03-compatible-deu.svg}}
+\end{tabularx}
+
+Dadurch gibt es insgesamt $10$ Möglichkeiten, jedem Kurs eine geeignete Lehrperson zuzuordnen:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Englisch}} & {\setstretch{1.0}\thead[cb]{Italienisch}} & {\setstretch{1.0}\thead[cb]{Ungarisch}} & {\setstretch{1.0}\thead[cb]{Spanisch}} \\ 
+\midrule
+  A & B & D & E \\ 
+  A & F & D & E \\ 
+  A & G & D & E \\ 
+  B & F & D & E \\ 
+  B & G & D & E \\ 
+  C & B & D & E \\ 
+  C & F & D & E \\ 
+  C & G & D & E \\ 
+  F & B & D & E \\ 
+  F & G & D & E
+\end{tabular}
+
+
+\end{adjustwidth}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Ein \emph{Graph} besteht aus \emph{Knoten} (Punkten), die durch \emph{Kanten} (Linien) verbunden sind. Eine spezielle Klasse von Graphen sind \emph{bipartite Graphen}: Die Knoten lassen sich in zwei getrennte Teilmengen teilen, sodass es nur Kanten zwischen Knoten verschiedener Teilmengen gibt.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-IR-02-itsinformatics.svg}\par}
+
+Die Situation in dieser Biberaufgabe kann durch einen bipartiten Graphen dargestellt werden: Eine Teilmenge besteht aus den Kursen und die andere aus den Lehrpersonen. Bipartite Graphen eigenen sich sehr gut, \emph{Zuordnungsprobleme} zu modellieren und zu lösen. Zuordnungsprobleme begegnen uns häufig im Alltag, z.B. bei Stundenplänen oder bei der Verteilung von Arbeit an Angestellte oder Maschinen. Bei kleineren Problemen ist es einfach möglich, eine optimale Zuordnung zu finden; bei grösseren wird es jedoch relativ schnell sehr komplex. Aus diesem Grund wurden in der Informatik verschiedene Algorithmen entwickelt, um möglichst schnell möglichst viele passende Paare zu finden.
+
+Zum Beispiel wird auch das sogenannte Heiratsproblem mithilfe eines bipartiten Graphen dargestellt. Dabei steht eine Menge von heiratswilligen Männern einer Menge von heiratswilligen Frauen gegenüber. Ziel des Verfahrens ist, unter Berücksichtigung der jeweiligen Wünsche, alle Männer beziehungsweise alle Frauen zu verheiraten. Der englische Mathematiker Philip Hall formulierte im Heiratssatz $1935$ die Bedingungen, unter denen so eine Zuordnung möglich ist.
+
+In unserer Variante geht es nicht um diese vollständige Zuordnung, sondern darum, möglichst jeden Knoten der einen Teilmenge (die Kurse) einem Knoten der anderen Teilmenge zuzuordnen.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Bitpartierter Graph: \href{https://de.wikipedia.org/wiki/Bipartiter_Graph}{\BrochureUrlText{https://de.wikipedia.org/wiki/Bipartiter\_Graph}}
+  \item Zuordnungsproblem: \href{https://de.wikipedia.org/wiki/Zuordnungsproblem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Zuordnungsproblem}}
+  \item Programm zur Lösung der Aufgabe: \href{https://www.coding4you.at/dachu_2023/ir02/index.html}{\BrochureUrlText{https://www.coding4you.at/dachu\_2023/ir02/index.html}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNedaeepourJ{} % \ifdefined\AuthorNedaeepourJ \BrochureFlag{ir}{} Jalil Nedaeepour\fi
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorOzdemirO{} % \ifdefined\AuthorOzdemirO \BrochureFlag{tr}{} Özgür Özdemir\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

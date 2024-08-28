@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Brunnen}
+\renewcommand{\taskCountry}{BR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Der Sommer in der Stadt ist heiss.  Die Bürgermeisterin lässt deshalb Brunnen mit Trinkwasser aufstellen.
+
+Die Brunnen sollen so stehen, dass man von jeder Strassenecke aus höchstens zwei Strassenabschnitte gehen muss, um einen Brunnen zu erreichen. Dann ist die Bürgermeisterin zufrieden.
+
+Hier ist ein Stadtplan. Die Linien sind Strassenabschnitte, und die Punkte sind Strassenecken.
+An drei Ecken stehen bereits Brunnen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-fountain.svg}}.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-challenge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Stelle einen weiteren Brunnen so auf, dass die Bürgermeisterin zufrieden ist.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-solution.svg}\par}
+
+Wenn ein weiterer Brunnen unten in der Mitte aufgestellt wird, muss man von jeder Strassenecke aus höchstens zwei Strassenabschnitte gehen, um einen Brunnen zu erreichen.
+Dann ist die Bürgermeisterin zufrieden.
+
+Wie können wir herausfinden, an welcher Strassenecke
+ein weiterer Brunnen aufgestellt werden soll?
+Im Stadtplan markieren wir alle Strassenecken mit einem \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-mark.svg}},
+die höchstens zwei Strassenabschnitte von einem der Brunnen entfernt sind, die bereits aufgestellt sind.
+In Bezug auf diese Ecken kann die Bürgermeisterin bereits zufrieden sein.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-explanation_compatible.svg}\par}
+
+Für die fünf übrigen Strassenecken A, B, C, D und E stellen wir einen weiteren Brunnen bei C auf. Damit muss man auch von diesen Ecken höchstens zwei Strassenabschnitte zum nächsten Brunnen gehen.
+
+Die Ecke C ist die einzige Stelle für einen neuen Brunnen, die das ermöglicht:
+Wenn wir für die Ecken A und E jeweils alle anderen Ecken betrachten, die über zwei Strassenabschnitte erreichbar sind (im Bild mit gestrichtelten Linien umrandet),
+ist die Strassenecke C die einzige, die diese Bedingung für A \emph{und} E erfüllt.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Der Stadtplan kann als \emph{Graph} modelliert werden.
+Das ist ein für die Informatik wichtiges Werkzeug, um Beziehungen zwischen Objekten zu modellieren
+und Fragen in Bezug auf diese Beziehungen zu beantworten.
+Hier kann man die Strassenecken als Objekte und damit \emph{Knoten} des Graphen auffassen.
+Die Beziehung zwischen zwei Objekten wird im Graph durch \emph{Kanten} modelliert, die man als Verbindungslinien darstellt. Hier bedeutet eine Kante zwischen zwei Strassenecken, dass sie durch einen Strassenabschnitt verbunden sind. Diese Beziehung kann man Nachbarschaft nennen. Kanten können aber auch andere Beziehungen modellieren, wie z.B. Freundschaft.
+
+In dieser Biberaufgabe soll eine Teilmenge der Knoten gefunden werden (zum Aufstellen der Brunnen), so dass jeder Knoten ausserhalb dieser Teilmenge über einen Weg mit einem \enquote{Brunnen-Knoten} verbunden ist, der höchstens zwei Kanten lang ist.  In der Fachsprache der Informatik würde dies als Suche nach einem \enquote{distance$-2$ dominating set} bezeichnet. Im allgemeinen (für alle Weglängen ${k \geq 1}$) gehört diese Suche nach einer möglichst kleinen solchen Teilmenge zu den schwierigsten Problemen der Informatik.
+
+Solche \enquote{minimum distance \emph{k}-dominating sets} spielen in der letzten Zeit eine grössere Rolle, insbesondere im Bereich des \emph{Social Computing} (auf Deutsch auch \emph{Sozioinformatik}):
+Zur automatischen Verarbeitung von Daten über soziale Netzwerke (etwa um die Verbreitung von Fake News zu erkennen)
+werden die Fan- oder Follower-Beziehungen zwischen den Nutzern als Graph modelliert.
+Diese Graphen können so gross sein, dass nur eine (möglichst kleine) repräsentative Auswahl von Nutzern betrachtet werden kann - zum Beispiel ein \enquote{minimum distance 3-dominating set}.
+Da die wirklich kleinste Auswahl nicht effizient berechnet werden kann, entwickelt die Informatik Verfahren,
+die in kurzer Zeit möglichst kleine, aber nicht garantiert kleinste Auswahlen berechnen.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Minimum Distance k-Dominating Sets: \href{https://computationalsocialnetworks.springeropen.com/articles/10.1186/s40649-020-00078-5}{\BrochureUrlText{https://computationalsocialnetworks.springeropen.com/articles/$10.1186$/s40649-020-00078-5}}
+  \item Sozioinformatik: \href{https://de.wikipedia.org/wiki/Sozioinformatik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Sozioinformatik}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBarichelloL{} % \ifdefined\AuthorBarichelloL \BrochureFlag{br}{} Leonardo Barichello\fi
+\def\AuthorNataliaN{} % \ifdefined\AuthorNataliaN \BrochureFlag{id}{} Natalia Natalia\fi
+\def\AuthorLunaC{} % \ifdefined\AuthorLunaC \BrochureFlag{pe}{} Carlos Luna\fi
+\def\AuthorAlbaradeiS{} % \ifdefined\AuthorAlbaradeiS \BrochureFlag{sa}{} Somayah Albaradei\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Visite au zoo}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Aujourd’hui, Anja passe la journée au zoo. Elle veut voir le plus de présentations possible.
+
+Voici un programme avec toutes les présentations. Tout en bas, tu vois par exemples que la présentation des singes commence à 13h45 et finit à 14h45.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AT-01-taskbody-compatible.svg}\par}
+
+Anja assiste toujours à une présentation en entier, du début à la fin. Peux-tu l’aider?
+
+
+
+% question (as \emph{})
+{\em
+Choisis le plus de présentations possible qu’Anja peut voir les unes après les autres.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Anja peut voir au maximum cinq présentations les unes après les autres. Voici les deux réponses justes:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution01_compatible.svg}}   \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution02_compatible.svg}}\par}
+
+Il y a différentes façons d’arriver aux bonnes réponses.
+
+Un plan de visite pour Anja est une sélection de présentations qu’elle peut voir les unes après les autres. Un moyen de trouver les bonnes réponses est de faire une liste de tous les plans de visite possibles. Les bonnes réponses sont les plans contenant le plus de présentations dans cette liste. Cela prend malheureusement beaucoup de temps pour trouver tous les plans possibles.
+
+Ne pourrait-il pas y avoir de plan de visite avec six présentations? Essayons d’en faire un. Pour commencer, nous observons la durée des présentations: sur le programme, la journée est divisée en $19$ unités de temps d’un quart d’heure chacune. Les présentations durent $2$, $3$, $4$, $5$ ou $6$ unités de temps.
+
+{\centering%
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Unités de temps}} & {\setstretch{1.0}\thead[lb]{Présentation}} \\ 
+\midrule
+  2 & C \\ 
+  3 & B, D, E, I \\ 
+  4 & F, H, J \\ 
+  5 & A \\ 
+  6 & G
+\end{tabular}
+
+\par}
+
+Pour pouvoir mettre le plus de présentations possible dans un plan de visite, nous choisissons les présentations les plus \emph{courtes}. Les six présentations les plus courtes durent en tout $18$ unités de temps ${(2 + 3 + 3 + 3 + 3 + 4)}$. Les présentations C, D et E font partie des $6$ présentations les plus courtes; mais comme les présentations C et E sont directement l’une après l’autre, Anja ne peut pas aller voir la présentation D entre deux.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-explanation_compatible.svg}\par}
+
+Nous devons donc remplacer la présentation D par une autre présentation aussi courte que possible. Il ne reste que des présentations durant au moins quatre unités de temps. Sans la présentation D, nous avons donc besoin d’au moins $19$ unités de temps pour voir six présentations: ${2 + 3 + 3 + 3 + 4 + 4}$. Mais quelles que soient les deux présentations à quatre unités de temps que nous choisissons, l’une d’entre elles a lieu en même temps qu’une présentation à $3$ unités de temps. Nous devrions donc remplacer l’une d’elles par une présentation d’au moins quatre unités de temps et aurions besoin d’au moins $20$ unités de temps en tout pour voir six présentations. Mais nous n’avons que $19$ unités de temps à disposition et ne pouvons donc pas faire de plan de visite à plus de cinq présentations.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice du Castor contient un horaire des présentations du zoo. Ce n’est pas facile de créer de tels horaires; en informatique, on parle de \emph{séquençage de tâches}. Le zoo aimerait évidemment permettre à ses visiteurs de voir le plus de présentations possible, mais d’autres contraintes doivent aussi être prises en compte. Par exemple, une présentation ne peut être proposée que quand les gardiens animaliers sont disponibles, que les arènes sont libres et que les heures sont compatibles avec le rythme de vie des animaux.
+
+Il existe beaucoup de problèmes de ce type dans la vie quotidienne auxquels les mêmes réflexions peuvent être appliquées, par exemple l’élaboration d’un horaire pour l’école ou la programmation des films dans les salles d’un cinéma. L’élaboration de ces horaires est si compliquée que même ces simples exemples (les horaires de ton école) ne peuvent pas être fait manuellement. Les \emph{processeurs} de ton ordinateurs doivent eux aussi effectuer beaucoup de tâches les unes après les autres. Le programme déterminant quel processeur fait quoi à quel moment est créé très rapidement par le \emph{système d’exploitation} sans que l’on ne le remarque. Le \emph{séquençage de tâches} est un thème important en informatique et en recherche.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ordonnancement: \href{https://fr.wikipedia.org/wiki/Ordonnancement_de_travaux_informatiques}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ordonnancement\_de\_travaux\_informatiques}}
+  \item Système d’exploitation: \href{https://fr.wikipedia.org/wiki/Syst\%C3\%A8me_d\%27exploitation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Système\_d’exploitation}}
+  \item Séquençage des tâches: \href{https://fr.wikipedia.org/wiki/S\%C3\%A9quen\%C3\%A7age_de_t\%C3\%A2ches}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Séquençage\_de\_tâches}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorUnkovicS{} % \ifdefined\AuthorUnkovicS \BrochureFlag{at}{} Svetlana Unković\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorAsuncionA{} % \ifdefined\AuthorAsuncionA \BrochureFlag{ph}{} Aldrich Ellis Catapang Asuncion\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

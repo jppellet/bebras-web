@@ -1,0 +1,140 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Bracelet céleste}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+\begin{wrapfigure}{R}{115.4px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody1-compatible.svg}}
+\end{wrapfigure}
+
+Marie aimerait le bracelet à droite.
+
+Elle donne donc les instructions suivantes à Jonas:
+
+\begin{itemize}
+  \item Prends une étoile (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_star-compatible.svg}}) et une lune (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_moon-compatible.svg}}) et relie-les pour former une paire. Répète ceci trois fois en tout afin d’avoir trois paires.
+  \item Prends ces trois paires, tourne-les comme tu veux, et relie-les pour former une longue chaîne.
+  \item Ajoute deux étoiles supplémentaires à l’un des bouts de la chaîne. Relie maintenant les deux bouts de la chaîne pour obtenir un bracelet.
+\end{itemize}
+
+Jonas n’a pas d’image du bracelet désiré. C’est possible que Jonas obtienne un bracelet complètement différent, même s’il suit exactement les instructions de Marie.
+
+
+
+% question (as \emph{})
+{\em
+L’un de ces quatre bracelets ne peut \textbf{pas} être obtenu par Jonas s’il suit exactement les instructions de Marie. Lequel?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerA-squarecentered-compatible.svg}} & B) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerB-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}} & D) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerD-squarecentered-compatible.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) \raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}}.
+
+Seul ce bracelet ne peut pas être obtenu en suivant les instructions de Marie.
+
+Les bracelets des trois autres réponses sont par contre corrects d’après les instructions de Marie. On peut le voir, par exemple, en observant que chacun de ces bracelets peut être séparé en trois paires étoile-lune et une paire étoile-étoile, comme montré sur l’image.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationA-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationB-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationD-compatible.svg}}\par}
+
+Une lune ne peut être présente que comme la moitié d’une paire étoile-lune dans le bracelet. Chaque lune est donc à côté d’au moins une étoile. Ce n’est donc pas possible d’obtenir trois lunes côte à côte comme dans le bracelet C. C’est aussi impossible d’avoir cinq étoiles ou plus côte à côte.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationC-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Lorsque des programmeurs et programmeuses donnent des instructions à un ordinateur, c’est important qu’ils spécifient exactement ce que l’ordinateur doit faire. Sinon, on pourrait obtenir un résultat non désiré. Par exemple, Marie a oublié, dans ses instructions, de dire exactement comment les trois paires étoile-lune devaient être reliées. Dans le bracelet qu’elle désire, une lune est toujours entourée d’étoiles. Il manquait donc quelque chose, même si les instructions avaient l’air très précises. S’il existait un ordinateur qui contrôle une machine fabriquant des bracelets, les instructions de Marie ne seraient pas assez précises. Heureusement, en général, les vrais ordinateurs s’arrêteraient simplement en annonçant: “Je ne sais pas ce que tu veux dire parce que les instructions ne sont pas assez claires.”
+
+En informatique, il y a beaucoup de mécanismes permettant de décrire les choses très précisément. L’un de ces mécanismes est appelé \emph{grammaire}. Une grammaire contient des \emph{règles} qui décrivent précisément comme certains \emph{mots} (une suite de lettres) peuvent être générés. On pourrait par exemple exprimer les instructions de Marie à l’aide d’une grammaire comme ceci:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\rightarrow} CEE & ($1$) \\ 
+  C \ensuremath{\rightarrow} PPP & ($2$) \\ 
+  P \ensuremath{\rightarrow} EL & ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Ici, B représente le bracelet, C la chaîne, P la paire, E l’étoile et L la lune. On commence avec B et peut générer de nouveau mots en appliquant les trois règles de substitutions aussi souvent que nécessaire. On fait cela jusqu’à ce que le mot ne contiennent plus que les symboles E et L. Par exemple:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\Rightarrow} CEE & à l’aide de la règle ($1$) \\ 
+  CEE \ensuremath{\Rightarrow} PPPEE & à l’aide de la règle ($2$) \\ 
+  PPPEE \ensuremath{\Rightarrow} ELPPEE \ensuremath{\Rightarrow} ELELPEE \ensuremath{\Rightarrow} ELELELEE & à l’aide de la règle ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+On peut se demander si la grammaire ci-dessus correspond exactement aux instructions de Marie.
+
+En informatique, il ne s’agit pas que de programmer. Souvent, il s’agit de décrire des objets. Beaucoup de règles de production (comme une grammaire ou les instructions de Marie) peuvent décrire une classe d’objets (certains mots ou les bracelets possibles). Dans cette classe se trouvent exactement les objects que l’on peut générer à l’aide des règles.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grammaire formelle: \href{https://fr.wikipedia.org/wiki/Grammaire_formelle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Grammaire\_formelle}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

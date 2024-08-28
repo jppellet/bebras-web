@@ -1,0 +1,161 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-IE-02b Ogham}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-IE-02b Ogham}
+
+
+\subsection*{Body}
+
+Sue connaît le vieil alphabet irlandais utilisé en écriture oghamique.
+Chaque lettre est composée d’un ou plusieurs traits qui sont arrangés le long d’une longue ligne. Deux lettres qui se suivent sont séparées par un espace le long de la ligne.
+
+Sue utilise l’écriture oghamique comme code secret. Elle écrit ainsi quatre mots – ses fruits préférés: \\
+ANANAS, BANANE, RAISIN et ORANGE.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quel mot correspond à quel code en Ogham?
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/-fra/2023-IE-02b-question_compatible-fra.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les mots dans les bonnes cases. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The yellow squares with the fruitnames are draggables. To be dragged into the gray containers under the Ogham-Code.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/-fra/2023-IE-02b-explanation_compatible-fra.svg}\par}
+
+Il y a plusieurs possibilités de trouver la bonne assignation. Il faut dans tous les cas déterminer dans quel sens les lettres sont écrites le long de la ligne. Pour cela, le mot ANANAS est spécialement utile: il contient trois fois la lettre A, séparée par d’autres lettres.
+
+Il n’y a que dans le code en Ogham $4$ que la même lettre apparaît trois fois avec d’autres lettres entre deux. Le code $4$ est donc le seul qui peut correspondre au mot ANANAS. On peut en déduire que les mots sont écrits de bas en haut en Ogham et que la lettre A s’écrit avec un trait horizontal traversant le ligne verticale.
+
+La lettre A en Ogham n’est présente deux fois que dans le code $2$. De plus, on connaît le symbole Ogham du N grâce au code d’ANANAS (cing traits verticaux à droite de la ligne), et l’ordre des autres lettres indique que seul le mot BANANE correspond à ce code. ORANGE ne va qu’avec le code $1$, entre autre parce qu’on n’y trouve la lettre A qu’une seule fois et en troisième position. Il ne reste que le code $3$ pour le mot RAISIN, et on y retrouve en effet les lettres Ogham R, S et N connues des autres mots aux bonnes positions.
+
+
+\subsection*{This is Informatics}
+
+Dans cet exercice du Castor, il faut déchiffrer un texte inconnu. Ici, ce n’est pas très difficile car le \emph{texte clair} est connu. De plus, le texte inconnu est divisé en lettres et en mots comme le texte connu. Lorsque l’on déchiffre un texte secret ou dans un alphabet inconnu sans le connaître en texte clair, c’est souvent utile de réfléchir à la fréquence des mots et des lettres, et d’utiliser cela comme base pour trouver ces mots et lettres dans le texte. C’est de cette manière que plusieurs écritures et alphabets antiques ont été déchiffrés. Cela devient plus compliqué lorsque les symboles du texte inconnu ne sont pas faciles à assigner aux lettres et mots du texte connu comme il le sont en Ogham. Dans ce cas, il est souvent nécessaire de comparer le texte à des textes ou écritures connues, comme dans cet exercice. Les hiéroglyphes égyptiens, par exemple, n’ont pas pu être déchiffrés pendant des siècles, jusqu’a ce qu’une pierre avec des hiéroglyphes et deux textes connus soit trouvée par hasard, la pierre de Rosette. Sur la pierre se trouvait trois fois le même texte écrit dans des langues différentes, mais contenant les mêmes noms. Ceci permit de déchiffrer des éléments essentiels des hiéroglyphes. Ce n’est cependant pas le cas de tous les alphabets: environ $650$ symboles de la culture Maya ne sont toujours pas entièrement déchiffrés, ainsi que les écritures linéaires A et B de la région méditéranéenne.
+
+En informatique aussi, il faut déchiffrer des textes et des symboles – après qu’ils ont été encryptés pour le transfert de données sécurisé. Pour cela, des méthodes très différentes de celles utilisées pour coder des mots dans d’autres écritures sont appliquées. De tels chiffres simples sont trop faciles à déchiffrer, surtout avec des ordinateurs, en général à l’aide des analyses de fréquence des mots et lettres mentionnées plus haut.
+
+
+\subsection*{This is Computational Thinking}
+
+Pour résoudre cet exercice, on recherche des motifs se répétant dans le texte clair et le texte chiffré, comme la position de la lettre A. Le reconnaissance de motifs est souvent utilisée en informatique, principalement pour utiliser des problèmes déjà résolus pour en résoudre d’autres.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Cryptographie: \href{https://fr.wikipedia.org/wiki/Cryptographie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptographie}}
+  \item Cryptoanalyse: \href{https://fr.wikipedia.org/wiki/Cryptanalyse}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptanalyse}}
+  \item Ogham: \href{https://fr.wikipedia.org/wiki/Ogham}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ogham}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Reconnaissance de motifs: \href{https://fr.wikipedia.org/wiki/Reconnaissance_de_formes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Reconnaissance\_de\_formes}}
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-LT-06 Rencontre}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-LT-06 Rencontre}
+
+
+\subsection*{Body}
+
+Sur un étang couvert de nénuphars, deux grenouilles peuvent se déplacer en sautant de feuille en feuille — mais seulement en suivant le sens des flèches.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quelle feuille les deux grenouilles peuvent-elles se rencontrer?
+
+{\centering%
+\includesvg[scale=1.15]{\taskGraphicsFolder/graphics/2021-LT-06-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+Man kann auf die Blätter klicken. Klickt man auf ein Blatt, wird dieses ausgewählt und gleichzeitig ein bereits ausgewähltes Blatt wieder deaktiviert.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Les grenouilles ne peuvent se rencontrer que sur la feuille C5.
+
+{\centering%
+\includesvg[scale=1.15]{\taskGraphicsFolder/graphics/2021-LT-06-solution-compatible.svg}\par}
+
+Bob, la grenouille rouge, a deux possibilités depuis sa feuille de départ: si elle va vers le “haut”, elle arrive soit dans le cul de sac sur A3 ou elle reste bloquée dans le cercle qui commence sur B4. Si elle va vers la “droite” (en direction de B1), elle peut sauter jusqu’à D3. Depuis D3, elle peut soit tourner en rond en partant vers la “gauche”, soit aller vers le “haut” jusqu’à un autre cul de sac sur C5.
+
+Nora, la grenouille bleue, a aussi le choix entre deux directions depuis sa feuille de départ. Si elle va vers le “bas”, elle arrive dans le cul de sac sur G2. Si elle va vers le “haut”, elle peut sauter jusqu’à G3. Depuis là, elle peut soit arriver dans le cul de sac sur G2 ou partir à “gauche” et atteindre E5. Depuis E5, elle peut soit tourner en rond, soit partir à “gauche” et arriver dans le cul de sac sur C5.
+
+Nous savons que Bob peut aussi atteindre C5, elles peuvent donc s’y rencontrer. Le dessin montre les chemins qu’elles suivent pour y arriver.
+
+{\centering%
+\includesvg[scale=1.15]{\taskGraphicsFolder/graphics/2021-LT-06-explanation01.svg}\par}
+
+Cela ne garantit pas encore qu’elle ne puissent pas aussi se rencontrer ailleurs. Le dessin suivant montre toutes le feuilles que Bob (en blanc) en Nora (en gris foncé) peuvent atteindre en suivant les flèches de toutes les manières possibles. On voit que seule la feuille C5 peut être atteinte par les deux grenouilles.
+
+{\centering%
+\includesvg[scale=1.15]{\taskGraphicsFolder/graphics/2021-LT-06-explanation02.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Comment peut-on générer la dernière image? Les feuilles pouvant être atteintes par une grenouille peuvent être trouvées à l’aide d’un \emph{parcours en largeur} ou d’un \emph{parcours en profondeur}. Ce sont deux des méthodes les plus importantes en informatique. Grâce à elles, on peut déterminer quelles sont les feuilles blanches et les feuilles gris foncé. Il ne reste ensuite plus qu’à trouver les feuilles pouvant être atteintes par les deux grenouilles.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Parcours en largeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_largeur}}
+  \item Parcours en profondeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_profondeur}}
+\end{itemize}
+
+
+}
+\end{document}

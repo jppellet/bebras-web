@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CY-02 Casiers}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CY-02 Casiers}
+
+
+\subsection*{Body}
+
+Cinq enfants ont chacun un casier étiqueté à l’école. Un nombre à trois chiffres est gravé sur chacune des clés correspondantes. Malheureusement, le nombre sur l’une des clés est rayé.
+
+Chaque nombre à trois chiffres représente les trois premières lettres d’un nom. Un chiffre représente toujours la même lettre, par exemple $8$ pour “C” ou “c”.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Relie les clés aux bons casiers. Pour cela, trace des lignes entre les points jaunes.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CY-02_taskbody-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne solution est illustrée ci-dessous:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CY-02_solution-compatible.svg}\par}
+
+Les quatre nombres connus sont $153$, $735$, $535$ et $735$. Les trois premières lettres des cinq noms sont MIL, ALI, LIL, LIA et MIA.
+
+Il n’y a que LIL qui commence et se termine par la même lettre. Il doit donc y avoir un nombre à trois chiffres correspondant qui commence et se termine par le même chiffre, et il ne peut y avoir qu’un tel nombre. Le nombre $535$ correspond à ce motif; la clé $535$ correspond donc à LIL. Cela veut dire que $5$ représente L et $3$ représente I. On peut maintenant voir que $531$ doit correspondre à LIA, car il n’y a pas d’autre nom commençant par L. $1$ représente donc la lettre A. De plus, $153$ doit correspondre à ALI, car il n’y a pas d’autre nom avec un L en deuxième position. Il ne reste plus que le chiffre $7$ et la lettre A qui ne sont pas attribués, ils doivent donc correspondre l’un à l’autre. On a ainsi l’attribution univoque $1$~=~A, $3$~=~I, $5$~=~L et $7$~=~M. $735$ représente donc MIL et $531$ LIA. On voit également que la clé avec le nombre rayé appartient à Mia et que ce nombre doit être $731$.
+
+Un méthode alternative pour trouver la bonne attribution est de compter la fréquence des chiffres et des lettres. Les lettres A et M apparaissent deux fois chacune dans MIL, ALI, LIL, LIA et MIA, et les lettres I et L cinq fois chacune. Malheureusement, cela ne suffit pas encore pour attribuer une lettre à chaque chiffre de manière univoque. On doit donc faire des observations supplémentaires telles que celles décrites plus haut.
+
+
+\subsection*{It’s Informatics}
+
+En informatique, les noms et les textes sont très souvent chiffrés à l’aide de nombres.
+
+Dans la donnée de l’exercice, il est spécifié que l’on peut déduire les nombres sur les clés de manière univoque à partir des noms. Cela fonctionne car chaque lettre est chiffrée par exactement un chiffre et qu’il n’y a que peu de lettres. On parle d’un \emph{chiffrement} (ou d’une \emph{substitution}) \emph{monoalphabétique}, car chaque lettre est toujours remplacée par le même symbole. Par contre, la donnée ne spécifie pas quel chiffre correspond concrètement à quelle lettre. La solution montre cependant que l’on peut trouver la bonne attribution à l’aide de peu d’informations structurelles.
+
+Si l’on n’utilise pas seulement dix chiffres pour le chiffrement, mais un symbole pour chaque lettre, on peut utiliser une telle substitution monoalphabétique comme un code secret simple. Malheureusement, la méthode de chiffrement par substitution monoalphabétique n’est pas très sûre, parce que l’on peut souvent déterminer l’attribution en utilisant quelques astuces. L’exercice en est un exemple. La \emph{cryptographie} est un domaine important de l’informatique dans lequel des \emph{chiffres} sont développés et analysés.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Code, substitution monoalphabétique: \href{https://fr.wikipedia.org/wiki/Chiffrement_par_substitution\#Substitution_monoalphab\%C3\%A9tique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chiffrement\_par\_substitution\#Substitution\_monoalphabétique}}
+  \item Cryptographie: \href{https://fr.wikipedia.org/wiki/Cryptographie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptographie}}
+\end{itemize}
+
+
+}
+\end{document}

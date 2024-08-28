@@ -1,0 +1,155 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-CA-01b Emménagement}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-CA-01b Emménagement}
+
+
+\subsection*{Body}
+
+Les tachetés sont des oiseaux qui ont des points sur leurs plumes. Cinq tachetés sont à côté d’un arbre. Ils grimpent dans l’arbre l’un après l’autre — de gauche à droite — et emménagent dans les nids vides. Le tacheté avec quatre points commence. Chaque tacheté procède comme suit:
+
+Il commence en bas de l’arbre. Il effectue les étapes suivantes jusqu’à ce qu’il ait trouvé un nid vide:
+
+\begin{enumerate}
+  \item Il grimpe jusqu’à ce qu’il trouve un nid.
+  \item Si le nid est vide, il y emménage et reste là.
+  \item Sinon, il continue à grimper:
+
+\begin{itemize}
+  \item vers la gauche si le tacheté dans le nid a plus de points que lui;
+  \item vers la droite si le tacheté dans le nid a le même nombre ou moins de points que lui.
+\end{itemize}
+
+
+\end{enumerate}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Où se trouvent les tachetés à la fin? Place chaque tacheté dans le bon nid.
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2021-CA-01-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+On obtient la bonne solution de la manière suivante:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Le premier tacheté, celui à $4$ points, arrive dans le nid du bas et y emménage. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step1.svg}} \\ 
+  Le deuxième tacheté a $2$ points. Le nid du bas est maintenant occupé par le premier tacheté à $4$ points. Comme $4$ est plus grand que $2$, le deuxième tacheté continue à grimper vers la gauche et emménage dans le premier nid vide. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step2.svg}} \\ 
+  Le troisième tacheté a $3$ points. Il grimpe vers la gauche après le nid du bas dans lequel est le tacheté à $4$ points, car $4$ est plus grand que $3$. Le tacheté à $2$ points est dans le nid suivant. Comme $3$ est plus grand que $2$, le troisième tacheté continue de grimper vers la droite. Il emménage dans le prochain nid vide. C’est le nid le plus haut. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step3.svg}} \\ 
+  Le quatrième tacheté a $1$ point. Comme tous les autres tachetés ont plus de points que lui, il grimpe vers la gauche après chaque nid occupé. Il arrive ainsi dans le nid tout à gauche et y emménage. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step4.svg}} \\ 
+  Le dernier tacheté a $5$ points. Comme aucun tacheté n’a plus de points que lui, il grimpe vers la droite après chaque nid occupé. Il fait cela une fois après le nid du bas et emménage ensuite dans le nid tout à droite. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step5.svg}}
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+La manière dont les tachetés choisissent leur nid a un avantage intéressant: on peut vite trouver un tacheté particulier. Si le tacheté que tu cherches a moins de points que celui que tu es en train de regarder, tu dois continuer à chercher à sa gauche. Sinon, tu continue à chercher à sa droite. A chaque évaluation d’un oiseau, tu peux ainsi réduire le domaine de recherche à une de deux moitiés. C’est pour cela que tu vas rapidement trouver ton tacheté.
+
+Il y a beaucoup de manières d’organiser des données; on parle de différentes \emph{structures de données}. La structure de donnée utilisée dans cet exercice est un \emph{arbre binaire de recherche}. Le mot “binaire” vient du mot latin \emph{bis} qui veut dire “deux fois”. En effet, il y a au maximum deux branches plus petites qui partent d’une branche (là où se trouve un nid dans cet exercice). Les arbres binaires de recherche sont utilisés en programmation lorsque beaucoup de données doivent être trouvées rapidement. Ils sont en général beaucoup plus grands que le petit arbre de l’exercice. Il y a encore une différence supplémentaire: l’arbre de cet erercice acceuille un nombre fixe de cinq tachetés, alors que l’on peut en général toujours ajouter des données à un arbre binaire de recherche. On ajoute pour cela simplement une nouvelle branche au bout d’une branche existante, ce qui agrandit l’arbre. Les stuctures de données pouvant être modifiées de cette façon s’appellent \emph{structures de données dynamiques}.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Arbre binaire de recherche: \href{https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_binaire\_de\_recherche}}
+  \item Structure de données: \href{https://fr.wikipedia.org/wiki/Structure_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_données}}
+\end{itemize}
+
+
+}
+\end{document}

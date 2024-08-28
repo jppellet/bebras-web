@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Kommunikationsnetzwerk}
+\renewcommand{\taskCountry}{MK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Biber verbreiten gerne Nachrichten untereinander. Wenn ein Biber eine neue Nachricht erhält, versendet er sie gleichzeitig an alle Nachbarn. (Nachbarn sind mit einer direkten weissen Linie verbundene Biber.) Das Versenden verläuft in Runden: Vom Absenden an die Nachbarn bis zum Erhalt vergeht immer eine Runde und es können beliebig viele Nachrichten gleichzeitig unterwegs sein.
+
+
+
+% question (as \emph{})
+{\em
+Von welchem Biber aus erreicht eine Nachricht am schnellsten, also in der kleinsten Anzahl Runden, alle anderen Biber?
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Die richtige Antwort ist Biber B. Er kann in zwei Runden eine Nachricht an alle anderen Biber verbreiten.
+
+In der ersten Runde versendet Biber B die Nachricht seinen Nachbarn, also den mit einem direkten Kommunikationskanal verbunden Bibern A, D und J. Das Bild unten zeigt, wer nach dieser ersten Runde die Nachricht hat.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation1-compatible.svg}\par}
+
+In der zweiten Runde versenden Biber A, D und J die Nachricht jeweils ihren Nachbarn:
+
+\begin{itemize}
+  \item Biber A versendet die Nachricht an die Biber E und H.
+  \item Biber D versendet die Nachricht an die Biber I und K.
+  \item Biber J versendet die Nachricht an die Biber C, F, G und L.
+\end{itemize}
+
+Zusätzlich erhält Biber B die Nachricht gleich dreimal zurück, weil ja auch er ein Nachbar der drei Biber A, D und J ist. Da dies für ihn keine neue Nachricht ist, wird Biber B die Nachricht in den kommenden Runden jedoch nicht mehr versenden. Auch die Biber A und D versenden sich die Nachricht gegenseitig über ihren direkten Kommunikationskanal nochmals zu, danach aber auch nicht mehr weiter, weil die Nachricht für sie dann nicht mehr neu ist.
+
+\begin{samepage}
+Das Bild unten zeigt die Situation nach der zweiten Runde.
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation2-compatible.svg}\par}
+\end{samepage}
+
+Die Nachricht hat also alle Biber in nur zwei Runden erreicht.
+
+Schneller geht es nicht, denn sonst müsste ein Biber mit allen anderen Bibern mit einer weissen Linie verbunden sein, um die Nachricht in einer Runde direkt an alle anderen Bibern zu versenden.
+
+Biber B ist der einzige, von dem aus eine Nachricht alle anderen Biber in nur zwei Runden erreicht: Für die Biber C, E, F, G, H, J und L wäre der Biber I nicht in zwei Runden erreichbar. Und für die Biber A, D, E, H, I und K ist der Biber L nicht in zwei Runden erreichbar.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Das Kommunikationsnetzwerk der Biber kann man durch einen \emph{Graphen} beschreiben. Jeder Biber befindet sich an einem sogenannten \emph{Knoten}, der in diesem Fall durch einen Buchstaben benannt ist. Die weissen Linien nennt man \emph{Kanten}, sie verbinden jeweils zwei Knoten. Die Nachrichten verbreiten sich im Kommunikationsnetzwerk durch \emph{synchronisierte} Runden, alle Biber versenden also jeweils gleichzeitig. In einer Runde versendet jeder Biber neue Nachrichten an alle Nachbarn. Was die Biber hier tun, nennen Informatiker ein \emph{Broadcasting in einem Kommunikationsnetz}. In der Aufgabe oben hat man untersucht, wie schnell ein solches Broadcasting abgeschlossen werden kann, also wie schnell eine neue Nachricht alle Teilnehmer erreichen kann.
+
+Eine noch anspruchsvollere Aufgabe ist es, Netzwerke so zu gestalten, dass von allen Knoten aus ein schnelles Broadcasting möglich ist, aber die Anzahl der Verbindungen nicht zu hoch ist.
+
+Der Knoten des gesuchten Bibers B nennt man dann das \emph{Zentrum} des Graphen. Abstrakt gesprochen ist das Zentrum ein Knoten, der die Entfernung zu den vom ihm am weitesten entfernten Knoten minimiert. Es gibt also keinen anderen Knoten, der zu allen anderen Knoten eine kleinere Entfernung hätte. In der vorliegenden Aufgabe gibt es nur ein Zentrum. Je nach Graph kann es aber auch mehrere Knoten geben, so dass jeder von ihnen die Entfernung zu den am weitesten von entfernten Knoten minimiert; ein Graph kann also mehrere Zentren haben.
+
+Das Finden eines Zentrums ist nicht immer so einfach wie in der vorliegenden Aufgabe. Zum einen könnte es sein, dass die Übertragung zwischen gewissen direkt verbundenen Knoten mehrere Runden dauert. Zum anderen können die Graphen einfach viel grösser und komplexer sein. Für solche Graphen kann man beispielsweise den \emph{Algorithmus von Floyd und Warshall} verwenden, um effizient ein Zentrum zu finden.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graph: \href{https://de.wikipedia.org/wiki/Graph_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Graph\_(Graphentheorie)}}, \href{https://de.wikipedia.org/wiki/Weg_(Graphentheorie)\#L\%C3\%A4nge_und_Abstand}{\BrochureUrlText{https://de.wikipedia.org/wiki/Weg\_(Graphentheorie)\#Länge\_und\_Abstand}}
+  \item Zentrum eines Graphen
+  \item Algorithmus von Floyd und Warshall: \href{https://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall}{\BrochureUrlText{https://de.wikipedia.org/wiki/Algorithmus\_von\_Floyd\_und\_Warshall}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorLokarM{} % \ifdefined\AuthorLokarM \BrochureFlag{si}{} Matija Lokar\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+
+\newpage}{}

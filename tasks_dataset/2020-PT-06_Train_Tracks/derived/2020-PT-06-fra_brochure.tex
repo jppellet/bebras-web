@@ -1,0 +1,90 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Prochain arrêt, gare!}
+\renewcommand{\taskCountry}{PT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+
+
+
+
+% question (as \emph{})
+{\em
+Choisis les bons rails pour les deux cases avec les points verts de façon à ce que le train \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody2-compatible.svg}} puisse aller à la gare \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody3-compatible.svg}}.
+
+{\centering%
+\includesvg[width=396.9px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody-interactive-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Ce problème a les deux solutions suivantes:
+
+{\centering%
+\includesvg[width=308.8px]{\taskGraphicsFolder/graphics/2020-PT-06_explanation1-compatible.svg}\par}
+
+{\centering%
+\includesvg[width=308.8px]{\taskGraphicsFolder/graphics/2020-PT-06_explanation2-compatible.svg}\par}
+
+Avec toutes les autres combinaisons, le train déraille ou fonce dans le buttoir.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Comme un train qui suit simplement les rails en roulant, un ordinateur suit simplement les instructions d’un programme. Il ne peut pas savoir si le programme contient une erreur et peut alors “planter”, comme un train peut dérailler si les rails ne sont pas assemblés correctement. On doit donc être beaucoup plus attentif en écrivant un programme que lorsque l’on indique la direction de la gare à quelqu’un, par exemple.
+
+Dans cet exercice, il s’agit d’ajouter les instructions manquantes aux bons endroits d’un programme pour pouvoir atteindre l’objectif.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Programme
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorRibeiroP{} % \ifdefined\AuthorRibeiroP \BrochureFlag{pt}{} Pedro Ribeiro\fi
+\def\AuthorParriauxG{} % \ifdefined\AuthorParriauxG \BrochureFlag{ch}{} Gabriel Parriaux\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

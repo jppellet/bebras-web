@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Divertimento allo zoo}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Oggi Anja è allo zoo. Vuole visitare il maggior numero possibile di spettacoli diversi.
+
+Ecco un piano con tutti gli spettacoli.
+Ad esempio, dall’immagine possiamo vedere che lo spettacolo delle scimmie inizia alle $13$:$45$ e termina alle $14$:$45$.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AT-01-taskbody-compatible.svg}\par}
+
+Anja assiste sempre a uno spettacolo dall’inizio alla fine.
+Puoi aiutare Anja?
+
+
+
+% question (as \emph{})
+{\em
+Scegli il maggior numero possibile di spettacoli a cui Anja può partecipare uno dopo l’altro.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Anja può assistere a un massimo di $5$ spettacoli consecutivi.
+Queste sono le due risposte corrette:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution01_compatible.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution02_compatible.svg}}\par}
+
+Ci sono diversi modi per trovare le risposte giuste.
+
+Un piano di azione per Anja è una selezione di spettacoli ai quali può assistere uno dopo l’altro.  Un modo per ottenere le risposte giuste è elencare tutti i piani di azione.  In questo elenco, i piani con il maggior numero di spettacoli sono le risposte corrette.  Purtroppo, trovare tutti i piani richiede molto tempo.
+
+Ma non potrebbe esserci anche un programma di visite con $6$ presentazioni?  Cercheremo di crearne uno. Innanzitutto, diamo un’occhiata più da vicino alla durata degli spettacoli:  Nel programma, l’intera giornata è suddivisa in $19$ unità temporali di un quarto d’ora ciascuna. Gli spettacoli durano $2$, $3$, $4$, $5$ o $6$ unità di tempo.
+
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Unità di tempo}} & {\setstretch{1.0}\thead[lb]{Presentazioni}} \\ 
+\midrule
+  2 & C \\ 
+  3 & B, D, E, I \\ 
+  4 & F, H, J \\ 
+  5 & A \\ 
+  6 & G
+\end{tabular}
+
+Al fine di racchiudere il maggior numero possibile di presentazioni in un unico programma di visita, scegliamo presentazioni che siano il più breve possibile. Le $6$ presentazioni più brevi durano complessivamente $18$ unità di tempo ${(2 + 3 + 3 + 3 + 4)}$. Queste prestazioni brevi comprendono anche gli spettacoli C, D ed E. Tuttavia, poiché gli spettacoli C ed E sono esattamente uno dopo l’altro, Anja non può assistere allo spettacolo D nel mezzo.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-explanation_compatible.svg}\par}
+
+Quindi dobbiamo sostituire la presentazione D con un’altra il più breve possibile.  Rimangono solo le presentazioni con almeno $4$ unità di tempo.  Senza la presentazione D, abbiamo quindi bisogno di un totale di almeno $19$ unità di tempo per $6$ presentazioni: ${2 + 3 + 3 + 3 + 4 + 4}$. Ma entrambi gli spettacoli con $4$ unità di tempo si sovrappongono sempre a uno spettacolo con $3$ unità di tempo.  Dovremmo sostituire anche questo con uno spettacolo di almeno $4$ unità di tempo e quindi avremmo bisogno di almeno $20$ unità di tempo per $6$ spettacoli, ma ci sono solo $19$ unità di tempo disponibili!  Concludiamo che non può esistere un programma di visite che contenga più di $5$ spettacoli.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Questo compito contiene un programma di spettacoli allo zoo. Produrre programmi di questo tipo non è facile e in informatica si chiama \emph{problema di programmazione}. Naturalmente, lo zoo vuole permettere ai suoi visitatori di vedere il maggior numero possibile di presentazioni, ma bisogna tenere conto anche di altre condizioni. Per esempio, le presentazioni possono essere offerte solo se i guardiani hanno tempo, se le arene disponibili sono libere e se gli spettacolli sono compatibili con i ritmi di vita degli animali.
+
+Ci sono molti problemi simili nella vita ai quali si possono applicare le stesse considerazioni. Un esempio è la creazione di un orario scolastico o l’assegnazione dei film al cinema. La creazione di questi orari richiede così tanto tempo che anche per esempi relativamente piccoli (gli orari della vostra scuola) è spesso impossibile lavorare a mano. Anche i \emph{processori} del computer devono svolgere molti compiti ed elaborarli uno dopo l’altro. Il sistema operativo crea, alla velocità della luce e senza che l’utente se ne accorga, la programmazione di quando un processore fa cosa. La programmazione è uno dei grandi temi dell’informatica, di cui la ricerca si occupa ancora oggi.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Scheduler: \href{https://it.wikipedia.org/wiki/Scheduler}{\BrochureUrlText{https://it.wikipedia.org/wiki/Scheduler}}
+  \item Sistema operativo: \href{https://it.wikipedia.org/wiki/Sistema_operativo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Sistema\_operativo}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorUnkovicS{} % \ifdefined\AuthorUnkovicS \BrochureFlag{at}{} Svetlana Unković\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorAsuncionA{} % \ifdefined\AuthorAsuncionA \BrochureFlag{ph}{} Aldrich Ellis Catapang Asuncion\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

@@ -1,0 +1,102 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Dimezzare le mele}
+\renewcommand{\taskCountry}{CZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le mele possono essere divise in metà superiore e inferiore.
+Alcuni torsoli di mela rimangono nella metà superiore, gli altri in quella inferiore.
+Dai fori e dai torsoli della mela si vede che le metà si incastrano:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-taskbody.svg}\par}
+
+Questo è quello che fanno nella Repubblica Ceca a Natale. Gala taglia a metà quattro mele.
+Mette le metà superiori e quelle inferiori in due file.
+
+
+
+% question (as \emph{})
+{\em
+Quali metà di mele stanno bene insieme? Abbina le metà della mela l’una all’altra.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-question-brochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-solution_draglines.svg}\par}
+
+Ogni mela ha $5$ torsoli. Due metà di mele uguali devono avere un totale di $5$ torsoli. Queste metà possono quindi essere facilmente abbinate:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation1.svg}\par}
+
+Le altre quattro metà non sono così facili da assegnare. Le due metà superiori hanno $3$ torsoli ciascuna, mentre le due metà inferiori hanno $2$ torsoli ciascuna. Pertanto, osserviamo più da vicino i modelli dei torsoli delle mele.  Perché quando due metà si uniscono, anche i modelli si uniscono. Per vedere questo, tuttavia, potrebbe essere necessario girare le metà.  A questo punto le metà possono essere disposte come mostrato nell’immagine seguente: a sinistra, la metà superiore ha tre semi direttamente uno dietro l’altro e poi due fori (S-S-S-F-F), la metà inferiore ha tre fori direttamente uno dietro l’altro e poi due semi (F-F-F-S-S): le metà si incastrano. Anche le metà destre si incastrano tra loro: lo schema della metà superiore è (se si parte dall’alto al centro) S-F-S-F-S, quello della metà inferiore è F-S-F-S-F.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation-ita-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Nella spiegazione della risposta corretta, abbiamo visto che se due metà combaciano, non solo i numeri dei semi combaciano, ma anche le sequenze dei semi e dei fori (cioè i compartimenti vuoti del torsolo). Per un corretto abbinamento delle metà, occorre quindi considerare anche queste sequenze. Non è sufficiente sapere quanti semi ci sono in ogni metà.
+
+Domande simili sorgono per i problemi che devono essere risolti con l’aiuto di programmi informatici. Gli informatici devono pensare a come descrivere le informazioni che il programma deve prendere in considerazione come dati. Spesso gli informatici cercando di semplificare questo \enquote{modello} il più possibile.  Dopotutto, i programmi semplici sono meno soggetti a errori. Nel caso del problema delle metà della mela in questo compito, inizialmente sembrava sufficiente descrivere le metà con il solo numero di semi. In seguito si è capito che questo non è sufficiente in tutti i casi. Per descrivere le metà della mela in un programma per computer, deve essere possibile descrivere un ordine. Questo può essere fatto, ad esempio, con l’aiuto della struttura dati \emph{lista}, disponibile nella maggior parte dei linguaggi di programmazione.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ordine
+  \item Lista: \href{https://it.wikipedia.org/wiki/Lista_concatenata}{\BrochureUrlText{https://it.wikipedia.org/wiki/Lista\_concatenata}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorBabazadehM{} % \ifdefined\AuthorBabazadehM \BrochureFlag{ch}{} Masiar Babazadeh\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

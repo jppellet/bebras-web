@@ -1,0 +1,26 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Jiří Vaníček (svn: vanicek)
+on 2023-04-11
+Assigned review
+Good task for youngest pupils.
+The question is wrong. We don't sort beavers according to their hats, but the SIZE of their hats. A hat is not a criterium suitable for sorting.
+I think that reduction of task possibilities will make the file more clean (ascending or descending sort leads to the same task). Two possibilities - multiple-choice and drag-and-drop  are enough.
+I recommend to rearrange the explaining picture. Because children prefer comparing height in the upward direction, it would be better to  move the hats vertically so that their bottoms lay on the same line.
+ Graphics is OK and nice.
+========================================
+By: Goran Sukovic (svn: sukovic)
+on 2023-04-13
+Assigned review
+Overwhelming number of task versions. Two versions will be enough: multiple choice and drag and drop.
+
+[AGE] Appropriate age level. A very nice task for the age group 6–8. It can be a very easy task for the age group of 8–10.
+[IDEA] OK.
+[TEXT] Please rephrase the question. For example: "sort the beavers according to hat size". Or, "sort the beavers in descending order of their hat sizes". Consider adding an "algorithms and programming" category to the task. The sorting is an algorithm that uses some data structures.
+[EXPL] Good.
+[TiI] The section is very short. Consider adding why sorting is important.
+[TiCT] Clear and short.
+[GRAPH] Very nice.  
+[AUTH] OK.
+[NAME] OK.
+========================================

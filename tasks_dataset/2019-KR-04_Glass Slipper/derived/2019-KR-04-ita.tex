@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2019 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2019-KR-04 Pantaloni adatti}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2019-KR-04 Pantaloni adatti}
+
+
+\subsection*{Body}
+
+Christian ha bisogno di nuovi pantaloni. Nel negozio, i suoi pantaloni preferiti sono disponibili in sette lunghezze e sette larghezze. I pantaloni di tutte le $49$ taglie sono sullo scaffale, ordinati per lunghezza e larghezza.
+
+Poiché Christian non conosce la sua taglia, deve scoprirla provandola.
+A ogni prova, Christian nota se i pantaloni gli vanno bene o se ha bisogno di pantaloni più corti, più lunghi, più stretti o più larghi.
+Affinché un paio di pantaloni sia adatto, la lunghezza e la larghezza devono essere giuste.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-ita/2019-KR-04-taskbody_compatible-ita.svg}\par}
+
+La commessa si lamenta: \enquote{Trovare la taglia giusta in $49$ taglie può richiedere molto tempo.}
+
+Ma Christian ha ideato un metodo per trovare la taglia giusta con il minor numero possibile di prove.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Di quante prove ha bisogno al massimo per trovare la taglia giusta con il metodo ideato da Christian?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta giusta è $2$.
+
+Christian può essere fortunato e ottenere i pantaloni della taglia giusta alla prima prova. Ma non può affidarsi alla fortuna e dunque procede secondo questo metodo:
+
+Prima prova i pantaloni al centro (posizione + nell’immagine). Durante la prova, controlla la lunghezza e la larghezza dei pantaloni.
+
+\begin{itemize}
+  \item Se la lunghezza e la larghezza sono giuste, ha trovato i pantaloni della taglia giusta.
+  \item Se i pantaloni sono troppo corti e troppo larghi, i pantaloni corrispondenti si trovano nell’area $1$.
+  \item Se i pantaloni sono troppo corti ma hanno la larghezza giusta, i pantaloni corrispondenti si trovano nell’area $2$.
+  \item Se i pantaloni sono troppo corti e troppo stretti, i pantaloni abbinati si trovano nell’area $3$.
+  \item Ripete poi il metodo per le aree da $4$ a $8$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-ita/2019-KR-04-explanation_compatible-ita.svg}\par}
+
+Supponiamo che i pantaloni della taglia giusta siano nell’area $1$. Christian sceglie i pantaloni al centro dell’area $1$ per la seconda prova.
+
+Ora ci sono di nuovo diverse possibilità:
+
+\begin{itemize}
+  \item Se i pantaloni vanno bene, ha trovato la taglia giusta.
+  \item Se i pantaloni sono ancora troppo corti e troppo larghi, Christian sa che i pantaloni nella posizione A sono della taglia giusta.
+  \item Se i pantaloni sono troppo corti ma hanno la larghezza giusta, Christian sa che i pantaloni della posizione B sono della taglia giusta.
+  \item Si può continuare così per le altre posizioni intorno alla metà dell’area $1$.
+\end{itemize}
+
+Poiché in ogni area numerata il ripiano centrale ha solo un ripiano vicino in ogni direzione, non sono necessari altri controlli. Quindi Christian ha bisogno al massimo di due prove in ogni caso per trovare la taglia giusta.
+
+
+\subsection*{It’s Informatics}
+
+Il metodo utilizzato da Christian per l’adattamento è chiamato ricerca binaria in informatica. Il termine \emph{binario} deriva dalla parola latina bis (due volte). In una ricerca binaria di un oggetto in una sequenza di oggetti ordinati, l’oggetto centrale viene confrontato con quello cercato. Se l’oggetto centrale non è già quello che si sta cercando, si sa almeno in quale metà della sequenza si trova l’oggetto che si sta cercando e si cerca nuovamente in questa metà in modo binario. In ogni fase, la sequenza viene divisa in due parti - da qui \enquote{binaria}. In questo modo si arriva molto rapidamente all’oggetto cercato. Per $1.000$ oggetti sono necessari circa $10$ passi di ricerca, per $1.000$.$000$ di oggetti circa $20$. In generale, possiamo dire: per \emph{n} oggetti sono necessari circa log(\emph{n}) passi; la funzione log è il \enquote{logaritmo di due} o il logaritmo in base $2$. Poiché la ricerca binaria è così veloce, viene spesso utilizzata nei programmi informatici per la ricerca di dati ordinati.
+
+In questo compito, lo spazio di ricerca, cioè i pantaloni sullo scaffale, è ordinato in due dimensioni (lunghezza e larghezza). Pertanto, Christian può applicare immediatamente la ricerca binaria in entrambe le dimensioni. Poi l’insieme di ricerca viene diviso in un unico passaggio non in $2$, ma in $8$ parti, nel caso in cui Christian non abbia ottenuto direttamente la dimensione giusta.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Ricerca binaria: \href{https://it.wikipedia.org/wiki/Ricerca_dicotomica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Ricerca\_dicotomica}}
+  \item Alrogitmo di ricerca: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ricerca}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ricerca}}
+\end{itemize}
+
+
+}
+\end{document}

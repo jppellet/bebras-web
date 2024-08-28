@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Fontana}
+\renewcommand{\taskCountry}{BR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+L’estate è calda in città. Per questo il sindaco ha fatto installare delle fontane con acqua potabile.
+
+Le fontane devono essere posizionate in modo tale che per raggiungerle non si debbano percorrere più di due segmenti di strada da ogni angolo di strada. Solo in quel caso il sindaco sarà soddisfatto.
+
+Ecco una mappa della città. Le linee sono segmenti di strada e i punti sono angoli di strada.
+In tre angoli ci sono già delle fontane \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-fountain.svg}}.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-challenge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Colloca un’altra fontana in modo che il sindaco sia soddisfatto.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-solution.svg}\par}
+
+Collocando un’altra fontana in basso al centro, per raggiungere una fontana si devono percorrere al massimo due segmenti di strada da ogni angolo di strada.
+Così facendo il sindaco sarà soddisfatto.
+
+Come possiamo scoprire a quale angolo della strada si prevede l’installazione di un’altra fontana?
+Nella mappa della città segniamo tutti gli angoli delle strade con un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-mark.svg}},
+che non si trovino a più di due tratti stradali di distanza da una delle fontane già esistenti.
+Per quanto riguarda questi angoli, il sindaco può già ritenersi soddisfatto.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-explanation_compatible.svg}\par}
+
+Per i cinque angoli di strada rimanenti, A, B, C, D ed E, posizioniamo un’altra fontana in C. In questo modo, da questi angoli alla fontana successiva si devono percorrere al massimo due segmenti di strada.
+
+L’angolo C è l’unica posizione per una nuova fontna che lo consente.
+Se consideriamo per gli angoli A ed E rispettivamente tutti gli altri angoli che possono essere raggiunti attraverso due tratti di strada (delineati con linee tratteggiate nella figura),
+l’angolo di strada C è l’unico che soddisfa questa condizione per A \emph{e} E.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La mappa della città può essere modellata come un \emph{grafo}.
+Si tratta di uno strumento importante per l’informatica per modellare le relazioni tra gli oggetti e rispondere alle domande relative a queste relazioni.
+In questo caso, gli angoli delle strade possono essere intesi come oggetti e quindi come \emph{nodi} del grafo.
+La relazione tra due oggetti è modellata nel grafo da \emph{bordi}, che sono rappresentati come linee di collegamento. In questo caso, un bordo tra due angoli di strada significa che sono collegati da un segmento di strada. Questa relazione può essere chiamata vicinato. Tuttavia, i bordi possono modellare anche altre relazioni, come per esempio l’amicizia.
+
+In questo compito, si deve trovare un sottoinsieme di nodi (per la creazione delle fontane) tale che ogni nodo al di fuori di questo sottoinsieme sia collegato tramite un percorso a un \enquote{nodo fontana} lungo al massimo due bordi.  Nella terminologia informatica, questo si chiama trovare un \enquote{insieme dominante a distanza $2$}.  In generale (per tutti i percorsi di lunghezza ${k \geq 1}$), la ricerca del più piccolo sottoinsieme possibile è uno dei problemi più difficili dell’informatica.
+
+Questi \enquote{insiemi dominanti a distanza minima \emph{k}} hanno assunto un ruolo sempre più importante negli ultimi tempi, soprattutto nel campo della \emph{Social Computing} (in italiano anche \emph{socioinformatica}):
+Per il trattamento automatico dei dati attraverso le reti sociali (ad esempio, per rilevare la diffusione di fake news)
+le relazioni di fan o follower tra gli utenti sono modellate come un grafo.
+Questi grafi possono essere così grandi che è possibile visualizzare solo una selezione rappresentativa di utenti (la più piccola possibile) - ad esempio, un \enquote{insieme dominante a distanza minima $3$}.
+Poiché la selezione veramente minima non può essere calcolata in modo efficiente, l’informatica sviluppa delle procedure,
+che calcolano le selezioni più piccole possibili, ma non garantite, in un tempo breve.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Socioinformatica: \href{https://it.wikipedia.org/wiki/Socioinformatica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Socioinformatica}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBarichelloL{} % \ifdefined\AuthorBarichelloL \BrochureFlag{br}{} Leonardo Barichello\fi
+\def\AuthorNataliaN{} % \ifdefined\AuthorNataliaN \BrochureFlag{id}{} Natalia Natalia\fi
+\def\AuthorLunaC{} % \ifdefined\AuthorLunaC \BrochureFlag{pe}{} Carlos Luna\fi
+\def\AuthorAlbaradeiS{} % \ifdefined\AuthorAlbaradeiS \BrochureFlag{sa}{} Somayah Albaradei\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

@@ -1,0 +1,134 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Boulons et écrous}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ben assemble des pièces sur une ligne de montage: des écrous \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-CA-06-nut-1.svg}} et des boulons \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=9.4px]{\taskGraphicsFolder/graphics/2022-CA-06-bolt.svg}}.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2022-CA-06-taskbody.svg}\par}
+
+Ben applique strictement la méthode suivante:
+
+\begin{itemize}
+  \item Ben prend la pièce suivante sur la ligne de montage.
+  \item Si c’est un écrou, il le met dans le seau.
+  \item Si c’est un boulon, il prend un écrou dans le seau, le visse sur le boulon, et met la pièce terminée dans la boîte.
+\end{itemize}
+
+Deux erreurs peuvent se produire avec cette méthode:
+
+\begin{enumerate}
+  \item Ben prend un boulon sur la ligne de montage, mais il n’y a pas d’écrou à visser dessus dans le seau.
+  \item Ben a pris toutes les pièces sur la ligne de montage, mais il reste des écrous dans le seau.
+\end{enumerate}
+
+
+
+% question (as \emph{})
+{\em
+Le seau pour les écrous est assez grand et est vide au départ. Laquelle des séquences suivantes Ben peut-il assembler de gauche à droite sans aucune erreur?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerA.svg}}
+
+B) \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerB.svg}}
+
+C) \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerC.svg}}
+
+D) \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerD.svg}}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C): \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerC.svg}}.
+
+La table ci-dessous montre le contenu de la boîte pour les pièces terminées, du seau pour les écrous et de la ligne de montage.
+
+\begin{tabular}{ @{} c c l @{} }
+  {\setstretch{1.0}\thead[cb]{Boîte}} & {\setstretch{1.0}\thead[cb]{Seau}} & {\setstretch{1.0}\thead[lb]{Ligne de montage}} \\ 
+\midrule
+  \emph{vide} & \emph{vide} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-answerC.svg}} \\ 
+  \emph{vide} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-1.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC2.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-1.svg}} & \emph{vide} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC3.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-1.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-1.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC4.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-1.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-2.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC5.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-2.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-1.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC6.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-2.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-2.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC7.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-2.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-3.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC8.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-3.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-2.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC9.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-4.svg}} & \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-1.svg}} & \makecell[l]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationC10.svg}} \\ 
+  \makecell[c]{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-nut-and-bolt-5.svg}} & \emph{vide} & \emph{vide}
+\end{tabular}
+
+Pourquoi les autres réponses sont-elles fausses?
+
+A) La séquence \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationA.svg}} cause une erreur à la position indiquée. Ben a pris un boulon, mais il n’y a plus d’écrou dans le seau.
+
+B) La séquence \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationB.svg}} cause une erreur à la position indiquée. Ben a vissé quatre écrous sur quatre boulons, le seau est donc vide lorsqu’il prend le dernier boulon pour laquelle il n’a plus d’écrou.
+
+D) La séquence \raisebox{-0.5ex}{\includesvg[scale=0.08]{\taskGraphicsFolder/graphics/2022-CA-06-explanationD.svg}} cause une erreur une fois la ligne de montage vide. En effet, quatre écrous ont été vissés sur quatre boulons et il reste encore deux écrous.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Ben travaille avec des pièces qui sont livrées les unes après les autres sur la ligne de montage. Pour cela, il utilise un grand seau pour stocker les écrous. En \emph{informatique théorique}, une séquence similaire est utilisée comme modèle pour les \emph{algorithmes} qui peuvent résoudre un certain type de problèmes: les \emph{automates à pile}.
+
+Un automate à pile traite des données (des chiffres ou symboles) qu’il reçoit en entrée les unes après les autres. Il possède un seul espace de stockage infini, une pile. Au contraire du seau de l’exercice, les éléments de la pile ont un ordre précis, et seul le dernier élément ajouté à la pile peut en être ressorti (“last in, first out”, LIFO). Un automate à pile peut être utilisé pour reconnaître un \emph{langage non contextuel}.
+
+En informatique, un langage est constitué d’un ensemble de chaînes de symboles qui ont été assemblé d’après certaines règles. Les langages non contextuels appartiennent à une classe de langages simples. Par exemple, toutes les expressions entre parenthèses bien formulées sont un langage non contextuel. Une expression entre parenthèses bien formulée commence toujours par une parenthèse ouverte qui est ensuite refermée. Par exemple, les expressions ((())) et (()()) sont bien formulées. Par contre, les expressions (((() et ())( ne le sont pas. On peut se représenter les boulons et les écrous dans l’exercice comme des parenthèses ouvrantes et fermantes; Ben traite alors une séquence de pièces sans erreurs seulement lorsqu’elle représente une expression entre parenthèses bien formulée. La vérification des parenthèses est une tâche importante pour un compilateur qui traduit des textes de programmes en programmes exécutables. En effet, dans la plupart des langages de programmation, les textes de programmes contiennent des appels de fonctions emboîtés et des expressions arithmétiques entre parenthèses.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Informatique théorique: \href{https://fr.wikipedia.org/wiki/Informatique_th\%C3\%A9orique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Informatique\_théorique}}
+  \item Automate à pile: \href{https://fr.wikipedia.org/wiki/Automate_\%C3\%A0_pile}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Automate\_à\_pile}}
+  \item Langage non contextuel: \href{https://fr.wikipedia.org/wiki/Langage_alg\%C3\%A9brique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_algébrique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVasigaT{} % \ifdefined\AuthorVasigaT \BrochureFlag{ca}{} Troy Vasiga\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorBergsveinsdottirL{} % \ifdefined\AuthorBergsveinsdottirL \BrochureFlag{is}{} Linda Björk Bergsveinsdóttir\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

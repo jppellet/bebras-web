@@ -1,0 +1,106 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Wasser -- Land}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Edu hat ein neues Spiel. Es besteht aus Kärtchen mit Wasser- und Landflächen.
+Mit den Kärtchen kann Edu Landschaften legen. Die Kärtchen müssen \emph{zusammenpassen}: Land an Land. Wasser an Wasser.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu legt zwei Kärtchen und lässt zwei Lücken.
+
+
+
+% question (as \emph{})
+{\em
+Welche Kärtchen passen in die Lücken?
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Das ist die richtige Antwort:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Die beiden Kärtchen passen in die Lücken: Überall liegt Wasser an Wasser und Land an Land. Von den sechs möglichen Kärtchen passen nur diese beiden in die Lücken.
+
+Nur wenn man die Kärtchen drehen dürfte, würden noch weitere Kärtchen in die Lücken passen.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Schauen wir uns Edus Kärtchen genauer an. Alle Kärtchen können in vier Bereiche geteilt werden. Die äusseren Ränder dieser Bereiche zeigen entweder Land oder Wasser.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Es gibt also nur zwei verschiedene Bereicharten, denn die äusseren Ränder zeigen entweder Wasser (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) oder Land (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Zwei Kärtchen passen nur zusammen, wenn ihre benachbarten Bereicharten gleich sind. Daher können wir für drei Bereiche der Lücken die erforderliche Art eintragen. Der vierte Bereich kann Wasser oder Land sein, deswegen tragen wir \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}} ein.
+
+Auf diese Weise erstellen wir für jede Lücke ein Muster. Die Kärtchen, die die Lücken füllen sollen, müssen in diese Muster passen: Bei \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} muss der Bereich des Kärtchens auch \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} beziehungsweise \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} haben. Bei \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}} kann der Bereich \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} oder \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} haben.
+
+Wir haben eine Eigenschaft der Kärtchen entdeckt. Diese Entdeckung haben wir genutzt, um sie durch eine Anordnung der Zeichen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} zu ersetzen. Durch diesen Schritt haben wir, die in den Bildern enthaltenen Informationen, erheblich reduziert. Wir konzentrieren uns auf die Information, die zur Lösung dieser Aufgabe erforderlich sind. Informatiker würden sich auf die Anordnung der Zeichen in den Bildern beziehen. Durch die Reduktion der Bilder auf die Bereicharten \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} entsteht ein Modell für die fehlenden Kärtchen. \emph{Modellierung} bedeutet \emph{Abstraktion} (oder Vereinfachung), und Abstraktion reduziert die Information. Computer müssen mit Modellen von der Realität arbeiten. Bei der Erstellung solcher Modelle muss darauf geachtet werden, dass wichtige Eigenschaften der Realität nicht verloren gehen.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Modellierung, Codierung: \href{https://de.wikipedia.org/wiki/Datenmodellierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Datenmodellierung}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorCerarS{} % \ifdefined\AuthorCerarS \BrochureFlag{si}{} Špela Cerar\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorCollierG{} % \ifdefined\AuthorCollierG \BrochureFlag{de}{} Gunnar Collier\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Virus}
+\renewcommand{\taskCountry}{NZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Deux nœuds d’un réseau informatique ont été infectés par des virus informatique: l’un avec le virus BlueBug \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusBB.svg}}, l’autre avec le virus RedRaptor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusRR.svg}}. Chaque matin, les deux virus se propagent: chaque virus infecte tous les nœuds qui sont directement reliés aux nœuds qu’il a déjà infectés. Lorsqu’un nœud est infecté par les deux virus, il se désactive au bout de quelques heures à cause de la surcharge \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusdeaktiviert.svg}}. Les virus ne peuvent plus se propager depuis les nœuds désactivés les jours suivants.
+
+Tu vois ci-dessous le réseau informatique avec les nœuds et leurs connexions directes. Les deux nœuds infectés au départ sont indiqués. Après quelques jours, tous les nœuds sont infectés ou désactivés.
+
+
+
+% question (as \emph{})
+{\em
+Quels nœuds sont alors désactivés, infectés par BlueBug \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusBB.svg}} ou infectés par RedRaptor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusRR.svg}}?
+Choisis le bon symbole pour chaque nœud.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2022-NZ-01-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Tous les nœuds sont infectés ou désactivés après cinq jours. Voici la bonne solution:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-solution.svg}\par}
+
+Cinq nœuds sont infectés après un jour. Les deux nœuds infectés au départ sont désactivés parce qu’ils ont été infectés par les deux virus:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation1.svg}\par}
+
+Quatre nœuds supplémentaires sont infectés au bout de deux jours:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation2.svg}\par}
+
+Après trois jours, deux nœuds supplémentaires sont infectés par les deux virus et donc désactivés. Trois nœuds de plus sont infectés par BlueBug et deux par RedRaptor:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation3.svg}\par}
+
+Après quatre jours, un nouveau nœud est désactivé. BlueBug ne peut plus se propager:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation4.svg}\par}
+
+Le dernier nœud est infecté par RedRaptor le cinquième jour.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les virus et autres logiciels malveillants sont une grande menace pour les réseaux informatiques. Ils n’influencent pas uniquement la capacité des ordinateurs touchés, mais ont souvent une \emph{charge utile} qui inflige des dommages supplémentaires. Par exemple, certains virus peuvent lire les données transmises, découvrir des informations sensibles comme des mots de passes et les transmettre à un destinataire. Dans certains cas, les virus peuvent chiffer des données enregistrées sur l’ordinateur touché: si l’utilisateur veut accéder à ses données, il doit d’abord verser de l’argent sur un compte en banque. Parfois, des groupes d’ordinateurs infectés peuvent être contrôlés à distance par des criminels pour attaquer d’autres ordinateurs (\emph{Botnet}).
+
+Habituellement, les créateurs de virus ne cherchent pas à ce que les virus désactivent complètement un ordinateur, car cela empêche la propagation du virus. Cependant, certains virus sont créés spécialement pour le sabotage et la cyberguerre. Ceux-ci peuvent même endommager les ordinateurs infectés durablement.
+
+L’installation des mises à jour de sécurité est importante pour la défense contre les virus. Les logiciels anti-virus peuvent améliorer la sécurité, mais sont déjà inclus dans certains systèmes d’exploitations, ce qui peut les rendre inutiles. Une sauvegarde régulière des données et une attention au comportement du système pour détecter des choses inhabituelles sont cependant indispensables.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Réseau informatique: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9seau_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Réseau\_informatique}}
+  \item Virus: \href{https://fr.wikipedia.org/wiki/Virus_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Virus\_informatique}}
+  \item Charge utile: \href{https://fr.wikipedia.org/wiki/Charge_utile\#Informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Charge\_utile\#Informatique}}
+  \item Botnet: \href{https://fr.wikipedia.org/wiki/Botnet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Botnet}}
+  \item Cyberguerre: \href{https://fr.wikipedia.org/wiki/Cyberguerre}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cyberguerre}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorClarkD{} % \ifdefined\AuthorClarkD \BrochureFlag{nz}{} David Clark\fi
+\def\AuthorPhillippsM{} % \ifdefined\AuthorPhillippsM \BrochureFlag{nz}{} Margot Phillipps\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

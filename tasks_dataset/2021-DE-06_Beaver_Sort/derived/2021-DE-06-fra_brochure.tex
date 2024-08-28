@@ -1,0 +1,111 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Beaver Sort}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Hamid le castor trie les troncs d’arbre dans le lac. Ils doivent aller du plus petit au plus grand de gauche à droite.
+
+\begin{itemize}
+  \item Hamid commence avec les deux troncs tout à gauche.
+  \item Il compare toujours deux troncs voisins:
+
+\begin{itemize}
+  \item Si le tronc de droite est plus long que le tronc de gauche, il nage d’un tronc vers la droite.
+  \item Par contre, si le tronc de gauche est le plus long, il échange les deux troncs. Ensuite, il nage d’un tronc vers la droite s’il se trouve à sa position de départ et d’un tronc vers la gauche sinon.
+\end{itemize}
+
+
+  \item Hamid continue comme cela jusqu’à ce qu’il se trouve à la droite des troncs. Les troncs sont alors triés correctement.
+\end{itemize}
+
+L’exemple montre comment Hamid trie $4$ troncs. Pour cela, il fait $9$ comparaisons en tout.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-DE-06-taskbody-allsteps-fra.svg}\par}
+
+Le nombre de comparaisons dépend de la configuation de départ des troncs. Pour trier $4$ troncs, Hamid doit faire au moins $3$ comparaisons (dans le cas où les troncs sont déjà triés correctement) et au maximum $9$ comparaisons (dans le cas où les troncs sont dans l’ordre inverse). Hamid doit donc prévoir de faire entre $3$ et $9$ comparaisons pour trier $4$ troncs.
+
+
+
+% question (as \emph{})
+{\em
+Hamid doit maintenant trier 40 troncs de longueurs différentes. Combien de comparaisons doit-il faire dans le meilleur et le pire des cas?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & de $0$ à $20$ comparaisons \\ 
+  B) & de $3$ à $40$ comparaisons \\ 
+  C) & de $39$ à $120$ comparaisons \\ 
+  D) & de $39$ à $1521$ comparaisons
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Dans le meilleur des cas, celui où tous les troncs sont déjà triés et où Hamid nage toujours vers la droite, Hamid ne doit faire que $39$ comparaisons pour trier $40$ troncs. Les réponses A) et B) ne peuvent donc pas être justes.
+
+Dans le pire des cas, les troncs sont exactement dans l’ordre inverse. C’est plus difficile de déterminer le nombre de comparaisons nécessaires ici. On constate d’abord que les troncs à la gauche de Hamid sont toujours bien triés. Si Hamid arrive à un tronc qui est plus petit que les ${k}$ troncs à sa gauche, il l’échange jusqu’à arriver tout à gauche, faisant ainsi déjà ${k}$ comparaisons. Il revient et nage encore d’un tronc vers la droite, faisant ${k-1}$ comparaisons mais aucun échange. Il fait donc ${k + (k-1) = 2k - 1}$ comparaisons. Ceci a lieu pour chacune des ${n-1}$ positions entre deux troncs et Hamid a en moyenne ${\frac{n}{2}}$ troncs à sa gauche. Hamid fait donc ${(n-1)\cdot(2\cdot\frac{n}{2}-1)=(n-1)^2}$, dans notre cas ${39^2= 1521}$, comparaisons. Cela signifie que la réponse C) avec $120$ comparaisons au maximum est fausse, et la bonne réponse est D).
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le tri d’élements est une tâche classique en informatique. Une méthode de tri efficace peut permettre de gagner beaucoup de temps.
+
+L’algorithme de tri présenté ici s’appelle \emph{Gnome Sort} et a été introduit par l’informaticien iranien Hamid Sarbazi-Azad sous le nom de \emph{Stupid Sort}. Plus tard, l’informaticien néerlandais Dick Grune a nommé cette méthode de tri Gnome Sort en imaginant qu’un nain de jardin (\emph{garden gnome} en anglais) pouvait trier des pots de fleurs de cette façon.
+
+L’analyse de la durée d’exécution d’un algorithme (c’est à dire du temps dont l’algorithme peut avoir besoin réaliser sa tâche) est très importante en informatique. On veut souvent savoir quelle est la durée dans le meilleur des cas, en moyenne et dans le pire des cas, et cela en fonction de la taille ${n}$ de l’entrée (dans notre cas du nombre de troncs). Pour faciliter la comparaison de différentes durées d’exécution, on se contente la plupart du temps de donner un ordre de grandeur. La durée du Gnome Sort dans le meilleur des cas en fonction de ${n}$ est linéaire — on écrit cela ${\mathcal{O}(n)}$ —, la durée moyenne est de degré deux — on écrit cela ${\mathcal{O}(n^2)}$, et la durée dans le pire des cas est également de degré $2$ — donc également ${\mathcal{O}(n^2)}$.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Gnome Sort: \href{https://de.wikipedia.org/wiki/Gnomesort}{\BrochureUrlText{https://de.wikipedia.org/wiki/Gnomesort}}
+  \item Algorithme de tri: \href{https://fr.wikipedia.org/wiki/Algorithme_de_tri}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_tri}}
+  \item Théorie de la complexité: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_de_la_complexit\%C3\%A9_(informatique_th\%C3\%A9orique)\#Relation_au_co\%C3\%BBt_\%C3\%A9nerg\%C3\%A9tique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_de\_la\_complexité\_(informatique\_théorique)\#Relation\_au\_coût\_énergétique}}
+  \item O-Notation, Landau-Symbole: \href{https://fr.wikipedia.org/wiki/Comparaison_asymptotique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Comparaison\_asymptotique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKiesmullerU{} % \ifdefined\AuthorKiesmullerU \BrochureFlag{de}{} Ulrich Kiesmüller\fi
+\def\AuthorChukhnovA{} % \ifdefined\AuthorChukhnovA \BrochureFlag{ru}{} Anton Chukhnov\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{nl}{} Justina Dauksaite\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

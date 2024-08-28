@@ -1,0 +1,129 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Les textes tendres de Tabea}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Tabea a beaucoup de succès avec ses textes de chanson de la marque ttt: les textes tendres de Tabea. Ceux-ci peuvent être produits avec le diagramme ttt1 suivant:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody1-fra-compatible.svg}\par}
+
+Pour produire une chanson, Tabea commence par le “début” \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody2-fra-compatible.svg}} et suit l’une des flèches partant de ce point. Lorsqu’il y a plusieurs possibilités, elle choisit. Elle chante les syllabes correspondantes le long de chemin dans l’ordre donné. Lorsqu’elle atteint la “fin” \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody3-fra-compatible.svg}}, sa chanson peut se terminer ou continuer.
+
+\begin{wrapfigure}{R}{129.9px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody4.svg}}
+\end{wrapfigure}
+
+Voici des exemples de chansons possibles:
+
+“Tra-di-du La-La-La Tra-di-du La-La-La \\
+Doum-da-da Doum-da-da Poum Doum-da-da Doum-da-da”
+
+Ou
+
+“Doum-da-da Doum-da-da Poum Tra-di-du La-La-La \\
+Doum-da-da Doum-da-da Poum Tra-di-du La-La-La \\
+Doum-da-da Doum-da-da Poum Doum-da-da Doum-da-da”
+
+En novembre $2020$, Tabea commence la production avec les nouveaux textes ttt2:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody5-fra-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Lequel des diagrammes suivants permet de produire exactement les mêmes textes que ttt2?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+{\centering%
+\begin{tabular}{ @{} c c c c @{} }
+  A) & B) & C) & D) \\ 
+  \makecell[c]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_answerA-fra-compatible.svg}} & \makecell[c]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_answerB-fra-compatible.svg}} & \makecell[c]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_answerC-fra-compatible.svg}} & \makecell[c]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_answerD-fra-compatible.svg}}
+\end{tabular}
+
+\par}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est A), le diagramme tttA:
+
+{\centering%
+\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_answerA-fra-compatible.svg}\par}
+
+Lorsque l’on produit une chanson avec ttt2, elle commence dans tous les cas avec “youpie” qui est suivi d’au moins un “doupie”. On peut ensuite continuer soit avec “dou”, soit avec un nombre pair de “doupie” suivi de “dou”. La chanson peut ensuite se terminer ou continuer avec un “youhou” avant de reprendre depuis le début.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-01c_taskbody5-fra-compatible.svg}\par}
+
+Le diagramme tttA permet de produire exactement la même chose: depuis le “début”, la chanson peut aller directement à \textbf{b} et ainsi commencer avec “youpie doupie” ou y aller en passant par \textbf{c} avec “youpie doupie doupie doupie”. Ensuite viennent, avec un détour par \textbf{a}, un nombre pair de “doupie” avant d’arriver à la fin de la chanson avec “dou”. Comme avec ttt2, on peut alors continuer la chanson avec un “youhou”.
+
+{\centering%
+\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-CH-01c_explanation1-fra-compatible.svg}\par}
+
+Aussi bien ttt2 que tttA peuvent générer un nombre impair de “doupie” l’un après l’autre, après le “youpie” du début. Par contre, tttB ne peut générer qu’un ou trois “doupie” qui se suivent, et tttC seulement un ou deux. Quant à tttD, il peut certes générer un nombre impair de “doupie” l’un après l’autre, mais va toujours insérer, avant le “dou” final, un “youpie” de plus, ce que ttt2 ne fait pas.
+
+La bonne réponse est donc tttA.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Une tâche importante de l’informatique est de trouver des structures dans des données, par exemple dans le langage comme celui du texte d’une chanson. Les diagrammes représentent ce que l’on appelle des automates finis, qui utilisent des règles très strictes pour générer et reconnaître certains langages. C’est primordial dans le développement des langages de programmation. Dans notre exemple, l’automate fini décrit l’ensemble des chansons que celui-ci peut générer.
+
+La reconnaissance de motifs est également importante dans beaucoup d’autres domaines, comme par exemple le traitement du langage naturel.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Automate fini: \href{https://fr.wikipedia.org/wiki/Automate_fini_d\%C3\%A9terministe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Automate\_fini\_déterministe}}
+  \item Langage formel: \href{https://fr.wikipedia.org/wiki/Langage_formel}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_formel}}
+  \item \href{https://sites.google.com/isabc.ca/computationalthinking/pattern-recognition}{\BrochureUrlText{https://sites.google.com/isabc.ca/computationalthinking/pattern-recognition}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKommD{} % \ifdefined\AuthorKommD \BrochureFlag{ch}{} Dennis Komm\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorKohS{} % \ifdefined\AuthorKohS \BrochureFlag{sg}{} Sophie Koh\fi
+\def\AuthorTsaiM{} % \ifdefined\AuthorTsaiM \BrochureFlag{tw}{} Meng-ting Tsai\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

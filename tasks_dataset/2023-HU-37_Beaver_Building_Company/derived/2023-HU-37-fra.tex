@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-HU-37 Chantier castor}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-HU-37 Chantier castor}
+
+
+\subsection*{Body}
+
+Une hutte de castor est composée de quatre parts qui sont toutes en partie sous l’eau et en partie au-dessus de l’eau.
+
+Lors de la construction d’une hutte, chaque ouvrier travaille soit uniquement sous l’eau \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}}, soit uniquement au-dessus de l’eau \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}}. Chaque part est construite simultanément sous et au-dessus de l’eau. Le tableau montre de combien de temps et d’ouvriers sous et au-dessus de l’eau la société de construction “Castor SA” a besoin pour chaque part de hutte.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Part}} & {\setstretch{1.0}\thead[lb]{Salon \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-living.svg}}}} & {\setstretch{1.0}\thead[lb]{Chambre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}}}} & {\setstretch{1.0}\thead[lb]{Toit \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}}}} & {\setstretch{1.0}\thead[lb]{Barrage \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-dam.svg}}}} \\ 
+\midrule
+  Durée & $4$ jours & $3$ jours & $5$ jours & $8$ jours \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}} & 3 & 5 & 2 & 4 \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}} & 2 & 1 & 2 & 2
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Le toit \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}} ne peut être construit que lorsque la chambre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}} est finie. L’ordre est sans importance pour toutes les autres parts.
+
+Seuls $7$ ouvriers sous l’eau et $5$ ouvriers au-dessus de l’eau sont disponibles pour la construction d’une nouvelle hutte. Ils peuvent également contruire plusieurs parts en même temps. Voici un plan de travail permettant de construire la hutte en $20$ jours:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-fra/2023-HU-37-question-compatible-symbols-fra.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Développe un plan de travail permettant de finir la hutte en le moins de jours possible. Combien de jours faut-il?
+
+}
+\subsection*{Interactivity instruction - for the online challenge}
+
+Entre un nombre entre $8$ et $20$. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est $12$ jours.
+
+Voici un plan permettant de construire la hutte en $12$ jours:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-fra/2023-HU-37-solution-compatible-symbols-fra.svg}\par}
+
+Un tel plan de durée minimale peut être développé en deux étapes:
+
+\begin{enumerate}
+  \item D’abord, la chambre doit être préparée avant le toit. Comme la chambre a besoin de cinq ouvriers sous l’eau, le barrage de $3$ et le salon de $4$, la chambre ne peut pas être construite en même temps que le salon ou le barrage avec $7$ ouvriers sous l’eau en tout. La chambre doit donc être construite en premier et les autres parts ensuite.
+  \item Le barrage et le salon peuvent être construits en même temps après la chambre, ou l’une des deux parts en même que le toit. Il n’est pas possible de construire les trois parts en même temps, parce qu’il faudrait $3$ + $4$ + $2$ = $9$ ouvriers sous l’eau et qu’il n’y en a que sept à disposition. La durée de construction la plus courte peut être atteinte en construisant les deux parties construites le plus rapidement (le toit et le salon) l’une après l’autre et le barrage en même temps.
+\end{enumerate}
+
+
+\subsection*{This is Informatics}
+
+C’est une tâche difficile de planifier le déroulement rapide d’un projet en respectant certaines conditions. Les différentes tâches faisant partie d’un projet dépendent souvent les unes des autres; par exemple, certaines tâches ne pourront être effectuées qu’après la fin d’autre tâches – comme ici pour la construction de la chambre et du toit. De plus, chaque tâche nécessite certaines ressources, comme des travailleurs, du temps et des machines. Il est plus facile de réaliser un plan de projet si ce plan peut bien être représenté. Les diagrammes montrés dans cet exercice du Castor sont une sorte de diagramme de Gantt, diagrammes qui ont été développés par Henry Gantt (1861$-1919$) entre $1910$ et $1915$; des représentations similaires ont été utilisées indépendemment de Gantt à la même période en Allemagne. Ces diagrammes montrent l’utilisation des ressources (ici, des ouvriers) au cours du temps.
+
+On peut développer le plan optimal pour la hutte castor de tête en essayant toutes les possibilités. Cela durerait trop longtemps et serait trop complexe pour de plus grands projets. Dans ces cas-là, des programmes informatiques sont utiles, et le développement d’horaires et de plans (\emph{scheduling} en anglais) est un thème important en informatique. Comme souvent pour les problèmes complexes, des méthodes permettant de développer de bons horaires, mais pas forcément le meilleur horaire possible, ont été développées. Le \emph{scheduling} est aussi utilisé dans la gestion des ordinateurs eux-même et est appelé \emph{ordonnancement}, certaines tâches étant en compétition pour certaines ressources (mémoire, capacité de calcul, accès à des appareils externes comme des imprimantes, réseaux ou disques durs).
+
+
+\subsection*{This is Computational Thinking}
+
+In order to solve this task, one has to optimize the plan while at the same time keeping within the two types of constraints: the dependency of sleeping cave \ensuremath{\rightarrow} roof, and the maximum use of the two resources underwater workers, and surface workers. While the interactivity helps the students by making impossible plans impossible to build, the strive of the students to improve their schedule will keep them trying. By doing so they build methods on which optimization strategies to follow.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Ordonnancement: \href{https://fr.wikipedia.org/wiki/Ordonnancement_de_travaux_informatiques}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ordonnancement\_de\_travaux\_informatiques}}
+  \item Diagramme de Gantt: \href{https://fr.wikipedia.org/wiki/Diagramme_de_Gantt}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diagramme\_de\_Gantt}}
+  \item Logiciel de gestion de projets: \href{https://fr.wikipedia.org/wiki/Logiciel_de_gestion_de_projets}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Logiciel\_de\_gestion\_de\_projets}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Optimization
+  \item Working within Restraints
+\end{itemize}
+
+
+\end{document}

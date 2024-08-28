@@ -1,0 +1,108 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Graines de carottes}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le robot lapin peut exécuter les instructions suivantes:
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_L.svg}} Saute vers la \textbf{gauche} sur la prochaine colline
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_R.svg}} Saute vers la \textbf{droite} sur la prochaine colline
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_seed.svg}} \textbf{Plante} une graine de carotte sur la colline sur laquelle tu es
+
+Le robot lapin a suivi la suite d’instructions suivante:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_prog.svg}\par}
+
+Il a passé sur quatre collines. Nous ne savons pas sur quelle colline il a commencé.
+
+
+
+% question (as \emph{})
+{\em
+Sur quelles collines le robot a-t-il planté des graines de carottes?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02_mounds.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse: \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02-solution-compatible.svg}}
+
+Pour mieux pouvoir expliquer la bonne réponse, nous donnons des lettres aux collines (voir ci-dessus) et des numéros aux instructions:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_explanation-compatible.svg}\par}
+
+Nous commençons par déterminer le point de départ du robot: avant de sauter trois fois de suite vers la gauche (instructions $3$, $5$ et $6$), il doit se trouver sur la colline D. Avant cela, il saute une fois vers la droite (instruction $1$). Le robot a donc commencé sur la colline C. Les graines de carottes sont donc plantées sur les collines D, puis C et finalement A, d’après les instructions $2$, $4$ et $7$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les vrais robots ont des ordinateurs intégrés, et ils sont programmés de manière similaire au robot lapin. Un programme informatique est constitué de plusieurs \emph{instructions} individuelles.
+
+Dans notre cas, la suite d’instructions pour l’ordinateur du robot est donnée sous forme d’images. Le résultat (\emph{sortie}, \emph{output} en anglais) du programme ne dépend pas que de la position de départ (\emph{entrée}, \emph{input} en anglais), mais aussi des instructions et de l’ordre dans lequel elles sont données.
+
+Cet exercice du Castor illustre l’utilisation de robot dans l’agriculture. Les robots ne peuvent pas seulement planter, mais aussi arroser, polliniser et répandre des produits de protection de manière ciblée.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item Smart Farming: \href{https://www.agroscope.admin.ch/agroscope/fr/home/themes/economie-technique/smart-farming.html}{\BrochureUrlText{https://www.agroscope.admin.ch/agroscope/fr/home/themes/economie-technique/smart-farming.html}}
+  \item Les robots et l’agriculture: \href{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/fr}{\BrochureUrlText{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/fr}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorStupurieneG{} % \ifdefined\AuthorStupurieneG \BrochureFlag{lt}{} Gabrielė Stupurienė\fi
+\def\AuthorAlmajhadE{} % \ifdefined\AuthorAlmajhadE \BrochureFlag{sa}{} Esraa Almajhad\fi
+\def\AuthorGuraS{} % \ifdefined\AuthorGuraS \BrochureFlag{sk}{} Štefan Gura\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

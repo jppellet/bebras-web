@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Casse-tête d'anniversaire}
+\renewcommand{\taskCountry}{IS}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Pour son anniversaire, Bastien reçoit une boîte avec $15$ portes. Il y a un autre cadeau derrière la porte du milieu et des plots de différentes formes derrière les autres portes. Chaque porte est associée à un trou qui se trouve à sa droite. Bastien peut ouvrir une porte en mettant un plot de la même forme dans le trou — comme une clé dans une serrure.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-taskbody02c.svg}\par}
+
+Au début, Bastien a ce plot rond: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-Is-03-taskbody03.svg}}
+
+Il veut ouvrir au maximum cinq portes pour obtenir le cadeau.
+
+
+
+% question (as \emph{})
+{\em
+Quelle porte Bastien doit-il ouvrir en premier?
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-taskbody.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Bastien doit commencer par ouvrir la porte encadrée en bleu:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-solution01.svg}\par}
+
+Dans l’illustration ci-dessous, chaque porte correspond a une lettre et les flèches montrent comment Bastien obtient le cadeau en n’ouvrant que cinq portes au maximum.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-solution-compatible.svg}\par}
+
+On peut également représenter l’ordre dans lequel Bastien ouvre les cinq portes de la façon suivante:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-explanation01-compatible.svg}\par}
+
+Il y a aussi d’autres chemins menant au cadeau, par exemple celui-ci:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-explanation02-compatible.svg}\par}
+
+Mais ces chemins sont tous trop longs: il faut ouvrir plus de cinq portes. C’est un gros travail que d’essayer toutes les possibilités.
+
+Dans notre cas, on trouve le chemin le plus court et donc la bonne solution en faisant ce que l’on appelle une \emph{recherche inversée}: on commence par la porte derrière laquelle se trouve le cadeau et on regarde ensuite de quel plot on a besoin.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Avec un peu plus de temps et de travail, on peut également représenter la situation de cet exercice sous forme de \emph{graphe}:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-itsinformatics-compatible.svg}\par}
+
+Un graphe est composé de \emph{nœuds} (cercles) et \emph{arêtes} (lignes) entre les nœuds. Ici, nous avons un nœud pour chaque forme et pour le cadeau. Les arêtes sont dans notre cas des flèches (aussi appelées arêtes \emph{orientées}) qui correspondent aux portes. Chaque arête mêne de la forme qui ouvre une porte à la forme se trouvant derrière la porte.
+
+En informatique, on travaille volontiers avec des graphes. D’un côté, ils permettent souvent de représenter des relations abstraites de manière claire. D’un autre côté, il existe des algorithmes pour répondre à des questions liées aux graphes de manière efficace. Le travail nécessaire à l’élaboration du graphe en vaut vite la peine pour des problèmes compliqués.
+
+Dans cet exercice, nous cherchons un chemin de longueur $5$ au maximum entre le plot reçu \raisebox{\dimexpr -0.5ex +0.3ex \relax}[0pt][0pt]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-taskbody03.svg}} et le cadeau \raisebox{\dimexpr -0.5ex +0.3ex \relax}{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-IS-03-gift.svg}}. Un bon algorithme pour cela est le \emph{parcours en largeur}. Il fonctionne aussi bien pour les graphes avec des arêtes orientées comme dans l’exercice que pour les graphes non orientés.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe orienté: \href{https://fr.wikipedia.org/wiki/Graphe_orient\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_orienté}}
+  \item Algorithme de parcours en largeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_largeur}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBergsveinsdottirL{} % \ifdefined\AuthorBergsveinsdottirL \BrochureFlag{is}{} Linda Björk Bergsveinsdóttir\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

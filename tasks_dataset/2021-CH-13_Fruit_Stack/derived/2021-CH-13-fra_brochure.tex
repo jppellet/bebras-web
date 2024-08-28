@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Pile de fruits}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Papa, Maman, Dorie et Ron Castor préparent quatre boîtes avec un fruit différent dans chacune: pomme, banane, orange et pastèque. Les boîtes sont empilées dans le réfrigérateur. Le matin, les castors sont encore très fatigués et prennent simplement la boîte du haut de la pile en quittant le gîte sans la regarder plus en détail.
+
+On ne sait pas exactement dans quel ordre les castors quittent le gîte, mais Maman part dans tous les cas avant Dorie et Papa sort toujours en dernier.
+
+Les membres de la famille aiment des fruits différents. Le tableau suivant indique ce que chaque membre de la famille aime:
+
+{\centering%
+\begin{tabular}{ @{} c c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{}} & {\setstretch{1.0}\thead[cb]{\includesvg[width=18px]{\taskGraphicsFolder/graphics/2021-CH-13-apple.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[width=32.5px]{\taskGraphicsFolder/graphics/2021-CH-13-banana.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2021-CH-13-orange.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2021-CH-13-melon.svg}}} \\ 
+\midrule
+  \textbf{Papa} & — & — & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & — \\ 
+  \textbf{Maman} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & — & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} \\ 
+  \textbf{Dorie} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & — \\ 
+  \textbf{Ron} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}} & — & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-CH-13-check.svg}}
+\end{tabular}
+
+\par}
+
+
+
+% question (as \emph{})
+{\em
+Mets les fruits dans les boîtes de manière à ce que chaque castor prenne une boîte contenant un fruit qu’il aime.
+
+{\centering%
+\includesvg[scale=0.9]{\taskGraphicsFolder/graphics/2021-CH-13-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Il n’y a qu’une possibilité de répartir les fruits de manière à garantir que chacun ait quelque chose qu’il aime:
+
+{\centering%
+\includesvg[scale=0.9]{\taskGraphicsFolder/graphics/2021-CH-13-solution.svg}\par}
+
+Papa n’aime que les oranges et part en dernier. L’orange va donc dans la boîte la plus basse.
+Ron part en premier, deuxième ou troisième. Comme Maman part avant Dorie, on connait l’ordre de départ exact des castor si l’on sait quand Ron quitte le gîte. Les trois ordres de départ suivants sont possibles:
+
+{\centering%
+\begin{tabular}{ @{} c c c c @{} }
+  $1$. & Maman & Maman & Ron \\ 
+  $2$. & Dorie & Ron & Maman \\ 
+  $3$. & Ron & Dorie & Dorie \\ 
+  $4$. & Papa & Papa & Papa
+\end{tabular}
+
+\par}
+
+Maman, Dorie et Ron peuvent chacun partir en deuxième. Il faut donc mettre un fruit que les trois aiment dans la deuxième boîte, et ce n’est le cas que de la pomme. Il ne reste ainsi que la banane et la pastèque pour la boîte du haut. Comme maman n’aime pas les bananes, il faut y mettre la pastèque. La banane va ainsi dans la troisième boîte.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le bon ordre d’une séquence est important dans beaucoup de domaines de l’informatique: beaucoup de calculs doivent utiliser des résultats intermédiaires pour arriver au résultat final. Si différentes étapes de calcul sont effectuées sur différents ordinateurs sans planning consciencieux, des \emph{interblocages} (ou \emph{àtreintes fatales}, \emph{deadlock} en anglais) peuvent avoir lieu. Ce sont des situations dans lesquelles plusieurs ordinateurs s’attendent mutuellement et qui empêchent le programme de se terminer.
+Un mauvais ordre ne mène cependant souvent qu’à des erreurs (comme il peut amener la mauvaise humeurs chez les castors qui découvrent leur fruit). Par exemple, si l’on doit calculer à l’aide de la formule ${Z = (A+B) \times (A-B)}$, on peut partager cela en plusieurs étapes d’un programme comme cela:
+
+\begin{adjustwidth}{1.5em}{0em}
+Entrée A  \\
+Entrée B  \\
+Calcule ${X = A + B}$  \\
+Calcule ${Y = A - B}$  \\
+Calcule ${Z = X \times Y}$
+\end{adjustwidth}
+
+Si l’on essaie maintenant d’effectuer par exemple l’étape ${Z = X \times Y}$ avant d’avoir calculé ${X}$, cela cause une erreur et l’interruption du programme. Alternativement, une valeur par défaut va être utilisée pour ${X}$, ce qui mène à un faux résultat dans la plupart des cas. L’ordre dans lequel les commandes sont effectuées est donc très important en informatique.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Interblocage: \href{https://fr.wikipedia.org/wiki/Interblocage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Interblocage}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorLoyoA{} % \ifdefined\AuthorLoyoA \BrochureFlag{ch}{} Angélica Herrera Loyo\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

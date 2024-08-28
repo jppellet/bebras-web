@@ -1,0 +1,131 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Broderie}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lana a une machine à broder programmable. La machine peut broder deux sortes de points: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus_embroidered.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}}. Pour générer en plus le point composé \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-star_embroidered.svg}}, les deux points \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus_embroidered.svg}} sont nécessaires. Le tissu doit être retiré d’un point en arrière entre les deux points.
+
+Lana peut programmer la machine à l’aide des trois touches suivantes:
+
+\begin{tabularx}{\columnwidth}{ @{} l L @{} }
+  \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus.svg}} & La machine brode \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus_embroidered.svg}}. \\ 
+  \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x.svg}} & La machine brode \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}}. \\ 
+  \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-arrow.svg}} & Le tissu est retiré d’un point en arrière.
+\end{tabularx}
+
+Un programme est créé grâce aux touches et est exécuté plusieurs fois par la machine à broder.
+
+Par exemple, la machine à broder brode…
+
+\begin{itemize}
+  \item … ce motif: \raisebox{-0.5ex}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-taskbody.svg}}
+  \item … en exécutant ce programme: \raisebox{-0.5ex}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-taskbody_programm.svg}}.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Lequel des programmes suivants Lana a-t-elle utilisé pour broder ce motif?
+
+{\centering%
+\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) \raisebox{\dimexpr -0.5ex -1.3ex \relax}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerA.svg}}
+
+B) \raisebox{\dimexpr -0.5ex -1.3ex \relax}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerB.svg}}
+
+C) \raisebox{\dimexpr -0.5ex -1.3ex \relax}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerC.svg}}
+
+D) \raisebox{\dimexpr -0.5ex -1.3ex \relax}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerD.svg}}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) \raisebox{-0.5ex}{\includesvg[width=119.1px]{\taskGraphicsFolder/graphics/2022-SK-02-answerC.svg}}.
+
+Pour trouver le programme de Lana, nous commençons par chercher la partie du motif qui se répète: \raisebox{-0.5ex}{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-explanation1.svg}}. Les deux premiers points sont des \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}}. Pour cela, Lana utilise la touche \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-02-x.svg}}; il doit donc y avoir deux \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-02-x.svg}} au début de son programme. Comme le programme D commence par un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-02-plus.svg}}, il est faux.
+
+Le prochain point du motif est une \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-star_embroidered.svg}}. Pour le broder, la machine doit broder un point \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus_embroidered.svg}} et un point \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}} l’un sur l’autre; pour cela, le tissu doit être retiré d’un point entre deux. L’ordre dans lequel les points \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-plus_embroidered.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}} sont brodés est égal. On peut donc utiliser l’un des deux programmes \raisebox{-0.5ex}{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2022-SK-02-explanation_starversion1.svg}} ou \raisebox{-0.5ex}{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2022-SK-02-explanation_starversion2.svg}}.
+
+Les quatre programmes génèrent les motifs suivants:
+
+\begin{tabular}{ @{} c l l @{} }
+  {\setstretch{1.0}\thead[cb]{}} & {\setstretch{1.0}\thead[lb]{programme}} & {\setstretch{1.0}\thead[lb]{motif brodé}} \\ 
+\midrule
+  \textbf{A} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerA.svg}} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-explanationA.svg}} \\ 
+  \textbf{B} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerB.svg}} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-explanationB.svg}} \\ 
+  \textbf{C} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerC.svg}} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-explanation1.svg}} \\ 
+  \textbf{D} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-answerD.svg}} & \makecell[l]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-explanationD.svg}}
+\end{tabular}
+
+Les points des programmes B et D ne sont pas dans le bon ordre. Les motifs des programmes A et C sont les mêmes jusqu’au cinquième point, mais ensuite, le programme A ajoute deux \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}} après la deuxième étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-star_embroidered.svg}}. Lorsque l’on répète le programme A, on obtient donc quatre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-x_embroidered.svg}} au lieu de deux entre la deuxième étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.07]{\taskGraphicsFolder/graphics/2022-SK-02-star_embroidered.svg}} et la suivante.
+
+Le programme C génère donc le bon motif.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, un motif répétitif est généré grâce à une série d’instructions. En informatique, les problèmes compliqués sont aussi souvent divisés en problèmes plus petits qui sont plus facile à comprendre, à résoudre et à programmer. Une compétence importante pour cela est de savoir reconnaître ces séries de motifs répétés pour pouvoir réutiliser une solution. Ceci peut se faire en utilisant des \emph{boucles}, par exemple.
+
+Le programme utilisé par la machine à broder est une liste d’instructions écrite dans un \emph{langage de programmation}. Une machine à broder programmable n’est en fait rien d’autre qu’un robot ou un ordinateur qui suit des instructions. À l’image d’une machine à broder qui brode les points, un ordinateur exécute exactement les instructions d’un programme. Le respect d’une suite d’instructions est un concept important en informatique. L’ordre des instructions est également important: lorsque nous changeons l’ordre des instructions, cela change en général aussi l’effet du programme. Dans notre cas, cela veut dire qu’un changement dans l’ordre des instructions cause un changement dans le motif brodé (sauf si nous brodons une étoile).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item boucle: \href{https://fr.wikipedia.org/wiki/Structure_de_contr\%C3\%B4le\#Boucles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_contrôle\#Boucles}}
+  \item Commande: \href{https://fr.wikipedia.org/wiki/Commande_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Commande\_informatique}}
+  \item Langage de programmation: \href{https://fr.wikipedia.org/wiki/Langage_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_de\_programmation}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Broderie: \href{https://fr.wikipedia.org/wiki/Broderie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Broderie}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBezakovaD{} % \ifdefined\AuthorBezakovaD \BrochureFlag{sk}{} Daniela Bezáková\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorMukundM{} % \ifdefined\AuthorMukundM \BrochureFlag{in}{} Madhavan Mukund\fi
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorLiemI{} % \ifdefined\AuthorLiemI \BrochureFlag{id}{} Inggriani Liem\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

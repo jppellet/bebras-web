@@ -1,0 +1,170 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-KR-06 Championnat Castor}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-KR-06 Championnat Castor}
+
+
+\subsection*{Body}
+
+Huit castors participent au championnat Castor. Le championnat a trois tours; les castors récoltent des points à chaque tour.
+
+\begin{itemize}
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}: deux équipes de quatre castors chacune sont formées au hasard. Les points de chaque castor de l’équipe sont additionés. L’équipe ayant le plus de points gagne et est qualifée pour le deuxième tour. Les perdants continuent de jouer les uns contre les autres pour les places $5$ à $8$.
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}: ce tour est joué d’après les mêmes règles. Les équipes sont maintenant composées de deux castors et les gagnants sont qualifiés pour la finale. Les perdants jouent l’un contre l’autre pour les places $3$ et $4$.
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}}: la finale! Il n’y a pas d’équipes, mais deux castors qui jouent l’un contre l’autre.
+\end{itemize}
+
+Ada est la gagnante du championnat. La table suivante indique les points gagnés par chaque castor à chaque tour du championnat.
+
+\begin{tabularx}{\columnwidth}{ @{} l C C C C C C C C @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyA.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyB.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyC.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyD.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyE.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyF.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyG.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyH.svg}}} \\ 
+\midrule
+  {\setstretch{1.0}\thead[lb]{Nom}} & {\setstretch{1.0}\thead[cb]{Ada}} & {\setstretch{1.0}\thead[cb]{Brown}} & {\setstretch{1.0}\thead[cb]{Candy}} & {\setstretch{1.0}\thead[cb]{Daisy}} & {\setstretch{1.0}\thead[cb]{Eden}} & {\setstretch{1.0}\thead[cb]{Funny}} & {\setstretch{1.0}\thead[cb]{George}} & {\setstretch{1.0}\thead[cb]{Hugh}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}} & 15 & 16 & 19 & 18 & 17 & 20 & 19 & 19 \\ 
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}} & 20 & 27 & 30 & 24 & 28 & 24 & 30 & 30 \\ 
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}} & 10 & 14 & 11 & 15 & 16 & 13 & 9 & 12
+\end{tabularx}
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-question.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quels sont les trois castors qui étaient dans l’équipe d’Ada au premier tour?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur les maillots des castors et glisse-les sur les maillots marqués d’un point d’interrogation. Tous les autres castors gardent leur maillot. Clique sur un maillot pour le remettre à “son” castor.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Les trois coéquipiers d’Ada au premier tour étaient Daisy \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyD.svg}}, Funny \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyF.svg}} et George \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyG.svg}}.
+
+La finale se joue individuellement. George est le seul Castor qui a moins de points qu’Ada au troisième tour. Ils doivent donc avoir joué dans la même équipe au tour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}.
+
+George et Ada ont obtenu $50$ points en tout au deuxième tour. Cette valeur doit être plus grande que le nombre de point total de l’équipe de deux contre laquelle ils ont joué. Les castors Daisy et Funny sont la seule paire de castors dont le nombre de points additionnés est plus petit que $50$. Ils doivent donc avoir joué dans la même équipe qu’Ada et George au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}.
+
+Comme nous savons qui était dans l’équipe d’Ada au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}, nous connaissons aussi la composition de la deuxième équipe de premier tour.
+
+L’équipe (Ada, Dasy, Funny, George) a obtenu $72$ points au premier tour. L’autre équipe (Brown, Candy, Eden, Hugh) n’avait que $71$ points. L’équipe d’Ada a donc gagné.
+
+Au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}, l’équipe (Ada, George) a obtenu $50$ points, alors que (Daisy, Funny) n’ont atteint que $48$ points. Au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}}, Ada gagne contre George avec $10$ points contre $9$ points pour George. Ada gagne ainsi le championnat.
+
+
+\subsection*{It’s Informatics}
+
+Pour résoudre cet exercice, on peut former toutes les équipes possibles du premier tour de manière systématique. Si l’on connait une des deux équipes, on connait également la seconde. En tout, il y a ${{7 \choose 3} = 35}$ combinaisons possibles. Pour chacune de ces combinaisons, on doit considérer les résulats du tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}, du tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}} et de la finale avant de pouvoir décider qui étaient le coéquipiers d’Ada au premier tour. Cela prend beaucoup de temps.
+
+Pour résoudre un exerice comme celui-ci, les informaticiennes et informaticiens recherchent des méthodes efficaces. Au lieu de procéder vers l’avant, c’est-à-dire en allant du premier vers le troisième tour, on peut déduire la solution en allant en arrière. Ceci peut aller très vite, comme on l’a montré dans l’explication plus haut.
+
+Cette méthode s’appelle \emph{recherche en arrière}. Elle est utilisée dans des situations où une solution satisfaisant certaines contraintes doit être trouvée. Dans certains cas, une \emph{recherche en avant} et une recherche en arrière sont combinées pour trouver une solution.
+
+La recherche en avant et en arrière sont deux stratégies de résolution de problème générales. Elles sont utilisées pour résoudre des problèemes dans toutes les disciplines, pas seulement en informatique.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Recherche en avant: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Dijkstra}}
+  \item Recherche en arrière: \href{https://fr.wikipedia.org/wiki/Algorithme_A*}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_A*}}
+  \item Recherche bidirectionnelle: \href{https://fr.acervolima.com/recherche-bidirectionnelle/}{\BrochureUrlText{https://fr.acervolima.com/recherche-bidirectionnelle/}}
+\end{itemize}
+
+
+}
+\end{document}

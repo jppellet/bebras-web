@@ -1,0 +1,98 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Construction de pont}
+\renewcommand{\taskCountry}{PK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Bella aimerait construire un pont par-dessus un ruisseau. Elle a besoin d’un marteau, de clous, de planches et d’une corde. Elle trouve un marteau et une corde à la cave.
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-taskbody.svg}\par}
+
+Elle doit acheter les autres objets. En bas, tu vois trois magasins et ce qu’ils vendent.
+
+
+
+% question (as \emph{})
+{\em
+Dans quels magasins Bella peut-elle acheter les autres objets?
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, les magasins vendent en tout sept ojects différents: des ciseaux, un marteau, des clous, des briques, des planches, une corde et un seau. C’est un grand ensemble d’objets! Les objets que Bella doit acheter sont une \emph{partie de cet ensemble}. On peut le représenter de la façon suivante: on montre tous les objets de l’ensemble complet et note pour chaque objet s’il appartient au sous-ensemble que Bella doit acheter ou pas:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-itsinformatics01.svg}\par}
+
+De la même manière, on peut représenter quels objets sont vendus dans les magasins, par exemple dans le magasin de gauche:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-itsinformatics02.svg}\par}
+
+On voit ainsi au premier coup d’œil ce que Bella peut acheter dans le magasin de gauche: Les clous sont marqué d’une coche verte dans le sous-ensemble de Bella et dans le sous-ensemble du magasin.
+
+Les programmes informatiques doivent aussi souvent comparer des ensembles. Pour chaque objet pouvant être présent, on a besoin d’un \emph{bit}. Un ordinateur peut enregistrer une de deux valeurs dans un bit, comme par exemple “oui” ou “non”. Dans notre cas, on enregistre si un objet appartient à un ensemble (“oui”) ou pas (“non”). Un programme peut ensuite comparer deux ensembles de la façon suivante: il vérifie si le bit correspondant à un objet vaut “oui” dans un ensemble et vaut aussi “oui” dans l’autre ensemble. Une telle comparaison de deux bits est très rapide pour un ordinateur. C’est pour cela qu’en informatique, les ensembles sont souvent décrits en utilisant des bits.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ensemble: \href{https://fr.wikipedia.org/wiki/Ensemble_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_(informatique)}}
+  \item Bits: \href{https://fr.wikipedia.org/wiki/Bit}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Bit}}
+  \item Tableau de bits: \href{https://fr.wikipedia.org/wiki/Tableau_de_bits}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tableau\_de\_bits}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorIorgulescuT{} % \ifdefined\AuthorIorgulescuT \BrochureFlag{pk}{} Tiberiu Iorgulescu\fi
+\def\AuthorVasigaT{} % \ifdefined\AuthorVasigaT \BrochureFlag{ca}{} Troy Vasiga\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,187 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CA-01 L'arbre magique}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CA-01 L’arbre magique}
+
+
+\subsection*{Body}
+
+Ben a un arbre magique dans son jardin:
+
+\begin{itemize}
+  \item Si un oiseau \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}} se pose sur l’arbre, deux pommes y poussent tout de suite.
+  \item Si un écureuil \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}} grimpe sur l’arbre, une pomme en tombe. S’il n’y a pas de pomme sur l’arbre, il ne se passe rien.
+  \item Si un serpent \raisebox{-0.5ex}{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}} vient sous l’arbre, toutes les pommes disparaissent tout de suite.
+\end{itemize}
+
+Ce matin, $25$ pommes sont sur l’arbre. Plusieurs animaux rendent ensuite visite à l’arbre, un écureuil en dernier. Ben a noté leur ordre exact:
+
+{\centering%
+\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-taskbody.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Combien de pommes y a-t-il sur l’arbre après la dernière visite?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) $3$ pommes
+
+B) $7$ pommes
+
+C) $17$ pommes
+
+D) $31$ pommes
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est B. Après que le dernier écureuil est monté sur l’arbre, il y reste sept pommes.
+
+On peut calculer combien de pommes se trouvent sur l’arbre à chaque visite d’un animal:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Départ}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Nombre de pommes:} & 25 & 27 & 29 & 28 & 30 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Report}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & – & – & +2 & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Nombre de pommes:} & 0 & 0 & 0 & 2 & 4 & 6 & 5 & 7 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Report}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & +2 & +2 & +2 & +2 & -1 \\ 
+  \textbf{Nombre de pommes:} & 0 & 2 & 4 & 6 & 8 & \textbf{7}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Comme toutes les pommes disparaissent lorsqu’un serpent vient sous l’arbre, nous pouvons ignorer tout ce qui se passe avant l’arrivée du deuxième (et dernier) serpent. Comme indiqué dans le tableau, quatre oiseaux se posent sur l’arbre après le passage du dernier serpent. Il y a ensuite ${4 \times 2 = 8}$ pommes sur l’arbre. Ensuite, un écureuil grimpe, faisant tomber une pomme; il reste donc ${8 - 1 = 7}$ pommes sur l’arbre.
+
+
+\subsection*{This is Informatics}
+
+La visite d’un animal modifie l’état de l’arbre magique – mais d’une manière bien définie: seul le nombre de pommes sur l’arbre change. La visite des animaux ne change pas les autres propriétés de l’arbre, comme son nombre de feuilles, la longueur de ses branches ou la forme de son tronc, par exemple. Pour cet exercice, il est donc suffisant de considérer le nombre de pommes.
+
+Un programme informatique a lui aussi un état qui peut être modifié par les instructions du programme. On considère généralement les données stockées par le programme comme son état; ces données sont stockées par le programme dans des \emph{variables} définies lors de la programmation.
+
+La suite des visites des animaux à l’arbre dans cet exercice est comme un programme informatique: chaque visite est une instruction qui change l’état de l’arbre. Cet état (ici, le nombre de pommes sur l’arbre) peut être stocké à l’aide d’une seule variable.
+
+Tu as peut-être remarqué que tu n’avais pas besoin de considérer le “programme” en entier pour résoudre l’exercice, mais uniquement la partie suivant la dernière visite d’un serpent. En observant attentivement l’effet des différentes instructions sur l’état du programme, on peut découvrir certaines propriétés de ce programme. Une telle analyse de programmes (informatiques) fait partie des tâches des informaticiens et informaticiennes.
+
+
+\subsection*{This is Computational Thinking}
+
+The solution of the task requires algorithmic thinking.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Variable: \href{https://fr.wikipedia.org/wiki/Variable_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Variable\_(informatique)}}
+  \item État d’un programme: \href{https://fr.wikipedia.org/wiki/\%C3\%89tat_(informatique)\#Processus}{\BrochureUrlText{https://fr.wikipedia.org/wiki/État\_(informatique)\#Processus}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Abstraction: \href{https://en.wikipedia.org/wiki/Abstraction_(computer_science)}{\BrochureUrlText{https://en.wikipedia.org/wiki/Abstraction\_(computer\_science)}}
+  \item Algorithms: \href{https://en.wikipedia.org/wiki/Algorithm}{\BrochureUrlText{https://en.wikipedia.org/wiki/Algorithm}}
+\end{itemize}
+
+
+\end{document}

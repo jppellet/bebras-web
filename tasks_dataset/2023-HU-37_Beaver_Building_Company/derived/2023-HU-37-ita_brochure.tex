@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Castello per castori}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un castello per castori è composto da $4$ parti, tutte in parte sott’acqua e in parte sopra l’acqua.
+Quando si costruisce una castello per castori, ogni operaio coinvolto lavora solo sotto l’acqua \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}} o solo sopra l’acqua \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}}.
+Per ogni parte, il lavoro viene svolto contemporaneamente sopra e sotto l’acqua.
+La tabella mostra, per ogni parte, quanto tempo occorre per costruire il castello per castori e quanti operai sono necessari sotto e sopra l’acqua per farlo.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Parti}} & {\setstretch{1.0}\thead[lb]{Salone \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-living.svg}}}} & {\setstretch{1.0}\thead[lb]{Grotta del sonno  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}}}} & {\setstretch{1.0}\thead[lb]{Tetto \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}}}} & {\setstretch{1.0}\thead[lb]{Diga \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-dam.svg}}}} \\ 
+\midrule
+  Durata della costruzione & $4$ giorni & $3$ giorni & $5$ giorni & $8$ giorni \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}} & 3 & 5 & 2 & 4 \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}} & 2 & 1 & 2 & 2
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Il tetto \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}} può essere costruito solo quando la grotta del sonno \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}} è terminata! Per tutte le altre parti, l’ordine non ha importanza.
+
+Per costruire un nuovo castello sono disponibili al massimo $7$ operai subacquei e $5$ operai sopra l’acqua.
+È anche possibile costruire diverse parti contemporaneamente.
+Ecco un piano di lavoro per finire il castello in $20$ giorni.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-ita/2023-HU-37-question-compatible-symbols-ita.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Elabora un piano per completare il castello per castori nel minor numero di giorni possibile.
+Quanti giorni sono necessari?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+$12$ giorni è la risposta corretta.
+
+Questo è un piano per finire il castello di castoro in $12$ giorni:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-ita/2023-HU-37-solution-compatible-symbols-ita.svg}\par}
+
+Il piano con il tempo di costruzione più breve può essere determinato in due fasi:
+
+\begin{enumerate}
+  \item Innanzitutto, la grotta del sonno deve essere progettata prima al tetto. Poiché la grotta richiede $5$ operai subacquei, la diga $3$ e il salone $4$, la grotta - con la limitazione di $7$ operai subacquei - non può essere costruita contemporaneamente alla diga o al salone. Pertanto, la grotta deve essere costruita per prima e le altre tre parti in seguito.
+  \item La diga e il salnoe possono essere costruiti contemporaneamente dopo la grotta, oppure una delle due parti contemporaneamente al tetto. Tuttavia, non è possibile costruire tutte e tre le parti contemporaneamente, perché insieme richiedono $3$ + $4$ + $2$ = $9$ operai subacquei, un numero superiore a quello disponibile. Il tempo di costruzione più breve si ottiene se le due parti con i tempi di costruzione più brevi (tetto e salone) vengono costruite una dopo l’altra e la diga viene costruita contemporaneamente.
+\end{enumerate}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Pianificare il corso ottimale, il più rapido possibile, di un progetto è un compito difficile in cui è necessario tenere conto di alcune condizioni. Spesso ci sono dipendenze temporali tra le sottoattività di un progetto; ad esempio, ci possono essere sottoattività che possono essere iniziate solo dopo che un’altra sottoattività è stata completata, come nel caso del tetto e della grotta. Inoltre, ogni sottocompito richiede determinate risorse, come manodopera, tempo e attrezzature. Quando si pianifica un progetto, è utile poterlo rappresentare bene. I diagrammi mostrati in questo compito sono un tipo di diagramma di Gantt sviluppato da Henry Gantt (1861$-1919$) tra il $1910$ e il $1915$; rappresentazioni simili erano utilizzate indipendentemente da Gantt nello stesso periodo in Germania. Mostrano l’utilizzo delle risorse (in questo caso i due tipi di manodopera) nel tempo.
+
+Il progetto ottimale per il castello di castoro può essere pensato nella vostra testa, provando tutte le possibilità consentite. Per i progetti più grandi, questo richiederebbe troppo tempo e diventerebbe troppo confuso. I programmi informatici possono essere d’aiuto in questo caso, ed è per questo che la gestione di programmi (\emph{scheduling}) è un argomento importante dell’informatica. Come spesso accade per i problemi difficili, sono state sviluppate procedure che, invece di un piano ottimale garantito, producono un piano con un requisito temporale leggermente più ampio, ma comunque molto buono. La programmazione viene applicata anche al controllo dei computer stessi, i cui processi competono per le risorse (potenza di calcolo, accesso alla memoria, accesso a dispositivi esterni come dispositivi di memorizzazione, stampanti o interfacce di rete).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Diagramma di Gantt: \href{https://it.wikipedia.org/wiki/Diagramma_di_Gantt}{\BrochureUrlText{https://it.wikipedia.org/wiki/Diagramma\_di\_Gantt}}
+  \item Software gestionale: \href{https://it.wikipedia.org/wiki/Software_gestionale}{\BrochureUrlText{https://it.wikipedia.org/wiki/Software\_gestionale}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

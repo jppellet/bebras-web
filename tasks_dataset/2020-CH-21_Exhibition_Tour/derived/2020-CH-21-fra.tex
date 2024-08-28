@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CH-21 Visite de musée}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CH-21 Visite de musée}
+
+
+\subsection*{Body}
+
+Quatre plans au sol sont proposés pour la construction d’un nouveau musée. Chaque plan comporte les sept pièces $1$ à $7$. Les pièces doivent être arrangées de façon à ce que les visiteurs puissent visiter toutes les pièces sans passer deux fois par la même pièce.
+
+Les visiteurs commencent la visite à l’entrée “enter” et quittent le musée par la sortie “exit”.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quel plan au sol permet aux visiteurs d’entrer et de sortir de chaque pièce exactement une fois?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+{\centering%
+\begin{tabular}{ @{} c c @{} }
+  A) & B) \\ 
+  \makecell[c]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-CH-21_answerA-compatible.svg}} & \makecell[c]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-CH-21_answerB-compatible.svg}}
+\end{tabular}
+
+\begin{tabular}{ @{} c c @{} }
+  C) & D) \\ 
+  \makecell[c]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-CH-21_answerC-compatible.svg}} & \makecell[c]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-CH-21_answerD-compatible.svg}}
+\end{tabular}
+
+\par}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Seul le plan C permet aux visiteurs de n’entrer et de ne sortir qu’une seule fois de chaque pièce. L’ordre des pièces visitées est $2$, $1$, $3$, $4$, $7$, $6$, $5$.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-CH-21_explanation-compatible.svg}\par}
+
+De manière générale, une telle visite n’est pas possible si n’importe laquelle des pièces ne possède qu’une entrée. L’explication est la suivante: si un visiteur entre dans cette pièce, il est obligé de retourner dans la pièce de laquelle il vient en ressortant, et ne respecte donc pas la règle de n’entrer qu’une fois dans chaque pièce.
+
+Le plan A n’a qu’une entrée à la pièce $1$.
+
+Le plan D n’a qu’une entrée à la pièce $6$.
+
+Le plan B ne permet l’entrée dans la dernière pièce, la $6$, que par la pièce $5$ ou la pièce $7$. Si le visiteur vient de la pièce $5$, il peut entrer dans la pièce $7$, mais ne peut atteindre la sortie qu’en retournant dans la pièce $6$ (ou l’inverse), ce qui va à l’encontre des règles.
+
+
+\subsection*{It’s Informatics}
+
+La plupart des enfants et des jeunes résolvent ce problème par tâtonnement sans utiliser de représentation abstraite supplémentaire. Pour cela, ils utilisent à un certain niveau la stratégie générale appelée \emph{retour sur trace}. Ils reconnaissent tout au moins que l’on peut apprendre d’essais infructueux et que l’on peut, dans ce cas, revenir en arrière pour essayer une autre possibilité. Ils sont également confrontés au concept du \emph{non-déterminisme}, car il y a souvent plusieurs possibilités à choix.
+
+Cet exercice est un exemple d’un problème connu en informatique: la recherche d’un \emph{chemin hamiltonien}. Dans une représentation discrète du plan au sol par un \emph{graphe}, chaque pièce est représentée par un \emph{nœud} et chaque porte entre deux pièces par une \emph{arête} entre les deux nœuds correspondants.
+
+\begin{samepage}
+Voici la représentation abstraite du plan de l’exercice:
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=122.7px]{\taskGraphicsFolder/graphics/2020-CH-21_itsinformatics1-compatible.svg}\par}
+\end{samepage}
+
+Il s’agit à présent de trouver dans ce graphe un chemin ayant les propriétés suivantes:
+
+\begin{enumerate}
+  \item Le chemin commence au nœud $2$ (“enter”).
+  \item Le chemin finit au nœud $5$ (“exit”).
+  \item Le chemin passe exactement une fois par chaque nœud.
+\end{enumerate}
+
+Si l’on représente l’espace extérieur par un nœud, ceci correspond à la recherche d’un cycle hamiltonien (un tour) dans lequel on passe également une seule fois par chaque nœud avant de terminer au nœud de départ.
+
+{\centering%
+\includesvg[width=209.3px]{\taskGraphicsFolder/graphics/2020-CH-21_itsinformatics2-compatible.svg}\par}
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Théorie de graphes, nœud, arête: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Chemin hamiltonien: \href{https://fr.wikipedia.org/wiki/Graphe_hamiltonien}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_hamiltonien}}
+\end{itemize}
+
+
+}
+\end{document}

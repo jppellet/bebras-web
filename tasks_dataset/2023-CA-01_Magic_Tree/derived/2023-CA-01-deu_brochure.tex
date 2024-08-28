@@ -1,0 +1,130 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Besonderer Baum}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ben hat einen besonderen Apfelbaum im Garten:
+
+\begin{itemize}
+  \item Landet ein Vogel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}} auf dem Baum, wachsen sofort zwei neue Äpfel.
+  \item Klettert ein Eichhörnchen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}} auf den Baum, fällt ein Apfel runter. Wenn kein Apfel am Baum hängt, passiert nichts.
+  \item Besucht eine Schlange \raisebox{-0.5ex}{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}} den Baum, verschwinden alle Äpfel sofort.
+\end{itemize}
+
+Heute Morgen hängen $25$ Äpfel am Baum. Dann besuchen einige Tiere nacheinander den Baum, zuletzt ein Eichhörnchen. Ben hat ihre Reihenfolge genau aufgeschrieben:
+
+{\centering%
+\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Wie viele Äpfel hängen danach am Baum?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $3$ Äpfel
+
+B) $7$ Äpfel
+
+C) $17$ Äpfel
+
+D) $31$ Äpfel
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Antwort B ist richtig. Nachdem das letzte Eichhörnchen auf den Baum klettert, hängen noch $7$ Äpfel am Baum.
+
+Man kann für jeden Tierbesuch ausrechnen, wie viele Äpfel im Moment am Baum hängen:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Tier:}} & {\setstretch{1.0}\thead[cb]{Start}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Anweisung:} & – & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Anzahl Äpfel:} & 25 & 27 & 29 & 28 & 30 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Tier:}} & {\setstretch{1.0}\thead[cb]{Übertrag}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Anweisung:} & – & – & – & +2 & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Anzahl Äpfel:} & 0 & 0 & 0 & 2 & 4 & 6 & 5 & 7 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Tier:}} & {\setstretch{1.0}\thead[cb]{Übertrag}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} \\ 
+\midrule
+  \textbf{Anweisung:} & – & +2 & +2 & +2 & +2 & -1 \\ 
+  \textbf{Anzahl Äpfel:} & 0 & 2 & 4 & 6 & 8 & \textbf{7}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Da alle Äpfel sofort verschwinden, wenn eine Schlange den Baum besucht, können wir alles ignorieren, was vor der Ankunft der zweiten (und letzten) Schlange passiert. Wie in der Tabelle gezeigt, landen nach dem Besuch der letzten Schlange vier Vögel auf dem Baum. Danach hängen am Baum ${4 \times 2 = 8}$ Äpfel. Dann klettert ein Eichhörnchen auf den Baum, wodurch ein Apfel herunterfällt und ${8 - 1 = 7}$ Äpfel übrigbleiben.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Der Besuch eines Tieres verändert den Zustand des magischen Apfelbaums – aber nur auf ganz bestimmte Weise: Nur die Anzahl der Äpfel, die am Baum hängen, wird geändert. Auf andere Eigenschaften des Baumes, etwa die Anzahl der Blätter, die Länge einzelner Äste oder die Form der Baumkrone, hat der Besuch eines Tieres keinen Einfluss. Für diese Biberaufgabe ist es also ausreichend, die Anzahl der Äpfel zu betrachten.
+
+Auch ein Computerprogramm hat einen Zustand, der von den einzelnen Anweisungen des Programms verändert wird. Als Zustand werden meist die von einem Programm gespeicherten Daten betrachtet; diese Daten speichert das Programm in den bei der Programmierung eingeführten \emph{Variablen}.
+
+Die Folge der Tierbesuche auf dem Baum in dieser Biberaufgabe ist wie ein Computerprogramm: Jeder Tierbesuch ist eine Anweisung, die den Zustand des Apfelbaums verändert. Dieser Zustand – also die Anzahl der Äpfel, siehe oben – kann in einer einzigen Variable gespeichert werden.
+
+Beim Lösen der Aufgabe ist dir vielleicht aufgefallen, dass du nicht das ganze “Programm” anschauen musstest, sondern nur den Teil nach dem letzten Vorkommen der Schlange.  Durch genaue Betrachtung der Auswirkungen der einzelnen Anweisungen auf den Zustand des Programms konntest du eine besondere Eigenschaft des Programms herausfinden.  Eine solche Analyse von (Computer-)Programmen gehört zu den häufigen Tätigkeiten von Informatikerinnen und Informatikern.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Variablen: \href{https://de.wikipedia.org/wiki/Variable_(Programmierung)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Variable\_(Programmierung)}}
+  \item (Programm-)Zustand: \href{https://media.kswillisau.ch/in/zustand/zustand.html}{\BrochureUrlText{https://media.kswillisau.ch/in/zustand/zustand.html}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorGaalB{} % \ifdefined\AuthorGaalB \BrochureFlag{hu}{} Bence Gaál\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

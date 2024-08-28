@@ -1,0 +1,141 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Armband}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+\begin{wrapfigure}{R}{115.4px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody1-compatible.svg}}
+\end{wrapfigure}
+
+Marie möchte das Armband rechts.
+
+Daher gibt sie Jonas folgende Anweisungen:
+
+\begin{itemize}
+  \item Nimm einen Stern (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_star-compatible.svg}}) und einen Mond (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_moon-compatible.svg}}) und verbinde die beiden irgendwie zu einem Paar. Mach dies insgesamt dreimal, sodass du also drei Paare hast.
+  \item Nimm diese drei Paare und verbinde sie zu einer langen Kette.
+  \item Füge an einem Ende der Kette zwei weitere Sterne hinzu. Verbinde jetzt die beide Enden der Kette, um ein Armband zu erhalten.
+\end{itemize}
+
+Jonas hat kein Bild des gewünschten Armbands. Es kann sein, dass ein ganz anders aussehendes Armband herauskommt, obwohl sich Jonas exakt an Maries Anweisungen hält.
+
+
+
+% question (as \emph{})
+{\em
+Eines der vier Armbänder kann \textbf{nicht} herauskommen, wenn sich Jonas genau an Maries Anweisungen hält. Welches?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerA-squarecentered-compatible.svg}} & B) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerB-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}} & D) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerD-squarecentered-compatible.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Die richtige Antwort ist C) \raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}}.
+
+Nur dieses Armband kann nach Maries Anweisungen nicht herauskommen.
+
+Die Armbänder der anderen drei Antworten hingegen sind nach Maries Anweisungen korrekt. Dies sieht man zum Beispiel, weil jedes von diesen Armbändern in drei Stern-Mond-Paare und ein Stern-Stern-Paar aufgeteilt werden kann, so wie im Bild gezeigt.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationA-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationB-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationD-compatible.svg}}\par}
+
+Ein Mond kann nur als Teil von einem Mond-Stern-Paar in das Armband kommen. Deshalb hat jeder Mond mindestens einen Stern neben sich. Drei Monde hintereinander wie in Armband C können also nicht entstehen. Auch fünf oder mehr Sterne hintereinander sind unmöglich.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationC-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Wenn Programmierer einem Computer Anweisungen geben, dann ist es wichtig, dass sie exakt spezifizieren, was der Computer zu tun hat. Andernfalls könnte man ein unerwünschtes Ergebnis erhalten. Zum Beispiel vergass Marie in ihrer Anweisungsliste genau zu sagen, wie die drei Stern-Mond-Paare aneinandergefügt werden müssen. Im von ihr gewünschten Armband ist ein Mond stets von Sternen umgeben. Es fehlte also etwas, obwohl die Anweisungen sehr genau aussehen. Gäbe es einen Computer, der eine Maschine für die Herstellung von Armbändern steuerte, wären Maries Anweisungen nicht genau genug. Glücklicherweise würden reale Computer gewöhnlich einfach anhalten, mit der Meldung: “Ich weiss nicht, was du meinst, weil die Anweisungen nicht ausreichend klar sind.”
+
+In der Informatik gibt es viele Mechanismen, um Dinge sehr exakt zu beschreiben. Ein Mechanismus sind sogenannte \emph{(formale) Grammatiken}. Eine Grammatik enthält \emph{Regeln}, die genau beschreiben, wie man bestimmte \emph{Wörter} (eine Abfolge von Buchstaben) erzeugen kann. Zum Beispiel kann man die Anweisungen von Marie in einer Grammatik so ausdrücken:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  A \ensuremath{\rightarrow} KSS & ($1$) \\ 
+  K \ensuremath{\rightarrow} PPP & ($2$) \\ 
+  P \ensuremath{\rightarrow} SM & ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Hier steht A für Armband, K für Kette, P für Paar, S für Stern und M für Mond. Man beginnt mit A und kann dann neue Wörter erzeugen, indem man die drei Ersetzungsregeln beliebig oft anwendet. Dies macht man so lange, bis das Wort nur noch aus den Symbolen S und M bestehen. Zum Beispiel:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  A \ensuremath{\Rightarrow} KSS & mittels Regel ($1$) \\ 
+  KSS \ensuremath{\Rightarrow} PPPSS & mittels Regel ($2$) \\ 
+  PPPSS \ensuremath{\Rightarrow} SMPPSS \ensuremath{\Rightarrow} SMSMPSS \ensuremath{\Rightarrow} SMSMSMSS & mittels Regel ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Man kann sich überlegen, dass die obige Grammatik genau den Anweisungen von Marie entspricht.
+
+In der Informatik geht es nicht nur um das Programmieren. Oft geht es um das Beschreiben von Objekten. Eine Menge von Erzeugungsregeln (die Grammatik bzw. Maries Anweisungen) kann eine Klasse von Objekten (bestimmte Wörter bzw. die möglichen Armbänder) genau beschreiben. In der Klasse sind nämlich genau diejenigen Objekte, die man mit den Regeln erzeugen kann.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Formale Grammatik: \href{https://de.wikipedia.org/wiki/Formale_Grammatik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Formale\_Grammatik}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+
+\newpage}{}

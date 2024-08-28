@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Le trésor de Barbe-de-Castor}
+\renewcommand{\taskCountry}{UY}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Il y a trois coffres au trésor sur une île: un coffre se trouve au pied du volcan, le deuxième sous un palmier et le dernier sur la plage. Tous les coffres sont vides.
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-question.svg}\par}
+
+Un jour, le pirate Barbe-de-Castor vient sur l’île, remplit un des coffres d’or et le ferme. Le même jour, trois touristes sont sur l’île: Anita, Britta et Carla. Chacune fait une photo: l’une avant que Barbe-de-Castor ait rempli le coffre, les deux autres après.
+
+\begin{tabularx}{\columnwidth}{ @{} J J J @{} }
+  {\setstretch{1.0}\thead[lb]{La photo d’Anita}} & {\setstretch{1.0}\thead[lb]{La photo de Britta}} & {\setstretch{1.0}\thead[lb]{La photo de Carla}} \\ 
+\midrule
+  … montre le coffre sur la plage. & … montre les deux coffres sur la plage et sous le palmier. & … montre les deux coffres sous le palmier et au pied du volcan. \\ 
+  \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_AnitaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_BrittaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_CarlaPhoto.svg}}
+\end{tabularx}
+
+Tous les coffres sont vides sur les photos. Barbe-de-Castor a eu de la chance qu’aucune des touristes ne trouve son or!
+
+
+
+% question (as \emph{})
+{\em
+Dans quel coffre au trésor se trouve l’or?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-solution.svg}\par}
+
+L’or est dans le coffre au trésor au pied du volcan.
+
+Nous vérifions pour chaque coffre si l’or peut s’y trouver. Pour cela, nous regardons si les photos correspondent à l’histoire.
+
+\begin{enumerate}
+  \item \textbf{Le coffre sous le palmier.}
+Les photos de Carla et Britta montrent le coffre vide sous le palmier. Si ce coffre contenait l’or, les deux photos devraient avoir été prises avant que le coffre ne soit rempli, mais nous savons que seule une photo a été prise avant que Barbe-de-Castor n’amène son or. L’hypothèse que l’or se trouve dans le coffre sous le palmier mène donc à une contradiction. Nous pouvons en conclure qu’il n’y a pas d’or dans le coffre sous le palmier.
+  \item \textbf{Le coffre sur la plage.}
+Les photos d’Anita et de Britta montrent le coffre vide sur la plage. Si ce coffre contenait l’or, les deux photos devraient avoir été prises avant que le coffre ne soit rempli, mais nous savons que seule une photo a été prise avant que Barbe-de-Castor n’amène son or. L’hypothèse que l’or se trouve dans le coffre sur la plage mène donc à une contradiction. Nous pouvons en conclure qu’il n’y a pas d’or dans le coffre sur la plage.
+  \item \textbf{Le coffre au pied du volcan} n’est que sur la photo de Carla et y est vide. Si ce coffre contenait l’or, Carla pourrait être la touriste qui a pris sa photo avant que Barbe-de-Castor n’amène son or. Le coffre au pied du volcan n’est pas sur les photos d’Anita ni de Britta, qui peuvent donc être les touristes ayant pris leur photo après la visite de Barbe-de-Castor. L’hypothèse que l’or se trouve dans le coffre au pied du volcan ne mène donc à \emph{aucune} contradiction.
+\end{enumerate}
+
+Comme l’or doit se trouver dans l’un des coffres, nous pouvons en déduire qu’il se trouve dans le coffre au pied du volcan.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’\emph{inférence} logique a été utile pour résoudre cet exercice. Nous avons utilisé trois photos et nos connaissances sur la situation sur l’île pour déterminer pourquoi certaines hypothèses pourraient être vraies ou pas. La recherche de contradictions joue un rôle important dans l’inférence logique. Lorsqu’une conclusion est une conséquence logique d’une hypothèse (ou \emph{prémisse}), mais que l’hypothèse et la conclusion ne peuvent pas les deux être vraies en même temps, on peut être sûr que l’hypothèse est fausse.
+
+La logique joue un rôle important dans beaucoup de domaines de l’informatique: les circuits du hardware informatique, que ce soit dans les processeurs ou les dispositifs de stockage, sont des applications d’opérateurs logiques. Des conditions complexes en prgrammation ou des recherches difficiles dans des bases de données peuvent être formulées à l’aide de relations logiques. Le comportement de programmes peut être décrit et vérifié à l’aide de calculs logiques. Les \emph{langages de programmation logiques} travaillent directement avec des déclarations et inférences logiques pour effectuer des calculs.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Inférence: \href{https://fr.wikipedia.org/wiki/Inf\%C3\%A9rence_(logique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Inférence\_(logique)}}
+  \item Déduction: \href{https://fr.wikipedia.org/wiki/D\%C3\%A9duction_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Déduction\_logique}}
+  \item Programmation logique: \href{https://fr.wikipedia.org/wiki/Programmation_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_logique}}
+  \item Prolog: \href{https://fr.wikipedia.org/wiki/Prolog}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Prolog}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorWettsteinM{} % \ifdefined\AuthorWettsteinM \BrochureFlag{ch}{} Manuel Wettstein\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorSeulkiK{} % \ifdefined\AuthorSeulkiK \BrochureFlag{kr}{} Kim Seulki\fi
+\def\AuthorHironM{} % \ifdefined\AuthorHironM \BrochureFlag{fr}{} Mathias Hiron\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorCrivelliL{} % \ifdefined\AuthorCrivelliL \BrochureFlag{uy}{} Lucia Crivelli\fi
+\def\AuthorCuriM{} % \ifdefined\AuthorCuriM \BrochureFlag{uy}{} María Eugenia Curi\fi
+\def\AuthorGerosaA{} % \ifdefined\AuthorGerosaA \BrochureFlag{uy}{} Anaclara Gerosa\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorSchunkR{} % \ifdefined\AuthorSchunkR \BrochureFlag{uy}{} Rosario Schunk\fi
+\def\AuthorOyhenardG{} % \ifdefined\AuthorOyhenardG \BrochureFlag{uy}{} Graciela Oyhenard\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-SK-07 Più caldo, più freddo}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-SK-07 Più caldo, più freddo}
+
+
+\subsection*{Body}
+
+Nina e Daniel giocano alla caccia al tesoro. Su una tavola con quadrati, Nina seleziona un quadrato e lo tiene a mente. Il tesoro è nascosto lì.
+
+Daniel sceglie un campo di partenza. Da lì, sposta il suo pezzo da gioco \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-SK-07-Daniel.svg}} di uno spazio alla volta: a sinistra, a destra, in alto o in basso.
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example1.svg}} & Al primo tentativo, prendono un piccolo tabellone di gioco. Nina nasconde il tesoro nella casella con la stella \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07_stern.svg}}. Daniel inizia in alto a destra e fa due passi lungo le frecce. Dopo ogni passo, Nina dice se Daniel è più vicino \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-SK-07-warmer.svg}} al tesoro o più lontano \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07-colder.svg}} dal tesoro rispetto a prima del passo. \\ 
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example3.svg}} & L’immagine a destra mostra le distanze di Daniel dal tesoro. La distanza dal tesoro è il minor numero di passi che Daniel potrebbe attualmente compiere per raggiungere il tesoro.
+\end{tabularx}
+
+Adesso prendono una tavola più grande.
+Nina nasconde il tesoro in uno dei campi contrassegnati in blu.
+L’immagine mostra nuovamente i passi di Daniel e ciò che Nina dice dopo ogni passo.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Dove è nascosto il tesoro?
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-question_symbols.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fa clic sul quadrato corretto. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+click-to-select-one:  Man kann nur auf die fünf gelben Quadrate klicken. Es wird genau eines ausgewählt.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-solution_compatible.svg}\par}
+
+Seguiamo il percorso di Daniel e il riscontro di Nina. Daniel inizia nella riga $1$ del tabellone. Dopo il primo passo si trova nella riga $2$ e più vicino al tesoro rispetto alla riga $1$. Dopo il passo successivo si trova nella riga $3$ e di nuovo più lontano dal tesoro. Dato che è rimasto nella stessa colonna, il tesoro deve trovarsi su una casella della riga $2$, infatti non importa in quale colonna sia nascosto il tesoro: la via più breve per raggiungere il tesoro da un’altra colonna è quella di trovarsi nella stessa riga.
+
+Ma in quale colonna è nascosto il tesoro? Continuando il suo cammino, Daniel si avvicina inizialmente al tesoro della riga $4$ facendo qualche passo verso sinistra; in particolare, è più vicino al tesoro della colonna $3$ che a quello della colonna $4$. Ma dopo l’ultimo passo della riga, Daniel si trova più lontano dal tesoro della colonna $2$ che da quello della colonna $3$. Quindi il tesoro deve trovarsi in un quadrato della colonna $3$, siccome quanto detto sopra per le colonne vale anche per le righe: la via più breve per raggiungere il tesoro da un’altra riga è quella di trovarsi nella stessa colonna.
+
+
+\subsection*{This is Informatics}
+
+Daniel cammina (con il suo pezzo di gioco) attraverso il tabellone. Da ogni casella su cui si trova attualmente, Nina misura la distanza dalla casella con il tesoro e la utilizza per il suo feedback.  Di solito, la distanza tra due punti viene misurata come la lunghezza del collegamento rettilineo tra i punti (distanza euclidea).  Ma i due campi non sono, in senso stretto, dei punti. Pertanto, Nina misura la distanza tra due campi nel numero di passi che Daniel dovrebbe fare per il percorso più breve da un campo all’altro.  Questa \emph{misura} può essere generalmente applicata alle griglie ed è nota in informatica come \emph{distanza di Manhattan}, derivata dalla pianta a griglia del quartiere newyorkese di Manhattan.
+
+Gli informatici scelgono il modo di calcolare la distanza tra due oggetti a seconda del quesito che vogliono risolvere. Ad esempio, se si vuole misurare la distanza tra due parole della stessa lunghezza in un linguaggio naturale, si può contare il numero di punti in cui le parole differiscono; si tratta quindi della \emph{distanza di Hamming}.  Se le parole sono di lunghezza diversa, si può usare la \emph{distanza di Levenshtein}. Le distanze giocano spesso un ruolo nell’informatica quando si tratta di trovare soluzioni ottimali a un problema.  Non importa se la soluzione a un problema deve essere la più veloce, la più breve o la più economica:  spesso non è necessario cambiare l’algoritmo, ma solo la misura della distanza: durata, lunghezza o costo.
+
+
+\subsection*{This is Computational Thinking}
+
+Um diese Aufgabe zu bewältigen, überlegen wir uns zunächst eine verständliche und systematische Strategie. Mithilfe dieser Strategie können wir anschliessend die Navigation durch das Gitter vornehmen und die Hinweise für die Schatzsuche interpretieren. Systematik und Verständlichkeit sind wesentliche Zutaten guter Algorithmen und algorithmisch denkende Problemlöser. ((dieses finde ich zu allgemein und fast zu trivial)–> Es ist sehr allgemein - stimme zu. Wir füllen This is Computational Thinking nicht, in diesem Sinne würde ich es nicht entfernen)
+
+Die Interpretation der Hinweise \enquote{N} und \enquote{W} helfen uns den Suchraum des Problems schrittweise zu verkleinen. Dieser Ansatz entspricht einer allgemeinen Methode, um Probleme zu lösen, die als \emph{Teile und Herrsche} bekannt ist. In unserem konkreten Fall signalisiert \enquote{W}, dass wir uns im vorhergehenden Schritt vom Standort des Schatzes entfernt haben. Unter der verbleibenden potentiellen Standorten gibt es möglicherweise welche, die uns nun näher liegen als zuvor. Diese können als Standort des Schatzes ausgeschlossen werden. Die nun verbleibenden potentiellen Standorte werden mithilfe des nächsten Hinweises untersucht, bis am Ende ein Standort übrig bleibt, der dann unsere Lösung ist.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Distanza di Manhattan: \href{https://it.wikipedia.org/wiki/Geometria_del_taxi}{\BrochureUrlText{https://it.wikipedia.org/wiki/Geometria\_del\_taxi}}
+  \item Distanza di Hamming: \href{https://it.wikipedia.org/wiki/Distanza_di_Hamming}{\BrochureUrlText{https://it.wikipedia.org/wiki/Distanza\_di\_Hamming}}
+  \item Distanza di Levenshtein: \href{https://it.wikipedia.org/wiki/Distanza_di_Levenshtein}{\BrochureUrlText{https://it.wikipedia.org/wiki/Distanza\_di\_Levenshtein}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithmus
+\end{itemize}
+
+
+\end{document}

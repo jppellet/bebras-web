@@ -1,0 +1,89 @@
+{
+    "id": "2023-BE-01",
+    "title": "Emma erledigt",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "bonus",
+        "3": "bonus",
+        "4": "hard",
+        "5": "medium",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "bonus",
+        "12-14": "bonus",
+        "14-16": "hard",
+        "16-19": "medium"
+    },
+    "categories": [
+        "data structures and representations",
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "graphics/*.svg by Kris Coolsaet, reworked by Susanne Datzko",
+            "file_pattern": "graphics/*.svg",
+            "authors": [
+                "Kris Coolsaet",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (translation from English into German)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Kris Coolsaet, kris.coolsaet@ugent.be, Belgium (author, graphics)",
+            "name": "Kris Coolsaet",
+            "country": "Belgium",
+            "country_code": "BE",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "kris.coolsaet@ugent.be"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.5
+    },
+    "name": "Emma's tasks",
+    "difficulties": [
+        0,
+        0,
+        4,
+        4,
+        3,
+        2
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "BE",
+        "country": "Belgium",
+        "num": 1
+    }
+}

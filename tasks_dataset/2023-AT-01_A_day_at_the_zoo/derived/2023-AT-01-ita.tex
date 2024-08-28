@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-AT-01 Divertimento allo zoo}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-AT-01 Divertimento allo zoo}
+
+
+\subsection*{Body}
+
+Oggi Anja è allo zoo. Vuole visitare il maggior numero possibile di spettacoli diversi.
+
+Ecco un piano con tutti gli spettacoli.
+Ad esempio, dall’immagine possiamo vedere che lo spettacolo delle scimmie inizia alle $13$:$45$ e termina alle $14$:$45$.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AT-01-taskbody-compatible.svg}\par}
+
+Anja assiste sempre a uno spettacolo dall’inizio alla fine.
+Puoi aiutare Anja?
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Scegli il maggior numero possibile di spettacoli a cui Anja può partecipare uno dopo l’altro.
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fai clic su uno spettacolo per selezionarlo. Fai nuovamente clic per deselezionarlo. Al termine, fai clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Every show can be selected by clicking on it. Then the show will be highlighted. By clicking again, the show is deselected.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Anja può assistere a un massimo di $5$ spettacoli consecutivi.
+Queste sono le due risposte corrette:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution01_compatible.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-solution02_compatible.svg}}\par}
+
+Ci sono diversi modi per trovare le risposte giuste.
+
+Un piano di azione per Anja è una selezione di spettacoli ai quali può assistere uno dopo l’altro.  Un modo per ottenere le risposte giuste è elencare tutti i piani di azione.  In questo elenco, i piani con il maggior numero di spettacoli sono le risposte corrette.  Purtroppo, trovare tutti i piani richiede molto tempo.
+
+Ma non potrebbe esserci anche un programma di visite con $6$ presentazioni?  Cercheremo di crearne uno. Innanzitutto, diamo un’occhiata più da vicino alla durata degli spettacoli:  Nel programma, l’intera giornata è suddivisa in $19$ unità temporali di un quarto d’ora ciascuna. Gli spettacoli durano $2$, $3$, $4$, $5$ o $6$ unità di tempo.
+
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Unità di tempo}} & {\setstretch{1.0}\thead[lb]{Presentazioni}} \\ 
+\midrule
+  2 & C \\ 
+  3 & B, D, E, I \\ 
+  4 & F, H, J \\ 
+  5 & A \\ 
+  6 & G
+\end{tabular}
+
+Al fine di racchiudere il maggior numero possibile di presentazioni in un unico programma di visita, scegliamo presentazioni che siano il più breve possibile. Le $6$ presentazioni più brevi durano complessivamente $18$ unità di tempo ${(2 + 3 + 3 + 3 + 4)}$. Queste prestazioni brevi comprendono anche gli spettacoli C, D ed E. Tuttavia, poiché gli spettacoli C ed E sono esattamente uno dopo l’altro, Anja non può assistere allo spettacolo D nel mezzo.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-AT-01-explanation_compatible.svg}\par}
+
+Quindi dobbiamo sostituire la presentazione D con un’altra il più breve possibile.  Rimangono solo le presentazioni con almeno $4$ unità di tempo.  Senza la presentazione D, abbiamo quindi bisogno di un totale di almeno $19$ unità di tempo per $6$ presentazioni: ${2 + 3 + 3 + 3 + 4 + 4}$. Ma entrambi gli spettacoli con $4$ unità di tempo si sovrappongono sempre a uno spettacolo con $3$ unità di tempo.  Dovremmo sostituire anche questo con uno spettacolo di almeno $4$ unità di tempo e quindi avremmo bisogno di almeno $20$ unità di tempo per $6$ spettacoli, ma ci sono solo $19$ unità di tempo disponibili!  Concludiamo che non può esistere un programma di visite che contenga più di $5$ spettacoli.
+
+
+\subsection*{This is Informatics}
+
+Questo compito contiene un programma di spettacoli allo zoo. Produrre programmi di questo tipo non è facile e in informatica si chiama \emph{problema di programmazione}. Naturalmente, lo zoo vuole permettere ai suoi visitatori di vedere il maggior numero possibile di presentazioni, ma bisogna tenere conto anche di altre condizioni. Per esempio, le presentazioni possono essere offerte solo se i guardiani hanno tempo, se le arene disponibili sono libere e se gli spettacolli sono compatibili con i ritmi di vita degli animali.
+
+Ci sono molti problemi simili nella vita ai quali si possono applicare le stesse considerazioni. Un esempio è la creazione di un orario scolastico o l’assegnazione dei film al cinema. La creazione di questi orari richiede così tanto tempo che anche per esempi relativamente piccoli (gli orari della vostra scuola) è spesso impossibile lavorare a mano. Anche i \emph{processori} del computer devono svolgere molti compiti ed elaborarli uno dopo l’altro. Il sistema operativo crea, alla velocità della luce e senza che l’utente se ne accorga, la programmazione di quando un processore fa cosa. La programmazione è uno dei grandi temi dell’informatica, di cui la ricerca si occupa ancora oggi.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Scheduler: \href{https://it.wikipedia.org/wiki/Scheduler}{\BrochureUrlText{https://it.wikipedia.org/wiki/Scheduler}}
+  \item Sistema operativo: \href{https://it.wikipedia.org/wiki/Sistema_operativo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Sistema\_operativo}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Optional - not to be filled 2023
+
+
+\end{document}

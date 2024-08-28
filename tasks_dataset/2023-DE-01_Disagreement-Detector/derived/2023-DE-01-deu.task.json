@@ -1,0 +1,130 @@
+{
+    "id": "2023-DE-01",
+    "title": "Konflikt-Detektor",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "--",
+        "4": "bonus",
+        "5": "hard",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "bonus",
+        "16-19": "hard"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Margareta Schlüter and Christian Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Margareta Schlüter",
+                "Christian Datzko"
+            ]
+        },
+        {
+            "src": "*.png by Margareta Schlüter and Christian Datzko",
+            "file_pattern": "*.png",
+            "authors": [
+                "Margareta Schlüter",
+                "Christian Datzko"
+            ]
+        },
+        {
+            "src": "2023-DE-01-Comments-DACHHU.txt by Margareta Schlüter",
+            "file_pattern": "2023-DE-01-Comments-DACHHU.txt",
+            "authors": [
+                "Margareta Schlüter"
+            ]
+        },
+        {
+            "src": "reviews.txt by Margareta Schlüter",
+            "file_pattern": "reviews.txt",
+            "authors": [
+                "Margareta Schlüter"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Margareta Schlüter, greta.schlueter@sonnwendjoch.de, Germany (author, graphics)",
+            "name": "Margareta Schlüter",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "greta.schlueter@sonnwendjoch.de"
+        },
+        {
+            "src": "Taina Lehtimäki, taina@cs.nuim.ie, Ireland (contributor)",
+            "name": "Taina Lehtimäki",
+            "country": "Ireland",
+            "country_code": "IE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "taina@cs.nuim.ie"
+        },
+        {
+            "src": "Michael Weigend, mw@creative-informatics.de, Germany (translation from English into German)",
+            "name": "Michael Weigend",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "mw@creative-informatics.de"
+        },
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (interactivity)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "interactivity"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.3
+    },
+    "name": "Disagreement detector",
+    "difficulties": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        3
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "DE",
+        "country": "Germany",
+        "num": 1
+    }
+}

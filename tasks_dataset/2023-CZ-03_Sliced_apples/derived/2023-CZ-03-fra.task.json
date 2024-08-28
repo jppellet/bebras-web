@@ -1,0 +1,129 @@
+{
+    "id": "2023-CZ-03",
+    "title": "Moitiés de pommes",
+    "ages": {
+        "0": "--",
+        "1": "easy",
+        "2": "--",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "easy",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (drag-and-drop)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Jiří Vaníček, newly drawn by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Jiří Vaníček",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Jiří Vaníček, vanicek@pf.jcu.cz, Czech Republic (author, graphics)",
+            "name": "Jiří Vaníček",
+            "country": "Czech Republic",
+            "country_code": "CZ",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "vanicek@pf.jcu.cz"
+        },
+        {
+            "src": "Masiar Babazadeh, masiar.babazadeh@supsi.ch, Switzerland (contributor)",
+            "name": "Masiar Babazadeh",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "masiar.babazadeh@supsi.ch"
+        },
+        {
+            "src": "Michael Weigend, mw@creative-informatics.de, Germany (contributor)",
+            "name": "Michael Weigend",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "mw@creative-informatics.de"
+        },
+        {
+            "src": "Giovanni Serafini, serafini@inf.ethz.ch, Switzerland (contributor)",
+            "name": "Giovanni Serafini",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "serafini@inf.ethz.ch"
+        },
+        {
+            "src": "Nora A. Escherle, nora.escherle@informatik-biber.ch, Switzerland (contributor)",
+            "name": "Nora A. Escherle",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "nora.escherle@informatik-biber.ch"
+        },
+        {
+            "src": "Susanne Datzko, susanne.datzko@informatik-biber.ch, Switzerland (graphics, contributor)",
+            "name": "Susanne Datzko",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "graphics",
+                "contributor"
+            ],
+            "email": "susanne.datzko@informatik-biber.ch"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.7
+    },
+    "name": "Sliced Apples",
+    "difficulties": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CZ",
+        "country": "Czech Republic",
+        "num": 3
+    }
+}

@@ -1,0 +1,123 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Go-Bots}
+\renewcommand{\taskCountry}{CZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Die Go-Bots sind sehr einfache Roboter. Sie fahren über ein Spielbrett mit Feldern.
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-example1_compatible.svg}\par}
+
+Um sie zu steuern, wählt man zunächst einen der Go-Bots aus.
+Den schickt man dann mit einem Pfeil-Befehl in eine Richtung:
+hoch \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}, runter \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}}, links \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}} und rechts \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}.
+Der Go-Bot fährt dann stur geradeaus, bis er direkt vor einem Hindernis \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2023-CZ-01-square.svg}} oder einem anderen Roboter ankommt.
+Dort bleibt er stehen, bis er einen neuen Befehl bekommt.
+
+Mit einer geschickten Folge von Befehlen sollst du dafür sorgen, dass Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} erreicht, also genau dort stehen bleibt.
+
+Mit dieser Befehlsfolge erreicht Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}}:
+
+{\centering%
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}   \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}   \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}}
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-example2_compatible.svg}\par}\par}
+
+
+
+% question (as \emph{})
+{\em
+Erstelle eine Befehlsfolge mit vier Pfeilen, mit der Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} erreicht!
+
+{\centering%
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-question2.svg}\par}
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-question_compatible.svg}\par}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}
+
+Damit Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} durch eine Befehlsfolge mit vier Pfeilen das Ziel erreichen kann, müssen drei Go-Bots kooperieren.
+Zuerst geht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} nach oben, bis er vor einem Hindernis stehen bleibt.
+Damit wird er selbst zum Hindernis für \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} auf seinem Weg nach links.
+Wenn man nun \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} nach unten schickt, geht er bis \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} und kann von dort aus nach rechts gehen,
+wo er vor dem Hindernis stehen bleibt - auf dem Ziel.
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-explanation_compatible.svg}\par}
+
+Wie findet man die richtige Befehlsfolge?  Man kann hinten anfangen und sich überlegen, was die letzte Bewegung von Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} zum Ziel sein muss. Es gibt nur zwei Möglichkeiten: \\
+a) Er kommt von links, wie in unserer Lösung. \\
+b) Er kommt von oben. In diesem Fall müsste Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot4.svg}} mit drei Befehlen nach oben rechts bewegt werden, um für \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} als Hindernis zu dienen. Wir benötigten dann ${3 + 2 = 5}$ Pfeil-Befehle.
+Gesucht ist aber eine Folge mit vier Befehlen. Also muss Möglichkeit a) korrekt sein, von Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} kommt von links zum Ziel. Dann geht die vorletzte Bewegung des Go-Bots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} von oben nach unten. Damit er an der richtigen Stelle stehen bleibt, müssen zuvor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} wie im Bild bewegt werden.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In dieser Biberaufgabe haben mehrere Roboter zusammen gearbeitet, um gemeinsam ein Ziel zu erreichen. Dabei hatten sie unterschiedliche Aufgaben. Der blaue Roboter musste zum Ziel kommen, und die anderen dienten als Hindernisse.
+
+Aufgabenverteilung ist ein wichtiger Aspekt der Robotik. Zum Beispiel arbeiten in einem automatisierten Warenlager unterschiedliche Roboter zusammen, um Waren einzulagern, wiederzufinden und zu transportieren. Dabei werden alle Aktivitäten so koordiniert, dass möglichst wenig nutzlose Ruhezeiten entstehen, alle Transportwege möglichst kurz sind, wenig Energie verbraucht wird und so insgesamt das Warenlager möglichst effizient arbeitet.
+
+Ein besonderes Gebiet der Robotik sind Schwarmroboter. Das sind – wie die Go-Bots – einfache Maschinen, die in einer grossen Gruppe gemeinsam eine Aufgabe lösen. In der Landwirtschaft können inzwischen Schwärme von Robotern die Aussaat von Mais erledigen, die Entwicklung der Pflanzen und die Bodenbeschaffenheit beobachten und schliesslich sogar das Getreide ernten. Jeder Schwarmroboter ist klein und einfach konstruiert, aber der Schwarm als Ganzes kann Grosses leisten. Dieses Prinzip gilt auch für Multiagentensysteme: Das sind einfache Softwareeinheiten, die gemeinsam komplexe Probleme lösen können. Die Aufgabe der Informatik ist, Algorithmen für eine optimale Koordination und Kooperation von Gesamtsystemen mit mehreren Akteuren –~ob Hardware oder Software –~zu entwickeln.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Multi-Robotersysteme: \href{https://www.hsu-hh.de/rt/forschung/multirobotersysteme}{\BrochureUrlText{https://www.hsu-hh.de/rt/forschung/multirobotersysteme}}
+  \item Robotik: \href{https://www.infineon.com/cms/de/discoveries/grundlagen-robotics/}{\BrochureUrlText{https://www.infineon.com/cms/de/discoveries/grundlagen-robotics/}}
+  \item Schwarmroboter
+  \item Industrieroboter: \href{https://de.wikipedia.org/wiki/industrieroboter}{\BrochureUrlText{https://de.wikipedia.org/wiki/industrieroboter}}
+  \item Multiagentensystem: \href{https://de.wikipedia.org/wiki/Multiagentensystem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Multiagentensystem}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorMaoY{} % \ifdefined\AuthorMaoY \BrochureFlag{cn}{} Yong Mao\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorAhmedA{} % \ifdefined\AuthorAhmedA \BrochureFlag{sa}{} Akram Ahmed\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

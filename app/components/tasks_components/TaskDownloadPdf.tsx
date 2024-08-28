@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import Button from "../Button";
-import { GrDocumentPdf } from "react-icons/gr";
+import Button from "@/app/components/Button"
+import { GrDocumentPdf } from "react-icons/gr"
 
 interface TaskDownloadPdfProps {
-  taskId: string;
+  taskId: string
 }
 
 export default function TaskDownloadPdf({ taskId }: TaskDownloadPdfProps) {
-  const pdfPath = `./pdfFiles/${taskId}.task.pdf`;
+  const pdfPath = `./pdfFiles/${taskId}.task.pdf`
 
   return (
     <div className="">
@@ -16,5 +16,5 @@ export default function TaskDownloadPdf({ taskId }: TaskDownloadPdfProps) {
         <Button label="" icon={GrDocumentPdf} iconSize="20" />
       </a>
     </div>
-  );
+  )
 }

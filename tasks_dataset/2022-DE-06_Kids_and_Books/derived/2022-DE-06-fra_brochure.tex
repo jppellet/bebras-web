@@ -1,0 +1,109 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Bibliothèque}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les enfants empruntent des livres à la bibliothèque. La bibliothécaire note dans une table quel enfant a emprunté quel livre.
+
+
+
+% question (as \emph{})
+{\em
+Quel livre les enfants ont-ils emprunté le plus souvent?
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-DE-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) \raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-DE-06-solution.svg}}.
+
+La liste indique que:
+
+\begin{itemize}
+  \item Trois enfants ont emprunté le livre avec la fusée.
+  \item Un enfant a emprunté le livre avec la loupe.
+  \item Deux enfants ont emprunté le livre avec le dragon.
+  \item Un enfant a emprunté le livre avec le menhir.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-DE-06-explanation.svg}\par}
+
+C’est donc le livre avec la fusée qui a été emprunté le plus souvent.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+C’est super que les participants au concours du Castor Informatique aiment lire!
+
+Mais avons-nous vraiment besoin d’une table avec les enfants et les livres pour représenter les goûts des enfants? Est-ce qu’on ne pourrait pas simplement dessiner des lignes?
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-DE-06-itsinformatics.svg}\par}
+
+Ce serait ainsi plus faciles pour des êtres humains, mais pas des ordinateurs. Les ordinateurs n’arrivent pas bien à lire des lignes, mais peuvent très bien travailler avec des tables. Si l’on veut que les ordinateurs nous aident dans notre travail, par exemple pour savoir quel enfant a emprunté quel livre, ou à quelle personne appartient quel compte en banque, c’est en général une bonne idée d’utiliser des tables.
+
+Les tables étaient déjé utilisées à Babylone il y a $4000$ ans pour enregistrer des informations concernant des \emph{relations}.  Les tables sont un concept central des \emph{bases de données relationnelles} grâce à leur capacité d’enregistrer des relations.
+
+Les tables représentent les relations entre des objets, et ces relations déterminent comment les informations sont représentées dans la table. Par exemple, si chaque enfant n’avait le droit d’emprunter qu’un seul livre, la table n’aurait qu’une ligne par chaque enfant. Dans notre exemple avec la bibliothèque, chaque enfant peut emprunter plusieurs livres; ils peuvent même emprunter les mêmes livres que d’autres enfants. Dans ce cas-là, nous avons besoin de cette table particulière qui relie les enfants et les livres – et qui peut contenir plusieurs fois chaque enfant et chaque livre.
+
+La table d’emprunts est pratique. Si un livre manque, la bibliothécaire peut par exemple regarder s’il a été emprunté. La table a deux colonnes et beaucoup de lignes. Dans la première colonne, l’enfant qui emprunte un livre est enregistré, et le livre dans la deuxième colonne. On peut alors répondre à la question du livre le plus souvent emprunté facilement en comptant le nombre de fois que le livre apparaît dans la deuxième colonne.
+
+Cette tâche pourrait aussi être accomplie par un ordinateur. Ce n’est pas possible autrement quand il s’agit d’une grande bibliothèque avec plusieurs milliers de livres! Dans une telle bibliothèque, il n’y a pas seulement une table des emprunts, mais aussi un fichier client (une table client) dans laquelle les informations sur les clients comme leur nom, leur adreese et leur numéro de téléphone sont répertoriées, et un registre des livres (table des livres) avec des informations sur les livres comme l’auteur et le titre. Comme ça, le table d’emprunts reste légère et n’indique que la relation entre les clients et les livres (c’est-à-dire qui a emprunté quel livre).
+
+En informatique, de telles tables sont appelées bases de données relationnelles.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Base de données relationnelle: \href{https://fr.wikipedia.org/wiki/Base_de_donn\%C3\%A9es_relationnelle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Base\_de\_données\_relationnelle}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorAlmajhadE{} % \ifdefined\AuthorAlmajhadE \BrochureFlag{sa}{} Esraa Almajhad\fi
+\def\AuthorBergsveinsdottirL{} % \ifdefined\AuthorBergsveinsdottirL \BrochureFlag{is}{} Linda Björk Bergsveinsdóttir\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

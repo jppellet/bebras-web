@@ -1,0 +1,113 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Recette de hamburger}
+\renewcommand{\taskCountry}{KR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le castor Jess prépare des hamburgers. Il suit pour cela trois règles:
+
+\begin{enumerate}
+  \item La sauce est mise directement sur la viande.
+  \item La viande et le fromage sont mis sous les cornichons, la salade et les oignons.
+  \item Les oignons ne touchent pas le pain.
+\end{enumerate}
+
+\textbf{Ingrédients des hamburgers:}
+
+\begin{tabular}{ @{} c c c c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{pain}} & {\setstretch{1.0}\thead[cb]{viande}} & {\setstretch{1.0}\thead[cb]{sauce}} & {\setstretch{1.0}\thead[cb]{cornichons}} & {\setstretch{1.0}\thead[cb]{salade}} & {\setstretch{1.0}\thead[cb]{oignons}} & {\setstretch{1.0}\thead[cb]{fromage}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_bread.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_meat.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_sauce.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_cucumber.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_salad.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_onion.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_cheese.svg}}
+\end{tabular}
+
+
+
+% question (as \emph{})
+{\em
+Lequel des hamburgers a été préparé en suivant les trois règles?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est D.
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerD.svg}}
+
+Pour trouver la solution, nous devons regarder si chaque hamburger a été préparé en suivant les trois règles.
+
+A) Ce hamburger correspond aux règles $1$ et $2$, mais les oignons touchent le pain du haut. Il ne respecte donc pas la règle $3$.
+
+B) Ce hamburger correspond à la règle $1$, mais la salade est sous la viande et le fromage. Il ne respecte donc pas la règle $2$.
+
+C) Ce hamburger correspond à la règle $2$, car la viande et le fromage sont sous les cornichons, la salade et les oignons. Il correspond aussi à la règle $3$, car les oignons ne touchent pas le pain. Par contre, la sauce n’est pas directement sur la viande; il ne respecte donc pas la règle $1$.
+
+D) Ce hamburger respecte toutes les règles. Le hamburger D est donc un vrai hamburger de castor.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les hamburgers de cet exercice sont préparés en suivant trois règles. Castor Jess doit suivre chacune des trois règles pour chaque hamburger qu’il prépare. Si l’une des règles n’est pas respectée, il ne s’agit pas d’un vrai hamburger de castor. Chacune des règles est une condition qui doit être remplie pour que le hamburger soit un hamburger de castor.
+
+En informatique, il faut souvent vérifier des conditions ou \emph{contraintes} (\emph{Constraint Checking}) pour savoir si une solution respecte toutes les règles données. Lors de cette vérification, toutes les règles sont reliées par \emph{et}, ce qui veut dire que toutes les règles (les contraintes) doivent être respectées en même temps.
+
+La vérification qu’une solution satisfait l’ensemble des contraintes est fondamentalement différente de la recherche de solution. On appelle cela un \emph{problème de satisfaction de contraintes}. Il est souvent beaucoup plus difficile de trouver une solution qui satisfait toutes les contraintes que de vérifier si une solution les satisfait, même pour un ordinateur.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Programmation par contraintes: \href{https://fr.wikipedia.org/wiki/Programmation_par_contraintes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_par\_contraintes}}
+  \item Problème de satisfaction de contraintes: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_satisfaction_de_contraintes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_satisfaction\_de\_contraintes}}
+  \item ET (fonction logique): \href{https://fr.wikipedia.org/wiki/Fonction_ET}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_ET}}
+  \item NP (complexité): \href{https://fr.wikipedia.org/wiki/NP_(complexit\%C3\%A9)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/NP\_(complexité)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChoB{} % \ifdefined\AuthorChoB \BrochureFlag{kr}{} Byeonggyu Cho\fi
+\def\AuthorKimS{} % \ifdefined\AuthorKimS \BrochureFlag{kr}{} Seulki Kim\fi
+\def\AuthorKimJ{} % \ifdefined\AuthorKimJ \BrochureFlag{kr}{} Jihye Kim\fi
+\def\AuthorKimH{} % \ifdefined\AuthorKimH \BrochureFlag{kr}{} Hakin Kim\fi
+\def\AuthorTruuA{} % \ifdefined\AuthorTruuA \BrochureFlag{ee}{} Ahto Truu\fi
+\def\AuthorNemethA{} % \ifdefined\AuthorNemethA \BrochureFlag{hu}{} Ágnes Erdősné Németh\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

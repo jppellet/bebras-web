@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Zug entladen}
+\renewcommand{\taskCountry}{IN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ein Zug zieht Waggons mit nummerierten Kisten. Der Kran steht an einer festen Position und entlädt die Kisten. Um eine Kiste zu entladen, muss die Kiste direkt unter dem Kran positioniert werden.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-taskbody.svg}\par}
+
+Der Kran muss die Kisten von $1$ an in der Reihenfolge ihrer Nummern entladen. Der Zug kann nur vorwärts fahren. Wenn er unter dem Kran hindurch gefahren ist, muss er eine Runde fahren, damit weitere Kisten entladen werden können.
+
+So entlädt der Kran die Kisten $1$, $2$, $3$ und $4$:
+
+\begin{tabularx}{\columnwidth}{ @{} C C C @{} }
+  {\setstretch{1.0}\thead[cb]{Runde 1:}} & {\setstretch{1.0}\thead[cb]{Runde 2:}} & {\setstretch{1.0}\thead[cb]{Runde 3:}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example1.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example2.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example3.svg}} \\ 
+  Er überspringt Kiste $4$, entlädt & Er überspringt Kiste 4 & Er entlädt Kiste $4$. \\ 
+  Kiste $1$, überspringt Kiste 3 & und entlädt Kiste $3$. &  \\ 
+  und entlädt Kiste $2$. &  & 
+\end{tabularx}
+
+Der obige Zug muss also drei Runden fahren, bis alle Kisten in der richtigen Reihenfolge entladen sind.
+
+
+
+% question (as \emph{})
+{\em
+Wie viele Runden werden für das Entladen des folgenden Zuges benötigt?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} l l l @{} }
+  A) $1$ Runde & E) $5$ Runden & I) $9$ Runden \\ 
+  B) $2$ Runden & F) $6$ Runden & J) $10$ Runden \\ 
+  C) $3$ Runden & G) $7$ Runden &  \\ 
+  D) $4$ Runden ${~~~}$ & H) $8$ Runden ${~~~}$ & 
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Die richtige Antwort ist $7$ Runden.
+
+Die vorgeschriebene Reihenfolge für das Entladen ist $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$. In der ersten Runde entlädt der Kran die Kisten $1$ und $2$ zusammen. In der zweiten Runde entlädt der Kran $3$ und $4$ zusammen, dann $5$, dann $6$, dann $7$ und $8$ zusammen, dann $9$ und schliesslich $10$. Dies entspricht $7$ Runden.
+
+Alternativ kann man sich zunutze machen, dass jedes Mal, wenn für eine der Kistennummern in der Folge die nächste Kistennummer links davon steht, eine zusätzliche Entladerunde erforderlich ist.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-explanation.svg}\par}
+
+Da z. B. die $3$ links von der $2$ steht, wird sie übersprungen, um die $2$ zu entladen, so dass eine zusätzliche Runde erforderlich ist, um die $3$ unter den Kran zu bringen. Beim gegebenen Zug gibt es sechs solcher Paare ($2$,$3$), ($4$,$5$), ($5$,$6$), ($6$,$7$), ($8$,$9$) und ($9$, $10$), so dass $6$ zusätzliche Runden benötigt werden, also insgesamt $7$ Runden.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Wenn für eine beliebige Zahl in der Folge $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$ die Kiste mit der nächstgrösseren Zahl weiter links auf dem Zug liegt, nennen wir dies eine \emph{Inversion}, das bedeutet Umkehrung. Für jede solche Umkehrung ist eine zusätzliche Runde erforderlich. Wenn wir die Anzahl der Umkehrungen zählen, erhalten wir die Antwort.
+
+Das Zählen von Inversionen in Bezug auf eine gewünschte Folge hat viele Anwendungen. Bei einigen \emph{Sortieralgorithmen}, wie z. B. \emph{Bubble-Sort}, gibt die Anzahl der Inversionen Aufschluss darüber, wie viele Vertauschungen erforderlich sind, um eine bestimmte Folge zu sortieren. Wenn zwei Kunden dieselbe Menge von Artikeln in eine Rangfolge bringen, sagt uns die Anzahl der Inversionen in ihren Ranglisten, wie sehr sich ihre Vorlieben gleichen. Dies wird von Online-Shops genutzt, um \enquote{ähnliche} Kunden zu identifizieren und ihnen Produktempfehlungen zu geben.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Sortierverfahren: \href{https://de.wikipedia.org/wiki/Sortierverfahren}{\BrochureUrlText{https://de.wikipedia.org/wiki/Sortierverfahren}}
+  \item Bubble Sort: \href{https://de.wikipedia.org/wiki/Bubblesort}{\BrochureUrlText{https://de.wikipedia.org/wiki/Bubblesort}}
+  \item Einfache Sortierverfahren: \href{https://hpi.de/friedrich/teaching/units/einfache-sortierverfahren.html}{\BrochureUrlText{https://hpi.de/friedrich/teaching/units/einfache-sortierverfahren.html}}
+  \item Inversion: \href{https://www.ziemke-koeln.de/unterricht/informatik/gk12/sortieren/suchen_sortieren.htm\#Inversion}{\BrochureUrlText{https://www.ziemke-koeln.de/unterricht/informatik/gk12/sortieren/suchen\_sortieren.htm\#Inversion}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorMukundM{} % \ifdefined\AuthorMukundM \BrochureFlag{in}{} Madhavan Mukund\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorAlharthiL{} % \ifdefined\AuthorAlharthiL \BrochureFlag{sa}{} Laila Alharthi\fi
+\def\AuthorCesarD{} % \ifdefined\AuthorCesarD \BrochureFlag{py}{} Diego César\fi
+\def\AuthorNaughtonT{} % \ifdefined\AuthorNaughtonT \BrochureFlag{ie}{} Tom Naughton\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+
+\newpage}{}

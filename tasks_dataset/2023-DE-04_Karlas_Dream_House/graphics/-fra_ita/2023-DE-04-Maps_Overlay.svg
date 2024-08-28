@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="366.15433"
+   height="363.82809"
+   viewBox="0 0 366.15433 363.82809"
+   version="1.1"
+   xml:space="preserve"
+   style="clip-rule:evenodd;fill-rule:evenodd"
+   id="svg51"
+   sodipodi:docname="2023-DE-04-Maps_Overlay.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:serif="http://www.serif.com/"><defs
+   id="defs55" /><sodipodi:namedview
+   id="namedview53"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   showguides="true"
+   inkscape:guide-bbox="true"
+   inkscape:zoom="1.9591281"
+   inkscape:cx="184.01043"
+   inkscape:cy="180.94784"
+   inkscape:window-width="2048"
+   inkscape:window-height="1017"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g49" />
+    <g
+   transform="translate(-0.1,-0.1)"
+   id="g49">
+        <g
+   id="path997"
+   transform="translate(4.55633,3.63408)">
+            <path
+   d="M 355.544,0.1 -2.326,354.336 c 121.999,0.793 246.116,0.796 364.024,5.958 C 357.144,240.13 356.437,120.056 355.544,0.1 Z"
+   style="fill:#c4b8b8;fill-rule:nonzero"
+   id="path2" />
+        </g>
+        <path
+   id="path9971"
+   serif:id="path997"
+   d="m 0.1,0.1 v 360 l 360.356,-0.345 C 358.447,241.523 359.93,120.237 360.1,0.1 Z"
+   style="fill-rule:nonzero" />
+        <path
+   id="path846"
+   d="m 2.23,2.23 v 109.065 c 15.372,-3.664 32.916,-2.522 48.568,-2.134 34.752,0.848 69.12,5.47 103.527,10.54 49.74,7.328 100.783,17.646 151.242,15.435 11.082,-0.485 22.265,-1.312 33.231,-3.148 6.416,-1.078 12.764,-3.213 19.172,-4.077 V 2.23 Z"
+   style="fill:#22b14c;fill-rule:nonzero" />
+        <path
+   id="path848"
+   d="m 2.23,239.106 c 10.971,-2.995 21.443,-6.135 32.805,-7.545 24.101,-2.999 48.312,-1.398 72.426,0.264 32.443,2.237 64.762,6.633 97.136,9.765 37.449,3.625 75.971,5.721 113.325,-0.043 13.919,-2.151 26.585,-6.859 40.048,-10.536 v -100.97 c -6.723,0.903 -13.28,3.152 -20.024,4.145 -17.212,2.535 -34.577,3.519 -51.976,3.093 -64.894,-1.593 -128.914,-17.05 -193.42,-23.5 -22.371,-2.237 -44.453,-2.492 -66.888,-2.484 -5.662,0.004 -11.405,0.725 -17.041,1.249 -1.453,0.132 -4.976,-0.094 -5.952,1.137 -1.342,1.7 -0.439,6.604 -0.439,8.691 z"
+   style="fill:#ffffff;fill-rule:nonzero" />
+        <path
+   id="path850"
+   d="M 2.23,357.97 H 357.97 V 233.141 c -6.318,1.726 -12.385,4.342 -18.746,6.016 -14.728,3.873 -29.984,6.114 -45.159,7.153 -66.283,4.542 -131.688,-10.297 -197.681,-13.186 -23.849,-1.043 -47.916,-2.5 -71.574,2.062 -5.594,1.083 -11.2,2.263 -16.615,4.061 -1.547,0.515 -4.499,0.92 -5.526,2.287 -1.278,1.704 -0.439,6.169 -0.439,8.223 z"
+   style="fill:#22b14c;fill-rule:nonzero" />
+        <path
+   id="path852"
+   d="m 48.668,2.23 c 1.368,7.366 2.007,14.826 3.685,22.154 4.197,18.303 10.945,35.889 19.879,52.402 20.407,37.73 50.605,69.078 71.502,106.509 22.188,39.749 32.157,83.354 31.049,128.663 -0.371,15.048 -0.294,31.284 -3.843,46.012 h 18.32 c 3.08,-24.357 2.854,-49.237 5.185,-73.704 5.666,-59.483 11.162,-119.299 26.831,-177.231 6.646,-24.57 15.197,-48.922 26.887,-71.574 3.664,-7.102 7.601,-14.102 11.84,-20.876 2.484,-3.97 5.99,-7.979 7.647,-12.355 h -13.207 c -1.576,0 -3.979,-0.434 -5.376,0.439 -2.919,1.823 -5.028,8.082 -6.651,11.064 -4.861,8.938 -9.573,17.983 -14.566,26.84 -12.168,21.588 -22.26,44.858 -27.99,69.018 -4.849,20.467 -6.711,41.381 -9.199,62.201 -1.917,16.002 -3.804,32.468 -4.388,48.568 -0.145,4.009 -0.771,7.912 -0.724,11.929 0.013,0.972 -0.222,2.893 -1.453,3.14 -1.367,0.273 -1.052,-2.023 -0.98,-2.714 0.388,-3.872 -1.261,-8.197 -2.219,-11.929 C 176.794,204.84 170.088,189.464 162.739,174.775 139.963,129.219 107.342,89.78 82.206,45.686 76.642,35.93 71.065,26.288 66.817,15.863 65.569,12.787 64.41,9.673 63.46,6.491 63.119,5.345 63,3.453 61.99,2.669 59.6,0.807 51.676,2.23 48.668,2.23 Z"
+   style="fill:#00a2e8;fill-rule:nonzero;stroke:#000000;stroke-width:2.13px" />
+        <rect
+   id="path854"
+   x="20.124001"
+   y="11.603"
+   width="20.875999"
+   height="20.875999"
+   style="fill-rule:nonzero" />
+        <path
+   id="path858"
+   d="m 111.721,173.922 v 19.598 h 19.598 v -19.598 h -19.598 m 113.326,0.853 v 22.153 h 22.154 v -22.153 z"
+   style="fill-rule:nonzero" />
+        <rect
+   id="path862"
+   x="256.99899"
+   y="180.313"
+   width="20.875999"
+   height="20.875999"
+   style="fill-rule:nonzero" />
+        <rect
+   id="path866"
+   x="303.86301"
+   y="314.08801"
+   width="20.875999"
+   height="21.302"
+   style="fill-rule:nonzero" />
+        <g
+   id="g2517">
+        </g>
+        
+        
+        
+        
+        
+        <g
+   id="path1019"
+   transform="translate(-0.109729,-7.0093)">
+            <rect
+   x="21.402"
+   y="334.112"
+   width="21.302"
+   height="21.302"
+   style="fill-rule:nonzero"
+   id="rect46" />
+        </g>
+    <path
+   id="path833-5"
+   d="M 309.9388,81.7584 V 26.2396"
+   style="clip-rule:evenodd;fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:1.728px" /><g
+   id="path835-5"
+   transform="matrix(0.3625544,0,0,0.4,29.340795,3.0656118)"
+   style="clip-rule:evenodd;fill-rule:evenodd"><path
+     d="M 705.199,134.747 H 843.995"
+     style="fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:4.32px"
+     id="path20" /></g><g
+   transform="matrix(0.4,0,0,0.4,338.34644,62.720628)"
+   id="g31"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1850-1"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text28">E</text></g></g><g
+   transform="matrix(0.4,0,0,0.4,304.03222,19.18556)"
+   id="g38"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1758-8"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text35">N</text></g></g><g
+   transform="matrix(0.4,0,0,0.4,304.84573,96.15)"
+   id="g43"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1772-7"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text40">S</text></g></g><path
+   id="path2386-0"
+   d="m 315.6916,34.8932 -5.7528,-9.836 -5.7528,9.836"
+   style="clip-rule:evenodd;fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:1.728px" /><text
+   x="268.57483"
+   y="62.720627"
+   style="font-size:15.792px;font-family:AppleSymbols, 'Apple Symbols';clip-rule:evenodd;fill-rule:evenodd;stroke-width:0.4"
+   id="text23">O</text></g>
+</svg>

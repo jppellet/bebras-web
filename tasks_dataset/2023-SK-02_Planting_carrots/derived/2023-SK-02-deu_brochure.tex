@@ -1,0 +1,109 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Rüebli pflanzen}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Der Kaninchenroboter kann folgende Anweisungen ausführen:
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_L.svg}} Springe nach \textbf{links} auf den nächsten Hügel.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_R.svg}} Springe nach \textbf{rechts} auf den nächsten Hügel.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_seed.svg}} \textbf{Pflanze} einen Karottensamen auf den Hügel, auf dem du stehst.
+
+Der Kaninchenroboter hat diese Folge von Anweisungen ausgeführt:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_prog.svg}\par}
+
+Dabei ist der Roboter auf vier Hügeln gewesen.
+Wir wissen aber nicht, auf welchem Hügel er angefangen hat.
+
+
+
+% question (as \emph{})
+{\em
+Auf welche Hügel hat der Roboter die Rüeblisamen gepflanzt?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02_mounds.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig: \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02-solution-compatible.svg}}
+
+Um die richtige Antwort besser erklären zu können, geben wir den Hügeln Buchstaben (siehe oben) und den Anweisungen Nummern:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_explanation-compatible.svg}\par}
+
+Zuerst bestimmen wir den Startpunkt des Roboters: Da der Roboter dreimal hintereinander nach links springt (Anweisungen $3$, $5$, $6$), muss er vorher auf Hügel D stehen. Bevor er dreimal nach links springt, springt er einmal nach rechts (Anweisung $1$). Der Roboter hat also auf Hügel C angefangen.
+Folglich werden die Rüeblisamen – den Anweisungen $2$, $4$ und $7$ entsprechend – zuerst auf Hügel D, dann auf Hügel C und zuletzt auf Hügel A gepflanzt.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Echte Roboter haben eingebaute Computer, und die werden so ähnlich \emph{programmiert} wie der Kaninchenroboter. Ein Computerprogramm besteht aus vielen einzelnen \emph{Anweisungen}.
+
+In unserem Fall wird die Abfolge der Anweisungen für den Roboter-Computer mit Hilfe von Bildblöcken angegeben. Das Ergebnis (\emph{Output}) des Programms hängt nicht nur von der Startposition (\emph{Input}), sondern auch von der Folge und Reihenfolge der Anweisungen ab.
+
+Diese Biberaufgabe zeigt ein Beispiel für den Einsatz von Robotern in der Landwirtschaft. Roboter können nicht nur pflanzen, sondern auch bewässern, bestäuben oder Pflanzenschutzmittel gezielt verteilen.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithmus: \href{https://de.wikipedia.org/wiki/Algorithmus}{\BrochureUrlText{https://de.wikipedia.org/wiki/Algorithmus}}
+  \item Anweisungen: \href{https://de.wikipedia.org/wiki/Anweisung_(Programmierung)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Anweisung\_(Programmierung)}}
+  \item Smart Farming: \href{https://de.wikipedia.org/wiki/Smart_Farming}{\BrochureUrlText{https://de.wikipedia.org/wiki/Smart\_Farming}}, \href{https://www.agroscope.admin.ch/agroscope/de/home/themen/wirtschaft-technik/smart-farming.html}{\BrochureUrlText{https://www.agroscope.admin.ch/agroscope/de/home/themen/wirtschaft-technik/smart-farming.html}}
+  \item Roboter in der Landwirtschaft: \href{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/de}{\BrochureUrlText{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/de}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorStupurieneG{} % \ifdefined\AuthorStupurieneG \BrochureFlag{lt}{} Gabrielė Stupurienė\fi
+\def\AuthorAlmajhadE{} % \ifdefined\AuthorAlmajhadE \BrochureFlag{sa}{} Esraa Almajhad\fi
+\def\AuthorGuraS{} % \ifdefined\AuthorGuraS \BrochureFlag{sk}{} Štefan Gura\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+
+\newpage}{}

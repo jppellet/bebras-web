@@ -1,0 +1,168 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-06 Wasser -- Land}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-06 Wasser – Land}
+
+
+\subsection*{Body}
+
+Edu hat ein neues Spiel. Es besteht aus Kärtchen mit Wasser- und Landflächen.
+Mit den Kärtchen kann Edu Landschaften legen. Die Kärtchen müssen \emph{zusammenpassen}: Land an Land. Wasser an Wasser.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu legt zwei Kärtchen und lässt zwei Lücken.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Welche Kärtchen passen in die Lücken?
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Ziehe die passenden Kärtchen in die Lücken. Du kannst die Kärtchen nicht drehen. Klicke auf ein Kärtchen, um es zurückzulegen. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The tiles are all draggables (not the already placed), the gray spaces are containers. You can drag the tiles into the gray spaces. When clicking the tiles spring back to the first postion.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Das ist die richtige Antwort:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Die beiden Kärtchen passen in die Lücken: Überall liegt Wasser an Wasser und Land an Land. Von den sechs möglichen Kärtchen passen nur diese beiden in die Lücken.
+
+Nur wenn man die Kärtchen drehen dürfte, würden noch weitere Kärtchen in die Lücken passen.
+
+
+\subsection*{This is Informatics}
+
+Schauen wir uns Edus Kärtchen genauer an. Alle Kärtchen können in vier Bereiche geteilt werden. Die äusseren Ränder dieser Bereiche zeigen entweder Land oder Wasser.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Es gibt also nur zwei verschiedene Bereicharten, denn die äusseren Ränder zeigen entweder Wasser (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) oder Land (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Zwei Kärtchen passen nur zusammen, wenn ihre benachbarten Bereicharten gleich sind. Daher können wir für drei Bereiche der Lücken die erforderliche Art eintragen. Der vierte Bereich kann Wasser oder Land sein, deswegen tragen wir \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}} ein.
+
+Auf diese Weise erstellen wir für jede Lücke ein Muster. Die Kärtchen, die die Lücken füllen sollen, müssen in diese Muster passen: Bei \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} muss der Bereich des Kärtchens auch \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} beziehungsweise \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} haben. Bei \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}} kann der Bereich \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} oder \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} haben.
+
+Wir haben eine Eigenschaft der Kärtchen entdeckt. Diese Entdeckung haben wir genutzt, um sie durch eine Anordnung der Zeichen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} zu ersetzen. Durch diesen Schritt haben wir, die in den Bildern enthaltenen Informationen, erheblich reduziert. Wir konzentrieren uns auf die Information, die zur Lösung dieser Aufgabe erforderlich sind. Informatiker würden sich auf die Anordnung der Zeichen in den Bildern beziehen. Durch die Reduktion der Bilder auf die Bereicharten \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} entsteht ein Modell für die fehlenden Kärtchen. \emph{Modellierung} bedeutet \emph{Abstraktion} (oder Vereinfachung), und Abstraktion reduziert die Information. Computer müssen mit Modellen von der Realität arbeiten. Bei der Erstellung solcher Modelle muss darauf geachtet werden, dass wichtige Eigenschaften der Realität nicht verloren gehen.
+
+
+\subsection*{This is Computational Thinking}
+
+Natürlich, man kann hier ausdrücklich \enquote{Abstraktion} erwähnen.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Modellierung, Codierung: \href{https://de.wikipedia.org/wiki/Datenmodellierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Datenmodellierung}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Abstraktion
+
+
+\end{document}

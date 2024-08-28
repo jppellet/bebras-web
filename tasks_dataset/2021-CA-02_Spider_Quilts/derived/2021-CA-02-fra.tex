@@ -1,0 +1,161 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-CA-02 Toiles d'araignée}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-CA-02 Toiles d’araignée}
+
+
+\subsection*{Body}
+
+Thekla l’araignée aimerait construire autant de toiles différentes que possible. Pour cela, elle a mis au point une méthode lui permettant de décrire la structure exacte de ses toiles.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-taskbody.svg}\par}
+
+Elle procède de la façon suivante: elle numérote les points d’ancrage de la toile de $1$ à ${N}$ et utilise les case d’une grille comme cela:
+
+\begin{itemize}
+  \item S’il y a un fil qui relie le point d’ancrage ${x}$ au point d’ancrage ${y}$, elle met un “X” dans la case située dans la colonne ${x}$ et dans la ligne ${y}$.
+\end{itemize}
+
+Un fil qui relie le point d’ancrage ${x}$ au point d’ancrage ${y}$ relie également le point d’ancrage ${y}$ au point d’ancrage ${x}$.
+
+Thekla construit à présent cette toile:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-question.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Comment Thekla décrit-elle la structure de cette toile?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  La réponse A est correcte, car toutes les cases sont remplies correctement d’après la règle. & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerA.svg}} \\ 
+  La réponse B comporte une connection supplémentaire erroné (entre le point d’ancrage $1$ et le point d’ancrage $2$ dans les deux directions) et une connection a été oubliée (entre le point d’ancrage $2$ et le point d’ancrage $5$ dans les deux directions). & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationB.svg}} \\ 
+  Concernant la réponse C: d’après la règle, aucun “X” ne peut être présent dans la diagonale allant du haut à gauche au bas à droite. ils représenteraient en effet des connections entre d’un point d’ancrage et lui-même. Ceux-ci peuvent exister dans certains réseaux, mais pas dans notre toile d’araignée. La réponse C comporte cependant deux telles connections (au points d’ancrage $1$ et $4$). & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationC.svg}} \\ 
+  Le réponse D n’est pas symétrique par rapport à la diagonale allant du haut à gauche au bas à droite, alors que toutes les descriptions de toiles devraient l’être. Dans cette réponse, le point d’ancrage $2$ et le point d’ancrage $5$ sont connectés, mais la connection correspondante dans l’autre direction manque. & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationD.svg}}
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+La toile d’araignée peut être considérée comme un \emph{graphe}; un concept qui apparait fréquemment en informatique.
+
+Un graphe est composé de \emph{nœuds} (les points d’ancrage de la toile) et d’\emph{arêtes} (les fils entre les points d’ancrage). Les graphes peuvent aussi être utilisés pour représenter des objets et les relations entre ces objets. Par exemple, un graphe pourrait représenter la manière dont des personnes sont connectées sur un réseau social ou des vols d’avion entre différents pays.
+
+Cet exercice montre comment la structure d’une toile d’araignée peut être enregistrée dans une grille. Certaines propriétés de la toiles sont perdues dans cette représentation, comme par exemple l’apparence exacte de la toile. Souvent, on ne s’intéresse pas aux propriétés géométriques exactes d’une toile, mais seulement à sa structure. Les informations essentielles sont conservées: combien y a-t-il de nœuds? Quelles paires de nœuds sont-elles reliées par une arête?
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-itsinformatics-compatible.svg}\par}
+
+La représentation utilisée ici n’est qu’une possibilité parmi beaucoup de représenter la structure d’un réseau. Cette méthode n’est pas très économe, car toutes les connections sont enregistrées dans les deux sens, ce qui ne serait pas nécessaire; les cases de la diagonale ne seraient pas nécessaire non plus. Cette méthode a par contre l’avantage de mettre en évidence les erreurs de représentation. Les réponses C et D, par exemple, peuvent être éliminées sans même considérer la toile d’araignée.
+
+La méthode de représentation utilisée dans cet exercice s’appelle une \emph{matrice d’adjacence}.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Matrice d’adjacence: \href{https://fr.wikipedia.org/wiki/Matrice_d\%27adjacence}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Matrice\_d’adjacence}}
+\end{itemize}
+
+
+}
+\end{document}

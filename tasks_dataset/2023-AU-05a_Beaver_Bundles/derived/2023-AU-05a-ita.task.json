@@ -1,0 +1,121 @@
+{
+    "id": "2023-AU-05a",
+    "title": "Mattoni di castoro",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "medium",
+        "4": "easy",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "medium",
+        "14-16": "easy",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (drag-and-drop)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Marielle Léonard, redone by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Marielle Léonard",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Adam Grodeck, adam.grodeck@csiro.au, Australia (author)",
+            "name": "Adam Grodeck",
+            "country": "Australia",
+            "country_code": "AU",
+            "roles": [
+                "author"
+            ],
+            "email": "adam.grodeck@csiro.au"
+        },
+        {
+            "src": "Marielle Léonard, marielleleonard59@gmail.com, France (graphics)",
+            "name": "Marielle Léonard",
+            "country": "France",
+            "country_code": "FR",
+            "roles": [
+                "graphics"
+            ],
+            "email": "marielleleonard59@gmail.com"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor, translation from English into German)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "translation from English into German"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Nora A. Escherle, nora.escherle@informatik-biber.ch, Switzerland (contributor)",
+            "name": "Nora A. Escherle",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "nora.escherle@informatik-biber.ch"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics, contributor)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics",
+                "contributor"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 1.1
+    },
+    "name": "Beaver Bundles",
+    "difficulties": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "AU",
+        "country": "Australia",
+        "num": 5,
+        "variant": "a"
+    }
+}

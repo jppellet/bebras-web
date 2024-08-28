@@ -1,0 +1,128 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Notazione postfissa}
+\renewcommand{\taskCountry}{RO}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un’espressione matematica è costituita da …
+
+\begin{itemize}
+  \item … un \emph{operatore}: \textbf{+}, \textbf{-}, \textbf{·} o \textbf{:}
+  \item … e gli \emph{operandi}: numeri come $1$, $2$, …, lettere come a, b, … o ancora espressioni come ($1$ + $2$).
+\end{itemize}
+
+La struttura di un’espressione matematica può essere rappresentata come un \emph{albero strutturale}.
+Questo diagramma di operatori e operandi è disegnato con un cerchio con l’operatore è collegato all’albero degli operandi da frecce.
+Nel caso più semplice, si tratta di cerchi con un numero o una lettera.
+
+Da un albero, a sua volta, si può leggere la \emph{notazione postfissa} di un’espressione matematica.
+In questa notazione, per ogni espressione, gli operandi vengono scritti per primi, seguiti dall’operatore.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c @{} }
+  \textbf{Espressione matematica:} & a + b & (a + $1$) \ensuremath{\cdot} (b + c) \\ 
+  \textbf{Albero strutturale:} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example1-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example2-compatible.svg}} \\ 
+  \textbf{Notazione postfissa:} & a b + & a $1$ + b c + \ensuremath{\cdot}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Ecco la notazione postfissa di un’altra espressione:
+
+\begin{adjustwidth}{1.5em}{0em}
+a $1$ + b $2$ + · $25$ c : +
+\end{adjustwidth}
+
+
+
+% question (as \emph{})
+{\em
+Qual è l’albero strutturale di questa espressione?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerA-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerB-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerD-compatible.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta C è corretta: \raisebox{-0.5ex}{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}}
+
+Come descritto nel compito, l’operatore centrale di un’espressione matematica si trova in cima all’albero (è la sua \emph{radice}) e alla fine nella notazione postfissa. Se si vuole trovare o creare l’albero di struttura di un’espressione in notazione postfissa, si deve cercare l’ultimo carattere della notazione postfissa in cima all’albero, in questo caso il +. Solo negli alberi delle risposte A e C si trova un + nella radice.
+
+L’operatore + ha due operandi, uno a sinistra e uno a destra. Nella notazione postfissa, si può vedere direttamente (al penultimo carattere) che l’operando di destra dell’espressione è di nuovo un’espressione che ha l’operatore :. Nell’albero strutturale, quindi, deve esserci un : a destra sotto la radice. Questo è il caso solo dell’albero della risposta C. Quindi questa deve essere la risposta corretta.
+
+Questo può essere dimostrato anche convertendo completamente l’albero della risposta C in notazione postfissa:
+
+\begin{itemize}
+  \item I tre sottoalberi più \enquote{piccoli}, ciascuno composto da $3$ elementi, diventano a $1$ +, b $2$ + e $25$ c :.
+  \item I due sottoalberi di sinistra di questi tre \enquote{più piccoli} diventano l’operando di sinistra del \textbf{+} superiore, in modo che la trasformazione del sottoalbero di sinistra sia ora $1$ + b $2$ + ·. Il terzo dei sottoalberi \enquote{più piccoli} è già l’operando destro.
+  \item Quindi la notazione postfissa della struttura ad albero della risposta C è complessivamente: a $1$ + b $2$ + · $25$ c : +. Questa è esattamente l’espressione data nel compito.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La \emph{notazione postfissa}, detta anche \emph{notazione polacca inversa}, è spesso utilizzata per formulare espressioni matematiche o di altro tipo (ad esempio nei linguaggi di programmazione) senza equivoci e in modo compatto. Se si dovesse scrivere l’espressione data dalla struttura ad albero della risposta C in notazione normale (cioè con gli operatori tra gli operandi, quindi chiamata anche \emph{notazione prefisso}), si dovrebbero mettere le parentesi (a + $1$) - (b + $2$) + $25$ : c, che non sono necessarie nella notazione postfissa. La notazione postfissa è stata introdotta per la prima volta da Jan Łukasiewicz (1878$-1956$), con l’operatore davanti agli operandi. È il modo in cui si scrive l’applicazione delle funzioni, tra le altre cose: in matematica ${f(x, y)}$, in programmazione \BrochureInlineCode{nomefunzione(argomento1, argomento2, argomento3)}.  Nel computer si usa, tra l’altro, quando si \emph{parsano} le espressioni di un linguaggio di programmazione.
+
+Nel recente passato, molte persone hanno conosciuto la notazione postfissa soprattutto con l’uso delle prime calcolatrici scientifiche: con essa si potevano inserire e calcolare espressioni matematiche complesse in modo rapido e affidabile e, soprattutto, senza parentesi.  Ancora oggi, esiste una comunità che utilizza calcolatrici programmabili (come le HP 35s) con la notazione postfissa.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Notazione polacca inversa: \href{https://it.wikipedia.org/wiki/Notazione_polacca_inversa}{\BrochureUrlText{https://it.wikipedia.org/wiki/Notazione\_polacca\_inversa}}
+  \item Albero sintttico: \href{https://it.wikipedia.org/wiki/Albero_sintattico}{\BrochureUrlText{https://it.wikipedia.org/wiki/Albero\_sintattico}}
+  \item Jan Łukasiewicz: \href{https://it.wikipedia.org/wiki/Jan_\%C5\%81ukasiewicz}{\BrochureUrlText{https://it.wikipedia.org/wiki/Jan\_Łukasiewicz}}
+  \item HP 35s: \href{https://it.wikipedia.org/wiki/HP_35s}{\BrochureUrlText{https://it.wikipedia.org/wiki/HP\_35s}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorUngureanuL{} % \ifdefined\AuthorUngureanuL \BrochureFlag{ro}{} Laura Ungureanu\fi
+\def\AuthorConstantinescuR{} % \ifdefined\AuthorConstantinescuR \BrochureFlag{ro}{} Raluca Constantinescu\fi
+\def\AuthorIoannouT{} % \ifdefined\AuthorIoannouT \BrochureFlag{cy}{} Thomas Ioannou\fi
+\def\AuthorReyesO{} % \ifdefined\AuthorReyesO \BrochureFlag{pr}{} Omar Colon Reyes\fi
+\def\AuthorAnwarK{} % \ifdefined\AuthorAnwarK \BrochureFlag{my}{} Khairul Anwar\fi
+\def\AuthorKhachatryanG{} % \ifdefined\AuthorKhachatryanG \BrochureFlag{am}{} Gohar Khachatryan\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

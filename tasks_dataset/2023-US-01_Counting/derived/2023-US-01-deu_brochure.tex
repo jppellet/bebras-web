@@ -1,0 +1,127 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Wanderungen}
+\renewcommand{\taskCountry}{US}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Mia mag Wanderurlaube, bei denen sie jede Nacht an einem anderen Ort übernachtet. Für ihren nächsten Urlaub hat Mia eine Karte der Region.
+Die Karte zeigt Mias Startpunkt \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}, ihr Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}} und alle Orte, an denen sie übernachten kann \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-US-01-haus.svg}}.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-question-deu.svg}\par}
+
+Mia hat die Region mit gestrichelten Linien in Abschnitte eingeteilt. Sie kann immer nur einen oder zwei Abschnitte an einem Tag wandern.
+Zwei verschiedene Wanderungen, die sie machen kann, hat sie bereits in die Karte eingetragen:
+
+\begin{itemize}
+  \item Wanderung $1$ hat drei Übernachtungsorte
+  \item Wanderung $2$ hat vier Übernachtungsorte
+\end{itemize}
+
+Mia kann aber noch andere Wanderungen machen.
+
+
+
+% question (as \emph{})
+{\em
+Wie viele verschiedene Wanderungen kann Mia insgesamt machen?
+Zähle die Wanderungen 1 und 2 mit.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $2$ Wanderungen
+
+B) $3$ Wanderungen
+
+C) $4$ Wanderungen
+
+D) $5$ Wanderungen
+
+E) $6$ Wanderungen
+
+F) $7$ Wanderungen
+
+G) $8$ Wanderungen
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Die richtige Antwort ist E) $6$ Wanderungen.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-explanation-deu.svg}\par}
+
+Zuerst stellen wir fest, dass Mia in \textbf{B} und \textbf{C} übernachten muss, weil die Entfernung zwischen diesen beiden Orten die grösste Entfernung ($2$) ist, die sie an einem einzigen Tag zurücklegen kann.  Für den Weg von \textbf{B} nach \textbf{C} hat Mia also nur eine Möglichkeit.
+
+Nun können wir die Möglichkeiten für die anderen Teilstücke ihres Weges ermitteln:  Vom Startpunkt (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}) bis \textbf{B} kann Mia entweder in einem Stück durchwandern oder zwischendurch in \textbf{A} übernachten; das sind zwei Möglichkeiten (wie in den Wanderungen $1$ und $2$). Von \textbf{C} zum Ziel (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}) muss Mia drei Abschnitte wandern, und sie kann nach jedem Abschnitt übernachten.  Deshalb kann sie den gesamten Weg in alle drei Kombinationen von $1$ und $2$ Abschnitten aufteilen:
+
+\begin{adjustwidth}{1.5em}{0em}
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};  \\
+\textbf{C \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};      \\
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}}.
+\end{adjustwidth}
+
+Die Gesamtzahl aller Wanderungen, die Mia machen kann, ist also ${2 \times 1 \times 3 = 6}$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Manchmal kann die Zahl aller Möglichkeiten, eine gegebene Aufgabe zu erledigen, sehr gross sein.  Zum Beispiel gibt es etwa $14$ Millionen Möglichkeiten, $6$ verschiedene Zahlen aus den Zahlen $1$ bis $49$ auszuwählen.  Und es gibt etwa eine halbe Milliarde Möglichkeiten, die Zahlen von $1$ bis $12$ in unterschiedlicher Folge aufzuschreiben.  Dafür braucht dann auch ein Computer ein wenig Zeit.
+
+Wie gut, dass es in dieser Biberaufgabe nach dem dritten Abschnitt keinen Übernachtungsort gibt und das Zählen aller Wanderungen, die Mia machen kann, in drei Teile aufgeteilt werden kann.  Das Zählproblem wird sozusagen in drei kleinere Zählprobleme zerlegt.  In der Informatik wird die Technik der \emph{Problemzerlegung} (engl.: \emph{decomposition}) beim Entwurf von Algorithmen häufig verwendet.  Dieses Lösungsprinzip ist auch als \emph{Divide and Conquer} (auf Deutsch auch \enquote{Teile und herrsche}) bekannt.
+
+Nach diesem Prinzip funktionieren zum Beispiel einige wichtige Sortieralgorithmen.  Auch die \emph{dynamische Programmierung}, eine Methode zur algorithmischen Lösung von von Optimierungsproblemen (beschrieben $1957$ von Richard Bellman), basiert auf diesem Prinzip:  Wenn man erkennt, dass die optimalen Lösungen eines Problems sich aus den optimalen Lösungen von Teilproblemen zusammensetzen, kann man dies nutzen, um sozusagen \enquote{klein anzufangen}:  Zunächst werden die Lösungen für die kleinsten Teilprobleme direkt berechnet und anschliessend zu Lösungen für die nächstgrösseren Teilprobleme zusammengesetzt.  Dies wird wiederholt, bis die optimale Lösung des vollständigen Problems gefunden ist.  Da gefundene Teil-Lösungen häufig zu Lösungen vieler grösserer Teile beitragen, werden sie gespeichert, um wiederholte gleiche Berechnungen einzusparen.  Auch beim Zählen von Möglichkeiten kann dynamische Programmierung sehr hilfreich sein.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Problemzerlegung, Decomposition
+  \item Divide and Conquer / Teile und herrsche: \href{https://de.wikipedia.org/wiki/Teile-und-herrsche-Verfahren}{\BrochureUrlText{https://de.wikipedia.org/wiki/Teile-und-herrsche-Verfahren}}
+  \item dynamische Programmierung: \href{https://de.wikipedia.org/wiki/Dynamische_Programmierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Dynamische\_Programmierung}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorStijfA{} % \ifdefined\AuthorStijfA \BrochureFlag{nl}{} Alieke Stijf\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{nl}{} Justina Dauksaite\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorKamperM{} % \ifdefined\AuthorKamperM \BrochureFlag{nl}{} Merel Kämper\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

@@ -1,0 +1,113 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Appareils ménagers}
+\renewcommand{\taskCountry}{JP}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Dans la maison de Bruno le castor, il y a cinq appareils électriques (un ordinateur, un lave-linge, une télévision, une machine à café et un aspirateur) et cinq interrupteurs (A, B, C, D et E) pour allumer et éteindre des appareils. Le raccordement électrique est très inhabituel. Chaque interrupteur est connecté à plusieurs appareils, comme montré sur l’image en dessous. Chaque fois que l’on appuie sur un interrupteur, il change l’état de tous les appareils connectés: les appareils éteints s’allument et les appareils allumés s’éteignent.
+
+Au départ, tous les appareils sont éteints. Si l’on appuie par exemple sur les interrupteurs A, C et E, l’aspirateur est allumé, car le premier bouton l’allume, le deuxième l’éteint et le troisième le rallume.
+
+
+
+% question (as \emph{})
+{\em
+Sur quels interrupteurs Bruno doit-il appuyer pour que seules la télévision et la machine à café soit allumées?
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-JP-01b_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Lorsque l’on appuie, dans n’importe quel ordre, sur les interrupteurs B, C, D et E, seules la télévision et la machine à café sont allumées.
+
+Nous pouvons aussi déterminer de manière systématique comment allumer et éteindre chaque appareil indépendamment des autres. Commençons avec deux combinaisons simples:
+
+\begin{itemize}
+  \item A~+~E (appuyer sur A et B) contrôle la machine à café seulement.
+  \item C~+~E (appuyer sur C et E) contrôle l’ordinateur seulement.
+\end{itemize}
+
+On observe ensuite que le lave-linge peut être contrôlé indépendamment des autres en appuyant d’abord sur B avant de remettre l’ordinateur et la machine à café dans le même état qu’avant, soit en appuyant sur A~+~E et sur C~+~E. Le lave-linge peut donc être contrôlé indépendamment du reste en appuyant sur B~+~A~+~E~+~C~+~E. L’interrupteur E est ici utilisé deux fois. Appuyer deux fois sur un interrupteur revient à ne pas l’utiliser du tout, on peut donc aussi contrôler le lave-linge indépendamment avec B~+~A~+~C. En utilisant cette méthode, on obtient la liste de combinaisons suivante pour contrôler les appareils séparément:
+
+\begin{itemize}
+  \item Ordinateur: C~+~E
+  \item Machine à café: A~+~E
+  \item Lave-linge: A~+~B~+~C
+  \item Télévision: A~+~B~+~C~+~D
+  \item Aspirateur: A~+~B~+~C~+~D~+~E
+\end{itemize}
+
+Pour allumer seulement la télévision et la machine à café, nous devons donc appuyer sur A~+~B~+~C~+~D~+~A~+~E ce que l’on peut simplifier en B~+~C~+~D~+~E étant donné que les deux A s’annulent.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le sytème composé des appareils et des interrupteurs peut être modélisé à l’aide d’un \emph{automate fini} de la façon suivante.
+
+Le système des cinq appareils a beaucoup d’\emph{états} différents. Un de ces états est par exemple le cas où seule la télévision est allumée. Un autre état est le cas où tous les appareils sont éteints (comme tous les appareils sont éteints au départ, on appelle cet état l’\emph{état initial}). Un autre état est le cas où seules la télévision et la machine à café sont allumées (c’est l’\emph{état final} dans notre exercice, car c’est ce que nous voulons obtenir).
+
+En appuyant sur un interrupteur, on fait passer le système d’un état à un autre. Par exemple, lorsque le système est à l’état initial et que l’on appuie sur l’interrupteur E, il passe à l’état auquel seuls la télévision et l’aspirateur sont allumés. Un tel passage d’un état à un autre s’appelle une \emph{transition}.
+
+Si l’on représente les états du système avec des cercles et les transitions avec des flèches, on obtient une image comme celle ci-dessous (pour des raisons de place, seuls quatre états et les transitions entre ceux-ci sont représentés). L’état initial est marqué par une flèche spéciale. En informatique, ceci s’appelle un automate fini (un automate fini est simplement un graphe spécifique dans lequel les nœuds sont les états et les arêtes sont les transitions). On peut facilement voir sur l’image dans quel état l’on arrive lorsque l’on appuie sur différents interrupteurs.
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2020-JP-01b_explanation-compatible.svg}\par}
+
+Dans cet exercice, il s’agit de déterminer comment passer de l’état initial (tous les appareils ont éteints) à l’état final (seules la télévision et la machine à café sont allumées). On veut donc trouver un chemin allant de l’état initial à l’état final. Le recherche de chemin dans des graphes est une tâche fondamentale de l’informatique.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Automate fini: \href{https://fr.wikipedia.org/wiki/Automate_fini}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Automate\_fini}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchoolS{} % \ifdefined\AuthorSchoolS \BrochureFlag{jp}{} Students in Hakuyo High School\fi
+\def\AuthorMorpurgoA{} % \ifdefined\AuthorMorpurgoA \BrochureFlag{it}{} Anna Morpurgo\fi
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios O.~Choudary\fi
+\def\AuthorShimabukuM{} % \ifdefined\AuthorShimabukuM \BrochureFlag{jp}{} Maiko Shimabuku\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

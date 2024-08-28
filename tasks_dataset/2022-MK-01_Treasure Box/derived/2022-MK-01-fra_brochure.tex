@@ -1,0 +1,123 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Coffre au trésor}
+\renewcommand{\taskCountry}{MK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Maria trouve un coffre mystérieux. Malheureusement, le coffre est verrouillé. Pour l’ouvrir, Maria doit découvrir la “clé”: la bonne combinaison composée de trois symboles. Heuseusement, elle trouve les indications suivantes à côté du coffre:
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-taskbody01.svg}} & $1$. L’un des symboles fait partie de la clé et se trouve à la bonne position. \\ 
+  \makecell[l]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-taskbody02.svg}} & $2$. Aucun des symboles ne fait partie de la clé. \\ 
+  \makecell[l]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-taskbody03.svg}} & $3$. Deux des symboles font partie de la clé, mais ils se trouvent les deux à de fausses positions. \\ 
+  \makecell[l]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-taskbody04.svg}} & $4$. L’un des symboles fait partie de la clé mais se trouve à la fausse position. \\ 
+  \makecell[l]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-taskbody05.svg}} & $5$. L’un des symboles fait partie de la clé mais se trouve à la fausse position.
+\end{tabularx}
+
+
+
+% question (as \emph{})
+{\em
+L’une des combinaisons suivantes est la clé du coffre. Laquelle?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c @{} }
+  A) & B) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-answerA.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-answerB.svg}} \\ 
+  C) & D) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-answerC.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-answerD.svg}}
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B).
+
+Nous commençons par déterminer quels symboles peuvent faire partie la clé. En suivant l’indication $2$), nous pouvons éliminer les symboles qui ne peuvent pas faire partie de la clé: Le sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_tree.svg}}, le diamant \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_diamond.svg}} et la maison \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_house.svg}}.
+L’indication $5$) spécifie qu’un des symboles fait partie de la clé, mais à une position différente. Comme le sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_tree.svg}} et la maison \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_house.svg}} ne peuvent pas faire partie de la clé, nous savons que l’étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_star.svg}} doit en faire partie, mais à une autre position que dans l’indication. L’indication $3$) exclut que l’étoile ne soit au milieu, on connait donc sa position finale:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-explanation01-box.svg}\par}
+
+Comme il n’y a qu’une réponse qui commence par l’étoile parmi les propositions, nous avons déjà trouvé la clé.
+Pour nous convaincre, nous continuons à chercher les deux symboles suivants. L’indication $1$) spécifie qu’un des symboles se trouve dans la clé à la même position. La maison \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_house.svg}} et la première position peuvent être exclues. Nous savons donc que la lune \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_moon.svg}} se trouve à la bonne position:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-explanation02-box.svg}\par}
+
+L’indication $4$) spécifie qu’un symbole fait partie de la clé, mais à une autre position. Nous pouvons éliminer le symbole \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_asterisk.svg}} d’après l’indication $1$). De plus, seule la position du milieu est encore libre sur la clé; le cœur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-MK-01-inline_heart.svg}} ne peut donc pas faire partie de la clé. Seul le cercle peut donc occuper la position du milieu.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-MK-01-explanation03-box.svg}\par}
+
+Il y a d’autres moyens d’arriver au bon résultat, mais ils mènent tous à la même réponse.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice peut être résolu logiquement, par exemple en procédent par exclusion. Dans notre cas, nous avons commencé avec l’indication $2$) et exclu trois symboles, ce qui nous a rapidement mené à la bonne réponse. Le fait de commencer par l’indication $2$) peut être vu comme une stratégie mentale, une règle ou un raccourci qui nous a aidé a prendre rapidement une décision basée sur des connaissances limitée. En informatique, de telles règles sont appelées des \emph{heuristiques}. Elles peuvent être programmées et automatisées.
+
+Chaque jour, nous prenons plusieurs décisions sur la base d’indications ou devons prendre en compte plusieurs conditions d’un problème pour pouvoir le résoudre. Dans cet exercice, nous avons suivi les indications et avons résolu le problème étape par étape pour pouvoir ouvrir le coffre.
+
+Comment est-ce qu’un ordinateur résoudrait ce problème? Il y a en tout $336$ possibilités d’arranger ces huit symboles sur les trois positions. Un ordinateur les essaierait toutes. En informatique, on appelle cela une \emph{recherche exhaustive}. La recherche exhaustive, aussi appelée \emph{recherche par force brute}  est une méthode de résolution de problèmes qui consiste à parcourir l’ensemble des solutions possible. Cette méthode peut nous sembler peu efficace parce que nous aurions besoin de beaucoup de temps pour essayer toutes les possibilités (et oublierions celles que nous avons déjà essayé), mais un ordinateur peut résoudre de tels problèmes très rapidement et efficacement. Les symboles de l’exemple pourraient aussi constituer un mot de passe. C’est pourquoi les mots de passe devraient toujours contenir autant de symboles différents que possible afin qu’une recherche exhaustive ne puisse pas le trouver en un temps réaliste.
+
+Le fait de commencer par l’indication $2$) et de minimiser le nombre de solutions possibles s’appelle en informatique \emph{retour sur trace} (ou \emph{backtracking} en anglais). À chaque sommet d’un arbre, les possibilités qui ne peuvent pas faire partie de la clé sont éliminées. De cette manière, le nombre de possibilités est réduit à chaque étage de l’arbre.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Heuristique: \href{https://fr.wikipedia.org/wiki/Heuristique_(math\%C3\%A9matiques)\#Heuristique_au_sens_de_l'algorithmique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Heuristique\_(mathématiques)\#Heuristique\_au\_sens\_de\_l’algorithmique}}
+  \item Recherche exhaustive: \href{https://fr.wikipedia.org/wiki/Recherche_exhaustive}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Recherche\_exhaustive}}
+  \item Complexité (efficacité): \href{https://fr.wikipedia.org/wiki/Analyse_de_la_complexit\%C3\%A9_des_algorithmes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Analyse\_de\_la\_complexité\_des\_algorithmes}}
+  \item Retour sur trace: \href{https://fr.wikipedia.org/wiki/Retour_sur_trace}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Retour\_sur\_trace}}
+  \item Sommet: \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Arbre: \href{https://fr.wikipedia.org/wiki/Arbre_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorStefanovskaV{} % \ifdefined\AuthorStefanovskaV \BrochureFlag{mk}{} Veronika Stefanovska\fi
+\def\AuthorManevaM{} % \ifdefined\AuthorManevaM \BrochureFlag{mk}{} Monika Maneva\fi
+\def\AuthorOgnjanovskaV{} % \ifdefined\AuthorOgnjanovskaV \BrochureFlag{mk}{} Veronika Ognjanovska\fi
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorVillameR{} % \ifdefined\AuthorVillameR \BrochureFlag{ph}{} Rechilda Villame\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

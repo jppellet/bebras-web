@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Code 8}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Des textes en clair peuvent être chiffrés grâce au disque suivant:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2022-SK-04-taskbody-compatible.svg}\par}
+
+Au départ, l’aiguille pointe sur “ABC”.
+
+Chaque lettre est chiffrée individuellement. Pour cela, deux chiffres sont déterminés:
+
+\begin{itemize}
+  \item Le premier chiffre indique de combien de positions l’aiguille doit être tournée dans le sens des aiguilles d’une montre pour qu’elle pointe le bloc contenant la lettre à chiffrer.
+  \item Le deuxième chiffre indique la position de la lettre à chiffrer dans le bloc pointé.
+\end{itemize}
+
+Le cryptogramme du mot “CHAT”, par exemple, est ${03-22-61-61}$.
+
+
+
+% question (as \emph{})
+{\em
+Que signifie le cryptogramme 21-72-32-14?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) GARS
+
+B) GENS
+
+C) GEMIR
+
+D) GELS
+
+E) GENE
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2022-SK-04-explanation21.svg}} & $21$ signifie que l’aiguille se déplace du bloc “ABC” au bloc “GHI” et que la première lettre, “G”, est sélectionnée (le deuxième chiffre est $1$). \\ 
+  \makecell[l]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2022-SK-04-explanation72.svg}} & $72$ signifie que l’aiguille se déplace du bloc “GHI” au bloc “DEF” et que la deuxième lettre, “E”, est sélectionnée (le deuxième chiffre est $2$). \\ 
+  \makecell[l]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2022-SK-04-explanation32.svg}} & $32$ signifie que l’aiguille se déplace du bloc “DEF” au bloc “MNO” et que la deuxième lettre, “N”, est sélectionnée (le deuxième chiffre est $2$). \\ 
+  \makecell[l]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2022-SK-04-explanation14.svg}} & $14$ signifie que l’aiguille se déplace du bloc “MNO” au bloc “PQRS” et que la quatrième lettre, “S”, est sélectionnée (le deuxième chiffre est $4$).
+\end{tabularx}
+
+La réponse B) GENS est donc correcte.
+
+Il existe aussi un moyen plus rapide de trouver la bonne réponse: la réponse C) GEMIR n’entre pas en question, car elle est composée de cinq lettres et le cryptogramme n’en contient que quatre. Le deuxième chiffre pour la quatrième lettre étant un $4$, celle-ci ne peut être qu’un “S” ou un “Z”. Seules les réponses A), B) et D) remplissent cette condition. La lettre précédente doit venir du bloc situé à une position dans le sens inverse des aiguilles d’une montre du bloc “PQRS”, donc du bloc “MNO”. Cela ne peut donc être que la réponse B) GENS.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Depuis des milliers d’années, l’être humain cherche à cacher des informations afin que seul le destinataire ne puisse les déchiffrer. Ce qui commença avec des bouts de papier enroulés autour d’un bâton (scytale) se développa en la \emph{cryptographie à clé publique} moderne (comme par exemple “GnuPG” qui utilise entre autres le chiffrement RSA) en passant par le chiffrement par transposition comme le “chiffre de César” et les \emph{chiffrements polyalphabétiques} (comme le “chiffre de Vigenère”).
+
+Le chiffrement de cet exercice est un chiffrement polyalphabétique, car une lettre n’est pas forcément toujours chiffrée la même chose: la lettre “A”, par exemple, est chiffrée par $01$ au début du texte en clair, mais par $31$ si elle suit un “S”. Ces chiffrements peuvent tous être décryptés rapidement de nos jours à l’aide d’ordinateurs.
+
+Dans ce cas, le déchiffrement est spécialement simple: il n’existe qu’une seule clé pour chiffrer un texte. Même si la position de départ de l’aiguille n’était pas toujours le bloc “ABC” mais un bloc au hasard, il n’y aurait que huit clés possibles… Même le chiffre de César, qui a plus de $2000$ ans, est plus “sûr” que celui-ci! On pourrait encore argumenter que le secret n’est pas la clé elle-même, mais le chiffrement. Mais le \emph{principe de Kerckhoffs}, formulé par Auguste Kerckhoffs ($1835$ à $1903$) en $1883$ et encore valable aujourd’hui, montre que la sécurité d’un \emph{cryptosystème} ne devrait pas se fonder sur la confidentialité d’une méthode de chiffrement, car celle-ci pourrait trop facilement être découvert par d’autres personnes.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Chiffre de César: \href{https://fr.wikipedia.org/wiki/Chiffrement_par_d\%C3\%A9calage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chiffrement\_par\_décalage}}
+  \item Substitution polyalphabétique/chiffre de Vigenère: \href{https://fr.wikipedia.org/wiki/Chiffre_de_Vigen\%C3\%A8re}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chiffre\_de\_Vigenère}}
+  \item Système de chiffrement: \href{https://fr.wikipedia.org/wiki/Chiffrement}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chiffrement}}
+  \item Cryptographie à clé publique: \href{https://fr.wikipedia.org/wiki/Cryptographie_asym\%C3\%A9trique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptographie\_asymétrique}}
+  \item GnuPG: \href{https://fr.wikipedia.org/wiki/GNU_Privacy_Guard}{\BrochureUrlText{https://fr.wikipedia.org/wiki/GNU\_Privacy\_Guard}}
+  \item Chiffrement RSA: \href{https://fr.wikipedia.org/wiki/Chiffrement_RSA}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chiffrement\_RSA}}
+  \item Principe de Kerckhoffs: \href{https://fr.wikipedia.org/wiki/Principe_de_Kerckhoffs}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Principe\_de\_Kerckhoffs}}
+  \item Auguste Kerckhoffs: \href{https://fr.wikipedia.org/wiki/Auguste_Kerckhoffs}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Auguste\_Kerckhoffs}}
+  \item Cryptosystème: \href{https://fr.wikipedia.org/wiki/Cryptosyst\%C3\%A8me}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptosystème}}
+  \item Cryptographie: \href{https://fr.wikipedia.org/wiki/Cryptographie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptographie}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

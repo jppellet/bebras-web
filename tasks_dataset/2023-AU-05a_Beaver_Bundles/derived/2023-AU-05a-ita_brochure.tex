@@ -1,0 +1,162 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Mattoni di castoro}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+I mattoni di castoro Otto si differenziano per quattro caratteristiche:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  \begin{enumerate}
+  \item larghezza: stretta, media, larga
+  \item altezza: piccola, media, grande
+  \item numero di sporgenze sulla parte superiore: zero, uno, due
+  \item numero di scanalature nella parte inferiore: zero, una, due.
+\end{enumerate}
+
+ & \makecell[l]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/-ita/2023-AU-05-taskbody_compatible-ita.svg}}
+\end{tabularx}
+
+\begin{wrapfigure}{R}{134.20000000000002px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_example.svg}}
+\end{wrapfigure}
+
+Otto divide i mattoni in gruppi di tre. Lo fa in modo che per ogni gruppo valga quanto segue: i tre mattoni hanno per ciascuna delle quattro proprietà …
+
+\begin{itemize}
+  \item … o tutte con lo stesso valore …
+  \item … o tutte con tre valori diversi.
+\end{itemize}
+
+A destra, uno dei gruppi di Otto.
+
+Perché questi tre mattoni hanno tutti
+
+\begin{itemize}
+  \item la stessa larghezza,
+  \item diverse altezze,
+  \item numero diverso di sporgenze e
+  \item numero diverso di scanalature.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Dividi questi mattoni in gruppi di tre, come farebbe Otto.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta giusta:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task_solution-compatible.svg}\par}
+
+I mattoni sono divisi in gruppi secondo le regole di Otto.
+La tabella mostra i tre gruppi, per i quali i valori delle proprietà sono tutti diversi o tutti uguali.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Proprietà}} & {\setstretch{1.0}\thead[cb]{Gruppo A}} & {\setstretch{1.0}\thead[cb]{Gruppo B}} & {\setstretch{1.0}\thead[cb]{Gruppo C}} \\ 
+\midrule
+  Larghezza & diversa & uguale & diversa \\ 
+  Altezza & uguale & diversa & diversa \\ 
+  Sporgenze & uguali & uguali & diversi \\ 
+  Scanalature & diverse & diverse & uguali
+\end{tabular}
+
+\par}
+
+Ma è questo l’unico modo per dividere i mattoni come farebbe Otto?
+
+Si può considerare che se i valori di una proprietà devono essere diversi in tutti i gruppi, i valori diversi devono verificarsi in tutti i mattoni tante volte quanti sono i gruppi. In caso contrario, deve esistere almeno un gruppo in cui i valori di questa proprietà sono tutti uguali.
+
+Un’analisi più attenta di tutti i mattoni mostra che i valori di larghezza di $2$ e $4$ unità si verificano solo due volte. Deve quindi esistere un gruppo in cui tutti i mattoni hanno una larghezza di tre unità.
+
+Dei cinque mattoni di larghezza di tre unità, nessuno ha una sola sporgenza. Pertanto, non è possibile formare un gruppo con un numero diverso di sporgenze. Ma ci sono tre mattoni con zero sporgenze - e tutti hanno altezze diverse e un numero diverso di scanalature. Pertanto, il gruppo B è l’unico gruppo possibile di mattoni con larghezza di tre unità.
+
+Negli altri due gruppi, le larghezze devono essere tutte diverse.
+
+Nei sei mattoni rimanenti, i valori di altezza di tre unità e due unità si verifica solo una volta. Deve quindi esistere un gruppo in cui tutti i mattoni hanno un’altezza di un’unità. Il gruppo A è l’unico gruppo possibile di tre mattoni con altezza di un’unità che corrisponde alle idee di Otto. Restano i tre mattoni del gruppo C. Anch’essi formano un gruppo di tre, proprio come vorrebbe Otto.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In questo compito i mattoni sono descritti usando quattro \emph{proprietà} (o \emph{attributi}).
+
+Per poter dividere i mattoni in gruppi di tre come vuole Otto, è necessario conoscere i valori delle proprietà di ciascun mattone.
+
+Per questo, è sufficiente guardare ciascun elemento costitutivo. Un programma informatico che deve creare i gruppi di tre non può \enquote{vedere} e ha bisogno di una descrizione in una \emph{struttura di dati}.
+
+Ad esempio, i mattoni in una \emph{base di dati} possono essere descritti come righe di una tabella. Le colonne della tabella corrispondono alle proprietà e ogni riga (chiamata anche \emph{dataset}) contiene i valori di un mattone nelle colonne appropriate:
+
+{\centering%
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Mattone n.}} & {\setstretch{1.0}\thead[lb]{Larghezza}} & {\setstretch{1.0}\thead[lb]{Altezza}} & {\setstretch{1.0}\thead[lb]{Sporgenze}} & {\setstretch{1.0}\thead[lb]{Scanalature}} \\ 
+\midrule
+  1 & 1 & 3 & 1 & 0 \\ 
+  2 & 2 & 2 & 2 & 0 \\ 
+  … & … & … & … & …
+\end{tabular}
+
+\par}
+
+La progettazione di tabelle di basi di dati è un’attività comune per gli informatici.
+
+È necessario essere scrupolosi e considerare quali proprietà degli oggetti sono importanti per l’elaborazione da parte di un programma informatico. Le modifiche successive non sono così facili, soprattutto se i dati di molti oggetti sono già memorizzati.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Struttura dati: \href{https://it.wikipedia.org/wiki/Struttura_dati}{\BrochureUrlText{https://it.wikipedia.org/wiki/Struttura\_dati}}
+  \item Basi di dati: \href{https://it.wikipedia.org/wiki/Tabella_(basi_di_dati)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Tabella\_(basi\_di\_dati)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGrodeckA{} % \ifdefined\AuthorGrodeckA \BrochureFlag{au}{} Adam Grodeck\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

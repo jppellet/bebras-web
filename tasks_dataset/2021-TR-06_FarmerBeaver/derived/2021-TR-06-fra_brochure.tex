@@ -1,0 +1,134 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Les moulins de castor Max}
+\renewcommand{\taskCountry}{TR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le meunier Max a six moulins. Il doit encore fixer la roue de trois d’entre eux. Pour cela, il doit empêcher l’eau d’arriver à ces moulins. L’eau doit par contre continuer de couler jusqu’aux autres moulins.
+
+L’eau ne peut couler que vers le bas. Un clapet fermé empêche l’eau de couler.
+
+
+
+% question (as \emph{})
+{\em
+Quels clapets faut-il fermer?
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-TR-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est qu’il faut fermer les trois clapets qui sont nommés D, F et H dans le dessin suivant.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-TR-06-answer-compatible.svg}\par}
+
+C’est la seule possibilité permettant de couper l’eau aux moulins $2$, $4$ et $5$ tout en continuer d’alimenter en eau les trois moulins $1$, $3$ et $6$:
+
+\begin{itemize}
+  \item Les clapets A, G et I doivent rester ouverts, car sinon le moulin $1$ n’est pas alimenté en eau.
+  \item Les clapets B et E doivent également rester ouverts pour que le moulin $6$ soit alimenté en eau.
+  \item Comme les clapets B et E sont ouverts, le clapet H doit être fermé pour éviter que l’eau n’arrive au moulin $5$.
+  \item Comme le clapet A est ouvert, le clapet F doit être fermé pour éviter que l’eau n’arrive au moulin $2$.
+  \item Comme le clapet B est ouvert, le clapet D doit être fermé pour éviter que l’eau n’arrive au moulin $4$.
+  \item Comme les clapets D et F sont fermés, le clapet C doit être ouvert pour que le moulin $3$ soit alimenté en eau.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, l’écoulement de l’eau est régulé par des \emph{conditions}. Par exemple, l’eau ne coule jusqu’au moulin $6$ que si les deux clapets B et E sont ouverts. Voici un autre exemple un peu plus complexe: l’eau ne coule jusqu’au moulin $3$ que si au moins l’une des deux ou les deux conditions suivantes sont remplies:
+
+\begin{itemize}
+  \item Le clapet A est ouvert et l’un des deux clapets C ou F est ouvert.
+  \item Les deux clapets B et D sont ouverts.
+\end{itemize}
+
+De telles combinaisons de conditions sont obtenues à l’aide des \emph{opérateurs logiques} ET (symbolisé par ${\wedge}$) ou OU (symbolisé par ${\vee}$). De tels opérateurs connectent des valeurs de vérité comme vrai et faux. Si A et B sont deux valeurs de vérité, on peut indiquer quelles valeurs de vérité les expressions “A ET B” et “A OU B” ont en fonction de A et B:
+
+{\centering%
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{A}} & {\setstretch{1.0}\thead[cb]{B}} & {\setstretch{1.0}\thead[cb]{A ET B}} & {\setstretch{1.0}\thead[cb]{A OU B}} \\ 
+\midrule
+  faux & faux & faux & faux \\ 
+  vrai & faux & faux & vrai \\ 
+  faux & vrai & faux & vrai \\ 
+  vrai & vrai & vrai & vrai
+\end{tabular}
+
+\par}
+
+En informatique (et en mathématiques), l’expression “A OU B” est donc aussi considérée comme juste si A et B sont les deux justes.
+L’affirmation “le moulin $6$ est alimenté” est équivalente à:
+
+\begin{adjustwidth}{1.5em}{0em}
+“le clapet B est ouvert” ET “le clapet E est ouvert”.
+\end{adjustwidth}
+
+Dans le deuxième exemple, l’affirmation “le moulin $3$ est alimenté” est équivalente à:
+
+\begin{adjustwidth}{1.5em}{0em}
+(“le clapet A et ouvert” ET (“le clapet C est ouvert” OU “le clapet F est ouvert”)) OU (“le clapet B est ouvert” ET “le clapet D est ouvert”).
+\end{adjustwidth}
+
+En programmation, il est important de formuler les conditions de manière exacte.
+Chaque ET et chaque OU combine deux affirmations. Les parenthèses déterminent dans quel ordre les affirmations sont combinées.
+Les combinaisons à l’aide d’opérateurs logiques et de parenthèses sont utiles pour formuler des conditions complexes. Des conditions sont utilisées aussi bien pour des branchements avec \BrochureInlineCode{if} que pour des boucles \BrochureInlineCode{while} afin de guider le déroulement d’un programme.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Instruction conditionnelle: \href{https://fr.wikipedia.org/wiki/Instruction_conditionnelle_(programmation)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_conditionnelle\_(programmation)}}
+  \item Variable booléenne: \href{https://fr.wikipedia.org/wiki/Bool\%C3\%A9en}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Booléen}}
+  \item Algèbre de Boole: \href{https://fr.wikipedia.org/wiki/Alg\%C3\%A8bre_de_Boole_(logique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algèbre\_de\_Boole\_(logique)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKaleliogluF{} % \ifdefined\AuthorKaleliogluF \BrochureFlag{tr}{} Filiz Kalelioğlu\fi
+\def\AuthorGunesE{} % \ifdefined\AuthorGunesE \BrochureFlag{tr}{} Ezgi Arzu Güneş\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

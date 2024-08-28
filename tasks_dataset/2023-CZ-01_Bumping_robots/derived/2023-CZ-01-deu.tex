@@ -1,0 +1,186 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CZ-01 Go-Bots}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CZ-01 Go-Bots}
+
+
+\subsection*{Body}
+
+Die Go-Bots sind sehr einfache Roboter. Sie fahren über ein Spielbrett mit Feldern.
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-example1_compatible.svg}\par}
+
+Um sie zu steuern, wählt man zunächst einen der Go-Bots aus.
+Den schickt man dann mit einem Pfeil-Befehl in eine Richtung:
+hoch \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}, runter \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}}, links \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}} und rechts \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}.
+Der Go-Bot fährt dann stur geradeaus, bis er direkt vor einem Hindernis \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2023-CZ-01-square.svg}} oder einem anderen Roboter ankommt.
+Dort bleibt er stehen, bis er einen neuen Befehl bekommt.
+
+Mit einer geschickten Folge von Befehlen sollst du dafür sorgen, dass Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} erreicht, also genau dort stehen bleibt.
+
+Mit dieser Befehlsfolge erreicht Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}}:
+
+{\centering%
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}   \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}   \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}}
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-example2_compatible.svg}\par}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Erstelle eine Befehlsfolge mit vier Pfeilen, mit der Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} das Ziel \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} erreicht!
+
+{\centering%
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-question2.svg}\par}
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-question_compatible.svg}\par}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Ziehe immer abwechselnd einen Go-Bot und einen Pfeil auf die grauen Felder. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Die Bot-Symbole und die Pfeile können auf die Felder gezogen werden.  Es gibt $8$ Felder (die richtige Antwort besteht aus $8$ Symbolen.)  Man könnte dafür sorgen, dass auf ungerade Felder nur Bot-Symbole und auf gerade Felder nur Pfeile gezogen werden dürfen; das ist aber nicht zwingend.  Bot-Symbole und Pfeile müssen mehrfach verwendbar sein.  Bot-Symbole, Pfeile und Felder sind oberhalb des Spielbretts zu sehen.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}}  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}
+
+Damit Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} durch eine Befehlsfolge mit vier Pfeilen das Ziel erreichen kann, müssen drei Go-Bots kooperieren.
+Zuerst geht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} nach oben, bis er vor einem Hindernis stehen bleibt.
+Damit wird er selbst zum Hindernis für \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} auf seinem Weg nach links.
+Wenn man nun \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} nach unten schickt, geht er bis \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} und kann von dort aus nach rechts gehen,
+wo er vor dem Hindernis stehen bleibt - auf dem Ziel.
+
+{\centering%
+\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-explanation_compatible.svg}\par}
+
+Wie findet man die richtige Befehlsfolge?  Man kann hinten anfangen und sich überlegen, was die letzte Bewegung von Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} zum Ziel sein muss. Es gibt nur zwei Möglichkeiten: \\
+a) Er kommt von links, wie in unserer Lösung. \\
+b) Er kommt von oben. In diesem Fall müsste Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot4.svg}} mit drei Befehlen nach oben rechts bewegt werden, um für \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} als Hindernis zu dienen. Wir benötigten dann ${3 + 2 = 5}$ Pfeil-Befehle.
+Gesucht ist aber eine Folge mit vier Befehlen. Also muss Möglichkeit a) korrekt sein, von Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} kommt von links zum Ziel. Dann geht die vorletzte Bewegung des Go-Bots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} von oben nach unten. Damit er an der richtigen Stelle stehen bleibt, müssen zuvor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} und \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.39]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} wie im Bild bewegt werden.
+
+
+\subsection*{This is Informatics}
+
+In dieser Biberaufgabe haben mehrere Roboter zusammen gearbeitet, um gemeinsam ein Ziel zu erreichen. Dabei hatten sie unterschiedliche Aufgaben. Der blaue Roboter musste zum Ziel kommen, und die anderen dienten als Hindernisse.
+
+Aufgabenverteilung ist ein wichtiger Aspekt der Robotik. Zum Beispiel arbeiten in einem automatisierten Warenlager unterschiedliche Roboter zusammen, um Waren einzulagern, wiederzufinden und zu transportieren. Dabei werden alle Aktivitäten so koordiniert, dass möglichst wenig nutzlose Ruhezeiten entstehen, alle Transportwege möglichst kurz sind, wenig Energie verbraucht wird und so insgesamt das Warenlager möglichst effizient arbeitet.
+
+Ein besonderes Gebiet der Robotik sind Schwarmroboter. Das sind – wie die Go-Bots – einfache Maschinen, die in einer grossen Gruppe gemeinsam eine Aufgabe lösen. In der Landwirtschaft können inzwischen Schwärme von Robotern die Aussaat von Mais erledigen, die Entwicklung der Pflanzen und die Bodenbeschaffenheit beobachten und schliesslich sogar das Getreide ernten. Jeder Schwarmroboter ist klein und einfach konstruiert, aber der Schwarm als Ganzes kann Grosses leisten. Dieses Prinzip gilt auch für Multiagentensysteme: Das sind einfache Softwareeinheiten, die gemeinsam komplexe Probleme lösen können. Die Aufgabe der Informatik ist, Algorithmen für eine optimale Koordination und Kooperation von Gesamtsystemen mit mehreren Akteuren –~ob Hardware oder Software –~zu entwickeln.
+
+
+\subsection*{This is Computational Thinking}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Multi-Robotersysteme: \href{https://www.hsu-hh.de/rt/forschung/multirobotersysteme}{\BrochureUrlText{https://www.hsu-hh.de/rt/forschung/multirobotersysteme}}
+  \item Robotik: \href{https://www.infineon.com/cms/de/discoveries/grundlagen-robotics/}{\BrochureUrlText{https://www.infineon.com/cms/de/discoveries/grundlagen-robotics/}}
+  \item Schwarmroboter
+  \item Industrieroboter: \href{https://de.wikipedia.org/wiki/industrieroboter}{\BrochureUrlText{https://de.wikipedia.org/wiki/industrieroboter}}
+  \item Multiagentensystem: \href{https://de.wikipedia.org/wiki/Multiagentensystem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Multiagentensystem}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\end{document}

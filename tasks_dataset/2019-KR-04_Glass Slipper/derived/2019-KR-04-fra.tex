@@ -1,0 +1,169 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2019 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2019-KR-04 Nouveau pantalon}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2019-KR-04 Nouveau pantalon}
+
+
+\subsection*{Body}
+
+Christian a besoin d’un nouveau pantalon. Le magasin vend son pantalon préféré en sept longueurs et sept largeurs différentes. Les $49$ tailles sont rangées dans les cases d’une étagère, classées par largeur et longueur.
+
+Comme Christian ne connaît pas sa taille, il doit trouver la bonne taille en essayant les pantalons. À chaque essai, Christian note si le pantalon lui va ou s’il a besoin d’un pantalon plus large, plus étroit, plus court ou plus long. Pour qu’un pantalon lui aille, il faut que la largeur et la longueur soient bonnes.
+
+\raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-fra/2019-KR-04-taksbody_compatible-fra.svg}}
+
+
+Le vendeur gémit: ça risque de prendre du temps de trouver la bonne taille parmi $49$.
+
+Mais Christian a pensé à une méthode lui permettant de toujours trouver la bonne taille avec le moins d’essais possible.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Combien de pantalons Christian doit-il au maximum essayer avant d’identifier la bonne taille?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est $2$.
+
+Christian pourrait bien sûr avoir de la chance et tomber sur la bonne taille de pantalon à son premier essai, mais il ne peut pas se fier au hasard et procède d’après la méthode suivante:
+
+Il commence par essayer le pantalon du milieu (à la position + sur l’image) et en vérifie la longueur et la largeur.
+
+\begin{itemize}
+  \item Si la longueur et la largeur vont, il a trouvé le pantalon à la bonne taille.
+  \item Si le pantalon est trop court et trop large, le bon pantalon se trouve dans le secteur $1$.
+  \item Si le pantalon est trop court mais a la bonne largeur, le bon pantalon se trouve dans le secteur $2$.
+  \item Si le pantalon est trop court et trop étroit, le bon pantalon se trouve dans le secteur $3$.
+  \item Et ainsi de suite pour les secteurs $4$ à $8$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-fra/2019-KR-04-explanation_compatible-fra.svg}\par}
+
+Imaginons que le pantalon ayant la bonne taille soit dans le secteur $1$. Pour son deuxième essai, Christian choisit le pantalon rangé au milieu du secteur $1$. Il y a à nouveau plusieurs possibilités:
+
+\begin{itemize}
+  \item Si la longueur et la largeur vont, il a trouvé le pantalon à la bonne taille.
+  \item Si le pantalon est trop court et trop large, Christian sait que le bon pantalon se trouve en position A.
+  \item Si le pantalon est trop court mais a la bonne largeur, Christian sait que le bon pantalon se trouve en position B.
+  \item Et ainsi de suite pour les autres positions du secteur $1$.
+\end{itemize}
+
+Comme la case centrale de chaque secteur numéroté ne possède qu’une case voisine dans chaque directions, aucun essai supplémentaire n’est nécessaire. Christian a donc besoin de deux essais au maximum pour trouver la bonne taille de pantalon.
+
+
+\subsection*{It’s Informatics}
+
+La méthode que Christian utilise pour ses essais de pantalons s’appelle \emph{recherche dichotomique} en informatique. Lors de la recherche dichotomique d’un objet dans une liste d’objets triés, l’objet du milieu est comparé à l’objet recherché. Si l’objet du milieu ne correspond pas à celui que l’on recherche, on sait dans quelle moitié de la liste l’objet recherché se trouve et l’on peut y continuer la recherche dichotomique. Ainsi, la liste est est séparée en deux à chaque étape de la recherche – d’où “dichotomique”. De cette manière, on trouve rapidement l’objet recherché. Environ $10$ étapes sont nécessaire pour rechercher dans une liste de $1000$ objets, et $20$ étapes pour une liste de ${1\,000\,000}$ objets. De manière générale, on peut le formuler ainsi: il faut en moyenne ${\log(n)}$ étapes pour un tableau de ${n}$ objets (la fonction log est le logarithme en base $2$). La recherche dichotomique est souvent utilisée par les programmes informatiques pour les recherches dans les données triées en raison de sa rapidité.
+
+Dans cet exercice du Castor, l’espace de recherche (les pantalons dans l’étagère) est séparé en deux dimensions (longueur et largeur). Christian peut donc appliquer la recherche dichotomique dans les deux dimensions en même temps, et l’espace de recherche n’est pas divisé en deux à chaque étape, mais directement en huit – pour autant que Christian ne soit pas directement tombé sur la bonne taille!
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Recherche dichotomique: \href{https://fr.wikipedia.org/wiki/Recherche_dichotomique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Recherche\_dichotomique}}
+  \item Algorithme de recherche: \href{https://fr.wikipedia.org/wiki/Algorithme_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_recherche}}
+\end{itemize}
+
+
+}
+\end{document}

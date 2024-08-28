@@ -1,0 +1,153 @@
+<p style="clear:both;"><strong>Body</strong></p>
+
+<p>Ben hat einen besonderen Apfelbaum im Garten:</p>
+<ul>
+<li>Landet ein Vogel <img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"> auf dem Baum, wachsen sofort zwei neue Äpfel.</li>
+<li>Klettert ein Eichhörnchen <img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"> auf den Baum, fällt ein Apfel runter. Wenn kein Apfel am Baum hängt, passiert nichts.</li>
+<li>Besucht eine Schlange <img src="graphics/2023-CA-01-snake.svg" alt="snake" title="Schlange" style="width:36px"> den Baum, verschwinden alle Äpfel sofort.</li>
+</ul>
+<p>Heute Morgen hängen 25 Äpfel am Baum. Dann besuchen einige Tiere nacheinander den Baum, zuletzt ein Eichhörnchen. Ben hat ihre Reihenfolge genau aufgeschrieben:</p>
+<p><img src="graphics/2023-CA-01-taskbody.svg" alt="taskbody" title="Reihenfolge der Tiere" style="width:533px"></p>
+
+
+<p style="clear:both;"><strong>Question/Challenge</strong></p>
+
+<p>Wie viele Äpfel hängen danach am Baum?</p>
+
+
+<p style="clear:both;"><strong>Answer Options/Interactivity Description</strong></p>
+
+<p>A) 3 Äpfel</p>
+<p>B) 7 Äpfel</p>
+<p>C) 17 Äpfel</p>
+<p>D) 31 Äpfel</p>
+
+
+<p style="clear:both;"><strong>Answer Explanation</strong></p>
+
+<p>Antwort B ist richtig. Nachdem das letzte Eichhörnchen auf den Baum klettert, hängen noch 7 Äpfel am Baum.</p>
+<p>Man kann für jeden Tierbesuch ausrechnen, wie viele Äpfel im Moment am Baum hängen:</p>
+<div class="indent">
+<table>
+<thead>
+<tr>
+<th>Tier:</th>
+<th style="text-align:center">Start</th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-snake.svg" alt="snake" title="Schlange" style="width:36px"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Anweisung:</strong></td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">reset</td>
+</tr>
+<tr>
+<td><strong>Anzahl Äpfel:</strong></td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Tier:</th>
+<th style="text-align:center">Übertrag</th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-snake.svg" alt="snake" title="Schlange" style="width:36px"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Anweisung:</strong></td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">reset</td>
+</tr>
+<tr>
+<td><strong>Anzahl Äpfel:</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Tier:</th>
+<th style="text-align:center">Übertrag</th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-bird.svg" alt="bird" title="Vogel" style="width:25px"></th>
+<th style="text-align:center"><img src="graphics/2023-CA-01-squirrel.svg" alt="squirrel" title="Eichhörnchen" style="width:25px"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Anweisung:</strong></td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">+2</td>
+<td style="text-align:center">-1</td>
+</tr>
+<tr>
+<td><strong>Anzahl Äpfel:</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>7</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Da alle Äpfel sofort verschwinden, wenn eine Schlange den Baum besucht, können wir alles ignorieren, was vor der Ankunft der zweiten (und letzten) Schlange passiert. Wie in der Tabelle gezeigt, landen nach dem Besuch der letzten Schlange vier Vögel auf dem Baum. Danach hängen am Baum <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">4 \times 2 = 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span></span></span></span></eq> Äpfel. Dann klettert ein Eichhörnchen auf den Baum, wodurch ein Apfel herunterfällt und <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">8 - 1 = 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span></eq> Äpfel übrigbleiben.</p>
+
+
+<p style="clear:both;"><strong>This is Informatics</strong></p>
+
+<p>Der Besuch eines Tieres verändert den Zustand des magischen Apfelbaums – aber nur auf ganz bestimmte Weise: Nur die Anzahl der Äpfel, die am Baum hängen, wird geändert. Auf andere Eigenschaften des Baumes, etwa die Anzahl der Blätter, die Länge einzelner Äste oder die Form der Baumkrone, hat der Besuch eines Tieres keinen Einfluss. Für diese Biberaufgabe ist es also ausreichend, die Anzahl der Äpfel zu betrachten.</p>
+<p>Auch ein Computerprogramm hat einen Zustand, der von den einzelnen Anweisungen des Programms verändert wird. Als Zustand werden meist die von einem Programm gespeicherten Daten betrachtet; diese Daten speichert das Programm in den bei der Programmierung eingeführten <em>Variablen</em>.</p>
+<p>Die Folge der Tierbesuche auf dem Baum in dieser Biberaufgabe ist wie ein Computerprogramm: Jeder Tierbesuch ist eine Anweisung, die den Zustand des Apfelbaums verändert. Dieser Zustand – also die Anzahl der Äpfel, siehe oben – kann in einer einzigen Variable gespeichert werden.</p>
+<p>Beim Lösen der Aufgabe ist dir vielleicht aufgefallen, dass du nicht das ganze «Programm» anschauen musstest, sondern nur den Teil nach dem letzten Vorkommen der Schlange.  Durch genaue Betrachtung der Auswirkungen der einzelnen Anweisungen auf den Zustand des Programms konntest du eine besondere Eigenschaft des Programms herausfinden.  Eine solche Analyse von (Computer-)Programmen gehört zu den häufigen Tätigkeiten von Informatikerinnen und Informatikern.</p>
+
+
+<p style="clear:both;"><strong>This is Computational Thinking</strong></p>
+
+<p>The solution of the task requires algorithmic thinking.</p>

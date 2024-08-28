@@ -1,0 +1,141 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Piles de troncs d'arbres}
+\renewcommand{\taskCountry}{PK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Dans le village des castors, les troncs d’arbres sont répartis dans quatre groupes (A, B, C, D) d’après trois propriétés (le nombre d’anneaux de croissance, le nombre de traces sur l’écorce et le nombre de nœuds dans le bois). Le diagramme de décision montre comment cela se passe.
+
+{\centering%
+\includesvg[width=396.9px]{\taskGraphicsFolder/graphics/2020-PK-02_taskbody1-compatible.svg}\par}
+
+\begin{wrapfigure}{R}{144.3px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-PK-02_taskbody2-fra-compatible.svg}}
+\end{wrapfigure}
+
+Par exemple, ce tronc-ci est posé sur la pile~D en raison des décisions suivantes:
+
+\begin{itemize}
+  \item Ali voit trois anneaux de croissance et donne le tronc à Bob;
+  \item Bob voit trois traces sur l’écorce et donne le tronc à Conni;
+  \item Conni voit deux nœuds dans le bois et pose le tronc sur la pile~D.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Sur quelle pile ce tronc va-t-il être posé?
+
+{\centering%
+\includesvg[width=49.8px]{\taskGraphicsFolder/graphics/2020-PK-02_question-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & Pile~A \\ 
+  B) & Pile~B \\ 
+  C) & Pile~C \\ 
+  D) & Pile~D
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est la pile~C, car Ali voit deux anneaux de croissance et donne le tronc à Bea. Bea voit trois traces sur l’écorce et transmets le tronc à Chloé. Chloé voit un nœud dans le bois et pose le tronc sur la pile~C.
+
+Si l’on veut, on peut déterminer quels troncs correspondent à chaque pile. Il y a deux types de troncs sur chaque pile.
+
+Sur la pile \textbf{A}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $2$ traces sur l’écorce et $1$ nœud dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $2$ traces sur l’écorce et $1$ nœud dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{B}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $2$ traces sur l’écorce et $2$ nœuds dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $2$ traces sur l’écorce et $2$ nœuds dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{C}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $3$ traces sur l’écorce et $1$ nœud dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $3$ traces sur l’écorce et $1$ nœud dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{D}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $3$ traces sur l’écorce et $2$ nœuds dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $3$ traces sur l’écorce et $2$ nœuds dans le bois.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice touche à plusieurs concepts informatiques.
+
+En premier lieu, le concept des \emph{diagrammes de décision} est traité, diagrammes qui ont des applications très variées en informatique. Ici, on les utilise pour la \emph{classification} d’objects dans certaines catégories (très souvent, on utilise des arbres de décision, une forme spéciale de diagrammes de décision. Le diagramme de décision de l’exercice n’est pas un arbre de décision, car deux groupes sont posés sur la même pile au dernier niveau du diagramme).
+
+On peut aussi voir le diagramme de décision de cet exercice comme la représentation abstraite des valeurs d’une fonction à plusieurs variables. La terminologie exacte en informatique est \emph{diagramme de décision binaire}.
+
+De plus, on aborde ici le concept des \emph{attributs} (caractéristiques ou propriétés) d’objets. Dans cet exemple, les objects ont trois attributs (anneaux de croissance, trace sur l’écorce, nœuds dans le bois), et chaque attribut a deux valeurs possible (deux ou trois anneaux ou traces et un ou deux nœud[s]).
+
+Il y a beaucoup d’applications possibles pour de tel diagramme de décision. L’une d’entre elles est la classification de paquets envoyés sur un réseau (par des routeurs ou des commutateurs réseau).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Arbre de décision: \href{https://fr.wikipedia.org/wiki/Arbre_de_d\%C3\%A9cision}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_de\_décision}}
+  \item Classification: \href{https://fr.wikipedia.org/wiki/Classement_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Classement\_automatique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios O.~Choudary\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

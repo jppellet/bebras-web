@@ -1,0 +1,149 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-AT-01a Coloriage}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-AT-01a Coloriage}
+
+
+\subsection*{Body}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-AT-01a-taskbody.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Colorie l’image en vert, jaune et bleu de manière à ce que deux surfaces de la même couleur ne se touchent jamais.
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur une couleur à droite pour la sélectionner. Clique ensuite sur les surfaces blanches pour les colorier. Pour enlever toutes les couleurs, clique sur “Annuler la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici toutes les possibilités de colorier l’image.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-AT-01a-solutions.svg}\par}
+
+Comment peux-tu trouver une solution?
+
+Commence par choisir une couleur pour la surface extérieure, par exemple du jaune. Presque toutes les autres surfaces touchent la surface jaune. Celles-ci doivent donc être coloriées en vert ou en bleu. Commence par une de ces surfaces et alterne les couleurs. Le centre de la fleur peut être jaune comme la surface extérieure.
+
+Cette image numérotée décrit la stratégie indépendamment des couleurs:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-AT-01a-explanation.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, il s’agit d’attribuer des couleurs à des surfaces en respectant certaines contraintes. En informatique et en mathématiques, ce type de problème est connu sous le nom de \emph{coloration de graphe}.
+
+Les problèmes de coloration de graphe ont beaucoup d’applications pratiques et il est souvent important d’utiliser le moins de couleurs possibles. La répartition des équipes pour un tournoi sportif, de personnes dans des groupes ou encore l’attribution de fréquences à des chaînes de radio en sont des exemples. Les applications pratiques de coloration de graphes présentent souvent plus de surfaces que cet exercice, et il n’est souvent plus possible de trouver une solution avec peu de couleurs à la main. Les informaticien·nes utilisent des ordinateurs pour résoudre de tels problèmes.
+
+La coloration de graphe peut aussi être utilisée pour des cartes géographiques. Le but est alors de trouver une coloration avec laquelle deux pays voisins n’ont jamais la même couleur. Une coloration à quatre couleurs existe pour n’importe quelle carte géographique. Ceci n’est pas facile à démontrer: c’est seulement en $1976$ que les mathématiciens Kenneth Appel et Wolfgang Haken y sont arrivés. Pour cela, ils ont utilisé des ordinateurs pour tester un grand nombre d’exceptions et de contre-exemples. D’autres personnes ne peuvent pas le vérifier sans ordinateur. C’est pour cela que certain·es autres mathématicien·nes voient l’utilisation d’ordinateur pour cette démonstration ou pour des démonstrations en général d’un œil critique.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Coloration de graohe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+  \item Théorème des quatre couleurs: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me_des_quatre_couleurs}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorème\_des\_quatre\_couleurs}}
+\end{itemize}
+
+
+}
+\end{document}

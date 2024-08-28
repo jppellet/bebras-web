@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-UY-01 Il pirata Barbastoro}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-UY-01 Il pirata Barbastoro}
+
+
+\subsection*{Body}
+
+Su un’isola ci sono tre scrigni del tesoro:
+uno scrigno si trova ai piedi del vulcano, il secondo sotto una palma e il terzo sulla spiaggia.
+Tutti gli scrigni sono vuoti.
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-question.svg}\par}
+
+Un giorno, il pirata Barbastoro approda sull’isola, riempie d’oro uno dei tre scrigni e lo sigilla.
+Lo stesso giorno, tre turiste si trovano sull’isola: Anita, Britta e Carla.
+Ognuna scatta una foto: una prima che Barbastoro riempia lo scrigno, le altre due dopo.
+
+\begin{tabularx}{\columnwidth}{ @{} J J J @{} }
+  {\setstretch{1.0}\thead[lb]{La foto di Anita}} & {\setstretch{1.0}\thead[lb]{La foto di Britta}} & {\setstretch{1.0}\thead[lb]{La foto di Carla}} \\ 
+\midrule
+  \makecell[l]{… mostra lo scrigno \\ sulla spiaggia.} & \makecell[l]{… mostra i due scrigni sotto \\ la palma e sulla spiaggia.} & \makecell[l]{… mostra i due scrigni sotto \\ la palma e ai piedi del vulcano.} \\ 
+  \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_AnitaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_BrittaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_CarlaPhoto.svg}}
+\end{tabularx}
+
+Nelle foto, tutti gli scrigni sono vuoti.  Quindi Barbastoro è stato fortunato che nessuna turista abbia trovato il suo oro.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+In quale scrigno si trova l’oro?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fare clic su una casella dell’immagine superiore per selezionarla. Al termine, fare clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+click-to-select-one:  Man kann eine Kiste anklicken, um sie auszuwählen, und wieder anklicken, um die Auswahl aufzuheben.  Ist eine Kiste ausgewählt und klickt man eine andere Kiste an, ist die andere Kiste ausgewählt und die erste Kiste nicht mehr.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-solution.svg}\par}
+
+L’oro si trova nello scrigno ai piedi del vulcano.
+
+Per ogni scrigno verifichiamo se l’oro può essere contenuto in essa. A tal fine, esaminiamo in ogni caso se le foto corrispondono alla storia.
+
+\begin{enumerate}
+  \item \textbf{Lo scrigno sotto la palma.}
+Le foto di Britta e Carla mostrano lo scrigno vuoto sotto la palma. Se questo fosse lo scrigno con l’oro, entrambe le foto devono essere state scattate prima che lo scrigno fosse riempito. Tuttavia, sappiamo che solo una turista ha scattato la sua foto prima che Barbastoro riempisse d’oro lo scrigno. L’ipotesi che l’oro sia nello scrigno sotto la palma risulta essere una contraddizione. Ne deduciamo che non c’è oro nello scrigno sotto la palma.
+  \item \textbf{Lo scrigno sulla spiaggia.}
+Nelle foto di Anita e Britta, lo scrigno sulla spiaggia è vuoto. Se questo fosse lo scrigno con l’oro, entrambe le foto devono essere state scattate prima che il forziere fosse riempito. Ma sappiamo che solo una turista ha scattato la sua foto prima che Barbastoro riempisse d’oro lo scrigno. L’ipotesi che l’oro sia nello scrigno sulla spiaggia risulta quindi una contraddizione. Ne deduciamo che non c’è oro nello scrigno sulla spiaggia.
+  \item \textbf{Lo scrigno ai piedi del vulcano}
+… è presente solo nella foto di Carla e lì è vuoto. Se questo fosse la scrigno con l’oro, Carla potrebbe essere la turista che ha scattato la foto prima che Barbastoro lo riempisse d’oro. Nelle foto di Anita e Britta, lo scrigno ai piedi del vulcano non è visibile.  Anita e Britta possono quindi essere le turiste che hanno scattato le loro foto dopo il passaggio di Barbastoro.  L’ipotesi che l’oro sia nello scrigno ai piedi del vulcano non comporta alcuna contraddizione.
+\end{enumerate}
+
+Poiché l’oro deve trovarsi in uno dei tre scrigni, possiamo concludere che l’oro si trova effettivamente nello scrigno ai piedi del vulcano.
+
+
+\subsection*{This is Informatics}
+
+Nel rispondere a questo compito, \emph{l’inferenza logica} è stato d’aiuto.
+Abbiamo usato le tre foto e la nostra conoscenza della situazione sull’isola per trovare le ragioni per cui certe ipotesi potrebbero o non potrebbero essere vere.
+La costruzione di contraddizioni ha un ruolo particolarmente importante nel ragionamento logico.
+Se un’affermazione segue in modo puramente logico da un’ipotesi, ma l’ipotesi e l’affermazione non possono essere vere allo stesso tempo, allora possiamo dire con certezza che l’ipotesi è falsa.
+
+La logica svolge un ruolo estremamente importante in molte aree dell’informatica: i circuiti dell’hardware dei computer, sia nelle unità di calcolo che nei supporti di memorizzazione, sono realizzazioni di operazioni logiche.  Le operazioni logiche possono essere utilizzate per formulare condizioni complesse nei programmi o interrogazioni complesse ai database.  Il comportamento dei programmi può essere descritto e verificato con l’aiuto di calcoli logici.  I linguaggi di programmazione logica lavorano direttamente con affermazioni logiche e ragionamenti logici per eseguire calcoli.
+
+
+\subsection*{This is Computational Thinking}
+
+\textbf{TODO:} Soll laut englischem Text leer bleiben.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Inferenza logica: \href{https://it.wikipedia.org/wiki/Inferenza}{\BrochureUrlText{https://it.wikipedia.org/wiki/Inferenza}}
+  \item Programmazione logica: \href{https://it.wikipedia.org/wiki/Programmazione_logica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Programmazione\_logica}}
+  \item Prolog: \href{https://it.wikipedia.org/wiki/Prolog}{\BrochureUrlText{https://it.wikipedia.org/wiki/Prolog}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Simulation: \href{https://de.wikipedia.org/wiki/Simulation}{\BrochureUrlText{https://de.wikipedia.org/wiki/Simulation}}
+\end{itemize}
+
+
+\end{document}

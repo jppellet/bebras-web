@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Parapluie}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Voici le parapluie d’Anna:
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-taskbody.svg}}
+
+
+
+% question (as \emph{})
+{\em
+Une des quatre images montre le parapluie d’Anna. Laquelle?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Chaque motif n’apparaît qu’une seule fois sur le parapluie d’Anna.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-explanation-umbrella_numbered_patterns_compatible.svg}\par}
+
+Pour trouver la bonne image, nous comparons chacune des images l’une après l’autre avec le parapluie d’Anna:
+
+\begin{itemize}
+  \item Nous cherchons la position du motif situé tout à gauche du parapluie de la réponse possible sur le parapluie d’Anna,
+  \item Nous vérifions que les motifs voisins soient les mêmes sur le parapluie de la réponse possible que sur le parapluie d’Anna.
+
+\begin{tabular}{ @{} l c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{A)}} & {\setstretch{1.0}\thead[cb]{B)}} & {\setstretch{1.0}\thead[cb]{C)}} & {\setstretch{1.0}\thead[cb]{D)}} \\ 
+\midrule
+  Réponse possible & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  Parapluie d’Anna & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-D.svg}}
+\end{tabular}
+
+
+\end{itemize}
+
+Chacune des quatre images montre une suite de seulement cinq motifs et pas tous les dix. Nous ne pouvons pas savoir si la suite de cinq motifs d’une des quatre images correspond à la suite de dix motifs complète du parapluie d’Anna.
+
+L’image C est la seule qui montre un parapluie avec cinq motifs correspondants à ceux présents sur le parapluie d’Anna. Toutes les autres images montrent des suites de motifs qui ne correpondent pas, ou seulement en partie, au parapluie d’Anna. Seule l’image C peut donc montrer le parapluie d’Anna.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les réponses possibles ne montrent qu’une partie de la suite de motifs. Même si elles ne contiennt que des \emph{informations partielles}, nous pouvons déterminer laquelle des quatre images montre le parapluie d’Anna: une image ne montre le parapluie d’Anna que si sa suite de motifs correspond exactement à une partie de la suite de motifs du parapluie d’Anna.
+
+Lors d’une recherche dans un document texte, le même principe est appliqué que pour la recherche de motifs sur les parapluies. L’ordinateur recherche des chaînes de caractères correspondant à une information partielle donnée (le mot recherché) dans le document. Une chaîne de caractères est une suite de caractères (par exemple des lettres, des chiffres, des caractères spéciaux). Lors d’une recherche:
+
+\begin{itemize}
+  \item plus le mot recherché est long, moins il y a de correspondances possible dans le texte et plus la chance de trouver l’endroit recherché dans le texte est élevée,
+  \item plus le mot recherché est court, plus il y a de correspondances possible dans le texte et moins la recherche est exacte.
+\end{itemize}
+
+Pour améliorer la recherche et le parcours des données, différentes méthodes de recherche (ou \emph{algorithmes de recherche}) ont été développées. Leur but est d’effectuer une recherche exacte le plus rapidement possible et de générer un résultat adapté. Ces algorithmes de recherche sont sans cesse améliorés et peuvent parcourir d’immenses quantités de données en très peu de temps (les moteurs de recherche sur internet utilisent de tels algorithmes).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Chaîne de caractères, string: \href{https://fr.wikipedia.org/wiki/Cha\%C3\%AEne_de_caract\%C3\%A8res}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chaîne\_de\_caractères}}
+  \item Algorithme de recherche: \href{https://fr.wikipedia.org/wiki/Algorithme_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_recherche}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorLoyoA{} % \ifdefined\AuthorLoyoA \BrochureFlag{ch}{} Angélica Herrera Loyo\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

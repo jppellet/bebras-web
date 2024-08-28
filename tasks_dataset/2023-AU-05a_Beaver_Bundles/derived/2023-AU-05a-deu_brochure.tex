@@ -1,0 +1,162 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Biber-Bausteine}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Die Biber-Bausteine unterscheiden sich in vier Eigenschaften:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  \begin{enumerate}
+  \item Breite: schmal, mittel, breit
+  \item Höhe: klein, mittel, gross
+  \item Anzahl der Noppen oben: null, eins, zwei
+  \item Anzahl der Nuten unten: null, eins, zwei
+\end{enumerate}
+
+ & \makecell[l]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/-deu/2023-AU-05-taskbody-deu.svg}}
+\end{tabularx}
+
+\begin{wrapfigure}{R}{134.20000000000002px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_example.svg}}
+\end{wrapfigure}
+
+Otto teilt die Bausteine in Dreier-Gruppen ein. Er macht das so, dass für jede Gruppe gilt: Die drei Steine haben für jede der vier Eigenschaften …
+
+\begin{itemize}
+  \item … entweder alle den gleichen Wert …
+  \item … oder drei verschiedene Werte.
+\end{itemize}
+
+Rechts ist eine von Ottos Gruppen.
+
+Denn diese drei Steine haben alle
+
+\begin{itemize}
+  \item die gleiche Breite,
+  \item unterschiedliche Höhen,
+  \item unterschiedlich viele Noppen und
+  \item unterschiedliche viele Nuten.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Teile diese Bausteine in Dreier-Gruppen ein, so wie Otto es machen würde.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task_solution-compatible.svg}\par}
+
+Die Steine sind so in Gruppen eingeteilt, wie Otto es machen würde.
+Die Tabelle zeigt für die drei Gruppen,
+bei welchen Eigenschaften die Werte alle unterschiedlich bzw. alle gleich sind.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Eigenschaft}} & {\setstretch{1.0}\thead[cb]{Gruppe A}} & {\setstretch{1.0}\thead[cb]{Gruppe B}} & {\setstretch{1.0}\thead[cb]{Gruppe C}} \\ 
+\midrule
+  Breite & unterschiedlich & gleich & unterschiedlich \\ 
+  Höhe & gleich & unterschiedlich & unterschiedlich \\ 
+  Noppen & gleich & gleich & unterschiedlich \\ 
+  Nuten & unterschiedlich & unterschiedlich & gleich
+\end{tabular}
+
+\par}
+
+Aber ist das die einzige Möglichkeit, die Steine so einzuteilen, wie Otto es machen würde?
+
+Man kann überlegen:  Wenn für eine Eigenschaft die Werte in allen Gruppen unterschiedlich sein sollen, müssen die verschiedenen Werte in allen Steinen genau so oft vorkommen, wie es Gruppen gibt. Ist das nicht der Fall, muss es mindestens eine Gruppe geben, in der die Werte für diese Eigenschaft alle gleich sind.
+
+Ein genauer Blick auf alle Steine zeigt, dass bei der Breite die Werte schmal und breit jeweils nur zweimal vorkommen. Es muss also eine Gruppe geben, in der alle Steine die Breite mittel haben.
+
+Von den fünf Steinen mit mittlerer Breite gibt es keinen mit nur einer Noppe; deshalb kann keine Gruppe mit unterschiedlich vielen Noppen gebildet werden. Es gibt aber drei Steine mit null Noppen – und sie haben alle unterschiedliche Höhen und unterschiedlich viele Nuten. Damit ist Gruppe B die einzig mögliche Gruppe von Steinen mit mittlerer Breite.
+
+In den anderen beiden Gruppen müssen die Breiten alle unterschiedlich sein.
+
+In den verbleibenden sechs Steinen kommen bei der Höhe die Werte gross und mittel nur noch einmal vor. Es muss also eine Gruppe geben, in der alle Steine die Höhe klein haben. Gruppe A ist die einzig mögliche Dreier-Gruppe von Steinen mit kleiner Höhe, die Ottos Vorstellungen entspricht. Damit bleiben die drei Steine in Gruppe C übrig. Sie bilden ebenfalls eine Dreier-Gruppe, wie Otto sie auch bilden würde.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In dieser Biberaufgabe werden die Biber-Bausteine mit Hilfe von vier \emph{Eigenschaften} (oder \emph{Attributen}) beschrieben.
+
+Um die Bausteine wie Otto in Dreier-Gruppen aufteilen zu können, muss man für jeden Stein die Werte der Eigenschaften kennen.
+
+Dazu genügt Menschen ein Blick auf jeden Baustein. Ein Computerprogramm, das die Dreier-Gruppen zusammenstellen soll, kann in der Regel nicht sehen und braucht eine Beschreibung in einer \emph{Datenstruktur}.
+
+Zum Beispiel kann man die Steine in einer \emph{Datenbank} als Zeilen einer Tabelle beschreiben. Die Spalten der Tabelle entsprechen den Eigenschaften, und in jeder Zeile (auch \emph{Datensatz} genannt) stehen die Werte eines Bausteins in den passenden Spalten:
+
+{\centering%
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Stein-Nr}} & {\setstretch{1.0}\thead[lb]{Breite}} & {\setstretch{1.0}\thead[lb]{Höhe}} & {\setstretch{1.0}\thead[lb]{Noppen}} & {\setstretch{1.0}\thead[lb]{Nuten}} \\ 
+\midrule
+  1 & schmal & hoch & 1 & 0 \\ 
+  2 & mittel & mittel & 2 & 0 \\ 
+  … & … & … & … & …
+\end{tabular}
+
+\par}
+
+Der Entwurf von Datenbank-Tabellen gehört zu den üblichen Tätigkeiten für Informatikerinnen und Informatiker.
+
+Sie müssen dabei gründlich vorgehen und überlegen, welche Eigenschaften von Objekten für die Verarbeitung durch ein Computerprogramm wichtig sind. Nachträgliche Änderungen sind nicht so einfach, insbesondere wenn schon Daten vieler Objekte gespeichert sind.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Datenstruktur: \href{https://de.wikipedia.org/wiki/Datenstruktur}{\BrochureUrlText{https://de.wikipedia.org/wiki/Datenstruktur}}
+  \item Datenbanken: \href{https://de.wikipedia.org/wiki/Datenbanktabelle}{\BrochureUrlText{https://de.wikipedia.org/wiki/Datenbanktabelle}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGrodeckA{} % \ifdefined\AuthorGrodeckA \BrochureFlag{au}{} Adam Grodeck\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

@@ -1,0 +1,106 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Missione Zerobot}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lo Zerobot ha un serbatoio sostituibile.
+Zerobot si muove in una griglia: in alto, in basso, a destra e a sinistra.
+Ogni volta che si sposta da una casella della griglia, il livello del serbatoio diminuisce di $1$ unità.
+
+Su alcune piazze sono presenti serbatoi di ricambio, il cui numero indica il livello di riempimento.
+Quando Zerobot raggiunge un campo di questo tipo, cambia il suo serbatoio, indipendentemente da quanto sia pieno: prende il serbatoio di scambio, posa il serbatoio precedente sul campo e continua a guidare.
+
+La posizione attuale di Zerobot e il livello del suo serbatoio sono mostrati nell’immagine come segue: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-zerobot_9_compatible.svg}}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-challenge_compatible.svg}\par}
+
+Allarme: i serbatoi sono difettosi e potrebbero esplodere se lasciati con del carburante!
+
+Questa è la missione di Zerobot: deve raggiungere la stazione base \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-basisstation.svg}} in modo tale che tutti i serbatoi siano vuoti alla fine (livello di riempimento $0$).
+
+
+
+% question (as \emph{})
+{\em
+Come deve muoversi Zerobot per compiere la sua missione?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-solution.svg}\par}
+
+Zerobot può raggiungere la stazione base con $15$ movimenti in modo che tutti i serbatoi abbiano un livello di riempimento pari a $0$ alla fine:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-08-explanation_steps_compatible.svg}\par}
+
+Per rendere più semplice la spiegazione della risposta corretta, etichettiamo i campi con i serbatoi di scambio e la stazione base con le lettere A, B e C:
+
+Zerobot sposta~$3$ campi in A e scambia ![tank\_violet] (livello di riempimento~$6$) con \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}}~(livello di riempimento~$3$). Poi si sposta di $3$~campi in B e scambia \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}}~(livello~$0$) con \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}}~(livello~$3$). Poi si sposta di nuovo in A e scambia \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}}~(livello~$0$) con ![tank\_violet]~(livello~$6$). Quindi viaggia per $6$~campi fino alla stazione base~C. ![tank\_violet]~ha un livello di riempimento pari a~$0$. Missione compiuta!
+
+È questa l’unica soluzione corretta? Lo Zerobot deve compiere esattamente $15$~movimenti: $15$~movimenti sono il minimo necessario per consumare tutto il carburante disponibile di ${9 + 3 + 3 = 15}$~unità, e non c’è abbastanza carburante per altri movimenti. Per svuotare tutti i serbatoi, deve visitare entrambi i campi con serbatoi di scambio, e A anche due volte. Se lo Zerobot visitasse prima il campo~B, avrebbe bisogno di $17$~movimenti per raggiungere la stazione base, il che non è possibile. Pertanto, la sequenza di serbatoi mostrata è l’unica risposta corretta.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In questo compito vengono affrontati alcuni problemi fondamentali della mobilità autonoma: ogni robot mobile autonomo (come un’auto a guida autonoma) deve considerare quanta energia è disponibile sotto forma di carburante o di carica della batteria quando pianifica le sue attività. Da un lato, deve assicurarsi di raggiungere in tempo una stazione di ricarica o di rifornimento prima che la sua scorta di energia sia esaurita. D’altra parte, ci sono condizioni quadro da considerare. Nel compito, una condizione quadro è che la fornitura di energia deve essere completamente esaurita entro la fine. In realtà, si tratta soprattutto di altre condizioni quadro, come la posizione e la disponibilità delle stazioni di ricarica. Il software per il controllo dei robot mobili contiene componenti che assicurano energia sufficiente attraverso la ricarica (\emph{gestione intelligente della carica della batteria}).
+
+Inoltre, i programmi informatici vengono utilizzati anche per pianificare e gestire reti efficienti di stazioni di ricarica. Gli informatici stanno cercando soluzioni al problema del posizionamento delle stazioni di ricarica: le stazioni di ricarica per i robot mobili devono essere posizionate in modo tale che un robot con un certo livello minimo di carica possa raggiungere una delle stazioni di ricarica disponibili. Per la comunicazione tra le stazioni di ricarica e le auto a guida autonoma sono stati sviluppati protocolli come l’OCPP (\emph{Open Charge Point Protocol}).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Gestione intelligente della carica della batteria: \href{https://www.researchgate.net/publication/364734487_Intelligent_Battery_Recharge_Management_for_Mobile_Robots}{\BrochureUrlText{https://www.researchgate.net/publication/364734487\_Intelligent\_Battery\_Recharge\_Management\_for\_Mobile\_Robots}}
+  \item Open Charge Point Protocoll (OCPP): \href{https://de.wikipedia.org/wiki/OCPP}{\BrochureUrlText{https://de.wikipedia.org/wiki/OCPP}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorCavalcanteL{} % \ifdefined\AuthorCavalcanteL \BrochureFlag{br}{} Leonardo Cavalcante\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorM{} % \ifdefined\AuthorM \BrochureFlag{de}{} Michael Weigend \fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

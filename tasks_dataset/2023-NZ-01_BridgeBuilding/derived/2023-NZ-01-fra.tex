@@ -1,0 +1,188 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-NZ-01 Raccordement}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-NZ-01 Raccordement}
+
+
+\subsection*{Body}
+
+Des enfants ont emménagé sur l’île tout à gauche. Bianca doit construire des ponts permettant aux enfants d’aller à l’école sur l’île tout à droite.
+
+La carte des îles montre combien il y a de troncs sur chaque île. Bianca peut prendre ces troncs pour construire des ponts sur les lignes. Le chiffre au-dessus d’une ligne indique combien de troncs sont nécessaires pour y contruire un pont. Dès qu’un pont entre deux îles est construit, Bianca peut le traverser en prenant avec les troncs qu’il lui reste. Elle ne peut bien sûr utiliser chaque tronc que pour un seul pont.
+
+Bianca commence sur l’île de gauche. Son but est d’utiliser le moins de troncs possible.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quelles lignes Bianca doit-elle construire des ponts pour atteindre son but?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Clique sur une ligne pour la sélectionner. Tu peux voir combien de troncs tu utilises dans la bulle de Bianca. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Each “path” must be clickable and when clicked, a bridge (maybe trunks in the appropriate number laid out?) appears. Any bridge could be built at any point in time, even impossible bridges (to allow the students to start from the school as well).
+
+Es würde sich lohnen, die momentane Summe der angeklickten Brücken und die Summe der insgesamt zur Verfügung stehenden Baumstämme anzuzeigen; dann wäre jedoch das Problem, dass damit die feasibility noch nicht gezeigt ist, und dass dies zu Missverständnissen führen könnte.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-solution_compatible.svg}\par}
+
+Les lignes vertes montrent les ponts que Bianca a construits. Les flèches rouges montrent comment elle a traversé les ponts:
+
+\begin{itemize}
+  \item Sur l’île A, elle prend trois troncs et en utilise deux pour construire le premier pont. Elle traverse le pont avec le tronc restant et a ${3 - 2 + 2 = 3}$ troncs sur l’île B. Cela ne suffit pas pour construire un pont vers l’île D.
+  \item Elle construit donc un pont vers l’île C avec deux troncs. Elle traverse le pont, prend les trois troncs de l’île C et revient. Elle a maintenant ${3 - 2 + 3 = 4}$ troncs.
+  \item Avec ces quatre troncs, elle construit un pont vers l’île D, le traverse et prend les deux troncs de l’île D.
+  \item Avec ces deux troncs, elle construit un pont vers l’île E, le traverse et prend les trois troncs. Elle construit des ponts vers les îles F et G. Sur l’île E, Bianca a trois troncs; sur l’île F, ${3 - 1 + 1 = 3}$ troncs et sur l’île G ecore deux troncs.
+  \item Ces deux troncs suffisent exactement pour construire un pont vers l’île H, où se trouve l’école.
+\end{itemize}
+
+Bianca a donc pu construire des ponts pour faire un chemin de l’île A à l’île H en utilisant $14$ troncs en tout. Mais est-ce possible avec moins de troncs? Pour le savoir, il faut étudier tous les chemins possibles. Comme tous les chemins passent par la longue île D, le problème peut être divisé en deux: de l’île A à l’île D, et de l’île D à l’île H:
+
+\begin{itemize}
+  \item Bianca a utilisé $8$ troncs pour les ponts entre l’île A et l’île D, et est arrivée sans tronc sur l’île D. On note son chemin ainsi: ${2-[2,2]-4}$ (de l’île A par la ligne avec le $2$ jusqu’à l’île B, puis aller-retour entre B et C par le ligne $2$, puis par la ligne $4$ jusqu’à D). Un chemin utilisant moins de troncs serait ${3-4}$, mais il ne peut être construit qu’avec un détour (${3-[2,2]-4}$) et nécessite donc neuf troncs; Bianca arrive alors sur l’île D avec un tronc en réserve. Tous les autres chemins entre A et D utilisent neuf troncs ou plus.
+  \item Bianca a utilisé six troncs pour les ponts entre les îles D et H. Elle ne peut pas construire le chemin direct ${3-2}$, même avec un tronc en réserve. Tous les autres chemins de l’île D à l’île H utilisent $6$ troncs ou plus.
+\end{itemize}
+
+Ce n’est donc pas possible de construire des ponts permettant aux enfants de l’île-village A d’aller à l’île-école H avec moins de $14$ troncs. Bianca a atteint son but.
+
+
+\subsection*{This is Informatics}
+
+La carte des îles avec les lignes représentant des ponts possibles peut être représentée par un \emph{graphe}: une structure mathématique qui relie par des arêtes des paires d’objets (aussi appelés \emph{nœuds}). Dans un graphe, les îles sont représentées par des nœuds et les lignes par des \emph{arêtes}. Dans ce cas, les arêtes ont des \emph{poids} (le nombre de troncs nécessaires à la construction d’un pont), mais les nœuds également (le nombre de troncs disponibles sur l’île), ce qui est inhabituel. En informatique, on connaît plusieurs algorithmes efficaces pour calculer le plus court chemin (le chemin avec la plus petite somme des poids des arêtes) entre deux nœuds d’un graphe dont seules les arêtes ont un poids.
+
+Le problème que Bianca veut résoudre de manière optimale dans cet exercice est plus compliqué: elle souhaite également trouver le plus court chemin, mais a encore une autre contrainte: la différence entre la somme des poids de tous les nœuds sur son chemin jusqu’ici (les troncs qu’elle a pu prendre) et la somme des poids des arêtes sur son chemin (les troncs utilisés pour les ponts) doit être plus grande que le poids de l’arête où Bianca souhaite construire le prochain pont. Pour trouver le chemin optimal, il faut ici essayer toutes les possibilité. C’est utile de diviser le problème en deux pour réduire le nombre de possibilités, et les contraintes nous permettent d’exclure beaucoup de chemins avant de les avoir complètement parcourus. En informatique, on appelle une telle méthode (essayer et exclure) le \emph{retour sur trace} (voir aussi l’exercice “Jardin potager”).
+
+
+\subsection*{This is Computational Thinking}
+
+Beim Lösen des Problems begegnen wir einem vier wichtige Aspekte des Computational Thinking:
+
+\begin{itemize}
+  \item Es ist im Grunde egal, dass es um Inseln und Brücken geht, alleine die Struktur des Graphen ist relevant. Diesen Vorgang nennt man Abstrahieren, wenn die wesentlichen Informationen verwendet werden und alle übrigen (die Einkleidung durch die Aufgabe) weggelassen werden.
+  \item Das ziemlich komplexe Problem wird in zwei Teile zerlegt (manchmal auch Dekomposition genannt), die für sich genommen relativ einfach lösbar sind.
+  \item Dadurch dass zu jeder Zeit genügend Baumstämme für den Bau von Brücken vorhanden sein müssen, ist auch algorithmisches Denken oder das Denken in Abläufen notwendig.
+  \item Zuletzt wird in der Regel eine lokale Optimierung stattgefunden haben: man hat eine mögliche Lösung gefunden und versucht durch Ausprobieren von leicht veränderten Alternativen eine bessere Lösung zu finden.
+\end{itemize}
+
+Im Abschnitt “Dies ist Informatik” oben wird zudem Algorithmenanalyse aufgezeigt.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Retour sur trace: \href{https://fr.wikipedia.org/wiki/Retour_sur_trace}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Retour\_sur\_trace}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Abstraktion (\href{https://de.wikipedia.org/wiki/Abstraktion}{\BrochureUrlText{https://de.wikipedia.org/wiki/Abstraktion}})
+  \item Dekomposition (\href{https://de.wikipedia.org/wiki/Modell\#Modellbildung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Modell\#Modellbildung}})
+  \item Algorithmisches Denken (\href{https://algdenken.phgr.ch}{\BrochureUrlText{https://algdenken.phgr.ch}})
+  \item Lokale Optimierung (\href{https://de.wikipedia.org/wiki/Lokale_Suche}{\BrochureUrlText{https://de.wikipedia.org/wiki/Lokale\_Suche}})
+  \item Algorithmenanalyse (\href{https://de.wikipedia.org/wiki/Algorithmus\#Algorithmenanalyse}{\BrochureUrlText{https://de.wikipedia.org/wiki/Algorithmus\#Algorithmenanalyse}})
+\end{itemize}
+
+
+\end{document}

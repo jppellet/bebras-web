@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-CY-01 Les voisins de Lili}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-CY-01 Les voisins de Lili}
+
+
+\subsection*{Body}
+
+Tu vois sur la carte les huttes de huit castors. Deux castors sont voisins lorsqu’un canal relie leurs huttes.
+
+\begin{itemize}
+  \item Lili, Simon, et Pierre ont quatre voisins chacun.
+  \item Simon et Pierre sont les seuls voisins de Nina.
+\end{itemize}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Dans quelle hutte Lili habite-t-elle?
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-CY-01-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur une hutte pour la sélectionner. Clique à nouveau pour la désélectionner.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-CY-01-solution.svg}\par}
+
+Pour résoudre le problème, il faut se concentrer sur les canaux entre les fortifications. Nous devons identifier les huttes dans lesquelles peuvent habiter Lili, Pierre et Simon. Comme ils ont chacun quatre voisins, exactement quatre canaux doivent rejoindre chacune de leurs huttes. Il y a trois huttes qui remplissent ces conditions: les huttes $2$, $5$ et $6$.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-CY-01-explanation1.svg}\par}
+
+Lili, Pierre et Simon habitent donc chacun dans une de ces trois huttes. Nous devons maintenant déterminer dans laquelle des trois vit Lili.
+Les deux autres informations concernent la hutte de Nina, et indiquent qu’exactement deux canaux rejoignent sa hutte. Nina vit donc dans une de ces trois huttes: $1$, $4$ et $8$.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2022-CY-01-explanation2.svg}\par}
+
+Comme nous savons que Simon et Pierre sont les deux voisins de Nina, nous pouvons en déduire que:
+
+\begin{itemize}
+  \item Nina vit dans la hutte $1$.
+  \item Simon et Pierre vivent dans les huttes $5$ et $7$ (ou l’inverse).
+\end{itemize}
+
+Il ne reste donc qu’une seule hutte de laquelle partent quatre canaux et qui peut être celle de Lili. C’est la hutte $6$.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, deux huttes de castor sont reliées par un canal. L’ensembles des huttes et des canaux forme un réseau qui représente les \emph{relations} entre toutes les huttes. Un tel réseau de relations entre des objets est appelé un \emph{graphe} en informatique et en mathématiques. Un graphe peut être considéré comme un \emph{ensemble} de \emph{nœuds} qui sont reliés par des \emph{arêtes}. Dans cet exercice, les nœuds sont les huttes et les arêtes sont les canaux.
+
+La \emph{théorie des graphes} peut être utilisée pour modéliser les relations entre des paires d’objets. Les graphes sont des modèles mathématiques de structures techniques ou naturelles, par exemple des structures sociales, des réseaux informatiques, des réseaux routiers, des circuits électriques, des réseaux d’approvisionnement ou des molécules. Les graphes peuvent être utiles pour décrire et résoudre des \emph{problèmes de réseaux}, par exemple lorsqu’il s’agit de trouver un bon emplacement pour un routeur dans un bâtiment ou de s’assurer qu’un réseau Wi-Fi atteigne chaque pièce d’une maison.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2022-CY-01-itsinformatics.svg}\par}
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Théorie des graphes: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Ensemble: \href{https://fr.wikipedia.org/wiki/Ensemble}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble}}
+  \item Nœud: \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Arête: \href{https://fr.wikipedia.org/wiki/Ar\%C3\%AAte_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arête\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+\end{document}

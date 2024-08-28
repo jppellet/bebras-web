@@ -1,0 +1,142 @@
+{
+    "id": "2023-SK-02",
+    "title": "Rüebli pflanzen",
+    "ages": {
+        "0": "--",
+        "1": "hard",
+        "2": "----",
+        "3": "easy",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "hard",
+        "10-12": "----",
+        "12-14": "easy",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice with images",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Štefan Gura, new graphics by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Štefan Gura",
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "2023-SK.02-Comments-DACHHU.txt by Susanne Datzko",
+            "file_pattern": "2023-SK.02-Comments-DACHHU.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "reviews.txt by Susanne Datzko",
+            "file_pattern": "reviews.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Monika Tomcsányiová, monika.tomcsanyiova@fmph.uniba.sk, Slovakia (author)",
+            "name": "Monika Tomcsányiová",
+            "country": "Slovakia",
+            "country_code": "SK",
+            "roles": [
+                "author"
+            ],
+            "email": "monika.tomcsanyiova@fmph.uniba.sk"
+        },
+        {
+            "src": "Gabriele Stupuriene, gabriele.stupuriene@mif.vu.lt, Lithuania (contributor)",
+            "name": "Gabriele Stupuriene",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "gabriele.stupuriene@mif.vu.lt"
+        },
+        {
+            "src": "Esraa Almajhad, e.majhad@gmail.com, Saudi Arabia (contributor)",
+            "name": "Esraa Almajhad",
+            "country": "Saudi Arabia",
+            "country_code": "SA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "e.majhad@gmail.com"
+        },
+        {
+            "src": "Štefan Gura, stgura@gmail.com, Slovakia (graphics)",
+            "name": "Štefan Gura",
+            "country": "Slovakia",
+            "country_code": "SK",
+            "roles": [
+                "graphics"
+            ],
+            "email": "stgura@gmail.com"
+        },
+        {
+            "src": "Zsuzsa Pluhár, pluharzs@ik.elte.hu, Hungary (translation from English into German)",
+            "name": "Zsuzsa Pluhár",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "pluharzs@ik.elte.hu"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (contributor, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Kirsten Schlüter, kirsten.schlueter@sonnwendjoch.de, Germany (contributor)",
+            "name": "Kirsten Schlüter",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "kirsten.schlueter@sonnwendjoch.de"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.3
+    },
+    "name": "Planting carrots",
+    "difficulties": [
+        0,
+        3,
+        -1,
+        1,
+        0,
+        0
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "SK",
+        "country": "Slovakia",
+        "num": 2
+    }
+}

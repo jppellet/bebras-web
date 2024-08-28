@@ -1,0 +1,159 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-MK-03 Rete di comunicazione}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-MK-03 Rete di comunicazione}
+
+
+\subsection*{Body}
+
+Ai castori piace diffondere notizie tra di loro. A tale scopo utilizzano la rete di comunicazione qui sotto. Quando un castoro riceve un nuovo messaggio, lo inoltra a tutti coloro con cui è collegato da un canale di comunicazione diretta (una linea bianca). L’invio dei messaggi si effettua a turni. C’è sempre un turno tra l’invio e la ricezione.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Da quale castoro un messaggio raggiunge tutti gli altri castori più velocemente, cioè nel minor numero di turni?
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_taskbody-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta è il castoro B. Può diffondere un messaggio a tutti gli altri castori in due turni.
+
+Nel primo turno, il castoro B invia il messaggio ai suoi vicini, cioè i castori A, D e J collegati ad un canale di comunicazione diretta. L’immagine sottostante mostra chi ha il messaggio dopo questo primo turno.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation1-compatible.svg}\par}
+
+Nel secondo turno i castori A, D e J inviano il messaggio ai loro vicini: - Il castoro A invia il messaggio ai castori E e H;
+
+\begin{itemize}
+  \item Il castoro D invia il messaggio ai castori I e K;
+  \item Il castoro J invia il messaggio ai castori C, F, G e L.
+\end{itemize}
+
+Inoltre, il castoro B riceve il messaggio tre volte, perché anche lui è un vicino dei tre castori A, D e J. Poiché questo non è un messaggio nuovo per lui, il castoro B non lo invierà nei prossimi turni. Anche i castori A e D si invieranno di nuovo il messaggio attraverso il loro canale di comunicazione diretta, ma dopo di che non lo invieranno più perché non è più nuovo per loro.
+
+\begin{samepage}
+L’immagine sottostante mostra la situazione dopo il secondo turno.
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation2-compatible.svg}\par}
+\end{samepage}
+
+Così la notizia ha raggiunto tutti i castori in soli due turni.
+
+Non c’è un modo più veloce, perché altrimenti un castoro dovrebbe essere collegato a tutti gli altri castori con una linea bianca per inviare il messaggio direttamente a tutti gli altri castori in un unico turno.
+
+Il castoro B è anche l’unico dal quale un messaggio raggiunge tutti gli altri castori in soli due turni: per i castori C, E, F, G, H, J e L, il castoro I non sarebbe raggiungibile in due turni. E per i castori A, D, E, E, H, I e K, il castoro L non può essere raggiunto in due turni.
+
+
+\subsection*{It’s Informatics}
+
+La rete di comunicazione dei castori può essere descritta da un \emph{grafo}. Ogni castoro si trova in un cosiddetto \emph{nodo}, che in questo caso è nominato con una lettera. Le linee bianche sono chiamate \emph{archi}, ognuna di esse collega due nodi. I messaggi si diffondono nella rete di comunicazione attraverso turni \emph{sincronizzati}, cioè tutti i castori inviano contemporaneamente. In un turno, ogni castoro invia nuovi messaggi a tutti i suoi vicini. Quello che i castori fanno qui è quello che gli informatici chiamano \emph{broadcasting} (inglese per “trasmettere”)  in una \emph{rete di comunicazioni}. Nel compito di cui sopra, abbiamo studiato la velocità con cui una tale trasmissione può essere completata, cioè la velocità con cui un nuovo messaggio può raggiungere tutti i partecipanti.
+
+Un compito ancora più complesso è quello di progettare le reti in modo tale che sia possibile una trasmissione veloce da tutti i nodi, ma con un numero di connessioni non troppo elevato.
+Il nodo del ricercato castoro B è chiamato poi il centro del grafo. In astratto, il centro è un nodo che riduce al minimo la distanza dai nodi più lontani. Non c’è quindi nessun altro nodo che avrebbe una distanza minore rispetto a tutti gli altri nodi. Nel presente compito c’è un solo centro. Tuttavia, a seconda del grafo, possono esserci diversi nodi, in modo che ognuno di essi minimizzi la distanza dai nodi più lontani da esso; quindi, un grafo può avere diversi centri.
+
+Trovare un centro non è sempre facile come in questo compito. Per prima cosa, potrebbe essere che ci vogliano diversi turni per il trasferimento tra alcuni nodi direttamente collegati. D’altra parte, i grafi possono essere semplicemente molto più grandi e complessi. Per tali grafi, si potrebbe, ad esempio, utilizzare l’algoritmo di Floyd-Warshall per trovare in modo efficiente un centro.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Grafo: \href{https://it.wikipedia.org/wiki/Grafo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo}}
+  \item Algoritmo di Floyd-Warshall: \href{https://it.wikipedia.org/wiki/Algoritmo_di_Floyd-Warshall}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_Floyd-Warshall}}
+\end{itemize}
+
+
+}
+\end{document}

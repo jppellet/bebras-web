@@ -1,0 +1,110 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Pianta di carote}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Il robot coniglio può eseguire le seguenti istruzioni:
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_L.svg}} Salta a \textbf{sinistra} sulla collina successiva.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_R.svg}} Salta a \textbf{destra} sulla collina successiva.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_seed.svg}} \textbf{Pianta} un seme di carota sulla collina su cui ti trovi.
+
+Il robot coniglio ha eseguito questa sequenza di istruzioni:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_prog.svg}\par}
+
+Nel corso del processo, il robot è salito su quattro colline.
+Ma non sappiamo da quale collina sia partito.
+
+
+
+% question (as \emph{})
+{\em
+Su quali colline il robot ha piantato i semi di carota?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02_mounds.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta è \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02-solution-compatible.svg}}
+
+Per spiegare meglio la risposta corretta, diamo lettere alle colline (vedi sopra) e numeri alle istruzioni:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_explanation-compatible.svg}\par}
+
+Per prima cosa determiniamo il punto di partenza del robot: poiché il robot salta a sinistra per tre volte di seguito (istruzioni $3$, $5$, $6$), deve trovarsi prima sulla collina D. Prima di saltare tre volte a sinistra, salta una volta a destra (istruzione $1$). Il robot è quindi partito dalla collina C.
+Di conseguenza, i semi di carota - secondo le istruzioni $2$, $4$ e $7$ - vengono piantati prima sulla collina D, poi sulla collina C e infine sulla collina A.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+I robot reali hanno computer incorporati e sono \emph{programmati} proprio come il robot coniglio. Il programma di un computer è composto da molte singole \emph{istruzioni}.
+
+Nel nostro caso, la sequenza di istruzioni per il computer robot è specificata con l’aiuto di blocchi immagine. Il risultato (\emph{output}) del programma dipende non solo dalla posizione di partenza (\emph{input}), ma anche dalla sequenza e dall’ordine delle istruzioni.
+
+Questo compito mostra un esempio dell’uso dei robot in agricoltura. I robot possono non solo piantare, ma anche irrigare, impollinare o distribuire pesticidi in modo mirato.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algoritmo: \href{https://it.wikipedia.org/wiki/Algoritmo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo}}
+  \item Istruzione: \href{https://it.wikipedia.org/wiki/Istruzione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Istruzione\_(informatica)}}
+  \item Smart farming: \href{https://www.agroscope.admin.ch/agroscope/it/home/temi/economia-tecnologia/smart-farming.html}{\BrochureUrlText{https://www.agroscope.admin.ch/agroscope/it/home/temi/economia-tecnologia/smart-farming.html}}
+  \item I robot in agricoltura: \href{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/it}{\BrochureUrlText{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/it}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorStupurieneG{} % \ifdefined\AuthorStupurieneG \BrochureFlag{lt}{} Gabrielė Stupurienė\fi
+\def\AuthorAlmajhadE{} % \ifdefined\AuthorAlmajhadE \BrochureFlag{sa}{} Esraa Almajhad\fi
+\def\AuthorGuraS{} % \ifdefined\AuthorGuraS \BrochureFlag{sk}{} Štefan Gura\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

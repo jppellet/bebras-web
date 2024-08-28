@@ -1,0 +1,110 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Acqua -- Terra}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Edu ha un nuovo gioco. È composto da carte con aree d’acqua e di terra.
+Edu può usare le carte per disporre i paesaggi. Le carte devono combaciare: terra con terra; acqua con acqua.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu piazza due carte e lascia due spazi vuoti.
+
+
+
+% question (as \emph{})
+{\em
+Quali carte si inseriscono negli spazi vuoti?
+Non puoi girare le carte.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Questa è la risposta giusta:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Le due carte si inseriscono negli spazi vuoti: ovunque c’è acqua su acqua e terra su terra. Delle sei carte possibili, solo queste due si inseriscono negli spazi vuoti.
+
+Solo se si potesse girare le carte sarebbe possibile inserire altre combinazioni negli spazi vuoti.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Diamo un’occhiata più da vicino alle carte di Edu. Tutte le carte possono essere divise in quattro aree. I bordi esterni di queste aree mostrano terra o acqua.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Esistono quindi solo due tipi di aree diverse, perché i bordi esterni mostrano l’acqua (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) o la terra (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Due tessere si incastrano tra loro solo se i tipi di area vicini sono uguali. Pertanto, possiamo inserire il tipo richiesto per tre aree degli spazi vuoti. La quarta area può essere acqua o terra, quindi inseriamo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}.
+
+In questo modo si crea un modello per ogni spazio vuoto. Le tessere che devono riempire gli spazi vuoti devono rientrare in questi schemi: per \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, l’area della tessera deve avere rispettivamente \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Con \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}, l’area può avere \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} o \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}.
+
+Abbiamo scoperto una proprietà dei cartoncini. Abbiamo utilizzato questa scoperta per sostituirli con una disposizione dei caratteri \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Con questo passo, abbiamo ridotto in modo significativo le informazioni contenute nelle immagini. Ci concentriamo sulle informazioni necessarie per risolvere il compito. Gli informatici, in questo caso, fanno capo alla disposizione dei caratteri nelle immagini. Riducendo le immagini ai tipi di area \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, si crea un modello per le carte mancanti. Modellare significa astrarre (o semplificare) e l’astrazione riduce l’informazione. I computer devono lavorare con modelli della realtà. Quando si creano tali modelli, bisogna fare attenzione a non perdere importanti proprietà della realtà.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Modellizzazione: \href{https://it.wikipedia.org/wiki/Modellizzazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Modellizzazione}}
+  \item Codice: \href{https://it.wikipedia.org/wiki/Codice_(teoria_dell\%27informazione)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Codice\_(teoria\_dell'informazione)}}
+  \item Astrazione: \href{https://it.wikipedia.org/wiki/Astrazione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Astrazione\_(informatica)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorCerarS{} % \ifdefined\AuthorCerarS \BrochureFlag{si}{} Špela Cerar\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorCollierG{} % \ifdefined\AuthorCollierG \BrochureFlag{de}{} Gunnar Collier\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

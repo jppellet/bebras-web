@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-SK-01 La pièce de théâtre}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-SK-01 La pièce de théâtre}
+
+
+\subsection*{Body}
+
+Une pièce de théâtre raconte l’histoire d’une belle princesse \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-SK-01-princess.svg}}, d’un noble chevalier \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-SK-01-knight.svg}}, d’un roi sage \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-SK-01-king.svg}} et d’un méchant dragon \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon.svg}}. Au début de la pièce, la scène est vide. Pendant la représentation, les quatre personnages entrent en scène et quittent la scène dans l’ordre suivant:
+
+{\centering%
+\begin{tabular}{ @{} r c |c| r c @{} }
+  \thead[rb]{\textbf{Premier acte}} & \thead[cb]{} & \thead[cb]{} & \thead[rb]{\textbf{Deuxième acte}} \\ 
+\midrule
+Le roi entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-king_enter.svg}} & \multirow{7}{*}{\makecell{\\[30pt]E\\N\\T\\R\\A\\C\\T\\E}} & Le dragon entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_enter.svg}} \\ 
+La princesse entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_enter.svg}} & & Le chevalier entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-knight_enter.svg}} \\ 
+Le roi quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-king_leave.svg}} & & Le dragon quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_leave.svg}} \\ 
+Le dragon entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_enter.svg}} & & La princesse entre en scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_enter.svg}} \\ 
+La princesse quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_leave.svg}} & & Le chevalier quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-knight_leave.svg}} \\ 
+Le dragon quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_leave.svg}} & & La princesse quitte la scène & \makecell[c]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_leave.svg}} \\ 
+  \midrule
+  \textbf{Entracte} &  & & \textbf{Fin} & 
+\end{tabular}
+\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quelle situation n’aura pas lieu?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & La princesse et le chevalier sont ensemble sur scène. \\ 
+  B) & Le roi et le dragon sont ensemble sur scène. \\ 
+  C) & Le chevalier n’entre en scène qu’après l’entracte. \\ 
+  D) & Le chevalier et le dragon sont ensemble sur scène.
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est B) Le roi et le dragon sont ensemble sur scène, car cette affirmation n’est jamais vraie au cours de la pièce de théâtre.
+
+On peut y réfléchir pas à pas:
+
+{\centering%
+\begin{spacing}{1.0}
+  \begin{tabular}{ @{} l | c c c c | c @{} }
+    \thead[lb]{Intrigue} & \thead[cb]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2020-SK-01-king-compatible.svg} \\ Roi sur \\ scène?} & \thead[cb]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2020-SK-01-princess-compatible.svg} \\ Princesse \\ sur scène?} & \thead[cb]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon-compatible.svg} \\ Dragon \\ sur scène?} & \thead[cb]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2020-SK-01-knight-compatible.svg} \\ Chevalier \\ sur scène?} & \thead[cb]{Réponses \\ correspon- \\ dantes} \\ 
+  \midrule
+    \multicolumn{6}{c}{\textbf{Premier acte}}  \\ 
+  \midrule
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-king_enter.svg}} & Oui & Non & Non & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_enter.svg}} & Oui & Oui & Non & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-king_leave.svg}} & Non & Oui & Non & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_enter.svg}} & Non & Oui & Oui & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_leave.svg}} & Non & Non & Oui & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_leave.svg}} & Non & Non & Non & Non &  \\ 
+  \midrule
+    \multicolumn{6}{c}{\textbf{Entracte}} \\ 
+  \midrule
+    \multicolumn{6}{c}{\textbf{Deuxième acte}} \\ 
+  \midrule
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_enter.svg}} & Non & Non & Oui & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-knight_enter.svg}} & Non & Non & Oui & Oui & C), D) \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-dragon_leave.svg}} & Non & Non & Non & Oui &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_enter.svg}} & Non & Oui & Non & Oui & A) \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-knight_leave.svg}} & Non & Oui & Non & Non &  \\ 
+    \makecell[c]{\includesvg[width=47.7px]{\taskGraphicsFolder/graphics/2020-SK-01-princess_leave.svg}} & Non & Non & Non & Non &  \\ 
+  \midrule
+    \multicolumn{6}{c}{\textbf{Fin}} 
+  \end{tabular}
+\end{spacing}
+\par}
+
+On peut vérifier pour chaque réponse si l’affirmation qui y est faite est vraie ou pas en parcourant la table ligne par ligne.
+
+Pour la réponse A), on cherche une ligne à laquelle la princesse et le chevalier sont présents sur scène. C’est la cas à la deuxième ligne du deuxième acte, car la princesse entre en scène alors que le chevalier y est déjà depuis la deuxième ligne et y reste jusqu’à la cinquième ligne. L’affirmation de la réponse A) est donc vraie à au moins un moment de la pièce.
+
+Pour la réponse D), on cherche une ligne à laquelle le chevalier et le dragon sont présents sur scène. C’est la cas à la deuxième ligne du deuxième acte, car le chevalier monte sur scène alors que le dragon y est déjà depuis la première ligne et y reste jusqu’à la troisième ligne. L’affirmation de la réponse D) est donc vraie à au moins un moment de la pièce.
+
+L’affirmation de la réponse C) est d’un genre différent. Si cette affirmation est vraie, le chevalier ne doit pas avoir été sur scène de tout le premier acte. On doit donc regarder la colonne du chevalier pendant le premier acte. Dans celle-ci, c’est toujours écrit “non”, donc le chevalier n’a en effet pas été sur scène pendant le premier acte. Par contre, il entre en scène à la deuxième ligne du deuxième acte, donc l’affirmation de la réponse C) est également vraie.
+
+Si l’affirmation de la réponse B) était vraie, le roi et le dragon devraient être les deux sur scène à l’une des lignes. Cependant, il n’y a aucune ligne dans laquelle c’est écrit “oui” dans les deux colonnes. Le roi quitte déjà la scène à la troisième ligne du premier acte et n’y entre plus jusqu’à la fin. Le dragon, lui, entre en scène seulement à la quatrième ligne du premier acte. Peut-être qu’ils se rencontrent dans les coulisses, mais ils ne sont jamais ensemble sur scène. L’affirmation de la réponse B) n’est donc jamais vraie, et B) est la bonne réponse.
+
+
+\subsection*{It’s Informatics}
+
+On peut s’imaginer toute une histoire pendant le déroulement de la pièce de théâtre, mais seule une des propriétés de chaque personnage est importante pour cet exercice: se trouve-t-il sur scène à un moment précis ou pas? Cette restriction de la perspective à certaines propriétés s’appelle l’\emph{abstraction}.
+
+De telles abstractions peuvent facilement être formulées en informatique. Pour chaque personnage, on définit ce que l’on appelle une \emph{variable}, qui répond à la question de la présence du personnage sur scène à ce moment-là. Les quatre variables sont: “Roi sur scène?”, “Princesse sur scène?”, “Dragon sur scène?” et “Chevalier sur scène?”. La réponse à chacune de ces questions change plusieurs fois pendant la pièce de théâtre; la réponse à chaque question est parfois “oui” et parfois “non”. En informatique, on appelle la réponse actuelle à une question la valeur actuelle de la variable correspondante. La valeur d’une variable peut donc changer autant de fois que nécessaire en informatique (c’est différent en mathématiques où les variables ne changent pas de valeur avec le temps). La table dans l’explication de la réponse montre les quatre variables et les valeurs correspondantes à chaque moment.
+
+Il y a d’autres manières de considérer la pièce de théâtre. On peut regarder quels personnages sont sur scène en ce moment (on observe alors la valeur momentanée des quatre variables). On appelle chaque combinaison de personnages un état de la scène. Lorsqu’un personnage entre en scène ou la quitte, l’état de la scène change. On appelle aussi cela une transition de la scène d’un état à un autre. Si l’on dessine un rond séparé pour chaque état (combinaison de personnages) sur une feuille de papier, on peut voir l’ensemble comme une abstraction de la scène.
+
+De plus, on peut représenter les transitions possibles par des flèches reliant un état à un autre. En faisant cela, on obtient ce que s’appelle en informatique un \emph{diagramme états-transitions} de la scène.
+
+Au début de la pièce de théâtre, la scène est vide. On appelle l’état correspondant l’\emph{état initial}. On peut dessiner le déroulement de la pièce de théâtre comme un chemin dans le diagramme états-transitions. Le chemin commence à l’état initial et suit ensuite les flèchent qui correspondent à l’intrigue de la pièce.
+
+Les diagrammes états-transitions sont très importants en informatique. On doit réfléchir au diagramme états-transitions de chaque système complexe à un moment donné. Pour les êtres humains, c’est souvent laborieux de travailler avec de tels états et transitions abstraits, alors que les ordinateurs peuvent très bien le faire. Cela vaut donc la peine pour les êtres humains de représenter leurs problèmes dans des diagrammes états-transitions afin que les ordinateurs puissent les résoudre.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Variable: \href{https://fr.wikipedia.org/wiki/Variable_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Variable\_(informatique)}}
+  \item État, transition, diagramme états-transitions: \href{https://fr.wikipedia.org/wiki/Diagramme_\%C3\%A9tats-transitions}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diagramme\_états-transitions}}
+\end{itemize}
+
+
+}
+\end{document}

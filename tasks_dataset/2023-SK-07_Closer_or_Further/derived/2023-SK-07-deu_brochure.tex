@@ -1,0 +1,102 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Wärmer und Kälter}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Nina und Daniel spielen Schatzsuche. Auf einem Spielbrett mit quadratischen Feldern wählt Nina im Kopf ein Feld aus. Dort ist der Schatz versteckt.
+
+Daniel wählt ein Startfeld aus. Von dort geht er schrittweise mit seiner Spielfigur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-SK-07-Daniel.svg}} um je ein Feld weiter: nach links, rechts, oben oder unten.
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example1.svg}} & Beim ersten Versuch nehmen sie ein kleines Spielbrett. Nina versteckt den Schatz auf dem Feld mit dem Stern \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07_stern.svg}}. Daniel startet rechts oben und macht zwei Schritte entlang der Pfeile. Nach jedem Schritt sagt Nina, ob Daniel nun näher \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-SK-07-warmer.svg}} am Schatz oder weiter weg \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07-colder.svg}} vom Schatz ist als vor dem Schritt. \\ 
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example3.svg}} & Das Bild rechts zeigt Daniels Entfernungen vom Schatz. Die Entfernung vom Schatz ist die kleinste Anzahl Schritte, mit denen Daniel aktuell zum Schatz gehen könnte.
+\end{tabularx}
+
+Nun nehmen sie ein grösseres Spielbrett.
+Nina versteckt den Schatz auf einem der blau markierten Felder.
+Das Bild zeigt wieder Daniels Schritte und was Nina nach jedem Schritt sagt.
+
+
+
+% question (as \emph{})
+{\em
+Wo ist der Schatz versteckt?
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-question_symbols.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-solution_compatible.svg}\par}
+
+Wir verfolgen Daniels Weg und Ninas Rückmeldungen.  Daniel startet in Zeile $1$ des Spielbretts. Nach dem ersten Schritt ist er in Zeile $2$ und näher am Schatz als in Zeile $1$.  Nach dem nächsten Schritt ist er in Zeile $3$ und wieder weiter weg vom Schatz.  Da er in der gleichen Spalte geblieben ist, muss der Schatz auf einem Feld in Zeile $2$ sein.  Denn egal, in welcher Spalte der Schatz versteckt ist:  Den kürzesten Weg zum Schatz von einer anderen Spalte aus hat man, wenn man in der gleichen Zeile ist.
+
+Aber in welcher Spalte ist der Schatz versteckt?  Auf seinem weiteren Weg kommt Daniel in Zeile $4$ mit einigen Schritten nach links dem Schatz zunächst näher; insbesondere ist er in Spalte $3$ näher am Schatz als in Spalte $4$.  Aber nach dem letzten Schritt in der Zeile ist Daniel in Spalte $2$ weiter weg vom Schatz als in Spalte $3$.  Der Schatz muss also auf einem Feld in Spalte $3$ sein.  Denn was wir oben für Spalten gesagt haben, gilt auch für Zeilen:  Den kürzesten Weg zum Schatz von einer anderen Zeile aus hat man, wenn man in der gleichen Spalte ist.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Daniel geht (mit seiner Spielfigur) über das Spielbrett.  Von jedem Feld, auf dem er gerade steht, misst Nina die Entfernung zum Feld mit dem Schatz und nutzt dies für ihre Rückmeldung.  Üblicherweise wird die Entfernung zwischen zwei Punkten als Länge der geradlinigen Verbindung zwischen den Punkten gemessen (\emph{euklidische Distanz}).  Doch die zwei Felder sind genau genommen keine Punkte.  Deshalb bemisst Nina die Entfernung zwischen zwei Feldern in der Anzahl von Schritten, die Daniel für einen kürzesten Weg vom einen Feld zum anderen gehen müsste.  Dieses \emph{Maß} kann man generell bei Rastern anwenden und ist in der Informatik als \emph{Manhattan-Distanz} bekannt –~abgeleitet vom gerasterten Straßenplan des New Yorker Stadtteils Manhattan.
+Daniel geht (mit seiner Spielfigur) über das Spielbrett.  Von jedem Feld, auf dem er gerade steht, misst Nina die Entfernung zum Feld mit dem Schatz und nutzt dies für ihre Rückmeldung.  Üblicherweise wird die Entfernung zwischen zwei Punkten als Länge der geradlinigen Verbindung zwischen den Punkten gemessen (\emph{euklidische Distanz}).  Doch die zwei Felder sind genau genommen keine Punkte.  Deshalb bemisst Nina die Entfernung zwischen zwei Feldern in der Anzahl von Schritten, die Daniel für einen kürzesten Weg vom einen Feld zum anderen gehen müsste.  Dieses \emph{Mass} kann man generell bei Rastern anwenden und ist in der Informatik als \emph{Manhattan-Distanz} bekannt –~abgeleitet vom gerasterten Strassenplan des New Yorker Stadtteils Manhattan.
+
+Informatikerinnen und Informatiker wählen die Art der Distanzberechnung zwischen zwei Objekten in Abhängigkeit von der Frage, die sie lösen möchten. Wenn man zum Beispiel die Entfernung zwischen zwei gleich langen Wörtern in einer natürlichen Sprache messen möchte, kann man die Anzahl Stellen, an welchen sich die Wörter unterscheiden, zählen; das ist dann der  \emph{Hamming-Abstand} oder die \emph{Hamming-Distanz}.  Sind die Wörter unterschiedlich lang, kann man die \emph{Editierdistanz} verwenden. Entfernungen bzw. Distanzen spielen in der Informatik häufig eine Rolle, wenn es darum geht, optimale Lösungen eines Problems zu finden.  Egal ob die Lösung eines Problems am schnellsten, am kürzesten oder am günstigsten sein soll:  Man muss oft nicht den Algorithmus ändern, sondern nur das Entfernungsmass: Dauer, Länge oder Kosten.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Manhattan-Distanz: \href{https://de.wikipedia.org/wiki/Manhattan-Metrik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Manhattan-Metrik}}
+  \item Hamming-Abstand: \href{https://de.wikipedia.org/wiki/Hamming-Abstand}{\BrochureUrlText{https://de.wikipedia.org/wiki/Hamming-Abstand}}
+  \item Editierdistanz: \href{https://de.wikipedia.org/wiki/Levenshtein-Distanz}{\BrochureUrlText{https://de.wikipedia.org/wiki/Levenshtein-Distanz}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorWettsteinM{} % \ifdefined\AuthorWettsteinM \BrochureFlag{ch}{} Manuel Wettstein\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorKohJ{} % \ifdefined\AuthorKohJ \BrochureFlag{tw}{} Jia-Ling Koh\fi
+\def\AuthorKohS{} % \ifdefined\AuthorKohS \BrochureFlag{sg}{} Sophie Koh\fi
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

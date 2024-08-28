@@ -1,0 +1,108 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Empaquetage}
+\renewcommand{\taskCountry}{NL}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+La fabrique de chocolat “Castocolat” envoie quatre boîtes de pralinés à chacun de ses clients dans le cadre d’une campagne de publicité.
+
+Pour économiser du matériel et des frais de port, Linus doit emballer côte à côte les quatre boîtes de pralinés de tailles différentes dans le plus petit carton possible. Les boîtes ne doivent pas être mises les unes sur les autres, car cela écraserait les pralinés.
+
+Linus a rangé les boîtes de pralinés dans un carton de taille ${5 \times 9 = 45}$ pralinés comme ceci:
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-taskbody02.svg}\par}
+
+Lina affirme qu’elle peut prendre un plus petit carton en arrangeant les boîtes différemment.
+
+
+
+% question (as \emph{})
+{\em
+Range les boîtes de manière à avoir besoin du plus petit carton possible.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Linus doit mettre en tout ${12 + 15 + 6 + 5 = 38}$ pralinés dans un carton. Un carton dans lequel passent $38$ pralinés sans espace vide doit avoir soit les dimensions ${1 \times 38}$, soit ${2 \times 19}$ ($2$ et $19$ sont les seuls diviseurs de $38$). Les deux boîtes de pralinés de dimensions ${3 \times 4}$ et ${3 \times 5}$ n’iraient pas dans un tel carton.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-explanation01.svg}\par}
+
+Si Linus choisit un carton pour $39$ pralinés (avec la place pour exactement un praliné de plus), celui-ci doit avoir la taille ${1 \times 39}$ ou ${3 \times 13}$. les boîtes de ${3 \times 5}$, ${3 \times 4}$ et ${3 \times 2}$ iraient dans un carton de ${3 \times 13}$, mais il n’y aurait plus la place pour la boîte de ${1 \times 5}$.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-explanation02.svg}\par}
+
+Un carton pour $20$ pralinés peut avoir les dimensions ${1 \times 40}$, ${2 \times 20}$, ${4 \times 10}$ ou ${5 \times 8}$. On ne peut pas mettre toutes les boîtes dans les cartons de ${1 \times 40}$ et de ${2 \times 20}$. Par contre, on peut mettre toutes les boîtes dans les deux autres cartons, par exemple comme cela:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-solution01.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2022-NL-03-solution02.svg}}\par}
+
+Il existe encore plusieurs manières différentes de ranger les boîtes dans un carton pour $20$ pralinés, mais ce n’est pas possible de les ranger dans un carton ayant moins de deux places vides.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice du castor, il faut ranger des rectangles de manière à ce que le rectangle les contenant soit le plus petit possible. Ce problème est connu en informatique sous le nom de “rectangle packing” et est l’un de nombreux problèmes d’emballage. Nous pouvons trouver relativement facilement la solution \emph{optimale} pour un petit nombre de rectangles (ici, le plus petit carton). Par contre, il est nécessaire d’automatiser le procédé pour un nombre d’objets plus grand; nous avons donc besoin d’un algorithme qui peut être exécuté en tant que programme informatique. Malheureusement, le problème de “rectangle packing”, comme beaucoup d’autres problèmes d’emballage, est \emph{NP-complet}. Cela veut dire qu’il n’existe probablement pas d’algorithme efficace trouvant la solution otpimale. En informatique, on développe des algorithmes efficaces ne trouvant pas obligatoirement la solution optimale, mais de bonnes solutions aux problèmes NP-complets.
+
+Les méthodes efficaces permettant d’arranger des marchandises dans des étagères, de les emballer ou de les distribuer dans des containers sont très importantes pour les entreprises de logistique, par exemple. De plus, d’autres problèmes peuvent être décrits sous la forme de problèmes d’emballage. Une tâche nécessitant M heures de travail par N travailleurs peut par exemple être représentée par un rectangle de taile ${N \times M}$. On peut ainsi limiter le nombre d’heures et de personnes nécessaires à un procédé en résolvant le problème de “rectangle packing” de manière optimale.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Problème NP-complet: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_NP-complet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_NP-complet}}
+  \item Optimisation: \href{https://fr.wikipedia.org/wiki/Optimisation_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_(mathématiques)}}
+  \item Complexité d’un algorithme (efficacité): \href{https://fr.wikipedia.org/wiki/Analyse_de_la_complexit\%C3\%A9_des_algorithmes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Analyse\_de\_la\_complexité\_des\_algorithmes}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVegtW{} % \ifdefined\AuthorVegtW \BrochureFlag{nl}{} Willem van der Vegt\fi
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorNemethA{} % \ifdefined\AuthorNemethA \BrochureFlag{hu}{} Ágnes Erdősné Németh\fi
+\def\AuthorMukundM{} % \ifdefined\AuthorMukundM \BrochureFlag{in}{} Madhavan Mukund\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{us}{} Justina Dauksaite\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,74 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '2023-DE-02-explanation_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{813.75bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.02211982)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{2023-DE-02-explanation_svg-tex.pdf}}%
+    \put(0.43085673,0.77503425){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}wähle aus\end{tabular}}}}%
+    \put(0.52302263,0.97070245){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Start\end{tabular}}}}%
+    \put(0.72191664,0.58637065){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ja\end{tabular}}}}%
+    \put(0.40246964,0.03945821){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ja\end{tabular}}}}%
+    \put(0.03537286,0.04498817){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}nein\end{tabular}}}}%
+    \put(0.31260789,0.5802877){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}nein\end{tabular}}}}%
+    \put(0.5147277,0.06185452){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Ende\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{2023-DE-02-explanation_svg-tex.pdf}}%
+    \put(0.13389821,0.29761489){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}wähle aus\end{tabular}}}}%
+    \put(0.48385212,0.55973471){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Ist         ?\end{tabular}}}}%
+    \put(0.22644169,0.10001121){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Hat\end{tabular}}}}%
+    \put(0.14850213,0.06817515){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Blumenstrauss\end{tabular}}}}%
+    \put(0.19759549,0.03633909){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4 Teile?\end{tabular}}}}%
+    \put(0.72320696,0.44931996){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}wähle\end{tabular}}}}%
+    \put(0.72320696,0.4174839){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}aus\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{2023-DE-02-explanation_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

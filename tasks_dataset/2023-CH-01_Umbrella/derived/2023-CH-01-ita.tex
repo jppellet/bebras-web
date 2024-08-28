@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CH-01 L'Ombrello di Anna}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CH-01 L’Ombrello di Anna}
+
+
+\subsection*{Body}
+
+Questo è l’ombrello di Anna:
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-taskbody.svg}}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Una delle quattro immagini mostra l’ombrello di Anna. Quale?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fa clic sull’immagine giusta.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Ogni motivo sull’ombrello di Anna si ripete esattamente una volta.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-explanation-umbrella_numbered_patterns_compatible.svg}\par}
+
+Per trovare l’immagine corretta, confrontiamo a turno ciascuna immagine con l’ombrello di Anna:
+
+\begin{itemize}
+  \item scegliamo il motivo più a sinistra e troviamo la sua posizione sull’ombrello di Anna.
+  \item verifichiamo che i motivi adiacenti siano uguali a quelli dell’ombrello di Anna.
+
+\begin{tabular}{ @{} l c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{A)}} & {\setstretch{1.0}\thead[cb]{B)}} & {\setstretch{1.0}\thead[cb]{C)}} & {\setstretch{1.0}\thead[cb]{D)}} \\ 
+\midrule
+  Immagini di risposta & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  Ombrello di Anna & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-D.svg}}
+\end{tabular}
+
+
+\end{itemize}
+
+Ciascuna delle quattro immagini mostra una sequenza di soli cinque motivi e non di tutti e dieci. Non possiamo sapere se la sequenza di motivi di una delle quattro immagini corrisponde alla sequenza completa di tutti e dieci i motivi dell’ombrello di Anna.
+
+L’immagine C è l’unica con una sequenza di cinque motivi che corrisponde completamente a quelli dell’ombrello di Anna. Dunque solo l’immagine C può mostrare l’ombrello di Anna. Tutte le altre immagini hanno sequenze di motivi che non corrispondono o corrispondono solo parzialmente a quelli dell’ombrello di Anna. Quindi queste immagini non possono rappresentare l’ombrello di Anna.
+
+
+\subsection*{This is Informatics}
+
+In ciascuna delle opzioni di risposta è mostrata solo una parte della sequenza di modelli. Anche se contengono solo \emph{informazioni parziali}, possiamo determinare quale delle quattro immagini mostra l’ombrello di Anna: un’immagine mostra l’ombrello di Anna solo se la sequenza di modelli si verifica completamente nella sequenza di modelli dell’ombrello di Anna.
+
+Per la ricerca in un documento di testo si applica lo stesso principio della \enquote{ricerca a ombrello}. Il computer cerca le \emph{stringhe di caratteri} corrispondenti nel documento con le informazioni parziali fornite (parola di ricerca). Una stringa è una sequenza di caratteri (ad esempio lettere, numeri, caratteri speciali).
+Per la ricerca vale quanto segue:
+
+\begin{itemize}
+  \item Più lunga è la parola di ricerca, minore è il numero di possibili corrispondenze e maggiore è la possibilità di trovare il punto del documento che si sta cercando.
+  \item Più breve è la parola chiave, maggiore è il numero di possibili corrispondenze che la ricerca produrrà e meno accurata sarà la ricerca.
+\end{itemize}
+
+Per migliorare la ricerca, sono state sviluppate diverse procedure di ricerca (o \emph{Algoritmi di ricerca}). Sono progettate per eseguire una ricerca accurata nel più breve tempo possibile e fornire un risultato adeguato. Questi algoritmi di ricerca vengono costantemente sviluppati e sono in grado di cercare enormi quantità di dati in tempi molto brevi (ad esempio, i motori di ricerca su Internet utilizzano tali algoritmi di ricerca).
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Stringa: \href{https://it.wikipedia.org/wiki/Stringa_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Stringa\_(informatica)}}
+  \item Algoritmo di ricerca: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ricerca}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ricerca}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

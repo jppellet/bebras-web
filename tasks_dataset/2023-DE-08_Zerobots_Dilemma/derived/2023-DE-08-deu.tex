@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-08 Zerobots Mission}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-08 Zerobots Mission}
+
+
+\subsection*{Body}
+
+Zerobot hat einen austauschbaren Treibstofftank.
+Zerobot bewegt sich damit in einem Raster: nach oben, unten, rechts und links.
+Bei jeder Bewegung von einem Rasterfeld zum nächsten sinkt der Füllstand des Tanks um $1$.
+
+Auf einigen Feldern sind Austauschtanks; die Zahl darauf zeigt den Füllstand an.
+Wenn Zerobot ein solches Feld erreicht, tauscht er seinen Tank, egal wie voll der ist:
+Er nimmt den Austauschtank auf, setzt seinen bisherigen Tank auf dem Feld ab und fährt weiter.
+
+Zerobots aktuelle Position und der Füllstand seines Tanks werden im Bild so angezeigt: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-zerobot_9_compatible.svg}}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-challenge_compatible.svg}\par}
+
+Alarm: Die Tanks sind fehlerhaft und könnten explodieren!
+
+Das ist Zerobots Mission:
+Er soll so zur Basisstation \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-basisstation.svg}} fahren, dass am Ende alle Tanks leer sind (Füllstand $0$).
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Wie muss sich Zerobot bewegen, um seine Mission zu erfüllen?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Ziehe die Symbole der Tanks in die Reihenfolge, in der Zerobot sie aufnehmen muss. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+It must be possible to click on replacement batteries and the home square to mark Zerobot’s stops. Then, we envision two alternatives:
+
+\begin{enumerate}
+  \item Upon each click, Zerobot moves to that stop, with the battery charges updating. This would result in a full feedback task.
+  \item Upon each click, an illustration of the (growing) sequence of intermediate goals is updated; it is empty at the beginning. In this case, it was necessary to distinguish the replacement battery. Alternatively, the batteries / home square could be marked with numbers, according to the order that they are visited in.
+\end{enumerate}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-solution.svg}\par}
+
+Zerobot kann mit $15$ Bewegungen so zur Basisstation fahren, dass am Ende alle Tanks Füllstand $0$ haben:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-08-explanation_steps_compatible.svg}\par}
+
+Um die richtige Antwort leichter erklären zu können, bezeichnen wir die Felder mit den Austauschtanks und der Basisstation mit den Buchstaben A, B und C:
+
+Zerobot fährt $3$ Felder bis A und tauscht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}} (Füllstand~$6$) gegen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}} (Füllstand~$3$) aus. Dann fährt er $3$~Felder bis B und tauscht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}} (Füllstand~$0$) gegen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}} (Füllstand~$3$) aus. Damit fährt er wieder zu A und tauscht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}} (Füllstand~$0$) gegen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}} (Füllstand~$6$) aus. Damit fährt er $6$~Felder bis zur Basistation C. \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}} hat dann den Füllstand~$0$. Mission erfüllt!
+
+Ist dies die einzige richtige Lösung? Zerobot muss exakt $15$~Bewegungen machen: $15$~Bewegungen sind mindestens nötig, um den gesamten verfügbaren Treibstoff von ${9 + 3 + 3 = 15}$~Einheiten zu verbrauchen, und für mehr Bewegungen reicht der Treibstoff nicht. Um alle Tanks zu leeren, muss er beide Felder mit Austauschtanks besuchen, und A sogar zweimal. Wenn der Zerobot zuerst das Feld~B besuchen würde, bräuchte er $17$~Bewegungen, um die Basisstation zu erreichen, was nicht möglich ist. Somit ist die gezeigte Reihenfolge der Tanks die einzige richtige Antwort.
+
+
+\subsection*{This is Informatics}
+
+In dieser Biberaufgabe werden einige grundsätzliche Probleme der autonomen Mobilität angesprochen: Jeder autonome mobile Robotor (wie z.B. ein selbstfahrendes Auto) muss beachten, wie viel Energie in Form von Treibstoff oder Batterieladung zur Verfügung steht, wenn er seine Aktivitäten plant. Auf der einen Seite muss er sicherstellen, dass er rechtzeitig eine Ladestation oder Tankstelle erreicht, bevor sein Energievorrat verbraucht ist. Auf der anderen Seite gibt es Rahmenbedingungen zu beachten. In der Aufgabe ist eine Rahmenbedingung, dass am Ende der Energievorrat komplett verbraucht sein musste. In der Wirklichkeit hat man es vor allem mit anderen Rahmenbedingungen zu tun, wie z.B. die Position und Verfügbarkeit von Ladestationen. Die Software zur Steuerung mobiler Roboter enthält Komponenten, die für die Sicherstellung ausreichender Energie durch Nachladen sorgen (\emph{intelligentes Batterieladungsmanagement}).
+
+Darüber hinaus werden Computerprogramme auch zur Planung und Verwaltung effizienter Netze von Ladestationen verwendet. Informatikerinnen und Informatiker forschen an Lösungen zum charging station placement problem: Ladestationen für mobile Roboter müssen so platziert werden, dass ein Roboter mit einem gewissen Mindestladestand eine der verfügbaren Ladestationen erreichen kann. Für die Kommunikation zwischen Ladestationen und selbstfahrenden Autos wurden Protokolle entwickelt wie z.B. das OCPP (Open Charge Point Protocol).
+
+
+\subsection*{This is Computational Thinking}
+
+It certainly is.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Intelligentes Batterieladungsmanagement: \href{https://www.researchgate.net/publication/364734487_Intelligent_Battery_Recharge_Management_for_Mobile_Robots}{\BrochureUrlText{https://www.researchgate.net/publication/364734487\_Intelligent\_Battery\_Recharge\_Management\_for\_Mobile\_Robots}}
+  \item Open Charge Point Protocol: \href{https://de.wikipedia.org/wiki/OCPP}{\BrochureUrlText{https://de.wikipedia.org/wiki/OCPP}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+EDIT HERE
+
+
+\end{document}

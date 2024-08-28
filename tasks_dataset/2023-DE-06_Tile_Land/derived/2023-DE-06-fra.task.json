@@ -1,0 +1,147 @@
+{
+    "id": "2023-DE-06",
+    "title": "Terre - eau",
+    "ages": {
+        "0": "--",
+        "1": "easy",
+        "2": "--",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "easy",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (drag-and-drop)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "graphics/*.svg by Gunnar Collier, refined by Kyra Willekes, and by Susanne Datzko",
+            "file_pattern": "graphics/*.svg",
+            "authors": [
+                "Gunnar Collier",
+                "Kyra Willekes",
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "graphics/originale/Tiles-SVG/*.svg by Gunnar Collier",
+            "file_pattern": "graphics/originale/Tiles-SVG/*.svg",
+            "authors": [
+                "Gunnar Collier"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (author)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "author"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Špela Cerar, spela.cerar@pef.uni-lj.si, Slovenia (contributor)",
+            "name": "Špela Cerar",
+            "country": "Slovenia",
+            "country_code": "SI",
+            "roles": [
+                "contributor"
+            ],
+            "email": "spela.cerar@pef.uni-lj.si"
+        },
+        {
+            "src": "Josefine Hiebler, josefine.hiebler@ocg.at, Austria (translation from English into German)",
+            "name": "Josefine Hiebler",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "josefine.hiebler@ocg.at"
+        },
+        {
+            "src": "Gerald Futschek, gerald.futschek@ocg.at, Austria (contributor)",
+            "name": "Gerald Futschek",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "gerald.futschek@ocg.at"
+        },
+        {
+            "src": "Gunnar Collier, gunnar.collier@web.de, Germany (graphics)",
+            "name": "Gunnar Collier",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "gunnar.collier@web.de"
+        },
+        {
+            "src": "Kyra Willekes, kwillekes@eljakim.nl, Netherlands (graphics)",
+            "name": "Kyra Willekes",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "roles": [
+                "graphics"
+            ],
+            "email": "kwillekes@eljakim.nl"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics, contributor)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics",
+                "contributor"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.7
+    },
+    "name": "Tile-Land",
+    "difficulties": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "DE",
+        "country": "Germany",
+        "num": 6
+    }
+}

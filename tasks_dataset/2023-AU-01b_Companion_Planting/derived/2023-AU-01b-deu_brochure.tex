@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Gemüsebeet}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lisa legt ein Gemüsebeet an. Darauf will sie fünf verschiedene Gemüse pflanzen. Manche Gemüse vertragen sich gut miteinander \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-AU-01-good.svg}}, andere nicht \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2023-AU-01-bad.svg}}:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-taskbody.svg}\par}
+
+Lisa hat das Beet in sechseckige Bereiche aufgeteilt. In jeden Bereich will sie genau ein Gemüse pflanzen.
+
+In drei Bereiche hat Lisa schon Lauch \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-leek.svg}} gepflanzt.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-question.svg}\par}
+
+Beim Pflanzen beachtet Lisa folgende Regel: Gemüse, die sich nicht vertragen, dürfen nicht in Bereiche gepflanzt werden, die sich berühren.
+
+
+
+% question (as \emph{})
+{\em
+Bepflanze alle noch freien Bereiche und beachte Lisas Regel!
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Weil Erbsen sich mit Lauch nicht vertragen, pflanzt Lisa keine Erbsen in die gelben Bereiche. Für die Erbsen bleiben nur die übrigen Bereiche. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation01.svg}} \\ 
+  Weil Tomaten sich mit Erbsen nicht vertragen, pflanzt Lisa keine Tomaten in die gelben Bereiche. In die übrigen Bereiche kann sie Tomaten pflanzen; Tomaten vertragen sich mit Lauch. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation02.svg}} \\ 
+  Weil Tomaten sich mit Fenchel nicht vertragen, pflanzt Lisa keinen Fenchel in die gelben Bereiche. Den Fenchel kann sie in die beiden Bereiche zwischen Lauch und Erbsen pflanzen.  In die gelben Bereiche kann sie Salat pflanzen: Für Salat ist Lisa keine Unverträglichkeit bekannt. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation03.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Wer Gemüse so pflanzen will, dass die Ernte möglichst gross wird, muss viele \emph{Bedingungen} beachten: Die einzelnen Sorten haben zum Beispiel unterschiedlichen Bedarf an Platz, Nährstoff und Licht. In dieser Biberaufgabe betrachten wir nur eine Art von Bedingung: die Verträglichkeit zwischen den Gemüsesorten.
+
+Um eine Bepflanzung von Lisas Beet zu finden, die alle Verträglichkeitsbedingungen beachtet, könnte man so vorgehen: Man probiert systematisch alle Kombinationen aus, die Gemüse auf dem Beet zu platzieren. Erst wenn das Beet voll ist, wird geprüft, ob diese Kombination alle Bedingungen erfüllt und eine Lösung für Lisas Problem ist. In der Informatik ist solch ein Ausprobieren aller Kombinationen als \emph{Brute-Force}-Methode bekannt. Bei Problemen mit vielen Kombinationen und nur wenigen Lösungen kann ein Vorgehen nach dieser Methode sehr lange dauern.
+
+Deshalb ist es meist besser, schrittweise vorzugehen und bei jedem Schritt alle Bedingungen zu berücksichtigen. Auf diese Weise haben wir die Lösung für Lisas Problem gefunden, und eine \enquote{falsche} Kombination bzw. Bepflanzung des Beets konnte gar nicht entstehen.
+
+Zum Glück liess sich die Lösung auf direktem Weg finden: Es gab immer Bereiche, in die wir einige der noch übrigen Gemüse pflanzen konnten. Das gelingt im Allgemeinen nicht immer.
+
+Wenn man versucht, die Lösung schrittweise zusammenzusetzen, kann es bei einem Schritt A mehrere Möglichkeiten geben, alle Bedingungen zu erfüllen.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01b-itsinformatics-compatible.svg}\par}
+
+Je nach Wahl kann es bei einem späteren Schritt B keine Möglichkeit mehr geben. Dann nimmt man die letzten Schritte solange zurück, bis man beim Schritt A mit den mehreren Möglichkeiten wieder angekommen ist. Dort wählt man eine andere Möglichkeit und versucht damit eine Lösung zu finden.
+
+In der Informatik ist diese Rücknahme von Schritten als \emph{Backtracking} bekannt.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Brute Force: \href{https://de.wikipedia.org/wiki/Brute-Force-Methode}{\BrochureUrlText{https://de.wikipedia.org/wiki/Brute-Force-Methode}}
+  \item Backtracking: \href{https://de.wikipedia.org/wiki/Backtracking}{\BrochureUrlText{https://de.wikipedia.org/wiki/Backtracking}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGatesE{} % \ifdefined\AuthorGatesE \BrochureFlag{au}{} Emily Gates\fi
+\def\AuthorKingM{} % \ifdefined\AuthorKingM \BrochureFlag{au}{} Mhairi King\fi
+\def\AuthorRamicE{} % \ifdefined\AuthorRamicE \BrochureFlag{ba}{} Estela Ramić\fi
+\def\AuthorHironM{} % \ifdefined\AuthorHironM \BrochureFlag{fr}{} Mathias Hiron\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorThutM{} % \ifdefined\AuthorThutM \BrochureFlag{ch}{} Marianne Thut\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

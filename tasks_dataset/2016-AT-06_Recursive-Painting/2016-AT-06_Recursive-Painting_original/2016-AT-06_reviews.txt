@@ -1,0 +1,38 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 180
+TITLE: 2016-AT-06
+AUTHORS: Rostyslav Shpakovych
+
+OVERALL EVALUATION: 4: (great task, some comments)
+
+----------- Review -----------
+Great task. May be too hard.
+First picture is very cool.
+But despite on the lot of text, it will be very difficult to implement a recursive algorithm for most students.
+Maybe better to replace the explaining text by the simple example of recursive picture
+----------- Reply -----------
+Thanks for the comment.
+Thats's a very good idea, but in this task I specifically wanted to start with a textual description. The pattern can be seen as a visualization of the algorithm but was not meant as the central part of the task.
+----------------------- REVIEW 2 ---------------------
+PAPER: 180
+TITLE: 2016-AT-06
+AUTHORS: Gellér Barnabás
+
+OVERALL EVALUATION:
+
+----------- Review -----------
+Cool cracking task! Fit for the level and great on paper.
+
+For the stopping conditon thing... it may be more understandable if you signed how big the whole picture is as it only tells that it stops when reaching 1m, but how big is the whole? its a little bit disturbing.
+----------- Reply -----------
+Thanks for the comment.
+Regarding the question "how big is the whole":
+
+In the question it says:
+" They should paint the floor in one of the exhibition rooms that measures 16 by 16 meters."
+So that would be a starting point.
+
+But also:
+On the first sheet I changed from >=1m to 16m,8m,...,1m
+On the second sheet I changed from <1m to 0.5m
+That seems more explicit and probably easier to understand.

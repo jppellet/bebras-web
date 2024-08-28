@@ -1,0 +1,29 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Alvida Lozdienė (svn: lozdiene)
+on 2023-04-15
+Assigned review
+The authors need to revise the answer numbers, as the correct answer is d and not c. Also, the figures for answers a and b are reversed.
+I suggest changing the age group to 14-16 years
+========================================
+By: JUAN GUTIERREZ (svn: jgutierrez)
+on 2023-04-21
+Assigned review
+I think it the coding rules should be explained generally, not just for the examples given. This should include also the operator /.
+
+There is a typo, as correct answer is d.
+========================================
+By: Taina Lehtimäki (svn: lehtimaki)
+on 2023-04-22
+Assigned review
+[AGE] 12-14 hard, 14-16 medium, 16-18 easy
+[IDEA] It’s a good task.
+[TEXT] Text is clear.
+[EXPL] First sentence should be: “The correct answer is d.”  Explanation is very good and also cover the incorrect answers.
+[TiI] Good and appropriate for the age group. 
+[TiCT] Could also talk about representation and logic (tree structures)
+[GRAPH] No SVG graphics.
+[AUTH] OK.
+[NAME] OK.
+[OTHER] -
+========================================

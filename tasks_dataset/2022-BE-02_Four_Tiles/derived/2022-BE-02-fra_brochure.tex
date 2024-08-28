@@ -1,0 +1,135 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Mosaïque}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Tu dois poser quatre carreaux pour former un carré de manière à ce que deux bords qui se touchent portent toujours le même symbole.
+
+Les quatre carreaux ci-dessous peuvent par exemple former le carré suivant:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics//2022-BE-02-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quatre des cinq carreaux ci-dessous peuvent former un tel carré. Quel carreau ne devras-tu pas utiliser?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-answerD.svg}} & E) & \makecell[l]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-answerE.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Il y a ${{5 \choose 4}  \cdot 4! \cdot 4^4 = 30720}$ possibilités différentes de choisir et d’arranger quatre des cinq carreaux. Même en tenant compte du fait qu’au moins quatre solutions peuvent être obtenues par symétrie rotationelle, il en reste encore beaucoup trop pour toutes les essayer.
+
+C’est pour cela qu’il faut commencer par regarder la distribution des symboles sur les carreaux. On remarque alors que la demi-étoile bleue \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_blue-semistar.svg}} n’est présente que sur le carreau C). Comme ce symbole est présent deux fois autour du même coin, les deux autres carreaux touchant le carreau C) ne peuvent être mis qu’à sa gauche et en dessous si on ne change par l’orientation du carreau C) (ce qui n’est de toute façon pas nécessaire avec le premier carreau).
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation1.svg}\par}
+
+De plus, il n’existe qu’un seul carreau avec un cercle noir \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_black-circle.svg}}, le carreau E), qui doit donc être mis en dessous:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation2.svg}\par}
+
+Il n’y a également qu’un seul carreau qui peut être posé à côté du rectangle rouge \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_red-rectangle.svg}}, le carreau B). Celui-ci a deux rectangles rouges, mais comme il n’y a aucun autre carreau avec ce rectangle, il doit être tourné de manière à ce que le deuxième rectangle soit en haut et pas en bas. Sinon, il faudrait mettre un carreau avec un rectangle rouge en dessous, et il n’y en a pas:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation3.svg}\par}
+
+Finalement, il ne nous manque qu’un carreau avec un carré magenta \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_magenta-square.svg}} et deux demi-cercles bruns \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_brown-semicircles.svg}}. Le carreau D) a ces symboles, mais pas dans le bon ordre: les demi-cercles bruns devraient se trouver après le carré magenta dans le sens des aiguilles d’une montre, mais l’inverse est vrai.
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation4.svg}\par}
+
+Comme aucun carreau placé n’avait d’alternative, nous avons ainsi démontré qu’on ne peut pas former un carré remplissant les conditions avec le carreau C) qui a deux demi-étoiles bleues.
+
+On peut former un tel carré avec les quatre autres carreaux:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation0.svg}\par}
+
+Le carreau C) est donc le seul ne permettant pas de former un tel carré, et C) est la bonne réponse.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Lorsque deux carreaux portent le même symbole, ils peuvent être assemblés côte à côte. On peut représenter cela à l’aide d’un \emph{graphe}: les carreaux sont représentés par les \emph{nœuds}, et une arête relie deux nœuds lorsque les carreaux correspondants ont un symbole commun. Voici le graphe correspondant aux cinq carreaux de cet exercice:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_tiles-graph.svg}\par}
+
+Si quatre carreaux peuvent être assemblés pour former un carré sur lequel deux carreaux adjacents portent toujours le même symbole, cela veut dire qu’il existe dans le graphe un parcours circulaire passant par exactement quatre carreaux, par exemple de A à E à C à B et de retour à A. Nous décrivons ce chemin par A-E-C-B-A, et ceci est équivalent à tous les autres chemins ayant la même séquence, c’est-à-dire aussi E-C-B-A-E, C-B-A-E-C et B-A-E-C-B.
+
+Il existe exactement trois chemins circulaires avec quatre carreaux dans le graphe: A-E-C-B-A comme mentionné, A-E-D-B-A et B-D-E-C-B. Cela réduit le nombre de réponse de ${{5 \choose 4}  \cdot 4! \cdot 4 ^ 4 = 30720}$ (ou ${7680}$ si l’on ignore les chemins symétriques) à ${12}$ (ou ${3}$ si l’on ignore les chemins symétriques). Celles-ci peuvent rapidement être contrôlées pour trouver la bonne solution (A-E-D-B-A).
+
+C’est aussi possible d’utiliser une graphe dans lequel les nœuds représentent les symboles. Pour cela, il faut définir une séquence des symboles sur un carreau de manière fixe, par exemple dans le sens des aiguilles d’une montre:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_tiles-5-arrows.svg}\par}
+
+Il existe alors une arête orientée entre deux symboles lorsqu’ils sont voisins dans le sens des aiguilles d’une montre sur un carreau:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_symbols-graph.svg}\par}
+
+Une solution de l’exercice est alors donnée par un chemin circulaire passant par exactement quatre arêtes. C’est le cas du chemin \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_orange-squares.svg}} - \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_cyan-triangle.svg}} - \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_brown-semicircles.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-explanation_magenta-square.svg}} - \raisebox{\dimexpr -0.5ex +0.4ex \relax}[0pt][0pt]{\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-BE-02-itsinformatics_orange-squares.svg}} qui passe par les arêtes A, E, D et B et correspond donc à notre solution.
+
+Ce processus pour lequel on se concentre sur les informations essentielles et ignore le reste s’appelle l’\emph{abstraction}. Dans ce cas, l’abstraction nous permet de touver la bonne solution beaucoup plus rapidement.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Nœud (sommet): \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Arête: \href{https://fr.wikipedia.org/wiki/Ar\%C3\%AAte_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arête\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorIoannouT{} % \ifdefined\AuthorIoannouT \BrochureFlag{cy}{} Thomas Ioannou\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

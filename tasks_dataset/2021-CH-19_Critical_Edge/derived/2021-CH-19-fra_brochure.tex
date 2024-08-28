@@ -1,0 +1,112 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Travail d'équipe}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Tu dois répartir huit personnes en groupes de travail pour un projet.
+Un éclair est dessiné entre deux personnes qui ne veulent pas travailler ensemble. Dans ce cas, tu ne veux pas les mettre dans le même groupe de travail.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-taskbody01.svg}\par}
+
+Dans l’exemple du haut, une répartition en trois groupes (rouge, bleu, violet) est possible en tenant compte des inimitiés. Il n’y a donc jamais d’éclair entre deux personnes de la même couleur.
+
+Si tu arrives à convaincre les deux bonnes personnes de travailler ensemble, une répartition en seulement deux groupes (deux couleurs) est possible.
+
+
+
+% question (as \emph{})
+{\em
+Enlève le bon éclair.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Nous représentons la situation de manière plus abstraite sous forme de \emph{graphe} dans lequel les personnes sont les \emph{nœuds} (cercles) et les éclairs les \emph{arêtes} (lignes). & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation01.svg}} \\ 
+  La seule option possible est d’enlever l’arête orange. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation02.svg}} \\ 
+  Après avoir enlevé cette arête, nous pouvons colorer les nœuds de deux couleurs. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation03.svg}}
+\end{tabularx}
+
+Chaque couleur représente un groupe. On peut voir qu’il n’y a jamais deux personnes du même groupe qui refusent de travailler ensemble: les nœuds voisins ont toujours des couleurs différentes.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Pour déterminer que la seule option est d’enlever cette ligne-là, nous commençons par considérer le triangle orange. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation04.svg}}
+\end{tabularx}
+
+Si une ligne en dehors de ce triangle est éliminée, nous avons toujours besoin de trois couleurs simplement pour le triangle en question.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Considérons maintenant le pentagone orange: & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation05.svg}}
+\end{tabularx}
+
+Si une arête en dehors de ce pentagone est éliminée, il reste intact et c’est donc impossible de le colorer avec deux couleurs: si l’on parcours le pentagone dans le sens des aiguilles d’une montre, on doit alterner entre les deux couleurs. Lorsque l’on arrive au dernier nœud, celui-ci a alors la même couleur que le premier nœud juste à côté, étant donné que le nombre de nœuds est impair, comme c’ést le cas pour le triangle.
+
+La seule solution est donc d’enlever l’arête commune au triangle et au pentagone.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Beaucoup de problèmes du quotidien peuvent être formulés comme des problèmes de \emph{coloration de graphe}.
+Dans cet exercice du castor, les \emph{nœuds} d’un \emph{graphe} représentent les personnes et une \emph{arête} entre deux personnes montre qu’elles refusent de travailler dans le même groupe. Si nous colorons les nœuds avec \emph{k} couleurs, cela représente l’assignation des personnes à l’un des \emph{k} groupes de travail. Un telle coloration est valide si deux nœuds reliés par une arête ont toujours deux couleurs différentes. Dans notre cas, une coloration est donc valide lorsque toutes les personnes de chaque groupe travaillent ensemble. Une arête est appelée \emph{critique} quand une coloration valide avec une couleur de moins devient possible en enlevant cette arête (on peut pour cela changer la couleur de tous le nœuds du graphe). Ici, une arête est donc critique quand on peut réduire le nombre de groupes en convaiquant les deux personnes correspondantes de travailler ensemble.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorie de graphe: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorKimD{} % \ifdefined\AuthorKimD \BrochureFlag{kr}{} Dong Yoon Kim\fi
+\def\AuthorPiperH{} % \ifdefined\AuthorPiperH \BrochureFlag{au}{} Hannah Piper\fi
+\def\AuthorKandlhoferM{} % \ifdefined\AuthorKandlhoferM \BrochureFlag{at}{} Martin Kandlhofer\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

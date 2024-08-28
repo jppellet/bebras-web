@@ -1,0 +1,95 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Petit singe}
+\renewcommand{\taskCountry}{SI}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+\begin{tabularx}{\columnwidth}{ @{} L l @{} }
+  Coco le petit singe peut sauter depuis un arbre aussi loin que le montre le domaine coloré en vert. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-SI-02-taskbody1.svg}} \\ 
+  Dans l’exemple suivant, Coco peut atteindre les arbres en couleur d’un seul saut. En deux sauts, il peut aussi atteindre les deux arbres gris du haut, mais pas l’arbre gris du bas. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-SI-02-taskbody2.svg}}
+\end{tabularx}
+
+Il existe des groupes d’arbres dans lequels Coco peut se déplacer sans toucher le sol une seule fois.
+
+
+
+% question (as \emph{})
+{\em
+Sélectionne tous les arbres du plus grand de ces groupes.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-SI-02-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Sur l’image ci-dessous, deux arbres ont la même couleur si Coco peut passer de l’un à l’autre sans toucher le sol.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-SI-02-solution.svg}\par}
+
+On voit que le groupe d’arbres bleus comptant huit arbres est le plus grand des groupes.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Si Coco peut sauter directement d’un arbre à l’autre, ils sont pour ainsi dire connectés l’un à l’autre. On peut représenter cela à l’aide d’un ligne entre les arbres comme montré plus bas. On obtient donc un graphe dont les arbres sont les nœuds avec des arêtes entre les arbres connectés. Coco peut passer d’un arbre à l’autre en sautant seulemnt s’il existe un chemin le long des arêtes menant d’un arbre à l’autre.
+
+On appelle un groupe de nœuds \emph{connexe} si tous les nœuds sont connectés ensemble par des arêtes. Lorsqu’un tel groupe ne peut plus être agrandi sans perdre la connection entre les nœuds, on parle d’une \emph{composante connexe}. Un graphe peut être divisé de manière unique en composantes connexes; elles sont colorées sur l’image ci-dessous.
+
+{\centering%
+\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-SI-02-itsinformatics.svg}\par}
+
+On peut faciliement identifier une composante connexe en partant d’un nœud quelconque puis en cherchant tous les nœuds accessibles par des arêtes.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe connexe: \href{https://fr.wikipedia.org/wiki/Graphe_connexe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_connexe}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDemsarJ{} % \ifdefined\AuthorDemsarJ \BrochureFlag{si}{} Janez Demšar\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorWageedE{} % \ifdefined\AuthorWageedE \BrochureFlag{eg}{} Eslam Wageed\fi
+\def\AuthorBudinskaL{} % \ifdefined\AuthorBudinskaL \BrochureFlag{sk}{} Lucia Budinská\fi
+\def\AuthorHironM{} % \ifdefined\AuthorHironM \BrochureFlag{fr}{} Mathias Hiron\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

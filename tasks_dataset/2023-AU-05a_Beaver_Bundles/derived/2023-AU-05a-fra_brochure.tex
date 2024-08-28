@@ -1,0 +1,159 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Briques castor}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les briques castor ont quatre propriétés qui les différencient:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  \begin{enumerate}
+  \item Largeur: étroite, moyenne, large
+  \item Hauteur: petite, moyenne, grande
+  \item Nombre de bosses en haut: zéro, une, deux
+  \item Nombre de creux en bas: zéro, un, deux
+\end{enumerate}
+
+ & \makecell[l]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/-fra/2023-AU-05-taskbody_compatible-fra.svg}}
+\end{tabularx}
+
+\begin{wrapfigure}{R}{134.20000000000002px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_example.svg}}
+\end{wrapfigure}
+
+Otto répartit les briques en groupes de trois. Il le fait de manière à ce que les trois briques de chaque groupe aient, pour chacune des quatre propriétés…
+
+\begin{itemize}
+  \item … trois fois la même valeur…
+  \item … ou trois valeurs différentes.
+\end{itemize}
+
+Voici l’un des groupes d’Otto, à droite.
+
+Ces trois briques ont:
+
+\begin{itemize}
+  \item toutes la même largeur,
+  \item trois hauteurs différentes,
+  \item un nombre de bosses différent,
+  \item un nombre de creux différent.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Répartis ces briques en groupes de trois comme le ferait Otto.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne répartition:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task_solution-compatible.svg}\par}
+
+Les briques sont réparties en groupes comme Otto le ferait. La table suivante montre quelles propriétés ont la même valeur ou des valeurs différentes pour chaque groupe.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Propriété}} & {\setstretch{1.0}\thead[cb]{Groupe A}} & {\setstretch{1.0}\thead[cb]{Groupe B}} & {\setstretch{1.0}\thead[cb]{Groupe C}} \\ 
+\midrule
+  Largeur & différentes & égales & différentes \\ 
+  Hauteur & égales & différentes & différentes \\ 
+  Bosses & égales & égales & différentes \\ 
+  Creux & différentes & différentes & égales
+\end{tabular}
+
+\par}
+
+Mais est-ce la seule possibilité de répartir les briques comme Otto le ferait?
+
+On peut y réfléchir de la manière suivante: si une propriété doit avoir des valeurs différentes dans chaque groupe, chaque valeur doit être présente sur le même nombre de briques qu’il y a de groupes. Si ce n’est pas le cas, il doit y avoir au moins un groupe dans lequel toutes les briques ont la même valeur pour cette propriété.
+
+En observant les briques, on voit que les valeurs de largeur étroite et large ne sont présentes que sur deux briques chacune. Il doit donc y avoir un groupe pour lequel la valeur de la largeur est moyenne pour toutes les briques.
+
+Aucune des cinq briques de largeur moyenne n’a qu’une seule bosse; il ne peut donc pas y avoir de groupe dans lequel toutes les briques ont un nombre de bosses différent. Par contre, il y a trois briques avec zéro bosse – et elles ont toutes une hauteur différente et un nombre de creux différent. Le groupe B est donc le seul groupe de brique de largeur moyenne possible.
+
+Chacun des deux autres groupes doit contenir des briques ayant toutes une largeur différente.
+
+Parmi les six briques restantes, la valeur de la hauteur n’est grande ou moyenne qu’une seule fois. Il doit donc y avoir un groupe dans lequel toute les briques sont petites. Le groupe A est le seul groupe correspondant aux règles d’Otto avec des briques de petite taille. Les trois briques restantes forment le groupe C, qui correspond également aux règles d’Otto.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice du Castor, les briques castor sont décrites à l’aide de quatre \emph{propriétés} (ou \emph{attributs}). Pour pouvoir répartir les briques dans des groupes de trois comme Otto, il faut connaître la valeur des propriétés de chaque brique.
+
+Pour cela, il suffit à un être humain de jeter un coup d’œil à chaque brique. Un programme informatique devant faire des groupes de trois ne peut généralement pas voir et a besoin d’une description enregistrée dans une \emph{structure de données}.
+
+On peut par exemple décrire les briques dans les lignes d’une \emph{base de données}. Les colonnes de la base de données correspondent aux propriétés, et dans chaque ligne (aussi appelée \emph{enregistrement}) se trouvent les valeurs d’une brique dans les colonnes correspondantes:
+
+{\centering%
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Brique}} & {\setstretch{1.0}\thead[lb]{Largeur}} & {\setstretch{1.0}\thead[lb]{Hauteur}} & {\setstretch{1.0}\thead[lb]{Bosses}} & {\setstretch{1.0}\thead[lb]{Creux}} \\ 
+\midrule
+  1 & étroite & grande & 1 & 0 \\ 
+  2 & moyenne & moyenne & 2 & 0 \\ 
+  … & … & … & … & …
+\end{tabular}
+
+\par}
+
+L’élaboration de bases de données est une tâche habituelle pour les informaticiennes et informaticiens.
+C’est un travail minutieux et il faut bien réfléchir à quels attributs des objets sont importants pour le traitement des données par un programme informatique. Ce n’est pas facile de faire des changements une fois la base de données remplie, surtout quand les données de beaucoup d’objets sont déjà enregistrées.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Structure de données: \href{https://fr.wikipedia.org/wiki/Structure_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_données}}
+  \item Base de données: \href{https://fr.wikipedia.org/wiki/Base_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Base\_de\_données}}
+  \item Enregistrement: \href{https://fr.wikipedia.org/wiki/Enregistrement_(base_de_donn\%C3\%A9es)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Enregistrement\_(base\_de\_données)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGrodeckA{} % \ifdefined\AuthorGrodeckA \BrochureFlag{au}{} Adam Grodeck\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

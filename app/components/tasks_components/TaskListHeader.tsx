@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { useRouter } from "next/navigation";
-import { RxReset } from "react-icons/rx";
-import Button from "../Button";
-import { Task } from "@/app/types/Task";
-import TaskListSort from "./TaskListSort";
-import TaskListSearch from "./TaskListSearch";
+import Button from "@/app/components/Button"
+import { TaskMetadata } from "bebras/out/util"
+import { useRouter } from "next/navigation"
+import { RxReset } from "react-icons/rx"
+import TaskListSearch from "./TaskListSearch"
+import TaskListSort from "./TaskListSort"
 
 interface TaskListHeaderProps {
-  tasks: Task[];
+  tasks: TaskMetadata[]
 }
 
 export default function TaskListHeader({ tasks }: TaskListHeaderProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div className="px-2 py-2 border-b-2 flex flex-row items-center justify-between select-none">
@@ -37,5 +37,5 @@ export default function TaskListHeader({ tasks }: TaskListHeaderProps) {
         />
       </div>
     </div>
-  );
+  )
 }

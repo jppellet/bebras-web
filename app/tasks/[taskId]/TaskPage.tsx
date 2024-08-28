@@ -1,19 +1,21 @@
-import { Task } from "@/app/types/Task";
-import TaskClient from "./TaskClient";
 import {
   getTaskHtml,
-  getTaskMd,
   getTaskTex,
-} from "@/app/actions/getTaskContent";
+} from "@/app/actions/getTaskContent"
+import { readFileStrippingBom } from "bebras/out/fsutil"
+import { TaskMetadata } from "bebras/out/util"
+import TaskClient from "./TaskClient"
 
 interface TaskPageProps {
-  task: Task;
+  task: TaskMetadata
 }
 
 export default async function TaskPage({ task }: TaskPageProps) {
-  const htmlContent = await getTaskHtml(task.filePath);
-  const mdContent = await getTaskMd(task.filePath);
-  const texContent = await getTaskTex(task.filePath);
+  const mdContent = await readFileStrippingBom(task.filePath)
+
+  // TODO refactor this to not have to reread the task all the time!
+  const htmlContent = await getTaskHtml(task.filePath)
+  const texContent = await getTaskTex(task.filePath)
 
   return (
     <div>
@@ -24,5 +26,5 @@ export default async function TaskPage({ task }: TaskPageProps) {
         texContent={texContent}
       />
     </div>
-  );
+  )
 }

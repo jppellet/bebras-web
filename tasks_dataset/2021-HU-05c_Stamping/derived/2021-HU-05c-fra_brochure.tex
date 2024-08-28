@@ -1,0 +1,106 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Les tampons de Mika}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Mika a quatre tampons avec des images différentes. Elle prend chaque tampon dans sa main une fois et tamponne deux fois avec. Elle fait ainsi l’image suivante:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quel tampon Mika a-t-elle utilisé en premier?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C: \raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerC.svg}}
+
+On peut reconnaître l’ordre dans lequel Mika a utilisé les tampons en regardant quelles images sont superposées à d’autres et quelles images sont en dessous d’autre images. Le soleil est en dessous de toutes les autres images: Mika a donc d’abord utilisé le tampon avec le soleil.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step1.svg}\par}
+
+La feuille est superposée au soleil, mais est en dessous de la fleur et de la maison. Mika a donc utilisé le tampon avec la feuille en deuxième:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step2.svg}\par}
+
+La fleur est superposée à la feuille et au soleil:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step3.svg}\par}
+
+Mika ne peut pas avoir utilisé le tampon avec la fleur en dernier, car la fleur se trouve sous la maison à deux endroits. Mika a donc utilisé le tampon avec la fleur en troisième et celui avec la maison en dernier.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-taskbody.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le dessin de Mika est une sorte d’image ou de \emph{modèle} de la réalité utilisant des images tamponnées sur quatre plans: un plan avec des soleils, un plan avec des feuilles, un plan avec des fleurs et un plan avec des maisons. La superposition des images des différents plans permet à Mika de créer une illusion de profondeur et d’espace (tridimensionnel) sur une surface (bidimensionnelle) de papier.
+
+Lorsque l’on fait un modèle, on ne représente en général que les aspects qui sont nécessaire à une certaine tâche ou une certaine fonction. La réalité est donc représentée de manière simplifiée. La modélisation est un principe important en informatique.
+
+C’est ainsi que des programmes informatiques peuvent permettre d’analyser de manière rapide et précise des parties du monde réel et de mieux comprendre celles-ci. Pour créer un tel programme, il faut commencer par construire un modèle contenant les éléments du monde réel qui sont essentiels au problème étudié. Ce modèle permet de modéliser une partie du monde réel sous forme de croquis ou de programme. On peut ensuite obtenir de nouvelles connaissances sur une partie du monde réel à l’aide de ce programme.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Calques, traitement d’images: \href{https://fr.wikipedia.org/wiki/Calque_(infographie)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Calque\_(infographie)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorGuðmundsdottirA{} % \ifdefined\AuthorGuðmundsdottirA \BrochureFlag{is}{} Arnheiður Guðmundsdóttir\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

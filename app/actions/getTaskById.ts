@@ -1,5 +1,5 @@
-import { data } from "@/app/libs/data";
-import { Task } from "../types/Task";
+import { data } from "@/app/tools/data"
+import { TaskMetadata } from "bebras/out/util"
 
 /**
  * Get one task from Task collection given its id
@@ -7,9 +7,9 @@ import { Task } from "../types/Task";
  * @returns the task object
  */
 export default function getTaskById(taskId: string) {
-  const task: Task = data.filter((t) => {
-    return t.taskId === taskId;
-  })[0];
+  const task: TaskMetadata = data.filter((t) => {
+    return t.id === taskId
+  })[0]
 
-  return task;
+  return task
 }

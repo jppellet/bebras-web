@@ -1,0 +1,109 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Le village de Martina}
+\renewcommand{\taskCountry}{PE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Il y a six maisons dans le village de Martina. Il y a aussi des chemins pour aller d’une maison à la suivante. Martina met le même temps à parcourir chacun de ces chemins.
+
+Martina a dessiné une carte du village spéciale. Elle y a dessiné les chemins qui lui permettent d’aller le plus vite possible jusqu’aux autres maisons.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-taskbody.svg}\par}
+
+Il existe bien sûr aussi une vraie carte du village avec tous les chemins.
+
+
+
+% question (as \emph{})
+{\em
+Lequel de ces dessins ne peut-il \emph{pas} être la vraie carte?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c @{} }
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerA.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerB.svg}} \\ 
+  A) & B) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerD.svg}} \\ 
+  C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C: \raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}}
+
+La carte spéciale de Martina montre que le chemin le plus court jusqu’à la maison tout à droite passe par chemins. Si C était la vraie carte du village, Martina pourrait aller plus vite jusqu’à cette maison en ne passant que par deux chemins. C ne peut donc pas être la vraie carte du village.
+
+Les cartes A, B et D ne montrent de chemin plus rapide jusqu’à aucune des maisons que ceux de la carte spéciale de Martina. Ces cartes peuvent donc être les vraies cartes du village.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Martina est informaticienne. Elle a dessiné sa carte sous forme de \emph{graphe}. Un graphe est constitué de \emph{nœuds} (ici, les maisons) qui peuvent être reliés par des \emph{arêtes} (ici, les chemins). Dans de nombreux domaines informatiques, les graphes peuvent modéliser la réalité – comme dans cet exercice du Castor.
+
+Martina sait qu’il existe beaucoup d’algorithmes pour les graphes, qui permettent de répondre à des questions telles que “quel est le chemin le plus court jusqu’à une autre maison?”, comme le parcours en largeur. Peut-être qu’elle a élaboré sa carte spéciale à l’aide d’un parcours en largeur d’un graphe plus grand, la vraie carte du village.
+
+En théorie des graphes, qui traite des graphes et algorithmes associés, la carte de Martina correspond à un sous-graphe de la carte complète du village. La carte de Martina a deux particularités:
+
+\begin{itemize}
+  \item Tous les nœuds sont reliés directement (par une arête) ou idirectement (par plusieurs arêtes) les uns aux autres;
+  \item Il n’y a toujours qu’un seul chemin reliant les deux nœuds de n’importe quelle paire.
+\end{itemize}
+
+En informatique, un graphe avec ces particularité est appelé un \emph{arbre}. La maison de Martina correspond à la \emph{racine} de l’arbre. En partant de la racine, Martina peut atteindre tous les autres nœuds (les autres maisons du village) d’une seule manière. Le graphe de Martina est donc un arbre; de plus, il contient tous les nœuds du graphe complet (la vraie carte du village), mais pas forcément toutes ses arêtes. Un sous-graphe ayant ces propriétés est appelé un \emph{arbre couvrant} du graphe complet.
+
+En informatique, les algorithmes traitant les graphes ont beaucoup d’applications, surtout celles liées aux réseaux (réseaux de transport, réseaux de communication…), par exemple le calcul d’itinéraires par les systèmes de navigations. Les arbres couvrants peuvent être utilisés pour la construction de réseaux peu coûteux et être utile pour résoudre des problèmes particulièrement difficiles.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorie des graphes: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Arbre: \href{https://fr.wikipedia.org/wiki/Arbre_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_(théorie\_des\_graphes)}}
+  \item Parcours en largeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_largeur}}
+  \item Arbre couvrant: \href{https://fr.wikipedia.org/wiki/Arbre_couvrant}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_couvrant}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGutierrezJ{} % \ifdefined\AuthorGutierrezJ \BrochureFlag{pe}{} Juan Gutiérrez\fi
+\def\AuthorLunaC{} % \ifdefined\AuthorLunaC \BrochureFlag{pe}{} Carlos Luna\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,162 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Mosaïque}
+\renewcommand{\taskCountry}{CN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Giulia veut acheter des tesselles pour réaliser ce personnage en mosaïque:
+
+{\centering%
+\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2020-CN-04_taskbody1-compatible.svg}\par}
+
+Le magasin de jouets propose différentes tesselles en quantité au choix. Le prix par tesselle varie entre $1$ et $7$ pièces de monnaie.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2020-CN-04_taskbody2-compatible.svg}\par}
+
+Les tesselles peuvent être tournées comme désiré lors de l’assemblage, mais elles ne peuvent pas se chevaucher.
+
+
+
+% question (as \emph{})
+{\em
+Combien de pièces de monnaie Giulia doit-elle dépenser si elle choisit l’option la moins chère?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & $13$ pièces de monnaie \\ 
+  B) & $14$ pièces de monnaie \\ 
+  C) & $16$ pièces de monnaie \\ 
+  D) & $20$ pièces de monnaie
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est $13$ pièces de monnaie.
+
+L’une des méthodes pour résoudre cet exercice consiste à considérer séparément les différentes parties du personnage. Le plus simple est de commencer par la tête, qui ne peut être assemblée qu’avec des tesselles rondes:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CN-04_explanation1.svg}\par}
+
+Il n’y a que deux possibilités pour assembler la tête: soit on utilise directement la tesselle adaptée pour $6$ pièces de monnaie, soit on l’assemble à partir des deux autres tesselles ronde qui coûtent ensemble $4$~+~$1$~=~$5$ pièces de monnaie. Comme la deuxième option est moins chère, c’est celle que l’on utilise.
+
+Le reste du personnage ne peut être assemblé qu’avec des tesselles anguleuses.
+
+{\centering%
+\includesvg[width=295.8px]{\taskGraphicsFolder/graphics/2020-CN-04_explanation2.svg}\par}
+
+On pourrait maintenant essayer toutes les variantes possibles pour assembler le personnage et calculer le prix de chacune, mais ceci prend beaucoup de temps. Les observations suivantes concernant les tesselles anguleuse nous mènent rapidement à la solution:
+
+{\centering%
+\includesvg[width=339.1px]{\taskGraphicsFolder/graphics/2020-CN-04_explanation3.svg}\par}
+
+\begin{itemize}
+  \item Une tesselle carrée coûtant $5$ pièces de monnaie peut toujours être remplacée par deux rectangles à ${1 + 1 = 2}$ pièces de monnaie, ce qui est toujours moins cher.
+  \item On pourrait également remplacer une tesselle carrée par deux tesselles triangulaires, ce qui serait un peu plus cher avec ${2 + 2 = 4}$ pièces de monnaies. C’est donc une moins bonne option.
+\end{itemize}
+
+Giulia n’achète donc jamais de carré même s’il irait bien à un certain endroit, mais toujours deux rectangles.
+
+\begin{itemize}
+  \item Un trapèze coûtant $7$ pièces de monnaie peut être assemblé avec un carré et un triangle. En remplaçant le carré par deux rectangles, on arrive à ${1 + 1 + 2 = 4}$ pièces de monnaie pour un trapèze.
+\end{itemize}
+
+Giulia n’achète donc jamais de trapèze même s’il irait bien à un endroit, mais l’assemble toujours à partir de deux rectangles et un triangle.
+
+\begin{itemize}
+  \item On peut remplacer le parallélogramme à $3$ pièces de monnaie par deux triangles à ${2 + 2 = 4}$ pièces de monnaie. Ce n’est pas une bonne option, car c’est plus cher que le parallélogramme.
+Un parallélogramme pourrait être utile à Giulia, mais cela n’est déterminé que par une analyse plus précise.
+\end{itemize}
+
+\begin{tabularx}{\columnwidth}{ @{} l J l J @{} }
+  \multicolumn{2}{l}{{\setstretch{1.0}\thead[lb]{Version A}}} & \multicolumn{2}{l}{{\setstretch{1.0}\thead[lb]{Version B}}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-CN-04_explanation4.svg}} & \begin{itemize}
+  \item Tête à $5$ pièces de monnaie
+  \item Corps fait de $4$ rectangles et $2$ triangles: \newline ${1 + 1 + 1 + 1 + 2 + 2 = 8}$ pièces
+\end{itemize}
+
+ & \makecell[l]{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2020-CN-04_explanation5.svg}} & \begin{itemize}
+  \item Tête à $5$ pièces de monnaie
+  \item Corps fait d’$1$ parallélogramme, $2$ rectangles et $2$ triangles: \newline ${3 + 1 + 1 + 2 + 2 = 9}$ pièces
+\end{itemize}
+
+
+\end{tabularx}
+
+Si Giulia n’utilise pas de parallélogramme, elle a besoin de deux triangles pour assembler les pointes triangulaires à gauche et à droite du personnage. Elle peut assembler le reste avec des rectangles, comme dans la version A, qui coûte ${5 + 8 = 13}$ pièces de monnaie.
+
+Le parallélogramme ne va qu’à un endroit du personnage comme montré dans la version B (ou reflété horizontalement). Si un parallélogramme est placé ainsi et que le reste de la figure est assemblé avec des rectangles et des triangles, le personnage coûte ${5 + 9 = 14}$ pièces de monnaie. Tous les autres placements du parallélogramme laisseraient des trous ne pouvant pas être remplis.
+
+C’est donc clair que la version la moins chère coûte $13$ pièces de monnaie.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’exercice consistant à assembler une figure précise avec des tesselles données peut vite devenir très compliqué même avec peu de pièces. Le jeu de puzzle Tangram en est un exemple.
+
+Le problème ci-dessus est encore plus compliqué car il faut aussi optimiser le prix total des tesselles. En informatique, on appelle un tel problème un \emph{problème d’optimisation}.
+
+Le problème a été résolu grâce à un principe important en informatique: il s’agit de diviser un problème en problèmes plus petits que l’on peut résoudre indépendamment les uns des autres et dont les solutions peuvent se combiner pour obtenir la solution complète. Concrètement, le problème a été divisé en deux plus petits problèmes, un pour les tesselles rondes et un pour les tesselles anguleuse. Pour les tesselles anguleuses, on peut ensuite réutiliser partout la combinaison de tesselles la moins chère pour assembler un carré sans devoir y réfléchir à chaque fois. C’est la même chose pour le parallélogramme.
+
+La division d’un problème en sous-problèmes indépendants est un concept très important en programmation. La réutilisation de solutions pour des problèmes apparaissant plusieurs fois permet de gagner beaucoup de temps. On parle ici du principe de \emph{modularité}. La division en sous-problèmes est aussi à la base des programmes suivant le principe \emph{“diviser pour régner”} (“\emph{divide et impera}” en latin, “\emph{divide and conquer}” en anglais).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Problème d’optimisation: \href{https://fr.wikipedia.org/wiki/Optimisation_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_(mathématiques)}}
+  \item Diviser pour régner: \href{https://fr.wikipedia.org/wiki/Diviser_pour_r\%C3\%A9gner_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diviser\_pour\_régner\_(informatique)}}
+  \item Modularité: \href{https://fr.wikipedia.org/wiki/Notion_de_module}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Notion\_de\_module}}, \href{https://fr.wikipedia.org/wiki/Programmation_modulaire}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_modulaire}}
+  \item Tangram: \href{https://fr.wikipedia.org/wiki/Tangram}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tangram}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorShengW{} % \ifdefined\AuthorShengW \BrochureFlag{cn}{} Wenpan Sheng\fi
+\def\AuthorWangF{} % \ifdefined\AuthorWangF \BrochureFlag{cn}{} Fan Wang\fi
+\def\AuthorZhiB{} % \ifdefined\AuthorZhiB \BrochureFlag{cn}{} Binru Zhi\fi
+\def\AuthorTianC{} % \ifdefined\AuthorTianC \BrochureFlag{cn}{} Congyu Tian\fi
+\def\AuthorShangF{} % \ifdefined\AuthorShangF \BrochureFlag{cn}{} Fei Shang\fi
+\def\AuthorXingY{} % \ifdefined\AuthorXingY \BrochureFlag{cn}{} Yang Xing\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

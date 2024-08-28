@@ -1,0 +1,103 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Emménagement}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les tachetés sont des oiseaux qui ont des points sur leurs plumes. Cinq tachetés sont à côté d’un arbre. Ils grimpent dans l’arbre l’un après l’autre — de gauche à droite — et emménagent dans les nids vides. Le tacheté avec quatre points commence. Chaque tacheté procède comme suit:
+
+Il commence en bas de l’arbre. Il effectue les étapes suivantes jusqu’à ce qu’il ait trouvé un nid vide:
+
+\begin{enumerate}
+  \item Il grimpe jusqu’à ce qu’il trouve un nid.
+  \item Si le nid est vide, il y emménage et reste là.
+  \item Sinon, il continue à grimper:
+
+\begin{itemize}
+  \item vers la gauche si le tacheté dans le nid a plus de points que lui;
+  \item vers la droite si le tacheté dans le nid a le même nombre ou moins de points que lui.
+\end{itemize}
+
+
+\end{enumerate}
+
+
+
+% question (as \emph{})
+{\em
+Où se trouvent les tachetés à la fin? Place chaque tacheté dans le bon nid.
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2021-CA-01-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+On obtient la bonne solution de la manière suivante:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Le premier tacheté, celui à $4$ points, arrive dans le nid du bas et y emménage. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step1.svg}} \\ 
+  Le deuxième tacheté a $2$ points. Le nid du bas est maintenant occupé par le premier tacheté à $4$ points. Comme $4$ est plus grand que $2$, le deuxième tacheté continue à grimper vers la gauche et emménage dans le premier nid vide. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step2.svg}} \\ 
+  Le troisième tacheté a $3$ points. Il grimpe vers la gauche après le nid du bas dans lequel est le tacheté à $4$ points, car $4$ est plus grand que $3$. Le tacheté à $2$ points est dans le nid suivant. Comme $3$ est plus grand que $2$, le troisième tacheté continue de grimper vers la droite. Il emménage dans le prochain nid vide. C’est le nid le plus haut. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step3.svg}} \\ 
+  Le quatrième tacheté a $1$ point. Comme tous les autres tachetés ont plus de points que lui, il grimpe vers la gauche après chaque nid occupé. Il arrive ainsi dans le nid tout à gauche et y emménage. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step4.svg}} \\ 
+  Le dernier tacheté a $5$ points. Comme aucun tacheté n’a plus de points que lui, il grimpe vers la droite après chaque nid occupé. Il fait cela une fois après le nid du bas et emménage ensuite dans le nid tout à droite. & \makecell[l]{\includesvg[scale=0.25]{\taskGraphicsFolder/graphics/2021-CA-01-solution-step5.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La manière dont les tachetés choisissent leur nid a un avantage intéressant: on peut vite trouver un tacheté particulier. Si le tacheté que tu cherches a moins de points que celui que tu es en train de regarder, tu dois continuer à chercher à sa gauche. Sinon, tu continue à chercher à sa droite. A chaque évaluation d’un oiseau, tu peux ainsi réduire le domaine de recherche à une de deux moitiés. C’est pour cela que tu vas rapidement trouver ton tacheté.
+
+Il y a beaucoup de manières d’organiser des données; on parle de différentes \emph{structures de données}. La structure de donnée utilisée dans cet exercice est un \emph{arbre binaire de recherche}. Le mot “binaire” vient du mot latin \emph{bis} qui veut dire “deux fois”. En effet, il y a au maximum deux branches plus petites qui partent d’une branche (là où se trouve un nid dans cet exercice). Les arbres binaires de recherche sont utilisés en programmation lorsque beaucoup de données doivent être trouvées rapidement. Ils sont en général beaucoup plus grands que le petit arbre de l’exercice. Il y a encore une différence supplémentaire: l’arbre de cet erercice acceuille un nombre fixe de cinq tachetés, alors que l’on peut en général toujours ajouter des données à un arbre binaire de recherche. On ajoute pour cela simplement une nouvelle branche au bout d’une branche existante, ce qui agrandit l’arbre. Les stuctures de données pouvant être modifiées de cette façon s’appellent \emph{structures de données dynamiques}.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Arbre binaire de recherche: \href{https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_binaire\_de\_recherche}}
+  \item Structure de données: \href{https://fr.wikipedia.org/wiki/Structure_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_données}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

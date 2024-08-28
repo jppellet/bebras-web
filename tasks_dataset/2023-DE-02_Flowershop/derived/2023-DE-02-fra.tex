@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-02 Fleuriste}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-02 Fleuriste}
+
+
+\subsection*{Body}
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody.svg}\par}
+
+Florian vend des bouquets de fleurs. Il assemble chaque bouquet d’après ces instructions:
+
+\begin{enumerate}
+  \item Prendre une première fleur du seau A.
+  \item Si cette première fleur est une marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, prendre une deuxième marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}.
+  \item Prendre maintenant une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} du seau B jusqu’à ce que le bouquet ait quatre éléments. Voilà!
+\end{enumerate}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Aide Florian: suis les instructions et choisis des fleurs et des branches pour un bouquet.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-02-question-interactive.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les éléments choisis sur l’emballage vert. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Every sprig and flower are a draggable. ($4$ from each type). The squares are the containers for the flowers and sprigs.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Il y a deux solutions possibles:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer02.svg}}\par}
+
+Pour assembler les bouquets de fleurs correctement, Florian doit suivre les instructions. On peut représenter ces instructions à l’aide d’un diagramme:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2023-DE-02-explanation-fra-compatible.svg}\par}
+
+Après que Florian a choisi la première fleur du seau A, il doit prendre une décision qui dépend de la première fleur. Soit il prend une deuxième marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, soit il suit la flèche “non” et prend une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}}.
+
+Ensuite, il vérifie si son bouquet a déjà quatre éléments. Si non, il suit la flèche “non” et prend encore une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} avant de vérifier à nouveau le nombre d’éléments.
+
+S’il commence par prendre une marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, il va donc prendre une deuxième marguerite puis deux fois une branche. Par contre, s’il commence par prendre une tulipe \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-tulpe.svg}}, il va ensuite directement prendre des branches du seau B jusqu’à avoir $4$ éléments, donc $3$ branches en tout.
+
+
+\subsection*{This is Informatics}
+
+Les \emph{instructions} pour l’assemblage de bouquets de fleurs sont claires et pourraient être effectuées par une machine. En informatique, cela s’appelle un \emph{algorithme}. Certaines instructions utilisées ici sont aussi souvent utilisées dans les programmes informatiques:
+
+\begin{itemize}
+  \item La première instruction est la sélection d’un objet au hasard parmi un ensemble d’objets;
+  \item La deuxième instruction s’appelle une \emph{instruction conditionnelle}, car il faut choisir entre deux possibilités ou plus;
+  \item La troisième instruction a l’air relativement simple, mais doit être bien structurée dans un programme informatique. La partie intérieure de l’instruction (une instruction en elle-même: “prend une branche dans le seau B”) doit être répétée plusieurs fois jusqu’à ce que le bouquet de fleurs soit composé de quatre éléments. L’instruction intérieure est donc effectuée jusqu’à ce que la condition “le bouquet a quatre éléments” soit remplie. Un telle \emph{instruction itérative} est aussi appelée \emph{boucle}.
+\end{itemize}
+
+Il existe différentes manières de représenter un algorithme. Dans cet exercice, l’algorithme “bouquet” de Florian est formulé par des instructions en langage naturel. Dans l’explication de la solution, il est représenté sous la forme d’un organigramme de programmation.
+
+Les fleuristes sont des artisans. Il existe des traditions et des règles gouvernant l’assemblage des bouquets et couronnes de fleurs. C’est un exemple de situation de la vie quotidienne dans laquelle les instructions et les algorithmes jouent un rôle.
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Instruction conditionnelle: \href{https://fr.wikipedia.org/wiki/Instruction_conditionnelle_(programmation)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_conditionnelle\_(programmation)}}
+  \item Boucle: \href{https://fr.wikipedia.org/wiki/Structure_de_contr\%C3\%B4le\#Boucles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_contrôle\#Boucles}}
+  \item Organigramme de programmation: \href{https://fr.wikipedia.org/wiki/Organigramme_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Organigramme\_de\_programmation}}
+  \item Fleuriste: \href{https://fr.wikipedia.org/wiki/Fleuriste}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fleuriste}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithmisches Denken
+  \item Evaluation
+\end{itemize}
+
+
+\end{document}

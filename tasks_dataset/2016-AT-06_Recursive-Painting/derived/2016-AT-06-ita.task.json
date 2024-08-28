@@ -1,0 +1,180 @@
+{
+    "id": "2016-AT-06",
+    "title": "Pittura ricorsiva",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "--",
+        "4": "--",
+        "5": "hard",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "hard"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice with images",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Gerald Futschek, gerald.futschek@ifs.tuwien.ac.at, Austria (author)",
+            "name": "Gerald Futschek",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "author"
+            ],
+            "email": "gerald.futschek@ifs.tuwien.ac.at"
+        },
+        {
+            "src": "Wilfried Baumann, baumann@ocg.at, Austria (author)",
+            "name": "Wilfried Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "author"
+            ],
+            "email": "baumann@ocg.at"
+        },
+        {
+            "src": "Michael Weigend, mw@creative-informatics.de, Germany (contributor)",
+            "name": "Michael Weigend",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "mw@creative-informatics.de"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Hans-Werner Hein, [no email], Germany (contributor)",
+            "name": "Hans-Werner Hein",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ]
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Valentina Dagienė, valentina.dagiene@mii.vu.lt, Lithuania (contributor)",
+            "name": "Valentina Dagienė",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "valentina.dagiene@mii.vu.lt"
+        },
+        {
+            "src": "Nursultan Akhmetov, nursultan.akhmetov.krg@gmail.com, Kazakhstan (contributor)",
+            "name": "Nursultan Akhmetov",
+            "country": "Kazakhstan",
+            "country_code": "KZ",
+            "roles": [
+                "contributor"
+            ],
+            "email": "nursultan.akhmetov.krg@gmail.com"
+        },
+        {
+            "src": "Eljakim Schrijvers, eljakim@bebraschallenge.org, USA (contributor)",
+            "name": "Eljakim Schrijvers",
+            "country": "USA",
+            "country_code": "US",
+            "roles": [
+                "contributor"
+            ],
+            "email": "eljakim@bebraschallenge.org"
+        },
+        {
+            "src": "Anna Morpurgo, morpurgo@di.unimi.it, Italy (contributor)",
+            "name": "Anna Morpurgo",
+            "country": "Italy",
+            "country_code": "IT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "morpurgo@di.unimi.it"
+        },
+        {
+            "src": "Chris Roffey, chris@codingclub.co.uk, United Kingdom (contributor)",
+            "name": "Chris Roffey",
+            "country": "United Kingdom",
+            "country_code": "UK",
+            "roles": [
+                "contributor"
+            ],
+            "email": "chris@codingclub.co.uk"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.3
+    },
+    "name": "Recursive Painting",
+    "computer_science_areas": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "difficulties": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2016,
+        "country_code": "AT",
+        "country": "Austria",
+        "num": 6
+    }
+}

@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Annas Regenschirm}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Das ist Annas Regenschirm:
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-taskbody.svg}}
+
+
+
+% question (as \emph{})
+{\em
+Eines der vier Bilder zeigt Annas Regenschirm. Welches?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Jedes Muster auf Annas Regenschirm kommt genau einmal vor.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-explanation-umbrella_numbered_patterns_compatible.svg}\par}
+
+Um das korrekte Bild zu finden, vergleichen wir nacheinander jedes der Bilder mit Annas Regenschirm:
+
+\begin{itemize}
+  \item wir wählen das Muster, welches am weitesten links ist, und suchen dessen Position auf Annas Regenschirm
+  \item wir prüfen, ob die angrenzenden Muster dieselben sind wie die auf Annas Regenschirm.
+
+\begin{tabular}{ @{} l c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{A)}} & {\setstretch{1.0}\thead[cb]{B)}} & {\setstretch{1.0}\thead[cb]{C)}} & {\setstretch{1.0}\thead[cb]{D)}} \\ 
+\midrule
+  Antwortbild & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  Annas Regenschirm & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-D.svg}}
+\end{tabular}
+
+
+\end{itemize}
+
+Jedes der vier Bilder zeigt eine Folge von nur fünf Mustern und nicht alle zehn. Wir können nicht wissen, ob die Musterfolge von einem der vier Bilder mit der vollständigen Reihenfolge aller zehn Muster von Annas Regenschirm übereinstimmt.
+
+Bild C hat als einziges eine Folge von fünf Mustern, die vollständig mit denen auf Annas Regenschirm übereinstimmt. Aus diesem Grund kann nur Bild C Annas Regenschirm zeigen. Alle anderen Bilder weisen Musterfolgen auf, die nicht oder nur teilweise mit denen von Annas Regenschirm übereinstimmen. Diese Bilder können also nicht Annas Regenschirm zeigen.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In den Antwortmöglichkeiten ist jeweils nur ein Teil der Musterfolge abgebildet. Obwohl sie nur eine \emph{Teilinformation} enthalten, können wir feststellen, welches der vier Bilder Annas Regenschirm zeigt: Ein Bild zeigt nur dann Annas Regenschirm, wenn die Musterfolge vollständig in der Musterfolge von Annas Regenschirm vorkommt.
+
+Das gleiche Prinzip wie bei der \enquote{Regenschirm-Mustersuche} wird bei der Suche in einem Textdokument angewendet. Der Computer sucht mit gegebenen Teilinformationen (Suchwort) nach passenden \emph{Zeichenketten} im Dokument. Eine Zeichenkette ist eine Folge von Zeichen (z.B. Buchstaben, Ziffern, Sonderzeichen).
+Dabei gilt bei der Suche:
+
+\begin{itemize}
+  \item Je länger das Suchwort, desto weniger mögliche Übereinstimmungen gibt es und desto grösser ist die Chance, die gesuchte Stelle im Dokument zu finden.
+  \item Je kürzer das Suchwort, desto mehr mögliche Übereinstimmungen ergibt die Suche und desto ungenauer ist die Suche.
+\end{itemize}
+
+Um das Durchsuchen zu verbessern, wurden verschiedene Suchverfahren (oder \emph{Suchalgorthimen}) entwickelt. Sie sollen möglichst schnell eine genaue Suche durchführen, und ein passendes Resultat liefern. Diese Suchalgorthimen werden ständig weiterentwickelt und können riesige Datenmengen in sehr kurzer Zeit durchsuchen (z.B. Internetsuchmaschinen verwenden solche Suchalgorthimen).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Zeichenkette, String: \href{https://de.wikipedia.org/wiki/Zeichenkette}{\BrochureUrlText{https://de.wikipedia.org/wiki/Zeichenkette}}
+  \item Suchverfahren: \href{https://de.wikipedia.org/wiki/Suchverfahren}{\BrochureUrlText{https://de.wikipedia.org/wiki/Suchverfahren}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorLoyoA{} % \ifdefined\AuthorLoyoA \BrochureFlag{ch}{} Angélica Herrera Loyo\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+
+\newpage}{}

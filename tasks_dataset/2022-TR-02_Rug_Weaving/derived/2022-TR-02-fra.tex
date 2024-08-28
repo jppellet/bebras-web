@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-TR-02 Tissage}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-TR-02 Tissage}
+
+
+\subsection*{Body}
+
+Hale est une artiste turque. Elle définit le motif d’un tapis grâce à une grille de six colonnes et six lignes.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2022-TR-02-taskbody.svg}\par}
+
+Hale numérote les lignes et les colonnes. Chaque case de la grille a donc un numéro de ligne et un numéro de colonne. Les employés de Hale doivent maintenant mettre un symbole dans chaque case. Pour cela, Hale leur a donné les instructions suivantes:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2022-TR-02-taskbody-fra-compatible.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Comment sera le tapis une fois terminé?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} l c l c @{} }
+  A) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerA.svg}} & B) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerB.svg}} \\ 
+  C) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerC.svg}} & D) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerD.svg}}
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est B).
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  On répond à la première question de l’image d’instruction par “oui” pour toutes les cases au bord de la grille, car chaque case du bord se trouve dans la première ou sixième ligne et/ou colonne. Ces cases sont ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol1.svg}} et le motif suivant en résulte: & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation1.svg}} \\ 
+  On répond à la deuxième question par “oui” pour toutes les cases de la diagonale, car les numéros de ligne et de colonne sont les mêmes sur la diagonale. Ces cases sont ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol2.svg}} et le motif est le suivant: & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation2.svg}} \\ 
+  La troisième question indique que toutes les cases dont le numéro de ligne est plus grand que le numéro de colonne doivent être ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol3.svg}}. & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation3.svg}} \\ 
+  On répond “non” à la troisième question pour les cases restantes, car leur numéro de ligne n’est pas plus grand que leur numéro de colonne. Elles sont donc ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol4.svg}}. On obtient ainsi le motif de la réponse B. & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerB.svg}}
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+L’image que l’artiste Hale a développé comme instruction s’appelle en informatique un \emph{arbre de décision}. Comme un vrai arbre, il est composé de branchements. À chaque branchement (E1-E3) se trouve une question à laquelle on peut répondre par “oui” ou “non”. Si l’on parcourt l’arbre de haut en bas, répond aux questions et suit les lignes correspondante, une décision s’ensuit.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-itsinformatics1-fra-compatible.svg}\par}
+
+
+
+
+Dans l’exercice, l’arbre de décision est au cœur des instructions pour le tissage d’un tapis. Chaque personne qui suit ces instructions pour tisser fabrique exactement le même tapis. En principe, une machine pouvant lire et comprendre les instructions pourrait produire le même tapis.
+
+En informatique, on appelle de telles instructions univoques un \emph{algorithme}. Lorsqu’un algorithme est écrit dans un \emph{langage de programmation} et peut être exécuté par un ordinateur, on parle d’un \emph{programme informatique}.
+
+On quotidien, on a souvent à faire à des programmes informatiques qui prennent des décisions: le contrôleur du feu de circulation décide quand le feu piéton devient vert; le système d’exploitation du natel décide quand passer en mode d’économie d’énergie; le contrôle automatique des passeports à l’aéroport décide si un passeport est valable.
+
+Des arbres de décision se trouvent dans tous ces programmes informatiques.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Arbre de décision: \href{https://fr.wikipedia.org/wiki/Arbre_de_d\%C3\%A9cision}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_de\_décision}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Langage de programmation: \href{https://fr.wikipedia.org/wiki/Langage_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_de\_programmation}}
+  \item Programme informatique: \href{https://fr.wikipedia.org/wiki/Programme_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programme\_informatique}}
+\end{itemize}
+
+
+}
+\end{document}

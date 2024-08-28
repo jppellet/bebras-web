@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-DE-06 Beaver Sort}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-DE-06 Beaver Sort}
+
+
+\subsection*{Body}
+
+Hamid le castor trie les troncs d’arbre dans le lac. Ils doivent aller du plus petit au plus grand de gauche à droite.
+
+\begin{itemize}
+  \item Hamid commence avec les deux troncs tout à gauche.
+  \item Il compare toujours deux troncs voisins:
+
+\begin{itemize}
+  \item Si le tronc de droite est plus long que le tronc de gauche, il nage d’un tronc vers la droite.
+  \item Par contre, si le tronc de gauche est le plus long, il échange les deux troncs. Ensuite, il nage d’un tronc vers la droite s’il se trouve à sa position de départ et d’un tronc vers la gauche sinon.
+\end{itemize}
+
+
+  \item Hamid continue comme cela jusqu’à ce qu’il se trouve à la droite des troncs. Les troncs sont alors triés correctement.
+\end{itemize}
+
+L’exemple montre comment Hamid trie $4$ troncs. Pour cela, il fait $9$ comparaisons en tout.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-DE-06-taskbody-allsteps-fra.svg}\par}
+
+Le nombre de comparaisons dépend de la configuation de départ des troncs. Pour trier $4$ troncs, Hamid doit faire au moins $3$ comparaisons (dans le cas où les troncs sont déjà triés correctement) et au maximum $9$ comparaisons (dans le cas où les troncs sont dans l’ordre inverse). Hamid doit donc prévoir de faire entre $3$ et $9$ comparaisons pour trier $4$ troncs.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Hamid doit maintenant trier 40 troncs de longueurs différentes. Combien de comparaisons doit-il faire dans le meilleur et le pire des cas?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & de $0$ à $20$ comparaisons \\ 
+  B) & de $3$ à $40$ comparaisons \\ 
+  C) & de $39$ à $120$ comparaisons \\ 
+  D) & de $39$ à $1521$ comparaisons
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Dans le meilleur des cas, celui où tous les troncs sont déjà triés et où Hamid nage toujours vers la droite, Hamid ne doit faire que $39$ comparaisons pour trier $40$ troncs. Les réponses A) et B) ne peuvent donc pas être justes.
+
+Dans le pire des cas, les troncs sont exactement dans l’ordre inverse. C’est plus difficile de déterminer le nombre de comparaisons nécessaires ici. On constate d’abord que les troncs à la gauche de Hamid sont toujours bien triés. Si Hamid arrive à un tronc qui est plus petit que les ${k}$ troncs à sa gauche, il l’échange jusqu’à arriver tout à gauche, faisant ainsi déjà ${k}$ comparaisons. Il revient et nage encore d’un tronc vers la droite, faisant ${k-1}$ comparaisons mais aucun échange. Il fait donc ${k + (k-1) = 2k - 1}$ comparaisons. Ceci a lieu pour chacune des ${n-1}$ positions entre deux troncs et Hamid a en moyenne ${\frac{n}{2}}$ troncs à sa gauche. Hamid fait donc ${(n-1)\cdot(2\cdot\frac{n}{2}-1)=(n-1)^2}$, dans notre cas ${39^2= 1521}$, comparaisons. Cela signifie que la réponse C) avec $120$ comparaisons au maximum est fausse, et la bonne réponse est D).
+
+
+\subsection*{It’s Informatics}
+
+Le tri d’élements est une tâche classique en informatique. Une méthode de tri efficace peut permettre de gagner beaucoup de temps.
+
+L’algorithme de tri présenté ici s’appelle \emph{Gnome Sort} et a été introduit par l’informaticien iranien Hamid Sarbazi-Azad sous le nom de \emph{Stupid Sort}. Plus tard, l’informaticien néerlandais Dick Grune a nommé cette méthode de tri Gnome Sort en imaginant qu’un nain de jardin (\emph{garden gnome} en anglais) pouvait trier des pots de fleurs de cette façon.
+
+L’analyse de la durée d’exécution d’un algorithme (c’est à dire du temps dont l’algorithme peut avoir besoin réaliser sa tâche) est très importante en informatique. On veut souvent savoir quelle est la durée dans le meilleur des cas, en moyenne et dans le pire des cas, et cela en fonction de la taille ${n}$ de l’entrée (dans notre cas du nombre de troncs). Pour faciliter la comparaison de différentes durées d’exécution, on se contente la plupart du temps de donner un ordre de grandeur. La durée du Gnome Sort dans le meilleur des cas en fonction de ${n}$ est linéaire — on écrit cela ${\mathcal{O}(n)}$ —, la durée moyenne est de degré deux — on écrit cela ${\mathcal{O}(n^2)}$, et la durée dans le pire des cas est également de degré $2$ — donc également ${\mathcal{O}(n^2)}$.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Gnome Sort: \href{https://de.wikipedia.org/wiki/Gnomesort}{\BrochureUrlText{https://de.wikipedia.org/wiki/Gnomesort}}
+  \item Algorithme de tri: \href{https://fr.wikipedia.org/wiki/Algorithme_de_tri}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_tri}}
+  \item Théorie de la complexité: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_de_la_complexit\%C3\%A9_(informatique_th\%C3\%A9orique)\#Relation_au_co\%C3\%BBt_\%C3\%A9nerg\%C3\%A9tique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_de\_la\_complexité\_(informatique\_théorique)\#Relation\_au\_coût\_énergétique}}
+  \item O-Notation, Landau-Symbole: \href{https://fr.wikipedia.org/wiki/Comparaison_asymptotique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Comparaison\_asymptotique}}
+\end{itemize}
+
+
+}
+\end{document}

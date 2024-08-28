@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Chauffage au sol}
+\renewcommand{\taskCountry}{PK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Luis n’aime pas se changer dans la salle de bain froide le matin, c’est pourquoi il aimerait installer un chauffage au sol dans la nouvelle maison. Le chauffagiste lui conseille l’innovant “chauffage au sol à hotspots”: un hotspot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} est installé directement sous une catelle. Lorsque l’on allume le hotspot, cette catelle devient tout de suite chaude.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody1-compatible.svg}\par}
+
+En une minute, la chaleur se propage à toutes les catelles voisines, c’est-à-dire à toutes les catelles qui touchent le bord ou un angle de la catelle déjà chauffée. Le nombre sur chaque catelle indique au bout de combien de minutes elle devient chaude.
+
+Luis veut installer quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} dans sa salle de bain de manière à ce que toutes les catelles deviennent chaudes le plus vite possible.
+
+
+
+% question (as \emph{})
+{\em
+Sous quelles quatre catelles le chauffagiste doit-il installer les quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}}?
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody2_interactive-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Lorsque les quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} sont installés comme dans l’image ci-dessous, toutes les catelles de la salle de bain sont chaudes deux minutes après avoir allumé le chauffage.
+
+C’est optimal, car c’est impossible de chauffer toutes les catelles en une minute avec quatre hotspots. On peut le voir de la manière suivante. Chaque hotspot peut chauffer au maximum neuf catelles pendant la première minute, celle sous laquelle il se trouve et jusqu’à $8$ catelles autour. Quatre hotspots peuvent donc chauffer au maximum ${4 \cdot 9 = 36}$ catelles pendant la première minute. La salle de bain a $48$ catelles en tout, donc une minute ne peut pas suffire. Cela pourrait par contre marcher en deux minutes, pendant lesquelles ${4 \cdot 25 = 100}$ catelles pourraient théoriquement être chauffées.
+
+Il serait maintenant logique de commencer à répartir les hotspots dans les deux couloirs à gauche. En mettant un hotspot au milieu de chaque couloir, toutes les catelles des couloirs sont chauffées au bout de deux minutes:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation1-compatible.svg}\par}
+
+On peut placer les deux autres hotspots comme cela:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation2-compatible.svg}\par}
+
+Les deux placements suivants sont également possibles:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation3-compatible.svg}\par}
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation4-compatible.svg}\par}
+
+Si la salle de bain avait une forme différente, deux hotspots pourraient suffire à chauffer la même surface en deux minutes.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le problème résolu dans cet exercice est proche d’un problème d’optimisation très connu: on y cherche un petit nombre de \emph{nœuds} dans un \emph{graphe}, nœuds que l’on appelle \emph{ensemble dominant}.
+
+Un ensemble dominant est défini ainsi: chaque nœud du graphe doit soit faire partie de l’ensemble dominant, soit avoir un voisin qui en fait partie. Les catelles de la salle de bain peuvent être représentées avec des nœuds. Les nœuds sont reliés par des arêtes lorsque la catelle suivante est chauffée au bout d’une minute. Un ensemble dominant du graphe résultant indique alors les endroits auxquels des hotspots peuvent être installés pour chauffer la salle de bain en deux minutes.
+
+Dans le cas général, c’est très difficile de trouver un ensemble dominant minimal, mais il existe des algorithmes efficients pour des graphes spéciaux. Le dessin suivant montre un exemple. Comme l’on peut voir, chaque nœud blanc a au moins un nœud rouge comme voisin. Les nœuds rouge sont donc un ensemble dominant.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-PK-06_itsinformatics-compatible.svg}\par}
+
+Une application typique est le placement de bornes Wi-Fi dans un grand bâtiment. Les nœuds du graphe sont les pièces individuelles. Deux d’entre elles sont voisines dans le graphe si les deux pièces sont couvertes par une même borne. Les pièces formant un ensemble dominant minimal sont les endroits appropriés pour placer les bornes Wi-Fi.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ensemble dominant: \href{https://fr.wikipedia.org/wiki/Ensemble_dominant}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_dominant}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNicolicioiuA{} % \ifdefined\AuthorNicolicioiuA \BrochureFlag{pk}{} Andrei Nicolicioiu\fi
+\def\AuthorKorpalR{} % \ifdefined\AuthorKorpalR \BrochureFlag{in}{} Ritambhra Korpal\fi
+\def\AuthorMarcelinoP{} % \ifdefined\AuthorMarcelinoP \BrochureFlag{pt}{} Pedro Marcelino\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorSysloM{} % \ifdefined\AuthorSysloM \BrochureFlag{pl}{} Maciej M.~Sysło\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

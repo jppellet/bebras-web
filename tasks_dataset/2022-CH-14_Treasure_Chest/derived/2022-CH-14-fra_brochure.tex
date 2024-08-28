@@ -1,0 +1,126 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Permutations}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lila met une bille dans le sac A, une pierre précieuse dans le sac B et un bout de papier dans le sac C.
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-taskbody.svg}\par}
+
+Elle échange ensuite le contenu du sac A et du sac B, puis du sac A et du sac C et enfin du sac B et du sac C.
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-taskbody-steps.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Où se trouvent les trois objets?
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Au départ, les objets se trouvent dans ces sacs:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-taskbody.svg}\par}
+
+Lila échange les objets trois fois. Après le premier échange (A-B), les objets sont répartis dans les sacs comme ceci:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-explanation1.svg}\par}
+
+Après le deuxième échange (A-C), ils sont répartis comme ceci:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-explanation2.svg}\par}
+
+Après le troisième échange (B-C), ils sont répartis comme ceci:
+
+{\centering%
+\includesvg[scale=0.45]{\taskGraphicsFolder/graphics/2022-CH-14-explanation3.svg}\par}
+
+À la fin, le bout de papier est dans le sac A, la pierre précieuse dans le sac B et la bille dans le sac C. On aurait pu arriver à cette solution plus facilement avec un seul échange des contenus des sac A et C.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice se concentre sur les séquences d’objets. Une telle séquence est aussi appelée arrangement. Une séquence différente représente un autre arrangement. Une permutation change la séquence et génère ainsi un nouvel arrangement. Dans cet exercice, nous commençons avec l’arrangement bille-pierre précieuse-papier et terminons après trois permutations par l’arrangement papier-pierre précieuse-bille.
+
+Une question intéressante est de déterminer combien d’arrangements differents de trois objets existent. Pour simplifier les choses, nous pouvons commencer par chercher les arrangements commençant par un objet précis; il ne reste que deux arrangements possibles pour les deux objets restants. Si la bille est en première place, les deux arrangements sont:
+
+\begin{adjustwidth}{1.5em}{0em}
+Bille-pierre précieuse-papier     \\
+Bille-papier-pierre précicieuse
+\end{adjustwidth}
+
+Il existe donc aussi deux arrangements différents avec chacun des deux autres objets en première place, donc quatre autres arrangements des trois objets:
+
+\begin{adjustwidth}{1.5em}{0em}
+Pierre précicieuse-bille-papier  \\
+Pierre précieuse-papier-bille    \\
+Papier-bille-pierre précieuse    \\
+Papier-pierre précicieuse-bille
+\end{adjustwidth}
+
+C’est aussi intéressant de savoir que l’on peut obtenir n’importe quel arrangment par permutation. Il faut pour cela au maximum ${n-1}$ permutations pour ${n}$ objets.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Permutations: \href{https://fr.wikipedia.org/wiki/Permutation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Permutation}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorBernerT{} % \ifdefined\AuthorBernerT \BrochureFlag{ch}{} Tobias Berner\fi
+\def\AuthorMilojkovicJ{} % \ifdefined\AuthorMilojkovicJ \BrochureFlag{me}{} Jelena Milojkovic\fi
+\def\AuthorGonzalesM{} % \ifdefined\AuthorGonzalesM \BrochureFlag{ph}{} Mark Edward M.~Gonzales\fi
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

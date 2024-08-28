@@ -1,0 +1,133 @@
+{
+    "id": "2017-RU-05",
+    "title": "Decodifica",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "--",
+        "4": "--",
+        "5": "hard",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "hard"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (other)",
+    "keywords": [],
+    "support_files": [],
+    "contributors": [
+        {
+            "src": "Sergey Pozdniakov, pozdnkov@gmail.com, Russia (author)",
+            "name": "Sergey Pozdniakov",
+            "country": "Russia",
+            "country_code": "RU",
+            "roles": [
+                "author"
+            ],
+            "email": "pozdnkov@gmail.com"
+        },
+        {
+            "src": "Ilya Posov, iposov@gmail.com, Russia (author)",
+            "name": "Ilya Posov",
+            "country": "Russia",
+            "country_code": "RU",
+            "roles": [
+                "author"
+            ],
+            "email": "iposov@gmail.com"
+        },
+        {
+            "src": "JP Pretti, jpretti@uwaterloo.ca, Canada (contributor)",
+            "name": "JP Pretti",
+            "country": "Canada",
+            "country_code": "CA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "jpretti@uwaterloo.ca"
+        },
+        {
+            "src": "Dario Malchiodi, malchiodi@di.unimi.it, Italy (contributor)",
+            "name": "Dario Malchiodi",
+            "country": "Italy",
+            "country_code": "IT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "malchiodi@di.unimi.it"
+        },
+        {
+            "src": "Michael Weigend, mw@creative-informatics.de, Germany (contributor)",
+            "name": "Michael Weigend",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "mw@creative-informatics.de"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Christian Datzko, christian.datzko@informatik-biber.ch, Switzerland (contributor)",
+            "name": "Christian Datzko",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian.datzko@informatik-biber.ch"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.4
+    },
+    "name": "Breaking the cipher",
+    "computer_science_areas": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "difficulties": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2017,
+        "country_code": "RU",
+        "country": "Russia",
+        "num": 5
+    }
+}

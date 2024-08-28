@@ -1,0 +1,131 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{L'arbre magique}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ben a un arbre magique dans son jardin:
+
+\begin{itemize}
+  \item Si un oiseau \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}} se pose sur l’arbre, deux pommes y poussent tout de suite.
+  \item Si un écureuil \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}} grimpe sur l’arbre, une pomme en tombe. S’il n’y a pas de pomme sur l’arbre, il ne se passe rien.
+  \item Si un serpent \raisebox{-0.5ex}{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}} vient sous l’arbre, toutes les pommes disparaissent tout de suite.
+\end{itemize}
+
+Ce matin, $25$ pommes sont sur l’arbre. Plusieurs animaux rendent ensuite visite à l’arbre, un écureuil en dernier. Ben a noté leur ordre exact:
+
+{\centering%
+\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Combien de pommes y a-t-il sur l’arbre après la dernière visite?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $3$ pommes
+
+B) $7$ pommes
+
+C) $17$ pommes
+
+D) $31$ pommes
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B. Après que le dernier écureuil est monté sur l’arbre, il y reste sept pommes.
+
+On peut calculer combien de pommes se trouvent sur l’arbre à chaque visite d’un animal:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Départ}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Nombre de pommes:} & 25 & 27 & 29 & 28 & 30 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Report}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & – & – & +2 & +2 & +2 & -1 & +2 & reset \\ 
+  \textbf{Nombre de pommes:} & 0 & 0 & 0 & 2 & 4 & 6 & 5 & 7 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animal:}} & {\setstretch{1.0}\thead[cb]{Report}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} \\ 
+\midrule
+  \textbf{Instruction:} & – & +2 & +2 & +2 & +2 & -1 \\ 
+  \textbf{Nombre de pommes:} & 0 & 2 & 4 & 6 & 8 & \textbf{7}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Comme toutes les pommes disparaissent lorsqu’un serpent vient sous l’arbre, nous pouvons ignorer tout ce qui se passe avant l’arrivée du deuxième (et dernier) serpent. Comme indiqué dans le tableau, quatre oiseaux se posent sur l’arbre après le passage du dernier serpent. Il y a ensuite ${4 \times 2 = 8}$ pommes sur l’arbre. Ensuite, un écureuil grimpe, faisant tomber une pomme; il reste donc ${8 - 1 = 7}$ pommes sur l’arbre.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La visite d’un animal modifie l’état de l’arbre magique – mais d’une manière bien définie: seul le nombre de pommes sur l’arbre change. La visite des animaux ne change pas les autres propriétés de l’arbre, comme son nombre de feuilles, la longueur de ses branches ou la forme de son tronc, par exemple. Pour cet exercice, il est donc suffisant de considérer le nombre de pommes.
+
+Un programme informatique a lui aussi un état qui peut être modifié par les instructions du programme. On considère généralement les données stockées par le programme comme son état; ces données sont stockées par le programme dans des \emph{variables} définies lors de la programmation.
+
+La suite des visites des animaux à l’arbre dans cet exercice est comme un programme informatique: chaque visite est une instruction qui change l’état de l’arbre. Cet état (ici, le nombre de pommes sur l’arbre) peut être stocké à l’aide d’une seule variable.
+
+Tu as peut-être remarqué que tu n’avais pas besoin de considérer le “programme” en entier pour résoudre l’exercice, mais uniquement la partie suivant la dernière visite d’un serpent. En observant attentivement l’effet des différentes instructions sur l’état du programme, on peut découvrir certaines propriétés de ce programme. Une telle analyse de programmes (informatiques) fait partie des tâches des informaticiens et informaticiennes.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Variable: \href{https://fr.wikipedia.org/wiki/Variable_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Variable\_(informatique)}}
+  \item État d’un programme: \href{https://fr.wikipedia.org/wiki/\%C3\%89tat_(informatique)\#Processus}{\BrochureUrlText{https://fr.wikipedia.org/wiki/État\_(informatique)\#Processus}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorGaalB{} % \ifdefined\AuthorGaalB \BrochureFlag{hu}{} Bence Gaál\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

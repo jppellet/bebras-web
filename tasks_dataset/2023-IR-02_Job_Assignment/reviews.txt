@@ -1,0 +1,42 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Goran Sukovic (svn: sukovic)
+on 2023-04-10
+Assigned review
+I am not sure how this task is connected with the category "computer processes and hardware."
+
+[AGE] Suggested difficulties: Too easy for [16–19]. Drop this group. OK for other categories.  
+[IDEA] Fine. The bipartite graph is the basic idea for the task. 
+[TEXT] The text of the task is clear and understandable but quite formal. It could be more appealing if we used some beavers and related jobs (for example, dam manager, dam keeper, log (warehouse) keeper, etc.), especially for the [8–10] category. 
+The question could be a slightely misleading.  
+In answer D, change the name "Maryam" to "Mary", according to the task text and the image. 
+[EXPL] The "Answer Explanation" section is very concise. The author explains all steps. Words and expressions are not used consistently in the text. Give a clear explanation of how we abstract from a given figure to graph terminology (vertices and edges). Alternatively, avoid the use of vertices and edges in this section. Adding two intermediate images will be helpful. The first image shows the remaining jobs and candidates after removing Omran and the corresponding connections. The second image shows the same after removing Yunas and the corresponding connections. 
+[TiI] Only two sentences Provide more details about graph terminology, bipartite graphs, and their use in computer science (informatics). Maybe one or two sentences about logic. [TiCT] Again, this is a very short explanation. Add some information about how we use decomposition and abstraction in the task. [GRAPH] OK. Please consider adding two more images for the "Explanation" section and/or changing the original image to be more "beaver" oriented. 
+[AUTH] OK.
+[NAME] OK
+[OTHER] For [16-19] group, task could be harder. Consider to give just a text about jobs and candidates, without the picture.
+========================================
+By: Zsuzsa Pluhár (svn: pluhar)
+on 2023-04-11
+Assigned review
+[AGE] Because of the length of the text and the story I would use 12-16yo only.
+[TASK]
+“each person can hold at most one of the jobs.”. Nahid has only 1 edge in the graph, so he needs to hire for packing. Ali and Rose need to be hired as accountants.
+“At most one person will be hired to work in each position” means, the call center is for Omran. – so, the warehouse keeper can be only Yumas. And we have conflict because of Ali and Rose… (separately, only one of these two could be true)
+Because of that logic, a) and b) are true. 
+I don’t see why: “By removing vertices Yunas and warehouse keeper and rheir edges from the graph, we can clearly see a solution that violates choices (a) and (d).” we have nothing about packing in your explanation.
+Answer options: d) Mary or Maryam?
+[TiI] It needs to be extended. I would focus on some sentences about where and why we use this in CS. The 3rd paragraph is about the process and not the CS.
+[GRAPH] The figures are clear and appealing. They are suitable for the age group, CC-licensed, and may be re-used and modified. I don’t know how to work with the available SVG (the text cannot be modified/translate, and ungrouping is not a possible option for me)
+[AUTH] The name(s) and mail address(es) of the author(s) are available.
+[OTHER] There are some texts, and sentences removed from the template!!! Please copy it back!
+========================================
+By: Edwin Flórez (svn: florez)
+on 2023-04-17
+Assigned review
+In general, the task is interesting, simple and appropriate for the proposed ages together with its difficulty. The concept is easy to understand by looking at the graph. The solution was fully explained.
+
+In any case, I suggest that for older ages the solution does not come from a second step. As it is it could be suitable for the very young. The interactive version would help the youngest to find the solution in case of adjusting the solution to a third or fourth step.
+
+Typo in the last paragraph of the answer explanation: "keeper and rheir edges".
+========================================

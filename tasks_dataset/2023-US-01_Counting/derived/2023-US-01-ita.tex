@@ -1,0 +1,188 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-US-01 Escursioni}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-US-01 Escursioni}
+
+
+\subsection*{Body}
+
+A Mia piacciono le vacanze a piedi, in cui soggiorna ogni notte in un posto diverso. Per la sua prossima vacanza, Mia ha una mappa della regione.
+La mappa mostra il punto di partenza di Mia \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}, la sua destinazione \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}} e tutti i luoghi in cui può soggiornare \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-US-01-haus.svg}}.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-question-deu.svg}\par}
+
+Mia ha diviso la regione in sezioni con linee tratteggiate. Può percorrere solo uno o due tratti alla volta in un giorno.
+Ha già messo sulla mappa due diverse passeggiate che può fare:
+
+\begin{itemize}
+  \item L’escursione $1$ prevede tre soggiorni
+  \item L’escursione $2$ prevede quattro soggiorni.
+\end{itemize}
+
+Mia può però fare altre escursioni.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quante escursioni diverse può fare Mia in totale?
+Conta anche le escursioni 1 e 2.
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+–
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) $2$ escursioni
+
+B) $3$ escursioni
+
+C) $4$ escursioni
+
+D) $5$ escursioni
+
+E) $6$ escursioni
+
+F) $7$ escursioni
+
+G) $8$ escursioni
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta è E) $6$ escursioni.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-explanation-deu.svg}\par}
+
+Innanzitutto ci rendiamo conto che Mia deve pernottare a \textbf{B} e \textbf{C} perché la distanza tra questi due luoghi è la massima distanza ($2$) che può percorrere in un solo giorno.  Quindi, per il tragitto da \textbf{B} a \textbf{C}, Mia ha solo un’opzione.
+
+Ora possiamo determinare le possibilità per le altre parti del cammino:  Dal punto di partenza (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}) a \textbf{B}, Mia può percorrerlo tutto d’un fiato o pernottare in \textbf{A} tra un tratto e l’altro; queste sono due possibilità (come nelle escursioni $1$ e $2$). Da \textbf{C} alla destinazione (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}) Mia deve percorrere tre tratti, e può pernottare dopo ogni tratto.  Pertanto, può dividere l’intera camminata in tutte e tre le combinazioni di tratti $1$ e $2$:
+
+\begin{adjustwidth}{1.5em}{0em}
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};  \\
+\textbf{C \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};      \\
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}}.
+\end{adjustwidth}
+
+Quindi il numero totale di tutte le escursioni che Mia può fare è ${2 \times 1 \times 3 = 6}$.
+
+
+\subsection*{This is Informatics}
+
+A volte il numero di possibilità per eseguire un determinato compito può essere molto grande.  Ad esempio, esistono circa $14$ milioni di modi per scegliere $6$ numeri diversi da $1$ a $49$.  E ci sono circa mezzo miliardo di modi per scrivere i numeri da $1$ a $12$ in diverse sequenze.  Anche questo richiede al computer un po’ di tempo.
+
+È fortuito che in questo compito non ci sia un soggiorno dopo la terza sezione e che il conteggio di tutte le passeggiate che Mia può fare possa essere diviso in tre parti.  Il problema del conteggio viene scomposto in tre problemi di conteggio più piccoli, per così dire.  In informatica, la tecnica della \emph{scomposizione del problema} è spesso utilizzata nella progettazione di algoritmi.  Questo principio di soluzione è noto anche come \emph{divide et impera}.
+
+Alcuni importanti algoritmi di ordinamento, ad esempio, funzionano secondo questo principio.  Anche la programmazione dinamica, un metodo per la soluzione algoritmica di problemi di ottimizzazione (descritto nel $1957$ da Richard Bellman), si basa su questo principio: se si riconosce che le soluzioni ottimali di un problema sono composte dalle soluzioni ottimali di sottoproblemi, si può usare questo principio per \enquote{iniziare in piccolo}, per così dire:  In primo luogo, le soluzioni dei sottoproblemi più piccoli vengono calcolate direttamente e poi combinate per formare le soluzioni dei successivi sottoproblemi più grandi.  Questa operazione viene ripetuta fino a trovare la soluzione ottimale per il problema completo.  Poiché le soluzioni parziali trovate spesso contribuiscono alle soluzioni di molte parti più grandi, vengono memorizzate per evitare di ripetere calcoli identici.  La programmazione dinamica può anche essere molto utile per contare le possibilità, come in questo problema.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Decomposizione del problema, scomposizione
+  \item Divide et impera: \href{https://it.wikipedia.org/wiki/Divide_et_impera_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Divide\_et\_impera\_(informatica)}}
+  \item Programmazione dinamica: \href{https://it.wikipedia.org/wiki/Programmazione_dinamica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Programmazione\_dinamica}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Modelling and Simulation,
+  \item Evaluation
+\end{itemize}
+
+
+\end{document}

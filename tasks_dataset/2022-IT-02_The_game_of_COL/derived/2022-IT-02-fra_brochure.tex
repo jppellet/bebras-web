@@ -1,0 +1,105 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Galets et coquillages}
+\renewcommand{\taskCountry}{IT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Anne et Bob jouent à la plage. Ils ont creusé plusieurs trous et ont relié certains d’entre eux par des sillons tracés dans le sable. Les pièces d’Anne sont les coquillages \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-IT-02-taskbody_shell.svg}} et les pièces de Bob les galets \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-IT-02-taskbody_stone.svg}}.
+
+Ils placent tour à tour une de leurs pièces dans un trou inoccupé. Le premier qui met deux de ses pièces dans deux trous directement reliés a perdu. Tu vois où le jeu en est après quelques tours sur l’image ci-dessous.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-IT-02-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+C’est le tour d’Anne. Dans lequel des trous inoccupés doit-elle mettre son prochain coquillage pour s’assurer la victoire?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Le bonne réponse est le trou $7$.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-IT-02-solution.svg}\par}
+
+C’est le tour d’Anne. Les trous $1$, $3$, $4$ et $6$ sont hors de question pour elle; il reste donc les trous $2$, $5$ et $7$.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-IT-02-explanation1.svg}\par}
+
+Elle remaque que les trous $1$, $4$ et $5$ sont hors de question pour Bob. Il lui reste les trous $2$, $3$ et $7$.
+
+Si Anne joue le trou $7$, Bob peut jouer les trous $2$ ou $3$; dans les deux cas, Anne peut encore jouer le trou $5$ au prochain tour et gagner.
+
+Si Anne jouait le trou $2$, Bob pourrait jouer le trou $7$ au prochain tour. Anne devrait alors jouer le trou $5$, Bob le trou $3$ et Bob aurait gagné.
+
+Si Anne jouait le trou $5$, Bob pourrait jouer le trou $7$. Anne devrait jouer le trou $2$ au prochain tour, Bob le $3$ et il aurait à nouveau gagné.
+
+Bob ne pourrait par ailleurs pas gagner non plus si c’était son tour de jouer et pas celui d’Anne!
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Pour représenter de manière systématique les actions possibles d’Anne et de Bob dans le jeu, un arbre de jeu est utile:
+
+{\centering%
+\includesvg[width=469px]{\taskGraphicsFolder/graphics/2022-IT-02-itsinformatics.svg}\par}
+
+On peut lire sur cet arbre de jeu quelle action assure la victoire à Anne: en partant de la branche de droite qui commence par Anne jouant le trou $7$, on ne peut arriver qu’à des situations où elle gagne. En \emph{théorie des jeux}, un domaine spécifique des mathématiques, on considère l’issue de jeux dans lesquels deux joueurs ou plus interagissent; en informatique, on considère les algorithmes permettant d’analyser de tels arbres de jeu. Les ordinateurs avec assez de puissance de calcul peuvent déjà jouer et gagner contre des êtres humains à des jeux comme les échecs. La théorie des jeux offre également des modèles de systèmes complexes dans lesquels des “joueurs” interagissent qui sont utiles en psychologie, en économie et dans d’autres domaines. Par exemple, des modèles pour analyser le comportement d’acheteurs lors de changements de prix ou le choix de la route dans la circulation routière en sont dérivés.
+
+Le jeu d’Anne et Bob est une version de “Col”. Col est un jeu pour deux joueurs qui a été introduit par Colin Vout et est mentionné dans le célèbre livre “On Number and Games” du mathématicien John Horton Conway.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorie des jeux: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_jeux}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_jeux}}
+  \item John Horton Conway: \href{https://fr.wikipedia.org/wiki/John_Horton_Conway}{\BrochureUrlText{https://fr.wikipedia.org/wiki/John\_Horton\_Conway}}
+  \item On Numbers and Games: \href{https://fr.wikipedia.org/wiki/On_Numbers_and_Games}{\BrochureUrlText{https://fr.wikipedia.org/wiki/On\_Numbers\_and\_Games}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorRepettoL{} % \ifdefined\AuthorRepettoL \BrochureFlag{it}{} Lorenzo Repetto\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

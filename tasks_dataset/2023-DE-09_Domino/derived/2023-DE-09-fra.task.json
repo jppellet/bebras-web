@@ -1,0 +1,116 @@
+{
+    "id": "2023-DE-09",
+    "title": "Dominos",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "bonus",
+        "4": "bonus",
+        "5": "hard",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "bonus",
+        "14-16": "bonus",
+        "16-19": "hard"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Jacqueline Staub, staub@uni-trier.de, Germany (author)",
+            "name": "Jacqueline Staub",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "author"
+            ],
+            "email": "staub@uni-trier.de"
+        },
+        {
+            "src": "Zaheer Chothia, zaheer.chothia@gmail.com, Germany (translation from German into English)",
+            "name": "Zaheer Chothia",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from German into English"
+            ],
+            "email": "zaheer.chothia@gmail.com"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Nora Escherle, nora.escherle@informatik-biber.ch, Switzerland (contributor)",
+            "name": "Nora Escherle",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "nora.escherle@informatik-biber.ch"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "2018-BE-04",
+    "settings": null,
+    "name": "Domino",
+    "default_image_scale": 0.1,
+    "difficulties": [
+        0,
+        0,
+        0,
+        4,
+        4,
+        3
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "DE",
+        "country": "Germany",
+        "num": 9
+    }
+}

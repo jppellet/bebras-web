@@ -1,0 +1,48 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Valentina Dagienė (svn: dagiene)
+on 2023-04-15
+Assigned review
+[AGE] Yes
+    [IDEA] Idea is known from previous year's tasks but still it is attractive for learners. For sure, it requires computational thinking skill for solving.
+    [TEXT] Quite well written. I suggest to name the second flower for example "rose" (naming "red flower" is not good comparing that another flower is named "daisy"). Also I am not sure that "branch" is a correct word here. 
+    [EXPL] Is the “Answer Explanation” section available and complete? Is it understandable by students of the appropriate level? Is there a clear reason why the correct answer is correct? Is there a clear reason why the wrong answers are wrong?
+    [TiI] “It’s informatics” section is very well written, we can use it as an example for other tasks. Clear explanation about connection to informatics.
+    [TiCT] If the “This is Computational Thinking” section is not written at all. It is optional but it would be good to have at leas some sentences about solving process, what CT skills are needed, etc.
+    [GRAPH] All done.
+    [AUTH] Yes
+    [NAME] yes
+    [OTHER] I would like to suggest to make a more harder version of this task. Remove limitation of 4 pieces: then you can get 6 solutions.
+========================================
+By: Rostyslav Shpakovych (svn: shpakovych)
+on 2023-04-20
+Non-assigned review
+Nice and not difficult interactive task for the youngest.
+The disadvantage is that the correct answer can be obtained by violating the given algorithm.
+This can be fixed by arranging the selected items on the desktop from left to right in the order they were selected (for example).
+========================================
+By: Nora Anna Escherle (svn: escherle)
+on 2023-04-21
+Assigned review
+[AGE] The age/difficulty level is specified and seems appropriate for the task and question. 
+[IDEA] Not extremely original idea but nice and relatable. It does require some computational thinking skill to be understood and solved.
+[TEXT]  Very clear, short and concise.
+[EXPL]  The “Answer Explanation” section is available and complete. It is understandable by students of the appropriate level. There is a clear reason why the correct answer is correct.
+[TiI] The “It’s informatics” section is available. It is understandable by students of the appropriate level, well connected to the task, describes the background of the "story" and the connection to the informatics (computer science) of this task.
+[TiCT] “This is Computational Thinking” section is not available. 
+[GRAPH] The figures are clear and appealing. They are CC-licensed and may be re-used and modified. They are available in SVG format (i.e., as vector graphics).
+[AUTH] The name(s) and mail address(es) of the author(s) are available.
+[NAME] The names of the task folder and file(s) comply with the prescribed format.
+[OTHER]
+========================================
+By: Hakin Kim (svn: hakin)
+on 2023-04-21
+Assigned review
+[graphic] It has two buckets image but no bouquet.
+How about there be an empty bouquet?
+
+[question] How about asking questions according to the "body"?
+For example, the question could be modified to ask about composing a bouquet that flower shop sells.
+
+[AGE] I think it is difficult for young students (group 2) to understand the meaning of 'at least one' and solve the problem.
+========================================

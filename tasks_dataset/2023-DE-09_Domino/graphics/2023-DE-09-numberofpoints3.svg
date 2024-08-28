@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="1244.8261 704.054 172.2347 169.1552"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="2023-DE-09-numberofpoints3.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3951685"
+     inkscape:cx="86.369497"
+     inkscape:cy="84.577599"
+     inkscape:window-width="1344"
+     inkscape:window-height="429"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <g
+     transform="matrix(0.776161015033722, 0, 0, 0.776161015033722, 949.8460693359375, 244.3699951171875)"
+     id="g1">
+    <path
+       d="M581.277,592.256C581.277,592.256 597.479,592.048 599.397,595.385C603.08,601.79 601.832,617.754 601.404,627.325C598.433,693.732 601.899,695.712 598.723,768C597.586,793.886 597.241,808.997 582.426,809.7C537.041,811.855 432.846,806.184 393.382,806.905C382.64,807.101 380.05,775.968 380.05,775.968L383.944,620.024C383.301,602.899 390.607,592.689 409.961,592.961L581.277,592.256Z"
+       style="fill:rgb(50,50,50);"
+       id="path1" />
+  </g>
+  <g
+     transform="matrix(0.7136869430541993, 0, 0, 0.674782156944275, 1051.5059814453125, 433.0098876953125)"
+     id="g2">
+    <ellipse
+       cx="442.199"
+       cy="454.995"
+       rx="21.873"
+       ry="22.829"
+       style="fill:white;"
+       id="ellipse1" />
+  </g>
+  <g
+     transform="matrix(0.713686943054, 0, 0, 0.674782216549, 884.161018904477, 328.581234600426)"
+     style="transform-origin: 462.461px 451.658px;"
+     id="g3">
+    <ellipse
+       cx="442.199"
+       cy="454.995"
+       rx="21.873"
+       ry="22.829"
+       style="fill:white;"
+       id="ellipse2" />
+  </g>
+  <g
+     transform="matrix(0.71368694,0,0,0.67478216,969.84135,527.95467)"
+     id="g4">
+    <ellipse
+       cx="442.19901"
+       cy="454.995"
+       rx="21.872999"
+       ry="22.829"
+       style="fill:#ffffff"
+       id="ellipse3" />
+  </g>
+  <g
+     transform="matrix(0.71368694,0,0,0.67478216,1011.2264,479.07184)"
+     id="g4-9">
+    <ellipse
+       cx="442.19901"
+       cy="454.995"
+       rx="21.872999"
+       ry="22.829"
+       style="fill:#ffffff"
+       id="ellipse3-3" />
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Les courses d'Emma}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Emma est à la maison \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-meinstandort.svg}}. Elle doit faire trois courses et revenir à la maison:
+
+\begin{itemize}
+  \item Aller chercher un paquet au kiosque \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-kiosk.svg}},
+  \item Aller acheter des fruits au marché \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-markt.svg}},
+  \item Aller récupérer un médicament à la pharmacie \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-apotheke.svg}}.
+\end{itemize}
+
+Emma ne sait pas de combien de temps elle aura besoin dans chaque magasin, mais son trajet doit être le plus court possible.
+
+Emma a noté sur un plan de combien de minutes elle a besoin pour parcourir les chemins entre différents endroits de sa ville. Elle a aussi noté quels chemins elle prend pour faire ses courses.
+
+Pour le trajet en entier, Emma a besoin de ${6 + 3 + 7 + 9 + 3 + 6 + 4 = 38}$ minutes.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-challenge.svg}\par}
+
+Emma se demande si elle pourrait être plus rapide. Peut-être en faisant l’aller-retour sur certains chemins?
+
+
+
+% question (as \emph{})
+{\em
+Détermine le trajet le plus court qu’Emma peut faire pour effectuer ses trois courses.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-challengebrochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-solution.svg}\par}
+
+Emma peut faire le trajet suivant le long des chemins sélectionnés (ou dans la direction opposée):
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-weg.svg}\par}
+
+Pour ce trajet, elle a besoin de ${6 + 3 + 3 + 4 + 4 + 3 + 3 + 6 + 4 = 36}$ minutes.
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Nous voulons maintenant démontrer qu’il ne peut pas y avoir de trajet plus court. Pour cela, nous utilisons une version simplifiée du plan. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph1.svg}} \\ 
+  Nous pouvons ignorer les chemins en gris. Il existe des chemins plus courts passant par d’autres endroits entre les endroits qu’ils relient. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph2.svg}} \\ 
+  Nous pouvons également ignorer le parc. Emma ne doit pas aller au parc, et il existe un chemin plus court pour chaque chemin passant par le parc. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph3.svg}} \\ 
+  Emma doit aller à la pharmacie \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-apotheke.svg}} et au kiosque \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-kiosk.svg}}. Elle ne peut y aller que depuis la boulangerie \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-baeckerei.svg}} et l’école  \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=15.2px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-schule.svg}}, respectivement. Elle doit faire l’aller-retour entre ces endroits, ce qui dure ${3 + 3 = 6}$ minutes pour chacun, donc $12$ minutes en tout. Nous en prenons note et simplifions la plan en enlevant les deux endroits déjà visités. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph4.svg}} \\ 
+  Il nous reste à présent le plan à droite. Le début et la fin du trajet se trouvent ici \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-meinstandort.svg}}. Il faut passer par les trois endroits \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-baeckerei.svg}}, \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=15.2px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-schule.svg}} et \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-markt.svg}}. Pour cela, le trajet le plus court passe par tous les cinq endroits restants sur le plan en passant par tous les chemins sauf le gris et dure ${4 + 6 + 4 + 4 + 6 = 24}$ minutes. Avec les $12$ minutes de l’étape du haut, on arrive à $36$ minutes. Les réflexions précédentes montrent qu’il n’y a pas de trajet plus court. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph5.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Nous avons utilisé un plan simplifié pour démontrer la bonne réponse. Il aurait été possible de réprésenter le plan de manière encore plus abstraite:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph1-abstract-compatible.svg}\par}
+
+Cette représentation contient toutes les informations importantes pour le trajet d’Emma:
+
+\begin{itemize}
+  \item Les objets: les endroits, avec une mise en évidence des endroits importants pour le trajet;
+  \item Les relations entre les endroits: les chemins reliant deux endroits avec une indication de la lonueur du chemin.
+\end{itemize}
+
+Les \emph{graphes} sont un outil important pour la modélisation des relations entre objets. Les graphes sont composés de nœuds (représentant les objets) et d’arêtes (reliant des paires d’objets et représentant leur relation). Le plan d’Emma peut être modélisé par un \emph{graphe orienté} dans lequel un nombre (le poids) est indiqué pour chaque relation.
+
+L’informatique s’intéresse aux problèmes qui peuvent être représentés par des graphes et aux algorithmes avec lesquels on peut résoudre ces problèmes. Une question importante relative aux graphes orientés est: quel est le chemin le plus court (ou le plus rapide) entre deux nœuds? La question de cet exercice du Castor est similaire: quel est le plus court trajet circulaire partant d’un nœud et passant par un ensemble d’autres nœuds? Beaucoup d’algorithmes capables de calculer le plus court chemin dans un graphe de manière efficace sont connus en informatique. De tels algorithmes sont par exemple utilisés dans les logiciels de navigation.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorie des graphes:  \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Graphe:  \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Problème du plus court chemin: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_plus_court_chemin}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_plus\_court\_chemin}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

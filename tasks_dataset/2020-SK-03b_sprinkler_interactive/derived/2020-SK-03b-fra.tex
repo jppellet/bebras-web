@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-SK-03b Arrosage}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-SK-03b Arrosage}
+
+
+\subsection*{Body}
+
+Le jardin de Daniel est composé de cases carrées. Il a planté des fleurs dans certaines de ces cases:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-SK-03b_taskbody1-compatible.svg}\par}
+
+En été, il aimerait arroser ces fleurs avec des tourniquets arroseurs. Il ne peut pas mettre d’arroseur dans les cases avec des fleurs. Un arroseur arrose toutes les fleurs dans les $8$ cases autour de lui:
+
+{\centering%
+\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-SK-03b_taskbody2-compatible.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Place aussi peu d’arroseurs que nécessaire pour arroser toutes les cases fleuries. Indique-le en cochant les cases correspondantes dans le jardin de Daniel.
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La solution suivante nécessite deux arroseurs pour arroser toutes les cases fleuries:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation.svg}\par}
+
+Entre la case fleurie tout à gauche et la cas fleurie tout à droite se trouvent trois cases. Un seul arroseur ne peut pas arroser deux cases si éloignées l’une de l’autre.
+
+Il n’y a pas non plus d’autre solution que celle-ci en n’utilisant que deux arroseurs.
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Pour arroser la case fleurie tout à droite et celle en bas au centre en même temps, il doit y avoir un arroseur là où il est placé dans la solution. S’il était placé plus haut pour arroser aussi la case fleurie en haut au centre, il ne pourrait plus arroser la case fleurie en bas au centre, et on ne pourrait pas arroser les trois cases fleuries restante avec un seul autre arroseur, car on ne peut pas en mettre dans une case fleurie. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation2.svg}} \\ 
+  Pour arroser la case fleurie tout à gauche et celle en haut au centre, un arroseur doit être mis soit comme dans la solution, soit une case plus haut. Si cet arroseur doit aussi arroser la case fleurie de la deuxième colonne depuis la gauche et troisième ligne depuis le haut, il ne peut pas être mis tout en haut. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation3.svg}}
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+Cet exercice est un problème d’\emph{optimisation} typique: alors qu’il est clair que toutes les cases fleuries doivent être arrosées, le nombre d’arroseurs est variable et doit être le plus petit possible. Des problèmes d’optimisation similaires existent par exemple si l’on veut placer des stations de pompiers pour protéger une ville ou couvrir des maisons avec le réseau natel.
+
+En informatique, on parle également de \emph{problèmes de couverture}. Ces problèmes font partie d’une classe de problèmes très difficiles en informatique. Le placement d’un nombre minimal d’arroseurs dans cet exercice était encore très simple, mais la difficulté augmente tellement fortement avec le nombre de cases qu l’on ne peut bientôt plus trouver de solution optimale en un temps raisonnable, même à l’aide d’ordinateurs.
+
+Une possibilité dans de tels cas est de se satisfaire de solutions qui ne sont peut-être pas optimales mais qui sont quand même bonnes. Ça ne fait pas grande différence si l’on place $101$ au lieu $100$ stations de pompiers, ou $1000$ antennes natel au lieu de seulement $990$, mais cela rend souvent le problème beaucoup plus facile à résoudre.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Optimisation: \href{https://fr.wikipedia.org/wiki/Optimisation_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_(mathématiques)}}
+  \item Problème de couverture
+\end{itemize}
+
+
+}
+\end{document}

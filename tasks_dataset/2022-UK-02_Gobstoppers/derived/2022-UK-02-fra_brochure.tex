@@ -1,0 +1,88 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Bonbons préférés}
+\renewcommand{\taskCountry}{UK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Anna met cinq bonbons dans un distributeur. Elle peut ensuite les manger les uns après les autres dans l’ordre dans lequel ils sortent du haut du distributeur.
+
+Elle aimerait les manger dans cet ordre:
+
+\raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-bonbon_pear.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-bonbon_cherry.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-bonbon_ananas.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-bonbon_grapes.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-bonbon_orange.svg}}
+
+
+
+% question (as \emph{})
+{\em
+Dans quel ordre doit-elle les mettre dans le distributeur?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Pour que les différents bonbons sortent du distributeur dans le bon ordre, c’est important de comprendre que le bonbon qui y a été mis en premier en sort en dernier. Cela veut dire que le distributeur doit être rempli de la manière suivante:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-UK-02-solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Si Anna met les bonbons dans le distributeur dans le même ordre que celui dans lequel elle veut les manger, ils en ressortent exactement dans l’ordre inverse. C’est la raison pour laquelle elle décide d’abord dans quel ordre elle veut les manger, puis elle se représente comment elle doit remplir le distributeur pour obtenir les bonbons dans le bon ordre.
+
+Pour les informaticiennes et informaticiens, c’est souvent important de réfléchir à l’ordre des choses, comme pour Anna. L’ordre utilisé dans cet exercice s’appelle “ordre de pile”. Les piles sont des structures de stockage dans lesquelles les objets peuvent être ajoutés et desquelles ils peuvent être sortis dans un ordre précis. Elle fonctionnent d’après le principe \emph{dernier arrivé, premier sorti} (LIFO de l’anglais “Last in, first out”), ce qui signifie que l’objet qui a été ajouté à la pile en dernier doit en être sorti en premier.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pile: \href{https://fr.wikipedia.org/wiki/Pile_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pile\_(informatique)}}
+  \item Dernier arrivé, premier sorti (LIFO): \href{https://fr.wikipedia.org/wiki/Last_in,_first_out}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Last\_in,\_first\_out}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

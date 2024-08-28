@@ -1,0 +1,151 @@
+{
+    "id": "2023-AU-01b",
+    "title": "Gemüsebeet",
+    "ages": {
+        "0": "--",
+        "1": "bonus",
+        "2": "hard",
+        "3": "medium",
+        "4": "easy",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "bonus",
+        "10-12": "hard",
+        "12-14": "medium",
+        "14-16": "easy",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (other)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko, based on originals by Emily Gates",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko",
+                "Emily Gates"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Emily Gates, emily.gates@csiro.au, Australia (author, graphics)",
+            "name": "Emily Gates",
+            "country": "Australia",
+            "country_code": "AU",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "emily.gates@csiro.au"
+        },
+        {
+            "src": "Mhairi King, mhairi.king@csiro.au, Australia (author)",
+            "name": "Mhairi King",
+            "country": "Australia",
+            "country_code": "AU",
+            "roles": [
+                "author"
+            ],
+            "email": "mhairi.king@csiro.au"
+        },
+        {
+            "src": "Estela Ramić, estelaramic@gmail.com, Bosnia and Herzegovina (contributor)",
+            "name": "Estela Ramić",
+            "country": "Bosnia and Herzegovina",
+            "country_code": "BA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "estelaramic@gmail.com"
+        },
+        {
+            "src": "Mathias Hiron, mathias.hiron@gmail.com, France (contributor)",
+            "name": "Mathias Hiron",
+            "country": "France",
+            "country_code": "FR",
+            "roles": [
+                "contributor"
+            ],
+            "email": "mathias.hiron@gmail.com"
+        },
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (contributor)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (translation from English into German)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Wilfried Baumann, baumann@ocg.at, Austria (translation from English into German)",
+            "name": "Wilfried Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "baumann@ocg.at"
+        },
+        {
+            "src": "Marianne Thut, m.th.r@gmx.ch, Switzerland (contributor)",
+            "name": "Marianne Thut",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "m.th.r@gmx.ch"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (contributor, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.25
+    },
+    "name": "Companion Planting",
+    "difficulties": [
+        0,
+        4,
+        3,
+        2,
+        1,
+        0
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "AU",
+        "country": "Australia",
+        "num": 1,
+        "variant": "b"
+    }
+}

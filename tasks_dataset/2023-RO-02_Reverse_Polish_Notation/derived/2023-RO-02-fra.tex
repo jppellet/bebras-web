@@ -1,0 +1,181 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-RO-02 Notation postfixe}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-RO-02 Notation postfixe}
+
+
+\subsection*{Body}
+
+Une expression mathématique est constituée:
+
+\begin{itemize}
+  \item d’un \emph{opérateur}: \textbf{+}, \textbf{–}, \textbf{·} ou \textbf{:}
+  \item et d’\emph{opérandes}: des chiffres comme $1$, $2$, …, des lettres comme a, b, …, ou d’autres expressions comme ($1$ + $2$).
+\end{itemize}
+
+La structure d’une expression mathématique peut être représentée par un \emph{arborescence}. Ce diagramme composé d’opérateurs et d’opérandes est dessiné comme cela: un cercle contenant un opérateur est relié à l’arborescence de ses opérandes. Dans le cas le plus simple, il s’agit de cercles contenant des chiffres ou des lettres.
+
+On peut dériver la \emph{notation postfixe} d’une expression mathématique d’une telle arborescence. Dans cette notation, on écrit chaque expression en commençant par les opérandes suivis des opérateurs.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c @{} }
+  \textbf{Expression mathématique:} & a + b & (a + $1$) \ensuremath{\cdot} (b + c) \\ 
+  \textbf{Arborescence:} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example1-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-example2-compatible.svg}} \\ 
+  \textbf{Notation postfixe:} & a b + & a $1$ + b c + \ensuremath{\cdot}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Voici la notation postfixe d’une autre expression:
+
+\begin{adjustwidth}{1.5em}{0em}
+a $1$ + b $2$ + · $25$ c : +
+\end{adjustwidth}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quelle arborescence correspond à cette expression?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerA-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerB-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}} & \makecell[c]{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerD-compatible.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est C: \raisebox{-0.5ex}{\includesvg[scale=0.32]{\taskGraphicsFolder/graphics/2023-RO-02-answerC-compatible.svg}}
+
+Comme décrit dans la donnée de l’exercice, l’opérateur central d’une expression mathématique se trouve toujours tout en haut de l’arborescence (il forme sa \emph{racine}) et tout à la fin de la notation postfixe. Si l’on veut trouver l’arborescence d’une expression en notation postfixe, il faut chercher le dernier signe de la notation postfixe tout en haut de l’arborescence, dans ce cas le +. Seules les arborescences des réponses A et C ont un + à leur racine.
+
+L’opérateur + a deux opérandes, un à gauche et un à droite. En notation postfixe, on voit directement (à l’avant-dernier signe) que l’opérande à droite de l’expression est également une expression avec l’opérateur :. L’arborescence doit donc avoir le signe : à droite sous la racine. Ce n’est le cas que pour l’arborescence de la réponse C, qui doit donc être la bonne réponse.
+
+On peut le vérifier en transformant toute l’arborescence de la réponse C en notation postfixe:
+
+\begin{itemize}
+  \item les trois plus “petits” arbres, constitués de $3$ éléments chacun, deviennent a $1$ +, b $2$ + et $25$ c :.
+  \item Les deux petits arbres de gauche deviennent les opérandes du \textbf{+} d’en haut; l’arbre partiel de gauche devient donc a $1$ + b $2$ + ·. Le troisième petit arbre est l’opérande de droite.
+  \item L’arborescence de la réponse C s’écrit donc a $1$ + b $2$ + · $25$ c : + en notation postfixe, ce qui est exactment l’expression de la donnée de l’exercice.
+\end{itemize}
+
+
+\subsection*{This is Informatics}
+
+La \emph{notation postfixe}, aussi appelée \emph{notation polonaise inverse}, est souvent utilisée pour formuler des expressions, mathématiques ou autres (par exemple en programmation) de manière compacte et univoque. Si l’on écrivait l’expression de l’arborescence de la réponse C en notation normale (c’est à dire avec les opérateurs entre les opérandes, appelée aussi \emph{notation infixe}), il faudrait utiliser des parenthèses: ${(a + 1) \cdot (b + 2) + 25 : c}$, dont on n’a pas besoin avec la notation postfixe. La notation postfixe a été introduite sous la forme de notation préfixe, avec les opérateurs devant les opérandes, par Jan Łukasiewicz (1878$-1956$). On utilise cette notation entre autres pour les fonctions mathématiques ${f(x, y)}$ et en programmation \BrochureInlineCode{functionname(argument1, argument2, argument3)}. En informatique, elle est utilisée entre autres pour l’\emph{analyse syntaxique} (\emph{parsing} en anglais) des expressions d’un langage de programmation.
+
+Dans la passé récent, beaucoup de gens ont découvert la notation postfixe en utilisant les premières calculatrices scientifiques: elle permettait d’entrer et de calculer des expression mathématiques rapidement, de manière fiable et sans parenthèses. Il existe encore aujourd’hui une communauté de gens qui utilisent les calculatrices programmables (comme la HP-35s) avec la notation postfixe.
+
+
+\subsection*{This is Computational Thinking}
+
+Um die Aufgabe zu lösen, muss ein komplexer mathematischer Ausdruck durch \emph{Zerlegen} oder \emph{Dekomposition} in kleinere mathematische Ausdrücke verwandelt werden, die für sich im Kontext verständlich sind. Zudem muss ein Vorgang dahingehend \emph{analysiert} werden, dass seine Funktionsweise auch in rückwärtiger Reihenfolge verständlich wird. Im Grunde wird dabei dieselbe Information zwischen unterschiedlichen Darstellungsweisen konvertiert.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Notation polonaise inverse: \href{https://fr.wikipedia.org/wiki/Notation_polonaise_inverse}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Notation\_polonaise\_inverse}}
+  \item Arbre syntaxique: \href{https://fr.wikipedia.org/wiki/Arbre_syntaxique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_syntaxique}}
+  \item Jan Łukasiewicz: \href{https://fr.wikipedia.org/wiki/Jan_\%C5\%81ukasiewicz}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Jan\_Łukasiewicz}}
+  \item HP 35s: \href{https://fr.wikipedia.org/wiki/HP-35s}{\BrochureUrlText{https://fr.wikipedia.org/wiki/HP-35s}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Zerlegen, Dekomposition: \href{https://de.wikipedia.org/wiki/Modell\#Modellbildung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Modell\#Modellbildung}}
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,181 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-02 Bouquet}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-02 Bouquet}
+
+
+\subsection*{Body}
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody.svg}\par}
+
+Florian vende mazzi di fiori. Florian lega ogni bouquet secondo queste istruzioni:
+
+\begin{enumerate}
+  \item Prendere un primo fiore dal secchio A.
+  \item Se il primo fiore è una margherita \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, prendere un’altra margherita \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}.
+  \item Poi prendere un rametto \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} dal secchio B fino a formare un bouquet di $4$ parti. Fatto!
+\end{enumerate}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Aiuta Florian: segui le istruzioni e scegli fiori e rami per un bouquet.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-02-question-interactive.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Trascina le parti selezionate sul foglio verde. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Every sprig and flower are a draggable. ($4$ from each type). The squares are the containers for the flowers and sprigs.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Esistono due soluzioni corrette:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer02.svg}}\par}
+
+Per legare correttamente i bouquet, Florian deve seguire le istruzioni. Possiamo anche descrivere le istruzioni con un diagramma:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2023-DE-02-explanation-ita-compatible.svg}\par}
+
+Dopo che Florian ha scelto il primo fiore dal secchio A, segue una decisione che dipende dal primo fiore. O prende un’altra margherita (\raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}), o segue la freccia \enquote{no} e prende un rametto \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}}.
+
+Poi controlla se ha già quattro parti.
+In caso contrario, segue la freccia \enquote{no} e deve prendere un altro rametto e poi controllare di nuovo il numero di parti.
+
+Quindi, se prende prima una margherita \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, prenderà un’altra margherita e poi prenderà due volte un rametto \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}}. Ma se prende prima un tulipano \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-tulpe.svg}}, andrà direttamente a \enquote{scegliere dal secchio B} e prenderà un rametto \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} dal secchio B fino ad avere $4$ pezzi - quindi prenderà $3$ rametti in totale.
+
+
+\subsection*{This is Informatics}
+
+Le \emph{istruzioni} per legare il bouquet sono chiare e potrebbero essere eseguite da una macchina. In informatica si parla di \emph{algoritmo}. Le istruzioni utilizzano alcune istruzioni che sono comuni anche nei programmi per computer:
+
+\begin{itemize}
+  \item La prima istruzione è una selezione casuale da un insieme di oggetti.
+  \item La seconda istruzione si chiama \emph{struttura condizionale} o \emph{selezione}: perché si deve scegliere tra due o più possibilità.
+  \item La terza istruzione sembra relativamente semplice, ma deve essere ben strutturata in un programma per computer. La parte interna dell’istruzione (essa stessa un’istruzione: \enquote{Prendi un rametto dal secchio B}) deve essere eseguita più volte finché il bouquet non è composto da $4$ parti. L’esecuzione dell’istruzione interna viene quindi ripetuta finché non viene soddisfatta la condizione \enquote{Il bouquet è composto da $4$ parti}. Una tale \emph{iterazione} è chiamata anche \emph{loop}.
+\end{itemize}
+
+Un algoritmo può essere rappresentato in modi diversi.  In questo compito, l’algoritmo del \enquote{bouquet di fiori} di Florian è formulato come istruzioni in linguaggio naturale. Nella spiegazione della soluzione, viene presentato come un \enquote{diagramma di flusso del programma}.
+
+Il fiorista è un mestiere. Esistono tradizioni e regole su come legare un bouquet o una corona di fiori. Questo è un esempio di come le istruzioni o gli algoritmi esistano in molti settori della vita, non solo nell’informatica.
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Selezione: \href{https://it.wikipedia.org/wiki/Selezione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Selezione\_(informatica)}}
+  \item Iterazione: \href{https://it.wikipedia.org/wiki/Iterazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Iterazione}}
+  \item Pseudocodice: \href{https://it.wikipedia.org/wiki/Pseudocodice}{\BrochureUrlText{https://it.wikipedia.org/wiki/Pseudocodice}}
+  \item Diagramma di flusso: \href{https://it.wikipedia.org/wiki/Diagramma_di_flusso}{\BrochureUrlText{https://it.wikipedia.org/wiki/Diagramma\_di\_flusso}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithmisches Denken
+  \item Evaluation
+\end{itemize}
+
+
+\end{document}

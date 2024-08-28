@@ -1,0 +1,129 @@
+{
+    "id": "2023-CZ-01",
+    "title": "Go-Bot",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "hard",
+        "4": "medium",
+        "5": "easy",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "hard",
+        "14-16": "medium",
+        "16-19": "easy"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (drag-and-drop)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Jiří Vaníček, refined by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Jiří Vaníček",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Jiří Vaníček, vanicek@pf.jcu.cz, Czech Republic (author, graphics, support files)",
+            "name": "Jiří Vaníček",
+            "country": "Czech Republic",
+            "country_code": "CZ",
+            "roles": [
+                "author",
+                "graphics",
+                "support files"
+            ],
+            "email": "vanicek@pf.jcu.cz"
+        },
+        {
+            "src": "Yong Mao, maoyong@itccc.org.cn, China (contributor)",
+            "name": "Yong Mao",
+            "country": "China",
+            "country_code": "CN",
+            "roles": [
+                "contributor"
+            ],
+            "email": "maoyong@itccc.org.cn"
+        },
+        {
+            "src": "Victor Koleszar, vkoleszar@ceilbal.edu.uy, Uruguay (contributor)",
+            "name": "Victor Koleszar",
+            "country": "Uruguay",
+            "country_code": "UY",
+            "roles": [
+                "contributor"
+            ],
+            "email": "vkoleszar@ceilbal.edu.uy"
+        },
+        {
+            "src": "Akram Ahmed, akram.f.ahmed@gmail.com, Saudi Arabia (contributor)",
+            "name": "Akram Ahmed",
+            "country": "Saudi Arabia",
+            "country_code": "SA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "akram.f.ahmed@gmail.com"
+        },
+        {
+            "src": "Michael Weigend, mw@creative-informatics.de, Germany (translation from English into German)",
+            "name": "Michael Weigend",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "mw@creative-informatics.de"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.4
+    },
+    "name": "Bumping robots",
+    "difficulties": [
+        0,
+        0,
+        0,
+        3,
+        2,
+        1
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CZ",
+        "country": "Czech Republic",
+        "num": 1
+    }
+}

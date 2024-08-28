@@ -1,0 +1,126 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Neue Hüte}
+\renewcommand{\taskCountry}{LT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Die Biber haben neue Hüte.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-LT-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Sortiere die Hüte der Grösse nach.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So sind die Hüte richtig sortiert:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer01.svg}}   \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-answer02.svg}}\par}
+
+Es gibt zwei richtige Lösungen, die Hüte werden von links nach rechts
+
+\begin{itemize}
+  \item immer grösser oder
+  \item immer kleiner.
+\end{itemize}
+
+Beim Sortieren der Biber achten wir nur auf die Hüte. Dann ist es viel einfacher, sie der Grösse nach zu sortieren.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation.svg}}    \raisebox{-0.5ex}{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-explanation_alt.svg}}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Viele Dinge in unserer Umgebung sind sortiert, um einzelne Dinge besser heraussuchen zu können: Wenn Werkzeuge nach Grösse sortiert sind, lässt sich das passende Werkzeug leichter finden.  Weil die Einträge in einem Wörterbuch alphabetisch sortiert sind, kann man die Seite mit dem gesuchten Wort schneller finden.
+
+In dieser Aufgabe sollst du die Biber sortieren, und zwar der Grösse der Hüte nach. Die Schwierigkeit ist aber, dass die \emph{Eigenschaft} \enquote{Grösse der Hüte} nicht leicht erkennbar ist. Wir könnten nach mindestens drei unterschiedlichen Grössen sortieren:
+
+\begin{itemize}
+  \item Grösse der Biber (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+  \item Grösse der Hüte (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}})
+  \item gesamte Grösse (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}})
+\end{itemize}
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics01-compatible.svg}\par}
+
+Die Sortierung der Biber ist für jede der drei Grössen-Eigenschaften unterschiedlich.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Biber}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{${~~~}$\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}${~~~}$}} & {\setstretch{1.0}\thead[cb]{\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics02.svg}} + \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-LT-01-informatics03.svg}}}} \\ 
+\midrule
+  A & 3 & 9 & 12 \\ 
+  B & 6 & 3 & 9 \\ 
+  C & 2 & 4 & 6 \\ 
+  D & 4 & 5 & 9 \\ 
+  E & 5 & 7 & 12
+\end{tabular}
+
+\par}
+
+Zum Sortieren ist es also erstens wichtig, die Eigenschaft genau festzulegen, nach der sortiert werden soll.  Zweitens müssen die Werte dieser Eigenschaft sortierbar sein.  Nach Eigenschaften, die in Zahlen ausgedrückt werden (wie z.B. Grösse, Länge, Gewicht, …) kann man sortieren: Für zwei verschiedene Zahlen können wir sagen, welche Zahl die kleinere ist.  Wörter kann man sortieren, weil die Reihenfolge der Buchstaben im Alphabet festgelegt ist und deshalb für zwei verschiedene Wörter klar ist, welches weiter vorn im Wörterbuch stehen muss.  Allgemein kann man sagen: Eine Eigenschaft ist sortierbar, wenn man für ihre einzelnen Werte eine eindeutige \enquote{kleiner als}-Beziehung (eine \emph{Ordnung}) angeben kann.
+
+Mit Computern werden grosse Datenmengen verwaltet.  Um darin einzelne Daten schnell finden zu können, müssen sie sortiert sein.  Die Informatik kennt viele schnelle Sortierverfahren, und es ist gut untersucht, in welchen Fällen welche Verfahren angewendet werden sollen.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Sortierung: \href{https://de.wikipedia.org/wiki/Sortierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Sortierung}}
+  \item Ordnungsrelation: \href{https://de.wikipedia.org/wiki/Ordnungsrelation}{\BrochureUrlText{https://de.wikipedia.org/wiki/Ordnungsrelation}}
+  \item Suchalgorithmus: \href{https://de.wikipedia.org/wiki/Suchverfahren}{\BrochureUrlText{https://de.wikipedia.org/wiki/Suchverfahren}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+
+\newpage}{}

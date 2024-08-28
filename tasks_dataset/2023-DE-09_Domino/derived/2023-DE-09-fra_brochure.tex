@@ -1,0 +1,138 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Dominos}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Chaque pièce de domino a deux cases. Il y a entre $1$ et $6$ points sur chaque case. Tu as ces huit dominos:
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2023-DE-09-taskbody.svg}\par}
+
+Tu dois aligner ces huit dominos de manière à ce que les cases voisines de deux dominos bout à bout aient toujours le même nombre de points.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-good.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-bad.svg}}\par}
+
+Il y a plusieurs manières d’aligner ces huit dominos, mais certaines pièces ne peuvent jamais se trouver au début ou à la fin de la ligne.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-edge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+De quelles pièces s’agit-il?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Trois des huits pièces ne peuvent pas être posées au début ou à la fin de la ligne:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+Pour résoudre l’exercice, on considère les nombres de points sur les $16$ cases des dominos. Nous comptons combien de fois chaque nombre de points est présent et regardons si cette fréquence est paire ou impaire:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Nombre de points}} & {\setstretch{1.0}\thead[lb]{Fréquence}} & {\setstretch{1.0}\thead[lb]{Paire/impaire}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints1.svg}} & 3 & impaire \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints2.svg}} & 3 & impaire \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints3.svg}} & 2 & paire \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints4.svg}} & 2 & paire \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints5.svg}} & 4 & paire \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints6.svg}} & 2 & paire
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Les cases présentes un nombre pair de fois peuvent se trouver en paires à l’intérieur de la ligne ou aux deux extrémités en même temps. Les cases présentes un nombre impair de fois ne peuvent pas toutes se trouver à l’intérieur de la ligne: on ne peut en effet pas trouver de case correspondante pour chacune des cases avec le même nombre de points; ce n’est possible qu’en cas de fréquence paire. Tu peux voir ci-dessous une ligne dans laquelle un domino avec un point présent trois fois ne passe plus à l’intérieur de la ligne.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_explanation_spare2.svg}\par}
+
+Comme il y a des cases présentes un nombre impair de fois parmi les huit dominos de cet exercice, ce sont eux qui doivent se trouver aux extrémités. Les dominos ayant deux cases avec fréquence paire ne peuvent donc pas être posés aux extrémités de la ligne. Ce sont les dominos suivants:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il y a plusieurs possibilités de poser les dominos de cet exercice du Castor en une ligne correcte. Pour avoir une meilleure vue d’ensemble, les informaticiens et informaticiennes utilisent des \emph{graphes}:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation.svg}\par}
+
+Dans les graphes ci-dessus, on voit des carrés (appelés \emph{nœuds}) représentant les six nombres de points des cases de dominos. Les huit lignes (appelées \emph{arêtes}) les reliant représentent les dominos; chaque ligne relie deux cases. Par exemple, le domino 2$-6$ est représenté par l’arête suivante:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-highlighted.svg}\par}
+
+Pour résoudre l’exercice, les huit dominos doivent être alignés de manière appropriée. Le nombre de points devant être présent sur la première case du deuxième domino est déjà clair après avoir posé le premier domino, état donné que les cases voisines de deux dominos doivent toujours avoir le même nombre de points. Dans le graphe, c’est visible au fait que les arêtes des dominos pouvant être posés bout à bout se retrouvent au même nœud. Les dominos 2$-6$ et 6$-3$, par exemple, peuvent être posés bout à bout car ils contiennent les deux une case à six points:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-two-lines.svg}\par}
+
+L’alignement des dominos peut être vu comme un \emph{chemin} (une suite d’arêtes) parcourant le graphe. Ce chemin doit passer \emph{exactement une fois} par chaque arête, car chaque domino doit être posé, mais pas plus d’une seule fois. Un chemin passant exactement une fois par chaque arête est appelé \emph{chemin eulérien}, nommé d’après le mathématicien suisse et créateur de la théorie des graphes Leonhard Euler. Euler a démontré qu’un chemin eulérien existe dans un graphe connexe si et seulement si deux nœuds au maximum sont reliés par un nombre d’arêtes impair.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Nœud: \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Arête: \href{https://fr.wikipedia.org/wiki/Ar\%C3\%AAte_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arête\_(théorie\_des\_graphes)}}
+  \item Chemin: \href{https://fr.wikipedia.org/wiki/Chemin_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chemin\_(théorie\_des\_graphes)}}
+  \item Chemin eulérien: \href{https://fr.wikipedia.org/wiki/Graphe_eul\%C3\%A9rien}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_eulérien}}
+  \item Leonhard Euler: \href{https://fr.wikipedia.org/wiki/Leonhard_Euler}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Leonhard\_Euler}}
+  \item Dominos: \href{https://fr.wikipedia.org/wiki/Dominos_(jeu)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Dominos\_(jeu)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorStaubJ{} % \ifdefined\AuthorStaubJ \BrochureFlag{de}{} Jacqueline Staub\fi
+\def\AuthorChothiaZ{} % \ifdefined\AuthorChothiaZ \BrochureFlag{de}{} Zaheer Chothia\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

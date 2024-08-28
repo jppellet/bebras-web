@@ -1,0 +1,105 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Serpents et échelles}
+\renewcommand{\taskCountry}{IN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Dans le jeu Serpents et échelles, tous les joueurs commencent sur la case $1$. Le gagnant est le joueur qui arrive en premier à la case $49$. À chaque tour, on jette le dé et avance son pion du nombre de cases correspondant (entre $1$ et $6$).
+
+{\centering%
+\includesvg[width=219.4px]{\taskGraphicsFolder/graphics/2020-IN-26_taskbody-compatible.svg}\par}
+
+Si l’on arrive sur une case avec la tête d’une serpent, on glisse vers le bas jusqu’à la case contenant le bout de la queue du serpent. Par contre, si l’on arrive au pied d’une échelle, on peut monter jusqu’à la case contenant le dernier échelon dans le même tour.
+
+Par exemple: tu es sur la case $26$, jettes le dé et obtiens un $3$, tu avances jusqu’à la case $29$ et peux directement monter jusqu’à la case $42$. Au tour suivant, tu obtiens un $5$ et arrives sur la tête du serpent de la case $47$, tu dois redescendre à la case $32$.
+
+
+
+% question (as \emph{})
+{\em
+Ton pion est sur la case 19. De combien de tours au minimum as-tu besoin pour atteindre la case 49?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & $2$ tours \\ 
+  B) & $3$ tours \\ 
+  C) & $4$ tours \\ 
+  D) & $5$ tours
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B) $3$ tours.
+
+Si tu es impatient et ne prends en compte que les jets de dés qui te rapprochent directement du but, Il te faut au minimum quatre tours: avec un $4$, on passe de la case $19$ à la case $23$, puis par échelle à la case $36$. Depuis là, il n’y a plus d’autres échelles vers le haut et il faut trois jets de dé supplémentaires, par exemple $6$~–~$6$~–~$1$, pour arriver au but.
+
+{\centering%
+\includesvg[width=262.6px]{\taskGraphicsFolder/graphics/2020-IN-26_explanation2-compatible.svg}\par}
+
+Par contre, si tu acceptes un apparent détour, tu peux y arriver en trois tours avec les jets de dé $2$~–~$5$~–~$5$. Tu passes de la case $19$ à la case $21$, puis glisse en bas du serpent jusqu’à la case $5$. Depuis là, tu vas à la case $10$, puis jusqu’en haut l’échelle à la case $44$ avant d’arriver au but.
+
+{\centering%
+\includesvg[width=222.2px]{\taskGraphicsFolder/graphics/2020-IN-26_explanation1-compatible.svg}\par}
+
+Le but ne peut pas être atteint en deux tours. Seules les cases $48$, $46$, $45$ et $44$ sont à un tour du but, et aucune de ces cases ne peut être atteinte en un tour depuis la case $19$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+On peut résoudre beaucoup de problèmes en cherchant le chemin le plus court entre deux points. Le mot “court” n’a ici pas le sens qu’on lui donne intuitivement. Dans cet exercice, nous avons par exemple cherché le chemin durant le moins de tours et non pas le chemin passant par le moins de cases. D’après le même principe, les systèmes de navigations proposent de chercher le chemin le plus court au niveau de la distance ou au niveau du temps nécessaire. Les mêmes appareils calculent les chemins avec le moins de frais de péages pour les entreprises de logistique.
+
+En informatique, les mêmes procédés (algorithmes) peuvent souvent être utilisés pour des tâches complètement différentes si celles-ci sont modélisées de manière adaptée.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Plus court chemin: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_plus_court_chemin}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_plus\_court\_chemin}}, \href{https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Dijkstra}}
+  \item Serpents et échelles: \href{https://fr.wikipedia.org/wiki/Serpents_et_\%C3\%A9chelles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Serpents\_et\_échelles}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPonnekantiP{} % \ifdefined\AuthorPonnekantiP \BrochureFlag{in}{} Prathyush Ponnekanti\fi
+\def\AuthorSudharshaP{} % \ifdefined\AuthorSudharshaP \BrochureFlag{in}{} Preethi Sudharsha\fi
+\def\AuthorPhelpsM{} % \ifdefined\AuthorPhelpsM \BrochureFlag{au}{} Melinda Phelps\fi
+\def\AuthorPiperH{} % \ifdefined\AuthorPiperH \BrochureFlag{au}{} Hannah Piper\fi
+\def\AuthorQuidillaS{} % \ifdefined\AuthorQuidillaS \BrochureFlag{au}{} Susannah Quidilla\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

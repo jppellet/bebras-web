@@ -1,0 +1,168 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-DE-05 Compter avec les muscles}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-DE-05 Compter avec les muscles}
+
+
+\subsection*{Body}
+
+Un nouveau distributeur de billets doit fonctionner de la manière suivante:
+un client hoche la tête (c’est à dire qu’il baisse la tête puis la remet droite) aussi souvent qu’il veut de billets. Le client lève ensuite la tête, et le distributeur émet les billets.
+Pour cela, le distributeur a une caméra intégrée. Elle peut reconnaître le nez du client et mesure constamment sa longueur. Le programme de commande du distributeur enregistre le résultat de la mesure actuelle sous le nom \BrochureInlineCode{longueur\_du\_nez} et détermine la position de la tête du client à l’aide du tableau suivant:
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Mesure de la caméra}} & {\setstretch{1.0}\thead[cb]{Valeur \BrochureInlineCode{longueur\_du\_nez}}} & {\setstretch{1.0}\thead[cb]{Position de la tête}} \\ 
+\midrule
+  \makecell[c]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2021-DE-05-body01.svg}} & 1 & Le client a la tête droite. \\ 
+  \makecell[c]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2021-DE-05-body02.svg}} & $1$,3 & Le client a la tête baissée. \\ 
+  \makecell[c]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2021-DE-05-body03.svg}} & $0$,7 & Le client a la tête levée.
+\end{tabular}
+
+\par}
+
+Le programme de commande est presque fini — regarde plus bas.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Complète le programme de commande.
+
+\raisebox{-0.5ex}{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/fra/2021-DE-05-question-fra-compatible.svg}}
+
+
+
+
+
+
+
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La seule bonne réponse est:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/fra/2021-DE-05-explanation-fra-compatible.svg}\par}
+
+La structure du programme est donnée: il y a un bloc de commande principal qui se répète, souvent appelé \emph{boucle}. La dernière instruction de cette boucle d’instructions répétées augmente le compteur du nombre de billets à émettre. Les deux instructions commençant par \BrochureInlineCode{attends que} doivent donc détecter un hochement de tête du client; c’est à dire détecter que le client a d’abord baissé la tête puis l’a remise droite. La valeur enregistrée dans longueur\_du\_nez doit donc d’abord être environ $1$,$3$ puis à nouveau $1$. Cela correspond à l’instruction \raisebox{-0.5ex}{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/fra/2021-DE-05-explanation-fra-nose12.svg}} suivie de \raisebox{-0.5ex}{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/fra/2021-DE-05-explanation-fra-nose11.svg}}.
+
+Les instructions de la boucle sont répétées jusqu’à ce que le client lève la tête; donc jusqu’à ce qu’une valeur clairement inférieure à $1$ soit mesurée. La seule condition correspondant à cela est \raisebox{-0.5ex}{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/fra/2021-DE-05-explanation-fra-nose08.svg}}.
+
+Tu as peut-être remarqué que le programme n’utilise pas exactement les valeurs du tableau. En pratique, on ne peut en effet pas mesurer de manière continue, mais seulement à une certaine fréquence (par exemple $25$ fois par seconde). Il peut donc arriver, par exemple, que la valeur $1$ qui correspond à la tête droite ne soit jamais mesurée, parce que la valeur $1$,$03$ a été mesurée juste après $0$,$95$.
+
+
+\subsection*{It’s Informatics}
+
+La \emph{vision par ordinateur} (\emph{machine vision} ou \emph{computer vision} en anglais) est un domaine de l’informatique très étudié actuellement. Les considérations théoriques et les applications pratiques sont les deux d’une grande importance.
+
+Une application notable de la vision par ordinateur est de permettre aux personnes handicapées de mieux intéragir avec leur environement de manière autonome. Suivant le degré du handicap, il peut arriver qu’une personne ne puisse plus contrôler que très peu de ses muscles, par exemple. Stephen Hawking (1942$-2018$), physicien mondialement connu, utilisait les mouvements des muscles de ses joues pour contrôler un programme de synthèse vocal après qu’il avait perdu le contrôle de la majeure partie du reste de sa musculature.
+
+Cet exemple concret pourrait aussi être utilisé par les musiciens: ils utilisent en général leurs deux mains pour jouer de leur instrument et ne peuvent donc pas tourner les pages d’une partition. Les appareils usuels disposent pour cette raison d’une pédale. Certains musiciens, comme les organistes, doivent cependant aussi utiliser leurs pieds pour jouer et pourraient utiliser un simple hochement de tête pour tourner les pages d’une partition automatiquement, par exemple.
+
+Contrairement à l’exemple de cet exercice, dans lequel les valeurs sont concrètes et préprogrammées, la vision par ordinateur est souvent combinée à l’\emph{apprentissage automatique} (\emph{machine learning} en anglais). Le programme s’entraîne alors à reconnaître certains gestes lorsque de nombreux exemples et contre-exemples de chaque geste lui sont présentés. Le programme peut ainsi élaborer un modèle statistique de comment les exemples peuvent être interprétés.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Vision par ordinateur, machine vision, computer vision: \href{https://fr.wikipedia.org/wiki/Vision_par_ordinateur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Vision\_par\_ordinateur}}
+  \item Apprentissage automatique, machine learning: \href{https://fr.wikipedia.org/wiki/Apprentissage_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Apprentissage\_automatique}}
+  \item \href{https://fr.wikipedia.org/wiki/Stephen_Hawking\#Maladie_et_poursuite_de_ses_travaux}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Stephen\_Hawking\#Maladie\_et\_poursuite\_de\_ses\_travaux}}
+  \item \href{https://fr.wikipedia.org/wiki/Tourneur_de_pages}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tourneur\_de\_pages}}
+\end{itemize}
+
+
+}
+\end{document}

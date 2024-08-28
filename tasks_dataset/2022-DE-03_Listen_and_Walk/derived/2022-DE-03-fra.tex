@@ -1,0 +1,188 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-DE-03 Poste robotisée}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-DE-03 Poste robotisée}
+
+
+\subsection*{Body}
+
+Tina le robot livre le courrier. Pour cela, elle utilise une carte du quartier, qui est divisée en cases. Tina se déplace le long de la rue \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} de case en case en allant vers la droite, la gauche ou l’avant (pas en diagonale).
+
+Tina a trois capteurs pour naviguer. Dès qu’elle arrive sur une case (et avant qu’elle ne puisse se tourner), les capteurs reconnaissent ce qui se trouve sur les cases à la droite, à la gauche et devant Tina.
+
+Le contenu des cases reconnu par les capteurs de Tina sur son chemin est enregistré dans la table ci-dessous. Tina a commencé sur la case \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-inline_arrow.svg}} dans le sens de la flèche.
+
+{\centering%
+\begin{tabular}{ @{} l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[lb]{\textnormal{gauche}}} & {\setstretch{1.0}\thead[lb]{\textnormal{devant}}} & {\setstretch{1.0}\thead[lb]{\textnormal{droite}}} \\ 
+\midrule
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-inline_arrow.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody02.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+   & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}}
+\end{tabular}
+
+\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quel point bleu \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-inline_circle.svg}} Tina se trouve-t-elle à la fin de son chemin?
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur un point bleu pour le sélectionner. Clique à nouveau dessus pour le déselectionner.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est le point B.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-solution_compatible.svg}\par}
+
+{\centering%
+\begin{tabular}{ @{} r l l l @{} }
+  {\setstretch{1.0}\thead[rb]{Étape}} & {\setstretch{1.0}\thead[lb]{gauche}} & {\setstretch{1.0}\thead[lb]{devant}} & {\setstretch{1.0}\thead[lb]{droite}} \\ 
+\midrule
+  \makecell[r]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-inline_arrow.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} \\ 
+  1 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody02.svg}} \\ 
+  2 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+  3 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \\ 
+  4 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+  5 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \\ 
+  6 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} \\ 
+  7 & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}} & \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}}
+\end{tabular}
+
+\par}
+
+Pour cet exercice, une mtéhode efficace consiste à se concentrer sur les six points d’arrivée et à vérifier si les données des capteurs pour l’étape $7$ “\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody04.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}}” pourraient y correspondre. On peut ainsi exclure les réponses C, E et F. Les données des capteurs pour l’étape $6$ “\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13.7px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody01.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-03-taskbody03.svg}}” permettent d’exclure les réponses A et D.
+
+On pourrait également essayer de suivre le chemin enregistré dans la table. Les données ne correpondent qu’au chemin menant au point B.
+
+On ne peut pas toujours décider tout de suite quel chemin Tina a suivi en suivant les informations des capteurs. À l’étape $4$, Tina verrait des arbres à gauche et à droite quel que soit la direction dans laquelle elle est allée. Dans ce genre de situation, il faut prendre en compte les donnée des capteurs de l’étape suivante pour pouvoir déterminer le chemin exact de Tina.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-03-explanation_compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, nous rencontrons Tina le \emph{robot}. Les robots sont des ordinateurs spécialement équipés qui utilisent des \emph{capteurs} pour obtenir des informations sur leur environnement, traitent ces informations de manière automatisée (c’est-à-dire à l’aide d’un programme) et se basent sur leur environnement pour agir de manière autonome à l’aide d’\emph{actionneurs}.
+Les capteurs de Tina receuillent le contenu des cases à sa gauche, à sa droite et devant elle. De manière concrète, on peut s’imaginer que les capteurs prennent des photos et que des données géométriques que l’ordinateur peut attribuer à une arbre, une maison ou une route sont extraites lors d’une analyse automatique.  Les roues de Tina, ses actionneurs, peuvent donc être dirigés de manière à éviter les cases contenant des arbres ou une maison.
+
+Les véhicules autonomes sont un exemple de tels robots. Ils sont équipés de nombreux capteurs qui ne mesurent pas seulement la vitesse et la position, mais aussi la distance au bord de la route, détectent les objets sur ou au bord de la route et encore beaucoup, beaucoup d’autres choses. Ces informations sont traitées à l’aide de programmes très complexes, qui peuvent par exemple reconnaître des enfants qui pourraient traverser la route et les distinguer de panneaux de circulation. Dans beaucoup de tels scénarios, l’\emph{apprentissage automatique} est une technologie cruciale. Dans le cas des véhicules autonomes, les ordinateurs apprennent à l’aide de nombreux exemples donnés comment distinguer des enfants de panneaux de circulation. Les actionneurs sont par exemple les freins qui sont activés sans intervention humaine.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Robot: \href{https://fr.wikipedia.org/wiki/Robot}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Robot}}
+  \item Capteur: \href{https://fr.wikipedia.org/wiki/Capteur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Capteur}}
+  \item Actionneur: \href{https://fr.wikipedia.org/wiki/Actionneur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Actionneur}}
+  \item Apprentissage automatique: \href{https://fr.wikipedia.org/wiki/Apprentissage_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Apprentissage\_automatique}}
+\end{itemize}
+
+
+}
+\end{document}

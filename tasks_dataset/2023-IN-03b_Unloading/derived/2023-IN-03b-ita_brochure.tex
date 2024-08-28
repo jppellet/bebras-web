@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Scarico del treno}
+\renewcommand{\taskCountry}{IN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un treno traina vagoni con casse numerate. La gru si trova in una posizione fissa e scarica le casse. Per scaricare una cassa, questa deve essere posizionata direttamente sotto la gru.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-taskbody.svg}\par}
+
+La gru deve scaricare le casse, partendo da $1$, in ordine crescente. Il treno può andare solo in avanti. Quando è passato sotto la gru, deve fare un giro per poter scaricare altre casse.
+
+In questo modo la gru scarica le casse $1$, $2$, $3$ e $4$ nell’ordine corretto:
+
+\begin{tabularx}{\columnwidth}{ @{} C C C @{} }
+  {\setstretch{1.0}\thead[cb]{Turno 1:}} & {\setstretch{1.0}\thead[cb]{Turno 2:}} & {\setstretch{1.0}\thead[cb]{Turno 3:}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example1.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example2.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example3.svg}} \\ 
+  Salta la cassa $4$, scarica & Salta la cassa $4$ e & Scarica la cassa $4$. \\ 
+  la cassa $1$, salta la cassa 3 & scarica la cassa $3$. &  \\ 
+  e scarica la cassa $2$ $2$. &  & 
+\end{tabularx}
+
+Quindi il treno deve percorrere tre giri affinché tutte le casse siano scaricate nell’ordine corretto.
+
+
+
+% question (as \emph{})
+{\em
+Quanti turni sono necessari per scaricare il seguente treno?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} l l l @{} }
+  A) $1$ turno & E) $5$ turni & I) $9$ turni \\ 
+  B) $2$ turni & F) $6$ turni & J) $10$ turni \\ 
+  C) $3$ turni & G) $7$ turni &  \\ 
+  D) $4$ turni ${~~~}$ & H) $8$ turni ${~~~}$ & 
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta è $7$ turni.
+
+L’ordine prescritto per lo scarico è $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$. Al primo turno, la gru scarica le casse $1$ e $2$ insieme. Nel secondo turno, la gru scarica insieme $3$ e $4$, poi $5$, poi $6$, poi $7$ e $8$ insieme, poi $9$ e infine $10$. Questo corrisponde a $7$ turni.
+
+In alternativa, si può sfruttare il fatto che ogni volta che viene richiesto il numero di casella successivo a sinistra di uno dei numeri di casella della sequenza, è necessario un ulteriore giro di scarico.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-explanation.svg}\par}
+
+Ad esempio, poiché il $3$ si trova a sinistra del $2$, viene saltato per scaricare il $2$, quindi è necessario un giro supplementare per portare il $3$ sotto la gru. Nella mossa data ci sono sei coppie di questo tipo ($2$,$3$), ($4$,$5$), ($5$,$6$), ($6$,$7$), ($8$,$9$) e ($9$,$10$), quindi sono necessari altri $6$ turni, per un totale di $7$ turni.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Se per un numero qualsiasi della sequenza $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$ la cassa con il numero successivo più grande si trova più a sinistra sul treno, si parla di \emph{inversione}. Ogni inversione di questo tipo richiede un giro in più. Se contiamo il numero di inversioni, otteniamo la risposta.
+
+Il conteggio delle inversioni rispetto a una sequenza desiderata ha molte applicazioni. In alcuni algoritmi di ordinamento, come il \emph{bubble sort}, il numero di inversioni ci dice quante permutazioni sono necessarie per ordinare una particolare sequenza. Quando due clienti classificano lo stesso insieme di articoli, il numero di inversioni nelle loro classifiche ci dice quanto le loro preferenze siano simili. Questa funzione viene utilizzata dai negozi online per identificare i clienti \enquote{simili} e consigliare loro i prodotti.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algoritmo di ordinamento: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ordinamento}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ordinamento}}
+  \item Bubble sort: \href{https://it.wikipedia.org/wiki/Bubble_sort}{\BrochureUrlText{https://it.wikipedia.org/wiki/Bubble\_sort}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorMukundM{} % \ifdefined\AuthorMukundM \BrochureFlag{in}{} Madhavan Mukund\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorAlharthiL{} % \ifdefined\AuthorAlharthiL \BrochureFlag{sa}{} Laila Alharthi\fi
+\def\AuthorCesarD{} % \ifdefined\AuthorCesarD \BrochureFlag{py}{} Diego César\fi
+\def\AuthorNaughtonT{} % \ifdefined\AuthorNaughtonT \BrochureFlag{ie}{} Tom Naughton\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

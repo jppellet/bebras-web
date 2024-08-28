@@ -1,0 +1,173 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-AT-02 Carrelage}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-AT-02 Carrelage}
+
+
+\subsection*{Body}
+
+Le sol d’une pièce carrée est divisé en ${30 \times 30}$ cases. Sur dix des cases sont posées des puces avec les symboles colorés suivants:
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_circle.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_cross.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_triangle.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_square.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_star.svg}}.
+
+\begin{wrapfigure}{R}{173.2px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=173.2px]{\taskGraphicsFolder/graphics/2022-AT-02-taskbody.svg}}
+\end{wrapfigure}
+
+Un robot doit décorer le sol case par case avec ces symboles. Il utilise pour cela quatre règles différentes. Il décore une case sur laquelle il n’y a pas de puce avec…
+
+\textbf{1} … le symbole de la puce la plus proche de lui.
+
+\textbf{2} … le symbole de la puce la plus éloignée de lui.
+
+\textbf{3} … le symbole de la deuxième puce la plus proche de lui.
+
+\textbf{4} … le symbole le plus fréquent parmi les six puces les plus proches de lui.
+
+Le robot décore toutes les cases d’après la même règle. S’il y a plusieurs symboles possibles pour une case d’après la règle utilisée, le robot en choisit un au hasard.
+
+Tu peux voir ci-dessous comment le sol est décoré avec chacune des règles.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+À quelle règle correspond chaque sol? Assigne les règles aux sols correspondants.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2022-AT-02-question_2x2.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Glisse les chiffres correspondant aux règles dans les cases grises à côté des sols décorés.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Comme toutes les cases d’un sol sont décorées en suivant la même règle, il suffit de vérifier quelle règle est utilisée pour une seule case. Nous considérons une case différente pour chaque sol:
+
+\begin{tabularx}{\columnwidth}{ @{} C C @{} }
+  {\setstretch{1.0}\thead[cb]{Règle 1}} & {\setstretch{1.0}\thead[cb]{Règle 2}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationA.svg}} & \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationB.svg}} \\ 
+  La case est décorée avec un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-circle.svg}} parce la puce la plus proche est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_circle.svg}}. & La case est décorée avec un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-triangle.svg}} parce que la puce la plus éloignée est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_triangle.svg}}.
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} C C @{} }
+  {\setstretch{1.0}\thead[cb]{Règle 3}} & {\setstretch{1.0}\thead[cb]{Règle 4}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationC.svg}} & \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationD.svg}} \\ 
+  La case est décorée avec une \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-star.svg}} parce que la deuxième puce la plus proche est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_star.svg}}. & La case est décorée avec une \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-cross.svg}} parce que la puce \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_cross.svg}} est la plus fréquente parmi les six puces les plus proches.
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+La division d’un plan et sa construction \emph{algorithmique} jouent un rôle important dans différents domaines de l’informatique, par exemple en simulation et en graphisme.
+
+Les \emph{diagrammes de Voronoi}, nommés d’après le mathématicien ukrainien Georgi Feodosjewitsch Woronoi (*$1868$ - †$1908$), divisent un plan en \emph{cellules} centrées sur un \emph{germe}. Tous les points d’une cellule sont plus proches de leur germe que de tous les autres germes; le résultat de la règle $1$ est un diagramme de Voronoi. Ces diagrammes sont des représentations fréquentes du monde réel, par exemple des réseaux de téléphonie mobile. Ils sont aussi utilisé pour l’analyse de matchs de football ou d’autres processus socio-économiques, comme la relation entre la population et les écoles, hôpitaux ou autres fournisseurs de services à proximité.
+
+Le météorologue Alfred H. Thiessen (*$1872$ - †$1956$) a développé en $1911$ une méthode basée sur les diagrammes de Voronoi permettant de déterminer les valeurs moyennes régionales (les volumes de précipitations, par exemple) de manière plus fidèle à la réalité. Il n’a pas calculé la moyenne des mesures de différentes stations de mesure en ne prenant en compte que le nombre de stations, mais en prenant en compte la surface considérée par chaque station à l’aide d’un diagramme de Voronoi. Les mesures locales ont ainsi des poids différents dans le calcul de la moyenne pondérée.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Diagramme de Voronoi: \href{https://fr.wikipedia.org/wiki/Diagramme_de_Vorono\%C3\%AF}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diagramme\_de\_Voronoï}}
+  \item Moyenne pondérée: \href{https://fr.wikipedia.org/wiki/Moyenne_pond\%C3\%A9r\%C3\%A9e}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Moyenne\_pondérée}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,138 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-PT-06 Prochain arrêt, gare!}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-PT-06 Prochain arrêt, gare!}
+
+
+\subsection*{Body}
+
+
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Choisis les bons rails pour les deux cases avec les points verts de façon à ce que le train \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody2-compatible.svg}} puisse aller à la gare \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody3-compatible.svg}}.
+
+{\centering%
+\includesvg[width=396.9px]{\taskGraphicsFolder/graphics/2020-PT-06_taskbody-interactive-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Ce problème a les deux solutions suivantes:
+
+{\centering%
+\includesvg[width=308.8px]{\taskGraphicsFolder/graphics/2020-PT-06_explanation1-compatible.svg}\par}
+
+{\centering%
+\includesvg[width=308.8px]{\taskGraphicsFolder/graphics/2020-PT-06_explanation2-compatible.svg}\par}
+
+Avec toutes les autres combinaisons, le train déraille ou fonce dans le buttoir.
+
+
+\subsection*{It’s Informatics}
+
+Comme un train qui suit simplement les rails en roulant, un ordinateur suit simplement les instructions d’un programme. Il ne peut pas savoir si le programme contient une erreur et peut alors “planter”, comme un train peut dérailler si les rails ne sont pas assemblés correctement. On doit donc être beaucoup plus attentif en écrivant un programme que lorsque l’on indique la direction de la gare à quelqu’un, par exemple.
+
+Dans cet exercice, il s’agit d’ajouter les instructions manquantes aux bons endroits d’un programme pour pouvoir atteindre l’objectif.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Programme
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,23 +1,22 @@
-"use client";
+"use client"
 
-import { AgeLevel } from "@/app/types/Task";
+import { NonEmptyDifficulty } from "bebras/out/util"
 
 interface TaskLevelProps {
-  age: string;
-  level: string;
+  age: string
+  difficulty: NonEmptyDifficulty
 }
 
-export default function TaskLevel({ age, level }: TaskLevelProps) {
-  let color: string;
-  const levelValue = AgeLevel[level as keyof typeof AgeLevel];
-  if (levelValue === AgeLevel.easy) {
-    color = "bg-green-100";
-  } else if (levelValue === AgeLevel.medium) {
-    color = "bg-yellow-100";
-  } else if (levelValue === AgeLevel.hard) {
-    color = "bg-red-100";
+export default function TaskLevel({ age, difficulty }: TaskLevelProps) {
+  let color: string
+  if (difficulty === "easy") {
+    color = "bg-green-100"
+  } else if (difficulty === "medium") {
+    color = "bg-yellow-100"
+  } else if (difficulty === "hard") {
+    color = "bg-red-100"
   } else {
-    color = "bg-gray-100";
+    color = "bg-gray-100"
   }
 
   return (
@@ -37,8 +36,8 @@ export default function TaskLevel({ age, level }: TaskLevelProps) {
         ${color}`}
     >
       <h4>
-        {age} : {level}
+        {age}: {difficulty}
       </h4>
     </span>
-  );
+  )
 }

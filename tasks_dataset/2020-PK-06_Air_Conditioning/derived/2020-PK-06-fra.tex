@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-PK-06 Chauffage au sol}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-PK-06 Chauffage au sol}
+
+
+\subsection*{Body}
+
+Luis n’aime pas se changer dans la salle de bain froide le matin, c’est pourquoi il aimerait installer un chauffage au sol dans la nouvelle maison. Le chauffagiste lui conseille l’innovant “chauffage au sol à hotspots”: un hotspot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} est installé directement sous une catelle. Lorsque l’on allume le hotspot, cette catelle devient tout de suite chaude.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody1-compatible.svg}\par}
+
+En une minute, la chaleur se propage à toutes les catelles voisines, c’est-à-dire à toutes les catelles qui touchent le bord ou un angle de la catelle déjà chauffée. Le nombre sur chaque catelle indique au bout de combien de minutes elle devient chaude.
+
+Luis veut installer quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} dans sa salle de bain de manière à ce que toutes les catelles deviennent chaudes le plus vite possible.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Sous quelles quatre catelles le chauffagiste doit-il installer les quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}}?
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody2_interactive-interactive.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Lorsque les quatre hotspots \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-PK-06_taskbody3.svg}} sont installés comme dans l’image ci-dessous, toutes les catelles de la salle de bain sont chaudes deux minutes après avoir allumé le chauffage.
+
+C’est optimal, car c’est impossible de chauffer toutes les catelles en une minute avec quatre hotspots. On peut le voir de la manière suivante. Chaque hotspot peut chauffer au maximum neuf catelles pendant la première minute, celle sous laquelle il se trouve et jusqu’à $8$ catelles autour. Quatre hotspots peuvent donc chauffer au maximum ${4 \cdot 9 = 36}$ catelles pendant la première minute. La salle de bain a $48$ catelles en tout, donc une minute ne peut pas suffire. Cela pourrait par contre marcher en deux minutes, pendant lesquelles ${4 \cdot 25 = 100}$ catelles pourraient théoriquement être chauffées.
+
+Il serait maintenant logique de commencer à répartir les hotspots dans les deux couloirs à gauche. En mettant un hotspot au milieu de chaque couloir, toutes les catelles des couloirs sont chauffées au bout de deux minutes:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation1-compatible.svg}\par}
+
+On peut placer les deux autres hotspots comme cela:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation2-compatible.svg}\par}
+
+Les deux placements suivants sont également possibles:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation3-compatible.svg}\par}
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-PK-06_explanation4-compatible.svg}\par}
+
+Si la salle de bain avait une forme différente, deux hotspots pourraient suffire à chauffer la même surface en deux minutes.
+
+
+\subsection*{It’s Informatics}
+
+Le problème résolu dans cet exercice est proche d’un problème d’optimisation très connu: on y cherche un petit nombre de \emph{nœuds} dans un \emph{graphe}, nœuds que l’on appelle \emph{ensemble dominant}.
+
+Un ensemble dominant est défini ainsi: chaque nœud du graphe doit soit faire partie de l’ensemble dominant, soit avoir un voisin qui en fait partie. Les catelles de la salle de bain peuvent être représentées avec des nœuds. Les nœuds sont reliés par des arêtes lorsque la catelle suivante est chauffée au bout d’une minute. Un ensemble dominant du graphe résultant indique alors les endroits auxquels des hotspots peuvent être installés pour chauffer la salle de bain en deux minutes.
+
+Dans le cas général, c’est très difficile de trouver un ensemble dominant minimal, mais il existe des algorithmes efficients pour des graphes spéciaux. Le dessin suivant montre un exemple. Comme l’on peut voir, chaque nœud blanc a au moins un nœud rouge comme voisin. Les nœuds rouge sont donc un ensemble dominant.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-PK-06_itsinformatics-compatible.svg}\par}
+
+Une application typique est le placement de bornes Wi-Fi dans un grand bâtiment. Les nœuds du graphe sont les pièces individuelles. Deux d’entre elles sont voisines dans le graphe si les deux pièces sont couvertes par une même borne. Les pièces formant un ensemble dominant minimal sont les endroits appropriés pour placer les bornes Wi-Fi.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Ensemble dominant: \href{https://fr.wikipedia.org/wiki/Ensemble_dominant}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_dominant}}
+\end{itemize}
+
+
+}
+\end{document}

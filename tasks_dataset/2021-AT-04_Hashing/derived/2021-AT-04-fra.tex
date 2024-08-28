@@ -1,0 +1,146 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-AT-04 Bibliothèque}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-AT-04 Bibliothèque}
+
+
+\subsection*{Body}
+
+Susi est à la bibliothèque des castors avec Tim. Ils veulent emprunter un livre appelé “Construire de grands barrages”.
+
+Tim va vers l’étagère $1$, regarde dans la rangée $4$ et sort le livre du casier $0$. Susi est impressionnée. Tim explique à Susi comment on détermine l’emplacement d’un livre:
+
+On prend la première lettre de chaque mot du titre du livre et détermine sa position dans l’alphabet. On additionne ensuite ces positions après avoir multiplié par $3$ la valeur obtenue à l’addition précédente.
+
+Le livre désiré donne $140$. L’emplacement du livre est ainsi tout de suite clair.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04a-taskbody1-fra-compatible.svg}\par}
+
+Susi écrit maintenant les calculs correspondant à ses livres préférés, mais elle a fait une erreur pour l’un d’entre eux.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Lequel?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerA-fra-compatible.svg}} & B) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerB-fra-compatible.svg}} \\ 
+  C) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerC-fra-compatible.svg}} & D) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerD-fra-compatible.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Susi a presque tout fait juste: elle a toujours additionné les bonnes positions et a multiplié les résultats intermédiaires par $3$ — avec une exception: elle a oublié une multiplication dans la réponse B.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-solution-fra-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Le système d’expressions correspondant à l’emplacement des livres permet aux visiteurs de la bibliothèque de déterminer l’endroit exact où les livres sont rangés. Comme ça, personne ne doit chercher longtemps. La bibliothèque et les visiteurs doivent cependant faire attention à une chose: différents livres peuvent avoir la même expression et donc le même résultat. Par exemple, les livres “Guide des grands fleuves” et “Guide des grandes familles” sont dans le même casier. Les casiers doivent donc être assez grands ou pouvoir être agrandis selon les besoins.
+
+C’est aussi une bonne idée que l’endroit auxquel les données sont enregistrées dans un ordinateur puisse être calculé directement à partir des données elles-même. Pour cela, des \emph{fonctions de hachage} ont été développées en en informatique: des fonctions mathématiques qui calculent une valeur à partir du contenu des données ou d’une partie des données, valeur qui indique directement l’emplacement mémoire — comme dans cet exercice du castor. De bonnes fonctions de hachage minimisent le nombre de fois où la même valeur est calculée. Si un tel conflit a lieu, l’informatique dispose de bonnes méthodes pour le gérer.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Fonction de hachage: \href{https://fr.wikipedia.org/wiki/Fonction_de_hachage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_de\_hachage}}
+  \item Table de hachage: \href{https://fr.wikipedia.org/wiki/Table_de_hachage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Table\_de\_hachage}}
+\end{itemize}
+
+
+}
+\end{document}

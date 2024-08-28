@@ -1,0 +1,156 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-HU-05c Les tampons de Mika}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-HU-05c Les tampons de Mika}
+
+
+\subsection*{Body}
+
+Mika a quatre tampons avec des images différentes. Elle prend chaque tampon dans sa main une fois et tamponne deux fois avec. Elle fait ainsi l’image suivante:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-taskbody.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quel tampon Mika a-t-elle utilisé en premier?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est C: \raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-answerC.svg}}
+
+On peut reconnaître l’ordre dans lequel Mika a utilisé les tampons en regardant quelles images sont superposées à d’autres et quelles images sont en dessous d’autre images. Le soleil est en dessous de toutes les autres images: Mika a donc d’abord utilisé le tampon avec le soleil.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step1.svg}\par}
+
+La feuille est superposée au soleil, mais est en dessous de la fleur et de la maison. Mika a donc utilisé le tampon avec la feuille en deuxième:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step2.svg}\par}
+
+La fleur est superposée à la feuille et au soleil:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-step3.svg}\par}
+
+Mika ne peut pas avoir utilisé le tampon avec la fleur en dernier, car la fleur se trouve sous la maison à deux endroits. Mika a donc utilisé le tampon avec la fleur en troisième et celui avec la maison en dernier.
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2021-HU-05c-taskbody.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Le dessin de Mika est une sorte d’image ou de \emph{modèle} de la réalité utilisant des images tamponnées sur quatre plans: un plan avec des soleils, un plan avec des feuilles, un plan avec des fleurs et un plan avec des maisons. La superposition des images des différents plans permet à Mika de créer une illusion de profondeur et d’espace (tridimensionnel) sur une surface (bidimensionnelle) de papier.
+
+Lorsque l’on fait un modèle, on ne représente en général que les aspects qui sont nécessaire à une certaine tâche ou une certaine fonction. La réalité est donc représentée de manière simplifiée. La modélisation est un principe important en informatique.
+
+C’est ainsi que des programmes informatiques peuvent permettre d’analyser de manière rapide et précise des parties du monde réel et de mieux comprendre celles-ci. Pour créer un tel programme, il faut commencer par construire un modèle contenant les éléments du monde réel qui sont essentiels au problème étudié. Ce modèle permet de modéliser une partie du monde réel sous forme de croquis ou de programme. On peut ensuite obtenir de nouvelles connaissances sur une partie du monde réel à l’aide de ce programme.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Calques, traitement d’images: \href{https://fr.wikipedia.org/wiki/Calque_(infographie)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Calque\_(infographie)}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,93 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Décryptage}
+\renewcommand{\taskCountry}{RU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un code spécial pour les textes remplace chaque lettre par un mot composé de chiffres entre $0$ et $9$. La règle suivante s’applique: aucun mot du code ne peut commencer par un mot du code chiffrant une autre lettre.
+
+Le lettre \BrochureInlineCode{X}, par exemple, est chiffrée par $12$. \BrochureInlineCode{Y} peut donc être chiffré par $2$, car $12$ ne commence pas par $2$ (et $2$ ne commence pas par $12$). \BrochureInlineCode{Z} peut être chiffré par $11$, car ni $12$, ni $2$ ne commence par $11$ et $11$ ne commence ni par $12$, ni par $2$. \BrochureInlineCode{Z} ne pourrait par contre par être chiffré par $21$, car $21$ commence par $2$, qui est le code de \BrochureInlineCode{Y}.
+
+Le mot \BrochureInlineCode{MEMORY} est chiffré par la suite de chiffres $12112233321$.
+
+
+
+% question (as \emph{})
+{\em
+Sépare la suite de chiffres en mots représentant chacune des lettres.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est $1$ $21$ $1$ $22$ $33$ $321$.
+
+On commence par la gauche de la suite de chiffres. Si \BrochureInlineCode{M} était chiffré par le mot $12$, \BrochureInlineCode{E} devrait être chiffré par $1$, car $12$ revient tout de suite après pour le deuxième \BrochureInlineCode{M}. Ceci serait contraire à la règle: le code pour \BrochureInlineCode{M} commencerait par $1$, qui est le code pour \BrochureInlineCode{E}. De plus longs mots ($121$, $1211$, $12112$, etc.) ne peuvent pas coder le \BrochureInlineCode{M}, car ce mot chiffré doit apparaître deux fois dans le cryptogramme, ce qui n’est pas le cas de ces mots. Le mot chiffré pour \BrochureInlineCode{M} doit donc être le $1$.
+
+Celui-ci doit être suivi du mot chiffré pour le \BrochureInlineCode{E}, puis à nouveau du \BrochureInlineCode{M} (donc du $1$). Le mot chiffré pour \BrochureInlineCode{E} doit donc être soit $2$, soit $21$, soit $211223332$. Le $2$ n’est pas possible, car le mot en clair commencerait par \BrochureInlineCode{MEMM}. $211223332$ n’est pas possible non plus, car le mot en clair serait alors \BrochureInlineCode{MEM}. Le mot chiffré pour \BrochureInlineCode{E} doit donc être $21$. $1$ $21$ $1$ est donc le code pour \BrochureInlineCode{MEM}.
+
+Le reste de la suite de chiffres, c’est à dire $2233321$, code les lettres \BrochureInlineCode{ORY}. Le $2$ ne peut pas coder le \BrochureInlineCode{O}, sinon \BrochureInlineCode{MEM} serait suivi de \BrochureInlineCode{OO}. Le mot chiffrant le \BrochureInlineCode{O} doit donc contenir au moins $22$. À la fin, $1$ et $21$ sont déjà assignés à \BrochureInlineCode{M} et \BrochureInlineCode{E}, respectivement; le mot chiffré pour \BrochureInlineCode{Y} doit donc au moins être $321$. Entre $22$ et $321$ se trouve $33$, ce qui doit être le mot chiffré pour \BrochureInlineCode{R}: la seule autre possibilité serait le $3$. Le mot chiffré pour \BrochureInlineCode{Y} devrait alors être $3321$, et commencerait par $3$, le mot chiffré pour \BrochureInlineCode{R}, ce que la règle interdit. La séparation de la deuxième partie est donc $22$ $33$ $321$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le code utilisé dans cet exercice est un exemple de \emph{code préfixe}. Un préfixe est une suite de symboles précédent une autre suite de symboles. Dans un code préfixe, aucun mot du code ne peut être le préfixe d’un autre mot du code. Cela veut dire qu’aucun mot du code ne peut commencer par un autre mot du code.
+
+Les mots des codes préfixes ont des longueurs différentes. L’avantage de la règle des préfixes est qu’aucun symbole séparateur entre les mots du code n’est nécessaire: on peut toujours reconnaître à quelle position le prochain mot commence. En choisissant des mots courts pour les lettres fréquentes, on peut chiffrer des textes de manière efficace sans utiliser trop de place.
+
+Le codage de Huffman est une méthode permettant de trouver un code préfixe idéal. Elle est très répandue et est utilisée, entre autres, pour les formats JPEG et MP3.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Code préfixe: \href{https://fr.wikipedia.org/wiki/Code_pr\%C3\%A9fixe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_préfixe}}
+  \item Codage de Huffman: \href{https://fr.wikipedia.org/wiki/Codage_de_Huffman}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Codage\_de\_Huffman}}
+  \item Cryptographie: \href{https://fr.wikipedia.org/wiki/Cryptographie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptographie}}
+  \item Cryptanalyse: \href{https://fr.wikipedia.org/wiki/Cryptanalyse}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptanalyse}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPozdniakovS{} % \ifdefined\AuthorPozdniakovS \BrochureFlag{ru}{} Sergey Pozdniakov\fi
+\def\AuthorPosovI{} % \ifdefined\AuthorPosovI \BrochureFlag{ru}{} Ilya Posov\fi
+\def\AuthorPrettiJ{} % \ifdefined\AuthorPrettiJ \BrochureFlag{ca}{} JP Pretti\fi
+\def\AuthorMalchiodiD{} % \ifdefined\AuthorMalchiodiD \BrochureFlag{it}{} Dario Malchiodi\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

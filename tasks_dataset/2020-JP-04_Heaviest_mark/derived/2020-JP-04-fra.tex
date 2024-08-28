@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-JP-04 Lourdes comparaisons}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-JP-04 Lourdes comparaisons}
+
+
+\subsection*{Body}
+
+Cinq boîtes sont marquées de cinq symboles différents: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer1.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer2.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer4.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer5.svg}}.
+
+Une balance est utilisée pour comparer deux boîtes. La comparaison suivante montre par exemple que \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer1.svg}} est plus lourde que \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer4.svg}}:
+
+{\centering%
+\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody1-compatible.svg}\par}
+
+En tout, cinq comparaisons ont lieu:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody1-compatible.svg}}~~
+\raisebox{-0.5ex}{\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody2-compatible.svg}}~~
+\raisebox{-0.5ex}{\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody3-compatible.svg}}~~
+\raisebox{-0.5ex}{\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody4-compatible.svg}}~~
+\raisebox{-0.5ex}{\includesvg[width=86.6px]{\taskGraphicsFolder/graphics/2020-JP-04-taskbody5-compatible.svg}}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quelle est la boîte la plus lourde?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2020-JP-04-answer1.svg}} & B) & \makecell[l]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2020-JP-04-answer2.svg}} & C) & \makecell[l]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}} & D) & \makecell[l]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2020-JP-04-answer4.svg}} & E) & \makecell[l]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2020-JP-04-answer5.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La boîte C) avec le pentagone \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}} est la plus lourde.
+
+L’image suivante montre quatre des cinq comparaisons faites et toutes les boîtes:
+
+{\centering%
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-JP-04-explanation2-compatible.svg}\par}\par}
+
+Comme cela, on voit tout de suite que: la boîte avec le pentagone \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}} est plus lourde que la boîte avec le carré \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer5.svg}}. La boîte avec le carré \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer5.svg}} est plus lourde que la boîte avec l’étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer2.svg}}. La boîte avec l’étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer2.svg}} est plus lourde que la boîte avec le cœur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer1.svg}}. Et finalement, la boîte avec le cœur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer1.svg}} est plus lourde que la boîte avec le cercle \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer4.svg}}.
+
+On peut déduire de cela que la boîte avec le pentagone \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}} est plus lourde que chacune des autres. Cela vient d’une propriété spéciale de la comparaison de poids: Si A est plus lourd que B et que B est plus lourd que C, alors A est aussi plus lourd que C. Cette propriété évidente s’appelle la \emph{transitivité}.
+
+Il existe une méthode maline pour raccourcir cet exercice. Comme on cherche \emph{la} boîte la plus lourde, il suffit de cherche la boîte qui n’est jamais plus légère qu’une autre, et cela n’est vrai que de la boîte avec le pentagone \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-JP-04-answer3.svg}}.
+
+
+\subsection*{It’s Informatics}
+
+En fin de compte, il s’agit dans cet exercice de trier des objects quelconques. En informatique, on utilise souvent des \emph{graphes} spéciaux pour trier, qui sont composé de \emph{nœuds} (les objects à trier) et d’\emph{arêtes} (les comparaisons entre les objects). Dans cet exercice, les objects sont les boîtes et les comparaisons sont les pesées. En dessinant les arêtes comme des flèches montrant l’objet qui est plus lourd, on obtient le graphe suivant pour cet exercice:
+
+{\centering%
+\includesvg[width=93.8px]{\taskGraphicsFolder/graphics/2020-JP-04-itsinformatics-compatible.svg}\par}
+
+Les objects doivent à présent être arrangés sur une ligne de manière à ce que les flèches aillent toujours de gauche à droite. Un tel arrangement s’appelle un \emph{tri topologique}. On obtient un tri topologique facilement en enlevant étape par étape un object sur lequel n’arrive aucune flèche, puis en mettant les objects ainsi enlevés les uns après les autres dans le même ordre.
+
+Mais attention: ce ne sont pas tous les graphes qui ont un tri topologique. Il n’en existe par exemple pas s’il y a un endroit dans le graphe où trois arêtes fléchées sont dirigées de manière à former un cercle lorsqu’on les suit.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Transitivité: \href{https://fr.wikipedia.org/wiki/Relation_transitive}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Relation\_transitive}}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Tri topologique: \href{https://fr.wikipedia.org/wiki/Tri_topologique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tri\_topologique}}
+\end{itemize}
+
+
+}
+\end{document}

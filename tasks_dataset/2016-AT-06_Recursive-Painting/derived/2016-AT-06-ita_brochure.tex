@@ -1,0 +1,116 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Pittura ricorsiva}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Tina e Ben aiutano a preparare una mostra speciale al Museo dell’Informatica.
+Devono dipingere un quadro di ${16 \times 16}$ metri sul pavimento di uno spazio espositivo.
+
+Ricevono dall’artista un set di schede di istruzioni per la pittura nel suo famoso linguaggio,
+con note sugli elementi dell’immagine, sulle dimensioni e sulle rotazioni.
+
+Su alcune schede di istruzione per la pittura sono presenti campi numerati che rimandano ad altre schede.
+
+Ecco un esempio tratto da un precedente progetto.
+Se si eseguono correttamente queste tre carte, emerge l’immagine del castoro:
+
+{\centering%
+\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-example-compatible.svg}\par}
+
+Tina e Ben ottengono ora questi due carte per la mostra:
+
+{\centering%
+\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-challenge-compatible.svg}\par}
+
+Ben aggrotta le sopracciglia. \enquote{Come dovrebbe funzionare? La carta di sinistra si riferisce a se stessa,
+e inoltre, entrambe le carte hanno lo stesso numero!}.
+Tina ride: \enquote{Possiamo farcela! All’inizio usiamo solo la carta sinistra.
+La carta giusta ci indicherà poi quando smettere di dipingere}.
+
+
+
+% question (as \emph{})
+{\em
+Come sarà il pavimento dello spazio espositivo?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerA.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerB.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerC.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerD.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta A è corretta: \raisebox{-0.5ex}{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerA.svg}}
+
+La carta di istruzione per la pittura di sinistra dice che la metà sinistra del pavimento deve essere riempita con un’area semicircolare con il lato rotondo rivolto a sinistra in orientamento normale. Per la metà destra, la stessa scheda di istruzioni per la pittura deve essere utilizzata due volte. Gli orientamenti degli elementi del quadro devono corrispondere a quelli degli indizi.
+
+In entrambi gli indizi della tessera $1$, l’$1$ è ruotato di $180$°, verso il basso. Pertanto, anche gli elementi dell’immagine utilizzati devono essere ruotati in modo che l’arrotondamento delle aree semicircolari dipinte sia esattamente nella direzione opposta. Quando la carta $1$ di sinistra viene utilizzata per la prima volta (con una larghezza di $16$ m), l’arrotondamento dell’area semicircolare punta a sinistra, a $8$ m a destra, a $4$ m di nuovo a sinistra e così via.  A $0$,$5$ m viene utilizzata la seconda carta $1$: Ben e Tina colorano ancora nell’area libera rimanente e possono fermarsi dopo.
+
+In questo modo, viene creata esattamente l’immagine della risposta A.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La prima scheda di istruzione per la pittura $1$ di questo compito si riferisce a se stessa. Richiede a Ben e Tina per usarla di nuovo, con una larghezza minore. In informatica, le istruzioni che si richiamano da sole sono dette \enquote{ricorsive}. Il termine deriva dal latino \enquote{recurrere} (ricorrere). La ricorsività è un concetto potente. Per alcuni compiti complessi, è possibile formulare un’istruzione ricorsiva breve e semplice per risolverli.
+
+Un’istruzione ricorsiva deve contenere una condizione che specifichi quando la ricorsione deve essere terminata. In caso contrario, la ricorsione continuerà fino all’esaurimento di qualche risorsa. Ad esempio, la memoria del computer o la pazienza dell’utente. In questo compito, la seconda scheda $1$ ha questa funzione: la condizione è quella che l’area da dipingere sia di larghezza $0$,$5$ m. Poiché essa non contiene un riferimento a un’altra carta, interrompe la ricorsione.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Programmazione: \href{https://it.wikipedia.org/wiki/Programmazione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Programmazione\_(informatica)}}
+  \item Ricorsività: \href{https://it.wikipedia.org/wiki/Algoritmo_ricorsivo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_ricorsivo}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorHeinH{} % \ifdefined\AuthorHeinH \BrochureFlag{de}{} Hans-Werner Hein\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorAkhmetovN{} % \ifdefined\AuthorAkhmetovN \BrochureFlag{kz}{} Nursultan Akhmetov\fi
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorMorpurgoA{} % \ifdefined\AuthorMorpurgoA \BrochureFlag{it}{} Anna Morpurgo\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

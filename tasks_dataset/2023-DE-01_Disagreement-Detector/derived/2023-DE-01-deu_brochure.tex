@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Konflikt-Detektor}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Anna und Ben wollen einen \enquote{Konflikt-Detektor} bauen, der anzeigt, ob sie eine unterschiedliche Meinung haben.
+
+Sie verwenden Einheiten, die in zwei Zuständen sein können: Ja und Nein. Zwei Einheiten können mit einem Kabel verbunden werden.
+
+Wenn eine Einheit im
+
+\begin{itemize}
+  \item Zustand Ja ist, sendet sie über alle ausgehenden Kabel ein Signal.
+  \item Zustand Nein ist, sendet sie kein Signal.
+\end{itemize}
+
+Die Kabel werden so eingestellt, dass sie ein Signal als positives (+) oder negatives (–) Signal an die rechts angeschlossene Einheit übermitteln.
+
+Eine angeschlossene Einheit geht in den Zustand Ja, wenn sie mehr positive als negative Signale empfängt, und sonst in den Zustand Nein. Als Eingabe setzt Anna den Zustand der Einheit A und Ben den Zustand der Einheit B.
+
+\begin{tabular}{ @{} l l @{} }
+  Zuerst bauen Anna und & Sie bemerken, dass die Einheit Z nur dann Ja ist, wenn A \\ 
+  Ben diese Maschine: & Ja und B Nein ist. Das ist nicht das, was sie wollen. \\ 
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-example_compatible.svg}} & \makecell[l]{\includesvg[width=346.3px]{\taskGraphicsFolder/graphics/graphics-new/-deu/2023-DE-01-example_explanation_compatible-deu.svg}}
+\end{tabular}
+
+Dann bauen Anna und Ben eine grössere Maschine (unten im Bild) und sind sicher, dass sie der Konflikt-Detektor sein kann: Z soll nur dann Ja sein, wenn A und B in unterschiedlichen Zuständen sind (Ja und Nein bzw. Nein und Ja). Ansonsten soll Z im Zustand Nein sein. Jetzt müssen nur noch die Kabel richtig eingestellt werden.
+
+
+
+% question (as \emph{})
+{\em
+Stelle für jedes Kabel ein, ob es ein Signal positiv (+) oder negativ (–) übermittelt, damit der Konflikt-Detektor korrekt arbeitet.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-question_compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Diese beiden Antworten sind richtig:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-solution01.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-solution02.svg}}\par}
+
+Im Konflikt-Detektor muss die Ausgabe-Einheit genau bei zwei unterschiedlichen Eingaben (A=Ja und B=Nein sowie A=Nein und B=Ja) auf Ja sein. Z kann nur Ja sein, wenn über die zwei eingehenden Kabel mehr positive als negative Signale ankommen.  Mindestens eines der Kabel muss also ein positives Signal (+) übermitteln.  Nehmen wir einmal an, nur das obere Kabel, das zu Z führt, wird auf + gestellt. Dann muss die Einheit oben Mitte beide gewünschten Eingabekombinationen erkennen können, also in beiden Fällen Ja sein.  Zusammen mit den Eingabeeinheiten A und B bildet diese Einheit aber genau so eine Maschine, wie Anna und Ben sie zu Beginn gebaut haben.  Sie kann nur in genau einem der gewünschten Fälle Ja sein, und zwar, wenn eines ihrer Kabel auf + und das andere auf – gestellt wird:
+
+{\centering%
+\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-explanation-wp.svg}\par}
+
+Es wird also für jeden der gewünschten Eingabefälle eine eigene Einheit in der Mitte benötigt, eine für A=Ja und B=Nein, die andere für A=Nein und B=Ja.  Die Kabel zur ersten Einheit müssen auf + (Kabel von A) und – (B) gestellt werden, die Kabel zur anderen Einheit auf – (A) und + (B).  Welche Einheit in der Mitte welchen Fall übernimmt, ist egal; deshalb gibt es bei den Kabeln von A und B zur Mitte zwei Möglichkeiten.  Wenn nun jede Einheit in der Mitte in genau einem gewünschten Fall Ja ist, müssen beide Kabel von der Mitte zu Z auf + gestellt werden; nur dann ist Z=Ja in genau beiden gewünschten Fällen.
+
+Für die erste richtige Antwort zeigt das Bild unten die Funktion des Konflikt-Detektors. Man sieht: Die obere Einheit in der Mitte erkennt den Fall A=Ja und B=Nein, die untere den Fall A=Nein und B=Ja. Die jeweilige Einheit sendet ein positives Signal zu Z, und Z ist Ja. Für die anderen Eingaben (A=Ja und B=Ja sowie A=Nein und B=Nein) sind beide mittleren Einheiten Nein, Z empfängt kein positives Signal und ist damit auch Nein.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-deu/2023-DE-01-explanation01_compatible-deu.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-deu/2023-DE-01-explanation02_compatible-deu.svg}}
+
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-deu/2023-DE-01-explanation03_compatible-deu.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-deu/2023-DE-01-explanation04_compatible-deu.svg}}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Der Konflikt-Detektor verarbeitet zwei Eingabewerte (Ja oder Nein) und liefert die Ausgabe Ja genau dann, wenn die beiden Eingabewerte unterschiedlich sind. Diese logische Funktion nennt man Exklusiv-Oder (XOR, Kontravalenz). Die erste in dieser Biberaufgabe beschriebene Maschine von Anna und Ben (zwei Schalter und eine Ausgabe-Einheit) ist eine vereinfachte Version eines \emph{Perzeptrons}, das Frank Rosenblatt im Jahr $1957$ beschrieben hat. Die Ausgabe-Einheit bildet eine Nervenzelle (Neuron) nach, die Eingabesignale verarbeiten kann und ein Ausgabesignal erzeugt. Mit einem Perzeptron kann man zwar die logischen Operationen Und und Oder implementieren, nicht aber das Exklusiv-Oder. Dazu benötigt man eine weitere Schicht von Schalteinheiten wie in der Lösung dieser Aufgabe. Erst in den 1980er Jahren hat man das erkannt (z.B. Rumelhart, Hinton \& Williams $1986$) und war dann (später) in der Lage, künstliche neuronale Netze zu programmieren, die ähnlich wie das menschliche Gehirn arbeiten und z. B. Kamerabilder auswerten und Objekte erkennen können.  Die Informatik hat Methoden entwickelt, wie grosse neuronale Netze mit vielen Schichten und Einheiten ihre Berechnungen effizient durchführen können.  Solche Netze bilden die Grundlage vieler aktueller KI-Systeme.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Rumelhart, D. E., Hinton, G. E., \& Williams, R. J. ($1986$). Learning representations by back-propagating errors. Nature, $323$($6088$), 533$-536$ : \href{http://www.cs.toronto.edu/~hinton/absps/naturebp.pdf}{\BrochureUrlText{http://www.cs.toronto.edu/\textasciitilde{}hinton/absps/naturebp.pdf}}
+  \item Perzeptron, Überblick: \href{https://de.wikipedia.org/wiki/Perzeptron}{\BrochureUrlText{https://de.wikipedia.org/wiki/Perzeptron}}
+  \item Tutorial zur Programmierung eines Perzeptrons: \href{https://neuromant.de/2018/11/25/Tutorial_Das-Perzeptron/}{\BrochureUrlText{https://neuromant.de/$2018$/$11$/$25$/Tutorial\_Das-Perzeptron/}}
+  \item Exklusive-Oder (Kontravalenz): \href{https://de.wikipedia.org/wiki/Kontravalenz}{\BrochureUrlText{https://de.wikipedia.org/wiki/Kontravalenz}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchluterM{} % \ifdefined\AuthorSchluterM \BrochureFlag{de}{} Margareta Schlüter\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

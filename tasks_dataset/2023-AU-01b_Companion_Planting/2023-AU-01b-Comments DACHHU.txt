@@ -1,0 +1,9 @@
+SD: Dieser Task wurde im bebras Workshop wirklich viel verbessert! Danke Sarah und Troy ;). Die Implementierung wird etwas komplex. Evtl. könnte man einen Warnmechanismus einbauen wie bei den Bienen letztes Jahr? Hätte die Aufgabe gerne dabei – gibt aber noch einiges zu tun – Aufgabenstellung straffen und noch besser strukturieren. Die Frage auf eine Frage reduzieren ;).
+WP: There are mistakes in the explanation (wrong cell numbers). Would not say „graph“ but „solution space“. Use „neighbour“ instead of „touch“. Constraint satisfaction seems to be the most relevant CS topic.
+NE: I like this task and agree with SD that the implementation will be quite complex
+
+- 2 Bereiche (gut und schlecht) - Paare je auflisten 
+- A und B mergen? oder mehrere Altergruppen je nach Anzahl Objekten
+- B gefällt besser
+
+Frei Pflanzen als einfach Version für 8-10?!

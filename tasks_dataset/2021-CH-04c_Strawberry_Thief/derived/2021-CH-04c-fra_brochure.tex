@@ -1,0 +1,113 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Voleur de fraise}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Anja veut créer une œuvre d’art dans le jardin et a ramassé pour cela différents objets: plusieurs glands, noisettes et cailloux ainsi qu’une fraise. Elle met quelques objets dans l’herbe.
+
+Ensuite, Anja dispose des branches entre ces objets. Elle suit pour cela la règle suivante: une branche ne doit pas se trouver entre deux objets pareils, par exemple entre deux glands. Voici l’œuvre d’art terminée:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-taskbody.svg}\par}
+
+Le frère d’Anja vient et mange la fraise pendant qu’elle n’est pas là.
+
+
+
+% question (as \emph{})
+{\em
+Peux-tu aider le frère d’Anja à dissimuler son méfait?
+
+Place un autre objet à la place de la fraise et enlève exactement une branche. L’œuvre d’art modifiée doit respecter la règle d’Anja.
+
+
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Lorsque l’on remplace la fraise par une noisette, la branche $3$ ne respecte plus la règle d’Anja: elle se trouve entre deux objets pareils, à savoir deux noisettes. Cette branche doit donc être enlevée.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-solution.svg}\par}
+
+Les deux autres remplacements possibles nécessitent d’enlever plus d’une branche:
+
+\begin{itemize}
+  \item Si la fraise est remplacée par un gland, il faut enlever les branches $2$ et $4$.
+  \item Si la fraise est remplacée par un caillou, il faut enlever les branches $1$ et $5$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-explanation-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’œuvre d’Anja peut être représentée par un \emph{graphe}. Un graphe est composé de \emph{nœuds} (les emplacements des objets) et d’\emph{arêtes} (les branches) qui relient deux objets chacune. Les graphes sont des outils polyvalents et sont souvent utilisés lors de la modélisation de problèmes en informatique.
+
+Lorsque deux nœuds sont directement reliés par une arête, ils sont \emph{voisins} l’un de l’autre. Un groupe de nœuds dans lequel chaque nœud est voisin de chaque autre nœuds est appelé une \emph{clique}. Nous avons deux cliques de quatre nœuds dans notre graphe: la moitié gauche et la moitié droite du graphe (la noisette en haut et le point d’interrogation en bas appartiennent aux deux cliques).
+
+La règle d’Anja implique que tous les nœuds d’une clique doivent être occupés par des objets différents. Pour respecter la règle, nous avons donc besoin d’autant d’objets différents qu’il y a de nœuds dans une clique. Nous n’avons cependant plus que trois objets différents une fois que la fraise a été enlevée. Il ne peut donc rester que des cliques comportant au maximum $3$ nœuds si la règle doit être respectée. Il faut donc enlever une arête (une branche) afin de détruire les deux cliques à quatre nœuds.
+
+La règle d’Anja correspond à une règle du problème de \emph{coloration de graphe}: on assigne une couleur à chaque nœud d’un graphe, et les nœuds voisins doivent être de couleurs différentes (les couleurs correspondent ici aux différents types d’objets). Le but est souvent d’utiliser le moins de couleurs possibles. Le problème consistant à colorer un graphe avec le moins de couleurs possibles a beaucoup d’applications. Quelques exemple sont la planification d’une compétition, l’élaboration d’un plan de table et même la résolution d’un sudoku.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+  \item Coloration des arêtes d’un graphe: \href{https://fr.wikipedia.org/wiki/Coloration_des_ar\%C3\%AAtes_d\%27un_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_des\_arêtes\_d’un\_graphe}}
+  \item Clique: \href{https://fr.wikipedia.org/wiki/Clique_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Clique\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

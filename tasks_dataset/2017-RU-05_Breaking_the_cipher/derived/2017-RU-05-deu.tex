@@ -1,0 +1,152 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2017 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2017-RU-05 Zerteile den Code}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2017-RU-05 Zerteile den Code}
+
+
+\subsection*{Body}
+
+In einem speziellen Code für Texte wird jeder Buchstabe durch ein Codewort aus den Ziffern $0$ bis $9$ kodiert.
+Dabei gilt diese Regel: Kein Codewort darf mit dem Codewort eines anderen Buchstabens beginnen.
+
+Der Buchstabe \BrochureInlineCode{X} wird beispielsweise durch $12$ kodiert. Nun kann \BrochureInlineCode{Y} durch $2$ kodiert werden, denn $12$ beginnt nicht mit $2$ (und $2$ nicht mit $12$). Jetzt kann \BrochureInlineCode{Z} durch $11$ kodiert werden; denn weder $12$ noch $2$ beginnen mit $11$ und $11$ beginnt weder mit $12$ noch mit $2$. $21$ wäre jedoch nicht als Codewort für \BrochureInlineCode{Z} erlaubt, weil es mit $2$, also dem Codewort von \BrochureInlineCode{Y} beginnt.
+
+Das Wort \BrochureInlineCode{MEMORY} wird durch die Ziffernfolge $12112233321$ kodiert.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Teile die Ziffernfolge in die Codewörter der einzelnen Buchstaben!
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Bewege den Mauszeiger in die Lücken zwischen den Ziffern. Es erscheint ein <->. Klicke um die Ziffernfolge dort zu trennen. Klicke auf \enquote{Von vorne} um alle Lücken zu entfernen. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Der Code wird angezeigt, mit ausreichend Abstand zwischen den Ziffern.  Geht man mit der Maus in einen solchen Abstand, wird der Mauspointer als \enquote{Trennungssymbol} angezeigt.  Ein Klick führt dann dazu, dass der Abstand zwischen den Ziffern vergrössert wird.  Ein Klick auf einen vergrösserten Abstand macht daraus wieder einen normalen Abstand. Es gibt einen Knopf um wieder von vorne anzufangen.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig: $1$ $21$ $1$ $22$ $33$ 321
+
+Man beginnt links am Anfang der Ziffernfolge. Falls \BrochureInlineCode{M} durch $12$ kodiert würde, hätte \BrochureInlineCode{E} zwangsläufig das Codewort $1$, denn dahinter käme wieder $12$ für das zweite \BrochureInlineCode{M}. Das würde jedoch der Regel widersprechen: Das Codewort für \BrochureInlineCode{M} würde dann mit $1$ beginnen, dem Codewort für E. Längere Anfangsstücke der Ziffernfolge ($121$, $1211$, $12112$ etc.) können auch nicht das Codewort für \BrochureInlineCode{M} sein, weil dieses Codewort zwei Mal vorkommen muss, diese Stücke aber jeweils nur einmal in der Ziffernfolge enthalten sind. Folglich ist das Codewort für \BrochureInlineCode{M} die Ziffer $1$.
+
+Nun muss das Codewort für \BrochureInlineCode{E} folgen - und dahinter wieder das für M, also die $1$.  Somit kann das Codewort für \BrochureInlineCode{E} nur eine der folgenden Ziffernfolgen sein: $2$, $21$ oder $211223332$. Es kann nicht $2$ sein; dann würde das Wort mit MEMM beginnen. Es kann nicht $211223332$ sein; dann wäre das Wort insgesamt nur MEM. Folglich ist das Codewort für \BrochureInlineCode{E} die Ziffernfolge $21$. Nun ist klar, dass $1$ $21$ $1$ die Kodierung für MEM ist.
+
+Der Rest der Ziffernfolge, also $2233321$, kodiert die Buchstaben ORY. Die $2$ alleine kann nicht das Codewort für \BrochureInlineCode{O} sein, sonst hätten wir \BrochureInlineCode{OO} zu Beginn. Das Codewort für \BrochureInlineCode{O} muss also mindestens die $22$ beinhalten. Am Ende wiederum sind $1$ und $21$ schon als Codewörter für \BrochureInlineCode{M} bzw. \BrochureInlineCode{E} vergeben. Das Codewort für \BrochureInlineCode{Y} muss also mindestens die Folge $321$ sein. Zwischen $22$ und $321$ steht $33$. Das muss das Codewort für \BrochureInlineCode{R} sein: Das einzig andere noch möglich Codewort für \BrochureInlineCode{R} wäre $3$. Dann müsste $3321$ das Codewort für \BrochureInlineCode{Y} sein – und würde mit dem Codewort für \BrochureInlineCode{R} beginnen; das ist gegen die Regel. Die Aufteilung des hinteren Teils ist also $22$ $33$ $321$.
+
+
+\subsection*{It’s Informatics}
+
+Der Code, der in dieser Biberaufgabe beschrieben wird, ist ein Beispiel für einen \emph{Präfixcode}. Ein Präfix ist eine Zeichenfolge zu Beginn einer anderen Zeichenfolge. Bei einem Präfixcode darf kein Codewort Präfix eines anderen Codeworts sein. Das heisst: kein Codewort darf mit einem anderen Codewort beginnen.
+
+Bei Präfixcodes haben die Codewörter unterschiedliche Länge. Der Vorteil der Präfix-Regel ist, dass man keine Trennsymbole zwischen Codewörtern benötigt. Man kann immer erkennen, an welcher Stelle das nächste Codewort beginnt. Wenn man kurze Codewörter für häufig vorkommende Buchstaben wählt, kann man Texte sehr effizient kodieren und grosse Textmengen platzsparend speichern.
+
+Die Huffman-Kodierung ist eine Methode, einen optimalen Präfixcode zu finden. Sie ist weit verbreitet und steckt z.B. hinter bekannten Datenformaten wie JPEG und MP3.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Präfixcode: \href{https://de.wikipedia.org/wiki/Pr\%C3\%A4fixcode}{\BrochureUrlText{https://de.wikipedia.org/wiki/Präfixcode}}
+  \item Huffman-Kodierung: \href{https://de.wikipedia.org/wiki/Huffman-Kodierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Huffman-Kodierung}}
+  \item Kryptographie: \href{https://de.wikipedia.org/wiki/Kryptographie}{\BrochureUrlText{https://de.wikipedia.org/wiki/Kryptographie}}
+  \item Kryptoanalyse: \href{https://de.wikipedia.org/wiki/Kryptoanalyse}{\BrochureUrlText{https://de.wikipedia.org/wiki/Kryptoanalyse}}
+\end{itemize}
+
+
+}
+\end{document}

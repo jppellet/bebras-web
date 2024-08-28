@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CH-01 Parapluie}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CH-01 Parapluie}
+
+
+\subsection*{Body}
+
+Voici le parapluie d’Anna:
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-taskbody.svg}}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Une des quatre images montre le parapluie d’Anna. Laquelle?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Clique sur la bonne image.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Chaque motif n’apparaît qu’une seule fois sur le parapluie d’Anna.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-CH-01-explanation-umbrella_numbered_patterns_compatible.svg}\par}
+
+Pour trouver la bonne image, nous comparons chacune des images l’une après l’autre avec le parapluie d’Anna:
+
+\begin{itemize}
+  \item Nous cherchons la position du motif situé tout à gauche du parapluie de la réponse possible sur le parapluie d’Anna,
+  \item Nous vérifions que les motifs voisins soient les mêmes sur le parapluie de la réponse possible que sur le parapluie d’Anna.
+
+\begin{tabular}{ @{} l c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{A)}} & {\setstretch{1.0}\thead[cb]{B)}} & {\setstretch{1.0}\thead[cb]{C)}} & {\setstretch{1.0}\thead[cb]{D)}} \\ 
+\midrule
+  Réponse possible & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-01-D.svg}} \\ 
+  Parapluie d’Anna & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-A.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-B.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-C.svg}} & \makecell[c]{\includesvg[width=64.9px]{\taskGraphicsFolder/graphics/2023-CH-02-explanation-D.svg}}
+\end{tabular}
+
+
+\end{itemize}
+
+Chacune des quatre images montre une suite de seulement cinq motifs et pas tous les dix. Nous ne pouvons pas savoir si la suite de cinq motifs d’une des quatre images correspond à la suite de dix motifs complète du parapluie d’Anna.
+
+L’image C est la seule qui montre un parapluie avec cinq motifs correspondants à ceux présents sur le parapluie d’Anna. Toutes les autres images montrent des suites de motifs qui ne correpondent pas, ou seulement en partie, au parapluie d’Anna. Seule l’image C peut donc montrer le parapluie d’Anna.
+
+
+\subsection*{This is Informatics}
+
+Les réponses possibles ne montrent qu’une partie de la suite de motifs. Même si elles ne contiennt que des \emph{informations partielles}, nous pouvons déterminer laquelle des quatre images montre le parapluie d’Anna: une image ne montre le parapluie d’Anna que si sa suite de motifs correspond exactement à une partie de la suite de motifs du parapluie d’Anna.
+
+Lors d’une recherche dans un document texte, le même principe est appliqué que pour la recherche de motifs sur les parapluies. L’ordinateur recherche des chaînes de caractères correspondant à une information partielle donnée (le mot recherché) dans le document. Une chaîne de caractères est une suite de caractères (par exemple des lettres, des chiffres, des caractères spéciaux). Lors d’une recherche:
+
+\begin{itemize}
+  \item plus le mot recherché est long, moins il y a de correspondances possible dans le texte et plus la chance de trouver l’endroit recherché dans le texte est élevée,
+  \item plus le mot recherché est court, plus il y a de correspondances possible dans le texte et moins la recherche est exacte.
+\end{itemize}
+
+Pour améliorer la recherche et le parcours des données, différentes méthodes de recherche (ou \emph{algorithmes de recherche}) ont été développées. Leur but est d’effectuer une recherche exacte le plus rapidement possible et de générer un résultat adapté. Ces algorithmes de recherche sont sans cesse améliorés et peuvent parcourir d’immenses quantités de données en très peu de temps (les moteurs de recherche sur internet utilisent de tels algorithmes).
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Chaîne de caractères, string: \href{https://fr.wikipedia.org/wiki/Cha\%C3\%AEne_de_caract\%C3\%A8res}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chaîne\_de\_caractères}}
+  \item Algorithme de recherche: \href{https://fr.wikipedia.org/wiki/Algorithme_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_recherche}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

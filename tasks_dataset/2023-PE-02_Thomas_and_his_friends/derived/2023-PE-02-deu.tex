@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-PE-02 Martinas Dorf}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-PE-02 Martinas Dorf}
+
+
+\subsection*{Body}
+
+In Martinas Dorf gibt es sechs Häuser.
+Ausserdem gibt es Wege, über die man von einem Haus zum nächsten gehen kann.
+Für alle diese Wege benötigt Martina die gleiche Zeit.
+
+Martina hat eine besondere Karte des Dorfs gezeichnet.
+Sie hat darin Wege eingezeichnet, über die sie am schnellsten zu den anderen Häusern gehen kann.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-taskbody.svg}\par}
+
+Natürlich gibt es auch eine richtige Karte des Dorfs, mit allen Wegen.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Welche dieser Zeichnungen kann \emph{nicht} die richtige Karte sein?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+leer; bei MC gibt es keine instruction
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c @{} }
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerA.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerB.svg}} \\ 
+  A) & B) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerD.svg}} \\ 
+  C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Antwort C ist richtig: \raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}}
+
+Martinas besondere Karte zeigt, dass sie zu dem Haus ganz rechts am schnellsten über drei Wege gehen kann. Wenn C die richtige Karte des Dorfes wäre, dann könnte Martina schneller zu diesem Haus gehen, nämlich über zwei Wege. Also kann C nicht die richtige Karte des Dorfes sein.
+
+Bei den Karten A, B und D gibt es keine Möglichkeit, schneller zu einem der anderen Häuser zu gehen als über die Wege auf Martina besonderer Karte. Diese Karten könnten also richtige Karten des Dorfs sein.
+
+
+\subsection*{This is Informatics}
+
+Martina ist Informatikerin. Sie hat ihre Karte als \emph{Graph} gezeichnet. Graphen bestehen aus \emph{Knoten} (hier die Häuser), die durch \emph{Kanten} (hier die Wege) verbunden sein können. Sie sind in vielen Bereichen der Informatik geeignet, die Realität zu modellieren –~auch hier in dieser Biberaufgabe.
+
+Martina weiss, dass es für Graphen eine ganze Reihe von Algorithmen gibt, beispielsweise die sogenannte Breitensuche, um Aufgaben zu lösen wie \enquote{Wie kommt man am schnellsten zu einem anderen Haus?}. Vielleicht hat sie ihre besondere Dorfkarte mit Hilfe einer Breitensuche in einem grösseren Graph, der richtigen Karte des Dorfes mit allen Wegen, erstellt.
+
+In der Graphentheorie, die sich mit Graphen und Graph-Algorithmen beschäftigt, entspricht Martinas Karte einem Teilgraph der Gesamtkarte des Dorfes. Martinas Teilgraph hat zwei Besonderheiten:
+
+\begin{itemize}
+  \item Alle Knoten sind direkt (über eine Kante) oder indirekt (über mehreren Kanten) miteinander verbunden.
+  \item Egal welche zwei Knoten man zufällig auswählt, es gibt immer nur genau einen Weg zwischen den beiden.
+\end{itemize}
+
+Ein Graph mit diesen Besonderheiten wird in der Informatik als \emph{Baum} bezeichnet. Martinas Haus stellt die \emph{Wurzel} des Baumes dar. Von der Wurzel aus kann Martina alle anderen Knoten (die anderen Häuser im Dorf) auf einem eindeutigen Weg erreichen.  Martinas Teilgraph ist also ein Baum; ausserdem enthält er alle Knoten des gesamten Graphen (der Gesamtkarte des Dorfes) – aber möglicherweise nicht alle Kanten. Ein Teilgraph mit diesen Eigenschaften wird als \emph{Spannbaum} des gesamten Graphen bezeichnet.
+
+In der Informatik gibt es viele Anwendungen für Graph-Algorithmen, vor allem im Zusammenhang mit Netzwerken (Verkehrsnetze, Telekommunikationsnetze …), etwa bei der Berechnung von Routen in Navigationssystemen.  Spannbäume können beim Aufbau kostengünstiger Netze eingesetzt werden und hilfreich bei der Lösung besonders schwieriger Probleme sein.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Graphentheorie: \href{https://de.wikipedia.org/wiki/Graph_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Graph\_(Graphentheorie)}}
+  \item Baum: \href{https://de.wikipedia.org/wiki/Baum_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Baum\_(Graphentheorie)}}
+  \item Breitensuche: \href{https://de.wikipedia.org/wiki/Breitensuche}{\BrochureUrlText{https://de.wikipedia.org/wiki/Breitensuche}}
+  \item Spannbaum: \href{https://de.wikipedia.org/wiki/Spannbaum}{\BrochureUrlText{https://de.wikipedia.org/wiki/Spannbaum}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

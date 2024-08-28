@@ -1,0 +1,148 @@
+{
+    "id": "2023-LT-01",
+    "title": "Tri par chapeau",
+    "ages": {
+        "0": "--",
+        "1": "easy",
+        "2": "--",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "easy",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (other)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Vaidotas Kinčius, changed by Darija Dasović",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Vaidotas Kinčius",
+                "Darija Dasović"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Valentina Dagienė, valentina.dagiene@mif.vu.lt, Lithuania (author)",
+            "name": "Valentina Dagienė",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "author"
+            ],
+            "email": "valentina.dagiene@mif.vu.lt"
+        },
+        {
+            "src": "Gerald Futschek, gerald.futschek@tuwien.ac.at, Austria (contributor)",
+            "name": "Gerald Futschek",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "gerald.futschek@tuwien.ac.at"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Darija Dasović, darija.dasovic@ucitelji.hr, Croatia (graphics)",
+            "name": "Darija Dasović",
+            "country": "Croatia",
+            "country_code": "HR",
+            "roles": [
+                "graphics"
+            ],
+            "email": "darija.dasovic@ucitelji.hr"
+        },
+        {
+            "src": "Vaidotas Kinčius, vaidotas.kincius@gmail.com, Lithuania (graphics)",
+            "name": "Vaidotas Kinčius",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "graphics"
+            ],
+            "email": "vaidotas.kincius@gmail.com"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (translation from English into German)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Wilfried Baumann, baumann@ocg.at, Austria (contributor)",
+            "name": "Wilfried Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "baumann@ocg.at"
+        },
+        {
+            "src": "Zsuzsa Pluhàr, pluharzs@caesar.elte.hu, Hungary (contributor)",
+            "name": "Zsuzsa Pluhàr",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pluharzs@caesar.elte.hu"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.5
+    },
+    "name": "Sort the beavers by hats",
+    "difficulties": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "LT",
+        "country": "Lithuania",
+        "num": 1
+    }
+}

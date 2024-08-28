@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Championnat Castor}
+\renewcommand{\taskCountry}{KR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Huit castors participent au championnat Castor. Le championnat a trois tours; les castors récoltent des points à chaque tour.
+
+\begin{itemize}
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}: deux équipes de quatre castors chacune sont formées au hasard. Les points de chaque castor de l’équipe sont additionés. L’équipe ayant le plus de points gagne et est qualifée pour le deuxième tour. Les perdants continuent de jouer les uns contre les autres pour les places $5$ à $8$.
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}: ce tour est joué d’après les mêmes règles. Les équipes sont maintenant composées de deux castors et les gagnants sont qualifiés pour la finale. Les perdants jouent l’un contre l’autre pour les places $3$ et $4$.
+  \item Tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}}: la finale! Il n’y a pas d’équipes, mais deux castors qui jouent l’un contre l’autre.
+\end{itemize}
+
+Ada est la gagnante du championnat. La table suivante indique les points gagnés par chaque castor à chaque tour du championnat.
+
+\begin{tabularx}{\columnwidth}{ @{} l C C C C C C C C @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyA.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyB.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyC.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyD.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyE.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyF.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyG.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyH.svg}}} \\ 
+\midrule
+  {\setstretch{1.0}\thead[lb]{Nom}} & {\setstretch{1.0}\thead[cb]{Ada}} & {\setstretch{1.0}\thead[cb]{Brown}} & {\setstretch{1.0}\thead[cb]{Candy}} & {\setstretch{1.0}\thead[cb]{Daisy}} & {\setstretch{1.0}\thead[cb]{Eden}} & {\setstretch{1.0}\thead[cb]{Funny}} & {\setstretch{1.0}\thead[cb]{George}} & {\setstretch{1.0}\thead[cb]{Hugh}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}} & 15 & 16 & 19 & 18 & 17 & 20 & 19 & 19 \\ 
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}} & 20 & 27 & 30 & 24 & 28 & 24 & 30 & 30 \\ 
+  \makecell[l]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}} & 10 & 14 & 11 & 15 & 16 & 13 & 9 & 12
+\end{tabularx}
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-KR-06-question.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quels sont les trois castors qui étaient dans l’équipe d’Ada au premier tour?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Les trois coéquipiers d’Ada au premier tour étaient Daisy \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyD.svg}}, Funny \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyF.svg}} et George \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbodyG.svg}}.
+
+La finale se joue individuellement. George est le seul Castor qui a moins de points qu’Ada au troisième tour. Ils doivent donc avoir joué dans la même équipe au tour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}.
+
+George et Ada ont obtenu $50$ points en tout au deuxième tour. Cette valeur doit être plus grande que le nombre de point total de l’équipe de deux contre laquelle ils ont joué. Les castors Daisy et Funny sont la seule paire de castors dont le nombre de points additionnés est plus petit que $50$. Ils doivent donc avoir joué dans la même équipe qu’Ada et George au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}.
+
+Comme nous savons qui était dans l’équipe d’Ada au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}, nous connaissons aussi la composition de la deuxième équipe de premier tour.
+
+L’équipe (Ada, Dasy, Funny, George) a obtenu $72$ points au premier tour. L’autre équipe (Brown, Candy, Eden, Hugh) n’avait que $71$ points. L’équipe d’Ada a donc gagné.
+
+Au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}}, l’équipe (Ada, George) a obtenu $50$ points, alors que (Daisy, Funny) n’ont atteint que $48$ points. Au tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round3.svg}}, Ada gagne contre George avec $10$ points contre $9$ points pour George. Ada gagne ainsi le championnat.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Pour résoudre cet exercice, on peut former toutes les équipes possibles du premier tour de manière systématique. Si l’on connait une des deux équipes, on connait également la seconde. En tout, il y a ${{7 \choose 3} = 35}$ combinaisons possibles. Pour chacune de ces combinaisons, on doit considérer les résulats du tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round1.svg}}, du tour~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-KR-06-taskbody_round2.svg}} et de la finale avant de pouvoir décider qui étaient le coéquipiers d’Ada au premier tour. Cela prend beaucoup de temps.
+
+Pour résoudre un exerice comme celui-ci, les informaticiennes et informaticiens recherchent des méthodes efficaces. Au lieu de procéder vers l’avant, c’est-à-dire en allant du premier vers le troisième tour, on peut déduire la solution en allant en arrière. Ceci peut aller très vite, comme on l’a montré dans l’explication plus haut.
+
+Cette méthode s’appelle \emph{recherche en arrière}. Elle est utilisée dans des situations où une solution satisfaisant certaines contraintes doit être trouvée. Dans certains cas, une \emph{recherche en avant} et une recherche en arrière sont combinées pour trouver une solution.
+
+La recherche en avant et en arrière sont deux stratégies de résolution de problème générales. Elles sont utilisées pour résoudre des problèemes dans toutes les disciplines, pas seulement en informatique.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Recherche en avant: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Dijkstra}}
+  \item Recherche en arrière: \href{https://fr.wikipedia.org/wiki/Algorithme_A*}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_A*}}
+  \item Recherche bidirectionnelle: \href{https://fr.acervolima.com/recherche-bidirectionnelle/}{\BrochureUrlText{https://fr.acervolima.com/recherche-bidirectionnelle/}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKimD{} % \ifdefined\AuthorKimD \BrochureFlag{kr}{} Dong Yoon Kim\fi
+\def\AuthorYehH{} % \ifdefined\AuthorYehH \BrochureFlag{kr}{} Hongjin Yeh\fi
+\def\AuthorKimJ{} % \ifdefined\AuthorKimJ \BrochureFlag{kr}{} Jihye Kim\fi
+\def\AuthorJeongS{} % \ifdefined\AuthorJeongS \BrochureFlag{kr}{} Sangsu Jeong\fi
+\def\AuthorKimH{} % \ifdefined\AuthorKimH \BrochureFlag{kr}{} Hakin Kim\fi
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CH-03a Table incomplète}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CH-03a Table incomplète}
+
+
+\subsection*{Body}
+
+Les castors utilisent un code secret dans lequel chaque lettre est remplacée par un tout nouveau symbole. La table ci-dessous décrit comment les nouveaux symboles sont assemblés. Malheureusement, la table est incomplète car certaines parties ont été effacées.
+
+{\centering%
+\includesvg[width=296.6px]{\taskGraphicsFolder/graphics/2020-CH-03_taskbody-compatible.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Reconstruis le texte original à partir du cryptogramme suivant (déchiffre le cryptogramme). Laquelle des quatre solutions proposées est-elle juste?
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2020-CH-03a_question_fra-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & INFORMATIQUE MALINE \\ 
+  B) & ELECTRONIQUE MALINE \\ 
+  C) & INFORMATION SECRETE \\ 
+  D) & INFORMEZ EXACTEMENT
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est A), le texte clair est: INFORMATIQUE MALINE.
+
+Voici la table de chiffrage complète:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-03_explanation.svg}\par}
+
+C’est facile de compléter la table. Les lettres de l’alphabet latin sont écrites dans l’ordre, horizontalement et de gauche à droite. On remarque que la partie inférieure des nouveaux symboles correspond à l’intitulé des rangées et la partie supérieure à l’intitulé des colonnes de la table. La seule partie inférieure présente dans le cryptogramme qui manque dans la table est le \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-03a-explanation2.svg}}. C’est donc ce symbole qui est l’intitulé de la première rangée. On peut tout aussi rapidement déterminer les trois symboles manquants dans les colonnes.
+
+Ce n’est cependant pas nécessaire de compléter la table. On peut placer les lettres que l’on peut directement lire dans la table incomplète. On obtient alors le texte à trous suivant:
+
+I N \_ O \_ \_ \_ \_ I \_ \_ \_ \_ \_ L I N \_
+
+Ce texte à trous permet d’éliminer toutes les solutions sauf A): B) ne commence pas par “IN”, C) et D) ne finissent pas par “LIN\_”.
+
+Une autre solution possible est de remarquer que le cryptogramme possède les deux mêmes symboles à son début et en avant-dernière position. La seule solution avec cette même répétition est la solution B).
+
+
+\subsection*{It’s Informatics}
+
+Garder des informations secrètes ou protéger des données est une tâche vielle de $4000$ ans. D’innombrables écritures secrètes ont été développées et utilisées dans ce but. Aujourd’hui, la sécurité des données est l’un des thèmes majeurs de l’informatique. Une des méthodes pour empêcher la lecture non autorisée de données est de les \emph{chiffrer}. Le chiffrement transforme un \emph{texte clair} en \emph{cryptogramme}. La reconstruction du texte clair à partir du cryptogramme s’appelle \emph{déchiffrement}. L’étude des cryptogrammes s’appelle \emph{cryptologie}.
+
+Les cultures antiques utilisaient le plus souvent des écritures secrètes remplaçant des lettres par d’autres lettres ou de tout nouveaux symboles. L’écriture secrète utilisée ici a été développée spécialement pour le Castor Informatique, mais se base sur un concept venant de la Palestine antique. À l’époque, la règle de sécurité était que seules des écriture secrètes faciles à apprendre par cœur pouvaient être utilisées. C’était considéré comme un trop grand risque de garder une description écrite de l’écriture secrète. Une table comme celle utilisée ici est facile à apprendre par cœur. Le célèbre chiffre des francs-maçon se base sur ce principe.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Cryptologie: \href{https://fr.wikipedia.org/wiki/Cryptologie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptologie}}
+  \item Cryptogramme
+  \item Chiffrer
+  \item Déchiffrer
+\end{itemize}
+
+
+}
+\end{document}

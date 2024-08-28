@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-UZ-03 Labyrinthe}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-UZ-03 Labyrinthe}
+
+
+\subsection*{Body}
+
+L’école de magie a deux étages. Les étages sont exactement l’un au dessus de l’autre. Ils sont tous les deux divisés en cases, et il y a des murs entre certaines cases:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-taskbody.svg}\par}
+
+Ron, un élève magicien, a besoin d’une seconde pour passer d’une case à l’autre sans changer d’étage. Malheureusement, Ron a oublié comment passer à travers les murs; mais il peut passer d’une case sur un étage à la même case sur l’autre étage. Cela lui prend cinq secondes.
+
+Ron aimerait aller de la case A à la case B le plus vite possible.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+De combien de secondes au minimum Ron a-t-il besoin?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) $6$ secondes
+
+B) $16$ secondes
+
+C) $18$ secondes
+
+D) $20$ secondes
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La réponse C) $18$ secondes est juste.
+
+Ron peut aller de la case A à la case B en $18$ secondes en suivant le chemin suivant:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-solution.svg}\par}
+
+Mais est-ce le chemin le plus rapide? Les “temps les plus courts” dont Ron a besoin pour passer de la case A à n’importe quelle autre case peuvent être calculés au fur et à mesure comme ceci:
+Le temps le plus court pour arriver à la case A est bien sûr $0$ secondes. Ensuite, on continue étape par étape comme ceci: on choisit entre toutes les cases pour lesquelles un temps le plus court a déjà été calculé celle avec la valeur la plus basse (au départ, on choisit donc la case A). À partir de la case choisie, on considère toutes les cases possibles à l’étape suivante et recherche le chemin le plus rapide pour y arriver; on inscrit les temps calculés dans les cases. C’est possible qu’un temps déjà inscirt plus tôt soit amélioré. La case choisie ne peut ensuite plus être prise en considération; elle ne peut donc pas être choisie aux étapes suivantes.
+
+Voici les temps les plus courts calculés avec cette méthode en partant de la case A:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-explanation-compatible.svg}\par}
+
+Ron a donc en effet besoin d’au moins $18$ secondes pour aller de la case A à la case B. La réponse A, $6$ secondes, serait juste s’il n’y avait pas de mur entre les cases. Si Ron changeait quand même une fois d’étage, le temps serait rallongé de $10$ secondes et on obtiendrait la réponse B, $16$ secondes. S’il n’y avait que l’étage avec les points A et B, $20$ secondes seraient nécessaires, et la réponse D serait juste.
+
+
+\subsection*{It’s Informatics}
+
+Il est souvent nécessaire de calculer les chemins les plus rapides ou les plus courts; la planification d’itinéraire par les applications de navigation modernes en sont un exemple évident. Le problème peut être fortement simplifié si les chemins sont composés d’étapes individuelles entre des points voisins et que le “coût” de ces étapes est connu: coût en temps, argent, consommation d’énergie, quelque soit la dimension importante dans le problème. Dans ce cas, les points, étapes et coûts des étapes peuvent être représentés dans un \emph{graphe}. Beaucoup d’algorithmes permettant de calculer le \emph{plus court chemin} dans un graphe de manière efficace sont connus en informatique. L’un d’entre eux, l’\emph{algorithme de Dijkstra}, décrit par l’informaticien Esdger Dijkstra, a été utilisé dans l’explication de la réponse ci-dessus.
+
+Les plus courts chemins jouent aussi un rôle important dans le développement de circuits pour les ordinateurs. Les composants du circuit doivent être reliés les uns aux autres au moindre coût. Les circuits modernes sont composés de plusieurs niveaux, et une connection entre deux niveaux est plus chère qu’une connection semblabe sur le même niveau – comme le changement d’étage dans cet exercice du Castor est plus cher qu’une étape sur le même étage.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Plus court chemin: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_plus_court_chemin}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_plus\_court\_chemin}}
+  \item Edsger Dijkstra: \href{https://fr.wikipedia.org/wiki/Edsger_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Edsger\_Dijkstra}}
+  \item Algorithme de Dijkstra: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Dijkstra}}
+\end{itemize}
+
+
+}
+\end{document}

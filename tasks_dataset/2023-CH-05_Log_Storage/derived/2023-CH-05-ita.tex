@@ -1,0 +1,163 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CH-05 La Segheria di Timea}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CH-05 La Segheria di Timea}
+
+
+\subsection*{Body}
+
+La castora Timea taglia tronchi di diverse lunghezze e poi li vende.
+Non appena taglia un tronco, lo posa sul sentiero lungo $18$ metri.
+Timea osserva la seguente regola: colloca il tronco nel primo spazio da sinistra nel quale il tronco si inserisce.
+
+Vende alcuni tronchi. Dopo di che, ci sono tre spazi vuoti sul sentiero:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-body2-compatible.svg}\par}
+
+Ora Timea vuole tagliare quattro tronchi di lunghezza pari a $1$, $2$, $3$ e $4$ metri.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+In quale ordine Timea deve tagliare i tronchi per poterli inserire tutti e quattro negli spazi vuoti?
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/interactive/2023-CH-05-question-interactive.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+I tronchi sono trascinabili. Possono essere posizionati nelle $4$ caselle nell’ordine giusto, da sinistra a destra.
+
+\endgroup
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Piazza i tronchi nell’ordine corretto. Al termine, fai clic su \enquote{Salva risposta}.
+
+
+\subsection*{Answer Explanation}
+
+La risposta corretta:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-solution-compatible.svg}\par}
+
+Se Timea taglia i tronchi nell’ordine ($3$ m, $4$ m, $2$ m, $1$ m), tutti si inseriscono nel percorso: per il tronco di $3$ m, la fessura di $3$ m all’estrema sinistra è la prima fessura libera da sinistra in cui il tronco si inserisce; Timea lo colloca lì. Il tronco di $4$ m va poi nella fessura di $6$ m a sinistra. La fessura rimanente di $2$ m è la prima fessura libera da sinistra; il tronco successivo vi si inserisce e Timea colloca l’ultimo tronco nella fessura di $1$ m.
+
+Altre sequenze corrette sono ($3$ m, $2$ m, $4$ m, $1$ m) e ($4$ m, $3$ m, $2$ m, $1$ m).
+
+Tutte le altre sequenze fanno sì che Timea non riesca a posare tutti i tronchi: Il tronco da $1$ m deve essere sempre l’ultimo della fila perché solo questo tronco può riempire l’ultimo spazio libero. Il tronco da $2$ m non deve precedere il tronco da $3$ m, perché altrimenti verrebbe posizionato nello spazio di $3$ m, creando un secondo spazio di $1$ m. Oltre alle tre sequenze citate, non esistono sequenze che soddisfino queste condizioni.
+
+
+\subsection*{This is Informatics}
+
+Questo compito è un caso speciale del problema \emph{dei contenitori}. Nel problema dei contenitori, oggetti di dimensioni diverse devono essere collocati in un certo numero di contenitori, che a loro volta possono avere dimensioni diverse. In questo caso gli oggetti sono i tronchi d’albero, i contenitori gli spazi vuoti del sentiero.
+
+Il problema si presenta in ambiti molto diversi della vita. Alcuni esempi: (a) In un magazzino di mobili, i mobili piccoli e grandi devono essere immagazzinati in modo da risparmiare spazio. (b) Un’azienda di trasporti può risparmiare denaro se ha bisogno di meno camion per trasportare le merci grazie a un imballaggio intelligente. (c) Il sistema operativo di un computer deve memorizzare file di dimensioni diverse sul disco rigido. Quando i file vengono cancellati, sul disco fisso compaiono degli spazi vuoti. Questi spazi vuoti devono essere riempiti in modo da non sprecare spazio di archiviazione, proprio come avviene sul sentiero in questo compito.
+
+In informatica, il problema dei contenitori è considerato uno dei problemi più difficili; soluzioni ottimali garantite possono essere risolte da programmi informatici solo per casi piccoli con pochi oggetti e pochi contenitori. Tuttavia, esistono diversi metodi e strategie che possono essere utilizzati per determinare buone soluzioni al problema dei contenitori. In questo compito, la strategia è data dalla regola di Timea. Essa colloca sempre ogni tronco nel primo spazio da sinistra in cui si inserisce. Questa strategia è chiamata \emph{First Fit}. Dall’esempio di questo compito si può vedere che questa strategia può portare a cattivi risultati: solo se i tronchi vengono posizionati in un certo ordine è possibile riempire il tutto.
+
+
+\subsection*{This is Computational Thinking}
+
+Per risolvere il compito, bisogna valutare le diverse strategie proposte in base alle regole descritte e scoprire quali portano a una possibile soluzione e quali no. In questo modo, si possono ricavare delle regole empiriche che possono aiutare a formulare dei criteri per stabilire se una certa sequenza (o l’inizio di una sequenza) ha maggiori probabilità di successo o rischia di portare a una situazione difficile (ad esempio, creando diversi piccoli frammenti di memoria che probabilmente non potranno essere utilizzati in seguito).
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Gestione della memoria: \href{https://it.wikipedia.org/wiki/Gestione_della_memoria}{\BrochureUrlText{https://it.wikipedia.org/wiki/Gestione\_della\_memoria}}
+  \item Frammentazione: \href{https://it.wikipedia.org/wiki/Frammentazione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Frammentazione\_(informatica)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

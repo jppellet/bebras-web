@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-IN-03b Train de marchandises}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-IN-03b Train de marchandises}
+
+
+\subsection*{Body}
+
+Un train tire des wagons chargés de caisses numérotées. La grue est à une position fixe et décharge les caisses. Pour décharger une caisse, la caisse doit être positionnée directement sous la grue.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-taskbody.svg}\par}
+
+La grue doit décharger les caisses dans l’ordre croissant de leurs numéros en commençant par la caisse $1$. Le train ne peut rouler qu’en avant. Il doit faire un tour complet pour pouvoir décharger d’autres caisses après avoir dépassé la grue.
+
+Voilà comment il décharge les caisses $1$, $2$, $3$ et $4$:
+
+\begin{tabularx}{\columnwidth}{ @{} C C C @{} }
+  {\setstretch{1.0}\thead[cb]{Tour 1:}} & {\setstretch{1.0}\thead[cb]{Tour 2:}} & {\setstretch{1.0}\thead[cb]{Tour 3:}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example1.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example2.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-example3.svg}} \\ 
+  Il saute la caisse $4$, décharge & Il saute la caisse $4$ et & Il décharge la caisse $4$. \\ 
+  la caisse $1$, saute la caisse 3 & décharge la caisse $3$. &  \\ 
+  et décharge la caisse $2$. &  & 
+\end{tabularx}
+
+Le train ci-dessus doit donc faire trois tours pour décharger toutes les caisses dans le bon ordre.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Combien de tours faut-il pour décharger le train suivant?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} l l l @{} }
+  A) $1$ tour & E) $5$ tours & I) $9$ tours \\ 
+  B) $2$ tours & F) $6$ tours & J) $10$ tours \\ 
+  C) $3$ tours & G) $7$ tours &  \\ 
+  D) $4$ tours ${~~~}$ & H) $8$ tours ${~~~}$ & 
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est sept tours.
+
+L’ordre imposé pour décharger est $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$ et $10$. Au premier tour, les caisse $1$ et $2$ sont déchargées ensemble. Au deuxième tour, les caisses $3$ et $4$ sont déchargées ensemble, puis la caisse $5$, puis la $6$, puis les caisses $7$ et $8$ ensemble, puis la $9$ et finalement la $10$. Cela fait sept tours en tout.
+
+Alternativement, on peut utiliser le fait qu’un tour supplémentaire est nécessaire chaque fois que la caisse suivante se trouve à la gauche de la caisse actuelle.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2023-IN-03b-explanation.svg}\par}
+
+Par exemple, comme la caisse $3$ est à gauche de la caisse $2$, elle sera sautée pour décharger la caisse $2$ et nécessitera un tour supplémentaire pour la ramener à la hauteur de la grue. Ici, c’est le cas pour les paires de caisses ($2$,$3$), ($4$,$5$), ($5$,$6$), ($6$,$7$), ($8$,$9$) et ($9$, $10$); il faut donc six tours en plus du premier, ce qui fait sept tours en tout.
+
+
+\subsection*{This is Informatics}
+
+Lorsque, pour n’importe quel numéro de la suite $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$, le numéro suivant se trouve plus à gauche dans le train, on appelle cela une \emph{inversion}. Chaque inversion nécessite un tour supplémentaire. On obtient la réponse de l’exercice en comptant le nombre d’inversions.
+
+Il y a beaucoup d’applications liées au nombre d’inversions présentes dans une suite. Pour certains algorithmes de tri, comme le \emph{tri à bulles}, le nombre d’inversions nous renseigne sur le nombre de permutations nécessaire pour obtenir la suite désirée. Si deux clients classent le même ensemble d’articles par préférence, le nombre d’inversions entre leurs classements nous informe sur leurs préférences communes. C’est utilisé par les magasins en ligne pour identifier des clients “similaires” et recommander des produits.
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithme de tri: \href{https://fr.wikipedia.org/wiki/Algorithme_de_tri}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_tri}}
+  \item Tri à bulles: \href{https://fr.wikipedia.org/wiki/Tri_\%C3\%A0_bulles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tri\_à\_bulles}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

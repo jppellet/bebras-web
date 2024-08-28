@@ -1,0 +1,108 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Terre -- eau}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Edu a un nouveau jeu. Il est fait de cartes avec des zones de terre et d’eau. Edu peut former des paysages avec ses cartes. Les cartes doivent \emph{aller ensemble}: terre contre terre, eau contre eau.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu pose deux cartes et laisse deux trous.
+
+
+
+% question (as \emph{})
+{\em
+Quelles cartes vont dans les trous? Tu n’as pas le droit de tourner les cartes.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Les deux cartes vont dans les trous: il y a partout de la terre contre de la terre et de l’eau contre de l’eau. Seules ces deux cartes vont dans les trous parmi les six cartes.
+
+Si l’on avait le droit de tourner les cartes, d’autres cartes iraient aussi dans les trous.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Regardons les cartes d’Edu plus en détail. Chaque carte peut être divisée en quatre parties. Les bords extérieurs de ces parties montrent de la terre (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}) ou de l’eau (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) .
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Il n’y a donc que deux sortes de parties, car les bords extérieurs montrent soit de l’eau (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}), soit de la terre (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Deux cartes ne vont ensemble que si leurs parties voisines sont les mêmes. Pour trois parties de chaque trou, nous pouvons donc indiquer quelle sorte de partie est nécessaire. La quatrième partie peut être de l’eau ou de la terre, donc nous indiquons \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}.
+
+De cette manière, nous créons un motif pour chaque trou. Les cartes devant aller dans ces trous doivent correspondre à ces motifs: pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, la partie de la carte doit également être \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}; pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}, la partie de la carte peut être \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}.
+
+Nous avons découvert une propriété des cartes. Nous avons utilisé cette propriété pour remplacer les cartes par un arrangement des symboles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Nous avons ainsi réduit largement la quantité d’information présente dans les images. Nous nous concentrons sur les informations qui sont nécessaires à la résolution de cet exercice. Les informaticiens et informaticiennes se référeraient à l’arrangement des symboles sur les images. Le fait de réduire les images aux types de partie \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} crée un modèle des cartes manquantes. L’\emph{abstraction} est nécessaire à la \emph{modélisation}, et l’abstraction réduit la quantité d’information. Les ordinateurs doivent travailler avec des modèles de la réalité. Il faut être attentif à ne pas perdre certaines propriétés importantes de la réalité lors de la création de tels modèles.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Codage: \href{https://fr.wikipedia.org/wiki/Codage_de_l\%27information}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Codage\_de\_l'information}}
+  \item Abstraction: \href{https://fr.wikipedia.org/wiki/Abstraction_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Abstraction\_(informatique)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorCerarS{} % \ifdefined\AuthorCerarS \BrochureFlag{si}{} Špela Cerar\fi
+\def\AuthorHieblerJ{} % \ifdefined\AuthorHieblerJ \BrochureFlag{at}{} Josefine Hiebler\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorCollierG{} % \ifdefined\AuthorCollierG \BrochureFlag{de}{} Gunnar Collier\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

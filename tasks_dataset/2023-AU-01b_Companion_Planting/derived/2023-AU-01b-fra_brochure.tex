@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Jardin potager}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Lisa prépare un jardin potager. Elle veut y cultiver cinq sortes de légumes différentes. Certaines sortes de légumes se supportent bien et sont compatibles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-AU-01-good.svg}}, d’autres sont incompatibles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2023-AU-01-bad.svg}}:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-taskbody.svg}\par}
+
+Lisa a divisé le jardin en domaines hexagonaux. Elle veut planter exactement une sorte de légumes dans chaque domaine.
+
+Lisa a déjà planté des poireaux \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-leek.svg}} dans trois domaines.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-question.svg}\par}
+
+Lisa plante en suivant la règle suivante: les légumes incompatibles ne peuvent pas être plantés dans des domaines qui se touchent.
+
+
+
+% question (as \emph{})
+{\em
+Plante une sorte de légumes dans chaque domaine encore libre en respectant la règle de Lisa.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Comme les petits pois ne sont pas compatibles avec les poireaux, Lisa ne plante pas de petits pois dans les domaines jaunes. Il ne reste que les autres domaines pour le petits pois. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation01.svg}} \\ 
+  Comme les tomates ne sont pas compatibles avec les petits pois, Lisa ne plante pas de tomates dans les domaines jaunes. Elle peut planter des tomates dans les autres domaines, car les tomates et les poireaux sont compatibles. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation02.svg}} \\ 
+  Comme les fenouils ne sont pas compatibles avec les tomates, Lisa ne plante pas de fenouil dans les domaines jaunes. Elle peut planter du fenouil dans les deux domaines entre les poireaux et les petits poids. Lisa peut planter de la salade dans les domaines jaunes, car la salade est compatible avec tous les autres légumes. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-AU-01-explanation03.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Pour planter des légumes afin d’avoir une récolte aussi grande que possible, il faut respecter beaucoup de \emph{conditions}: chaque sorte a des besoins de place, de nutriments et de lumière différents, par exemple. Dans cet exercice du Castor, nous ne considérons qu’une sorte de condition: la compatiblité des différentes sortes de légumes entre elles.
+
+Pour déterminer quoi planter où dans le jardin de Lisa tout en respectant les conditions de compatiblité, on pourrait procéder de la manière suivante: on essaie toutes les combinaisons de légumes de manière systématique. Une fois que le jardin est rempli, on vérifie si les conditions sont remplies et si la combinaison est une solution au problème de Lisa. En informatique, on appelle un telle manière d’essayer toutes les combinaisons possibles une \emph{recherche exhaustive}. Cette méthode peut prendre beaucoup de temps si elle est appliquée à des problèmes ayant beaucoup de combinaisons possibles et peu de solutions.
+
+C’est souvent mieux de procéder étape par étape et de prendre en compte toutes les conditions à chaque étape. C’est ainsi que nous avons trouvé la solution au problème de Lisa, et aucune “fausse” combinaison ou arrangement du jardin n’était possible.
+
+Heureusement, c’était possible de trouver la solution directement: il y avait toujours des domaines dans lesquels nous pouvions planter certains des légumes restants. Ce n’est pas toujours le cas.
+
+Lorsque l’on essaie d’assembler la réponse étape par étape, il peut y avoir plusieurs possibilités de remplir toutes les conditions à une certaine étape A:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-AU-01b-itsinformatics-compatible.svg}\par}
+
+Suivant le choix fait en A, il peut ne plus y avoir de possibilités à une étape suivante B. On revient alors en arrière sur les dernières étapes jusu’à arriver à nouveau à l’étape A offrant plusieurs possibilités. On choisit alors une autre possibilité et essaie de trouver un solution depuis là.
+
+Ce retour en arrière est appelé \emph{retour sur trace} en informatique (\emph{backtracking} en anglais).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Recherche exhaustive: \href{https://fr.wikipedia.org/wiki/Recherche_exhaustive}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Recherche\_exhaustive}}
+  \item Retour sur trace: \href{https://fr.wikipedia.org/wiki/Retour_sur_trace}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Retour\_sur\_trace}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGatesE{} % \ifdefined\AuthorGatesE \BrochureFlag{au}{} Emily Gates\fi
+\def\AuthorKingM{} % \ifdefined\AuthorKingM \BrochureFlag{au}{} Mhairi King\fi
+\def\AuthorRamicE{} % \ifdefined\AuthorRamicE \BrochureFlag{ba}{} Estela Ramić\fi
+\def\AuthorHironM{} % \ifdefined\AuthorHironM \BrochureFlag{fr}{} Mathias Hiron\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorThutM{} % \ifdefined\AuthorThutM \BrochureFlag{ch}{} Marianne Thut\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

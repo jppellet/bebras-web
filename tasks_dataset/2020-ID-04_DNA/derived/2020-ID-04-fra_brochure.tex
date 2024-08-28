@@ -1,0 +1,121 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Séquence ADN}
+\renewcommand{\taskCountry}{ID}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Notre patrimoine génétique est enregistré sous forme de séquences d’ADN. Une séquence d’ADN est essentiellement une suite de bases dont quatre formes existent: A, C, D et T.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-ID-04_taskbody-compatible.svg}\par}
+
+Nous considérons les trois sortes de mutations suivantes:
+
+{\centering%
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Mutation}} & {\setstretch{1.0}\thead[lb]{Description}} & {\setstretch{1.0}\thead[lb]{Exemple}} \\ 
+\midrule
+  Substitution & Une base est remplacée par une autre. & AT\textbf{G}GT \ensuremath{\rightarrow} AT\textbf{A}GT \\ 
+  Délétion & Une base est perdue sans être remplacée. & ATG\textbf{G}T \ensuremath{\rightarrow} ATGT \\ 
+  Insertion & Une base est ajoutée dans une séquence. & ATGGT \ensuremath{\rightarrow} A\textbf{C}TGGT
+\end{tabular}
+
+\par}
+
+
+
+% question (as \emph{})
+{\em
+Il y a exactement une des séquences suivantes qui ne peut \textbf{pas} être générée par trois mutations de la séquence GTATCG. Laquelle est-ce?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & GCAATG \\ 
+  B) & ATTATCCG \\ 
+  C) & GAATGC \\ 
+  D) & GGTAAAC
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est D) GGTAAAC.
+
+La meilleure méthode pour trouver la réponse est de procéder par élimination, étant donné que les trois autres séquences peuvent résulter de trois mutations.
+
+\begin{adjustwidth}{1.5em}{0em}
+Réponse A: GTATCG~\ensuremath{\Rightarrow}~G\textbf{C}ATCG~\ensuremath{\Rightarrow}~GCA\textbf{A}CG~\ensuremath{\Rightarrow}~GCAATG \\
+Réponse B: GTATCG~\ensuremath{\Rightarrow}~\textbf{A}TATCG~\ensuremath{\Rightarrow}~AT\textbf{T}ATCG~\ensuremath{\Rightarrow}~ATTAT\textbf{C}CG \\
+Réponse C: GTATCG~\ensuremath{\Rightarrow}~G\textbf{A}ATCG~\ensuremath{\Rightarrow}~GAAT\textbf{G}G~\ensuremath{\Rightarrow}~GAATG\textbf{C}
+\end{adjustwidth}
+
+En comparaison, il faut quatre mutations pour obtenir la séquence de la réponse D), par exemple celles-ci:
+
+\begin{adjustwidth}{1.5em}{0em}
+GTATCG~\ensuremath{\Rightarrow}~G\textbf{G}TATCG~\ensuremath{\Rightarrow}~GGT\textbf{A}ATCG~\ensuremath{\Rightarrow}~GGTAA\textbf{A}CG~\ensuremath{\Rightarrow}~GGTAAAC
+\end{adjustwidth}
+
+Ce n’est pas facile de prouver que moins de quatre mutations ne sont pas suffisantes.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La représentation d’information à l’aide de \emph{chaînes de caractères} (des séquences de lettres) et leur utilisation est une tâche centrale de l’informatique.
+
+Une question importante est de déterminer quel est le degré de différence entre deux chaînes de caractères. Il existe plusieurs méthodes pour mesurer le degré de différence entre deux chaînes de caractères. Une méthode fréquemment utilisée est la \emph{distance de Levenshtein}, qui est définie à base des trois sortes de mutations décrites plus haut: la distance de Levenshtein entre deux chaînes de caractères est le nombre minimal de mutations permettant de transformer une chaîne en l’autre.
+
+L’algorithme courant utilisé pour calculer la distance de Levenshtein se base sur la \emph{programmation dynamique}: la distance de Levenshtein entre des préfixes toujours plus longs des deux chaînes de caractères sont inscrites dans un tableau jusqu’à ce que les préfixes correspondent aux mots entiers et que l’on puisse lire les résultats dans la table.
+
+Lorsque l’exactitude de l’algorithme est prouvée, on peut calculer que la distance entre la séquence d’origine et celle de la réponse D) est exactement $4$. On a ainsi prouvé que moins de quatre mutations ne suffisent pas.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Distance de Levenshtein: \href{https://fr.wikipedia.org/wiki/Distance_de_Levenshtein}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Levenshtein}}
+  \item \href{https://fr.wikipedia.org/wiki/Cha\%C3\%AEne_de_caract\%C3\%A8res}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chaîne\_de\_caractères}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNataliV{} % \ifdefined\AuthorNataliV \BrochureFlag{id}{} Vania Natali\fi
+\def\AuthorPutraR{} % \ifdefined\AuthorPutraR \BrochureFlag{id}{} Raymond Chandra Putra\fi
+\def\AuthorNatawigenaR{} % \ifdefined\AuthorNatawigenaR \BrochureFlag{id}{} Rana R.~Natawigena\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorVasigaT{} % \ifdefined\AuthorVasigaT \BrochureFlag{ca}{} Troy Vasiga\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

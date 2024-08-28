@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="26.785433mm"
+   height="6.6963267mm"
+   viewBox="0 0 26.785432 6.6963264"
+   version="1.1"
+   id="svg1129"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="2023-AU-05-brick8.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1131"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.64052329"
+     inkscape:cx="-242.77025"
+     inkscape:cy="-200.61722"
+     inkscape:window-width="2048"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1126" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-168.18371,-200.82789)">
+    <g
+       transform="matrix(0.12597262,0,0,0.12597262,45.575689,130.99144)"
+       id="g20"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+      <g
+         id="g18">
+        <path
+           d="m 1026.45,554.378 h -53.159 v 53.157 h 53.159 z m 0,53.157 h 106.31 v -53.157 h -106.31 z m 159.47,-53.157 h -53.16 v 53.157 h 53.16 z"
+           style="fill:#086a93"
+           id="path4" />
+        <g
+           transform="matrix(0.607079,0,0,0.225668,879.443,512.538)"
+           id="g8">
+          <path
+             d="M 419.298,260 417.343,226.994 415.247,260 v 86.241 l 2.026,33.129 2.025,-33.129 z"
+             style="fill:#5ab1d6"
+             id="path6" />
+        </g>
+        <g
+           transform="matrix(0.607079,0,0,0.225668,826.287,512.538)"
+           id="g12">
+          <path
+             d="M 419.298,260 417.343,226.994 415.247,260 v 86.241 l 2.026,33.129 2.025,-33.129 z"
+             style="fill:#5ab1d6"
+             id="path10" />
+        </g>
+        <g
+           transform="matrix(0.607079,0,0,0.225668,773.13,512.538)"
+           id="g16">
+          <path
+             d="M 419.298,260 417.343,226.994 415.247,260 v 86.241 l 2.026,33.129 2.025,-33.129 z"
+             style="fill:#5ab1d6"
+             id="path14" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-06 Terre -- eau}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-06 Terre – eau}
+
+
+\subsection*{Body}
+
+Edu a un nouveau jeu. Il est fait de cartes avec des zones de terre et d’eau. Edu peut former des paysages avec ses cartes. Les cartes doivent \emph{aller ensemble}: terre contre terre, eau contre eau.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-example2.svg}}\par}
+
+Edu pose deux cartes et laisse deux trous.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quelles cartes vont dans les trous? Tu n’as pas le droit de tourner les cartes.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les bonnes cartes dans les trous. Tu ne peux pas tourner les cartes. Clique sur une carte pour l’enlever. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The tiles are all draggables (not the already placed), the gray spaces are containers. You can drag the tiles into the gray spaces. When clicking the tiles spring back to the first postion.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-solution.svg}\par}
+
+Les deux cartes vont dans les trous: il y a partout de la terre contre de la terre et de l’eau contre de l’eau. Seules ces deux cartes vont dans les trous parmi les six cartes.
+
+Si l’on avait le droit de tourner les cartes, d’autres cartes iraient aussi dans les trous.
+
+
+\subsection*{This is Informatics}
+
+Regardons les cartes d’Edu plus en détail. Chaque carte peut être divisée en quatre parties. Les bords extérieurs de ces parties montrent de la terre (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}) ou de l’eau (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}) .
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation01.svg}\par}
+
+Il n’y a donc que deux sortes de parties, car les bords extérieurs montrent soit de l’eau (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}), soit de la terre (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}}).
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation-02CH.svg}\par}
+
+Deux cartes ne vont ensemble que si leurs parties voisines sont les mêmes. Pour trois parties de chaque trou, nous pouvons donc indiquer quelle sorte de partie est nécessaire. La quatrième partie peut être de l’eau ou de la terre, donc nous indiquons \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}.
+
+De cette manière, nous créons un motif pour chaque trou. Les cartes devant aller dans ces trous doivent correspondre à ces motifs: pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}, la partie de la carte doit également être \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}; pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_LW.svg}}, la partie de la carte peut être \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}.
+
+Nous avons découvert une propriété des cartes. Nous avons utilisé cette propriété pour remplacer les cartes par un arrangement des symboles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}}. Nous avons ainsi réduit largement la quantité d’information présente dans les images. Nous nous concentrons sur les informations qui sont nécessaires à la résolution de cet exercice. Les informaticiens et informaticiennes se référeraient à l’arrangement des symboles sur les images. Le fait de réduire les images aux types de partie \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_L.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-DE-06-explanation_W.svg}} crée un modèle des cartes manquantes. L’\emph{abstraction} est nécessaire à la \emph{modélisation}, et l’abstraction réduit la quantité d’information. Les ordinateurs doivent travailler avec des modèles de la réalité. Il faut être attentif à ne pas perdre certaines propriétés importantes de la réalité lors de la création de tels modèles.
+
+
+\subsection*{This is Computational Thinking}
+
+Natürlich, man kann hier ausdrücklich “Abstraktion” erwähnen.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Codage: \href{https://fr.wikipedia.org/wiki/Codage_de_l\%27information}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Codage\_de\_l'information}}
+  \item Abstraction: \href{https://fr.wikipedia.org/wiki/Abstraction_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Abstraction\_(informatique)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Abstraktion
+
+
+\end{document}

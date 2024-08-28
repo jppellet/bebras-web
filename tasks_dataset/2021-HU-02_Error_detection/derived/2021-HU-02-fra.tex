@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-HU-02 Villages isolés}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-HU-02 Villages isolés}
+
+
+\subsection*{Body}
+
+Plusieurs villages de montagne sont approvisionnés par la grande ville grâce au réseau de routes suivant:
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2021-HU-02-taskbody.svg}\par}
+
+Après une tempête, plusieurs de ces villages ne sont plus du tout accessibles et le signalent avec un drapeau “SOS”. On peut en déduire que certaines des routes sont bloquées.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Indique pour chaque route du réseau entre les villages si elle est (1) bloquée \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-HU-02-bad.svg}}, (2) ouverte \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-HU-02-good.svg}} ou (3) si on ne peut pas le savoir sans informations supplémentaires \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-HU-02-unsure.svg}}.
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La carte suivante montre ce que l’on sait sur les connexions dans le réseau routier:
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2021-HU-02-solution-compatible.svg}\par}
+
+Nous commençons par déterminer quelles routes sont bloquées. Les deux routes menant au village E sont bloquées, car le village E serait accessible si ce n’était pas le cas. De même, les trois routes menant au village C sont bloquées, car il serait accessible sinon.
+
+Ensuite, nous cherchons les routes qui doivent être ouvertes. La route entre les villages G et F doit être ouverte, car le village F ne serait pas accessible autrement, la route entre les villages F et E étant bloquée. La route entre l’église H et le village D doit aussi être ouverte, vu que H est accessible et qu’on ne peut y accéder qu’en passant par D.
+
+Il ne reste que les routes qui sont peut-être accessibles. Comme les village B, G et D sont reliés plusieurs fois au village A, on ne peut pas déterminer quelles routes parmis celles qui restent sont ouvertes. On pourrait par exemple accéder au village B par le village A, mais aussi par le village G. C’est la même chose pour le village D. On peut accéder on village G par le village B ou par le village D. N’importe laquelle des routes dans le circuit A - B - G - D - A pourrait donc être fermée et les quatre villages resteraient accessibles.
+
+
+\subsection*{It’s Informatics}
+
+Comme dans les réseaux routiers, il peut aussi il y avoir des connexions fautives, surchargées ou défectueuses dans les réseaux informatiques. Pour éviter les pannes, on planifie souvent des mesures de sécurité, comme par exemple plusieurs connexion menant au même endroit. On appelle cela la \emph{redondance}.
+
+La correction de dysfonctionnements d’un système est une tâche que les informaticiens doivent souvent effectuer; pas seulement dans les réseaux informatiques, mais aussi lors de développement de programmes. Pour corriger un problème, il faut identifier sa source exacte; c’est un processus qui se fait en général étape par étape. Certains programmeurs disent que l’on ne peut jamais trouver toutes les erreurs et tous les bugs d’un programme.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Redondance: \href{https://fr.wikipedia.org/wiki/Redondance_(ing\%C3\%A9nierie)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Redondance\_(ingénierie)}}
+  \item Bug: \href{https://fr.wikipedia.org/wiki/Bug_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Bug\_(informatique)}}
+\end{itemize}
+
+
+}
+\end{document}

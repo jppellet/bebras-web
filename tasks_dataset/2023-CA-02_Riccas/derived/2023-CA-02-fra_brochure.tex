@@ -1,0 +1,126 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Riccas}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Évelyne a cinq images de riccas. Elle écrit des phrases qui les décrivent.
+
+\raisebox{-0.5ex}{\includesvg[width=68.5px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca1.svg}}
+\raisebox{-0.5ex}{\includesvg[width=119.1px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca2.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca4.svg}}
+\raisebox{-0.5ex}{\includesvg[width=97.4px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca5.svg}}
+
+Son amie Lydia lui montre une sixième image de ricca:
+
+{\centering%
+\includesvg[width=79.4px]{\taskGraphicsFolder/graphics/2023-CA-02-riccaException.svg}\par}
+
+Évelyne remarque alors qu’une de ses phrases sur les riccas est fausse.
+
+
+
+% question (as \emph{})
+{\em
+Laquelle de ces phrases sur les riccas est fausse?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) Tous les riccas ont des dents.
+
+B) Certains riccas ont des ailes.
+
+C) Les riccas ont soit des cornes, soit trois yeux, mais jamais des cornes \emph{et} trois yeux.
+
+D) Si un ricca a exactement deux bras, alors il a aussi exactement deux jambes.
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La réponse D) est la bonne réponse: \emph{Si un ricca a exactement deux bras, alors il a aussi exactement deux jambes.}
+
+La réponse A) est une affirmation qui doit être vraie pour tous les riccas. Si un seul ricca n’avait pas de dents, l’affirmation serait fausse. Comme tous les riccas qu’Évelyne connaît ont des dents, la phrase de la réponse A) n’est pas forcément fausse.
+
+La réponse B) est une affirmation qui ne doit être vraie que pour certains riccas. Comme un des six riccas qu’Évelyne connaît a des ailes, cette phrase est juste pour les six riccas. Même si aucun des six riccas n’avait d’ailes, ce serait possible que d’autres riccas en aient, et la phrase pourrait quand même être juste. Cette phrase ne serait forcément fausse que si Évelyne connaissait tous les riccas et qu’aucun n’avait d’ailes.
+
+La réponse C) relie deux affirmations avec “soit-soit”. Cette affirmation reliée est vraie lorsqu’exactement une des deux affirmations simples est vraie. C’est le cas pour les six images: quatre riccas ont des cornes mais n’ont pas trois yeux et les deux autres riccas n’ont pas de cornes, mais trois yeux. Pour que la phrase soit fausse, il faudrait qu’il y ait un ricca avec des cornes \emph{et} trois yeux, ou un ricca sans cornes et avec un autre nombre d’yeux que trois. Ce n’est le cas d’aucun des six riccas qu’Évelyne ne connaît; la phrase n’est donc pas forcément fausse.
+
+Il reste la phrase de la réponse D). Elle est formulée à l’aide d’une condition “si-alors”: l’affirmation qui suit le “alors” doit être vraie chaque fois que l’affirmation qui suit le “si” est vraie. La condition “si” est vraie pour tous les six riccas qu’Évelyne connaît: ils ont tous exactement deux bras. Tous les riccas sur les cinq premières images d’Évelyne ont également deux jambes; pour eux, la phrase d’Évelyne est donc juste. Par contre, le ricca sur l’image de Lydia a plus de deux jambes, cinq exactement. Cette phrase est donc forcément fausse.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le nombre d’ailes, de bras, de jambes et d’yeux, et la présence de dents ou de cornes sont des \emph{propriétés} des riccas. Lorsque l’on décrit des riccas, on formule des \emph{affirmations} sur ces propriétés. Cela mène à un \emph{modèle} de ce que sont les riccas.
+
+Les ordinateurs utilisent beaucoup de modèles. Certains sont formulés de manière explicite, comme un modèle des écolières et écoliers sous forme d’une banque de données contenant noms, dates de naissance et adresses. D’autres modèles sont construits par les ordinateurs lorsqu’on leur donne, par exemple, des images à comparer pour entraîner un réseau de neurones.
+
+Les phrases d’Évelyne – donc son modèle des riccas dans cet exercice – sont formulées sous la forme d’\emph{affirmations logiques}. Certaines ont des quantifications (“tous”, “certains”, “il existe”), d’autres utilisent des \emph{opérateurs logiques} (“soit-soit”, “si-alors”). Ces expressions logiques sont \emph{formalisées}: cela veut dire que leur utilisation et signification sont bien définies.
+
+\begin{samepage}
+Cette définition permet de:
+
+\nopagebreak
+
+\begin{itemize}
+  \item relier des affirmations (simples) à l’aide de quantifications et d’opérateurs pour en faire des affirmations complexes,
+  \item dériver la signification des affirmations complexes à partir des affirmations simples.
+\end{itemize}
+
+
+\end{samepage}
+
+Les affirmations logiques sont une méthode répandue pour décrire des modèles en informatique.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Modèle: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A8le}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modèle}}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Apprentissage automatique: \href{https://fr.wikipedia.org/wiki/Apprentissage_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Apprentissage\_automatique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorKhachatryanD{} % \ifdefined\AuthorKhachatryanD \BrochureFlag{am}{} David Khachatryan\fi
+\def\AuthorBilbaoJ{} % \ifdefined\AuthorBilbaoJ \BrochureFlag{es}{} Javier Bilbao\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

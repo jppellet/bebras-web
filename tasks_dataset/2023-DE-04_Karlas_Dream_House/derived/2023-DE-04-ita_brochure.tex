@@ -1,0 +1,96 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{La casa dei sogni di Karla}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Karla ha tre mappe che mostrano esattamente la stessa area. Una mappa mostra le foreste, una i fiumi e una le case della zona. La casa dei sogni di Karla si trova nella foresta e vicino a un fiume.
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Forest-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Rivers-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}} \\ 
+  Mappa delle foreste & Mappa dei fiumi & Mappa delle case
+\end{tabular}
+
+\par}
+
+
+
+% question (as \emph{})
+{\em
+Qual è la casa dei sogni di Karla?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La casa in alto a sinistra della mappa è la casa dei sogni di Karla:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-solution-compatible.svg}\par}
+
+Per trovare la casa dei sogni di Karla, è necessario valutare le informazioni contenute in tutte e tre le mappe. La casa dei sogni deve trovarsi in una zona boscosa e vicino a un fiume. Questo vale solo per la casa in alto a sinistra. Questo è facile da vedere quando le carte vengono messe una sopra l’altra:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/-fra_ita/2023-DE-04-Maps_Overlay-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Quando le informazioni sulle foreste, sui fiumi e sulle case sono presentate su un’unica mappa è facile trovare la casa che si sta cercando.
+
+Un \emph{geoinformation system} (GIS, sistema informativo geografico) riunisce una serie di informazioni spaziali (ad esempio, foreste, strade, confini nazionali, stazioni di servizio, municipi, pianure alluvionali, ecc.). Un GIS serve quindi alla visualizzazione e all’analisi dei cosiddetti \emph{geodati}. Con l’aiuto di un GIS è possibile, ad esempio, per gli addetti al controllo delle catastrofi, compilare informazioni per i piani di evacuazione.
+
+L’uso di più livelli con diverse informazioni sull’immagine è noto anche nei programmi di grafica. Una questione importante è sempre quale livello, con gli oggetti che contiene, è il più alto e quindi viene visualizzato in primo piano. Nell’esempio, la mappa delle case dovrebbe essere il livello superiore, in modo che le case non siano nascoste dalle aree boschive.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item GIS: \href{https://it.wikipedia.org/wiki/Geographic_information_system}{\BrochureUrlText{https://it.wikipedia.org/wiki/Geographic\_information\_system}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorParviainenM{} % \ifdefined\AuthorParviainenM \BrochureFlag{fi}{} Marika Parviainen\fi
+\def\AuthorMatsuzawaY{} % \ifdefined\AuthorMatsuzawaY \BrochureFlag{jp}{} Yoshiaki Matsuzawa\fi
+\def\AuthorJeonH{} % \ifdefined\AuthorJeonH \BrochureFlag{kr}{} Hyun-seok Jeon\fi
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios Omar Choudary\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

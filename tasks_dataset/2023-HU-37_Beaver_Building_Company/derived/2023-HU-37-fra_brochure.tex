@@ -1,0 +1,112 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Chantier castor}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Une hutte de castor est composée de quatre parts qui sont toutes en partie sous l’eau et en partie au-dessus de l’eau.
+
+Lors de la construction d’une hutte, chaque ouvrier travaille soit uniquement sous l’eau \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}}, soit uniquement au-dessus de l’eau \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}}. Chaque part est construite simultanément sous et au-dessus de l’eau. Le tableau montre de combien de temps et d’ouvriers sous et au-dessus de l’eau la société de construction “Castor SA” a besoin pour chaque part de hutte.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Part}} & {\setstretch{1.0}\thead[lb]{Salon \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-living.svg}}}} & {\setstretch{1.0}\thead[lb]{Chambre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}}}} & {\setstretch{1.0}\thead[lb]{Toit \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}}}} & {\setstretch{1.0}\thead[lb]{Barrage \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-dam.svg}}}} \\ 
+\midrule
+  Durée & $4$ jours & $3$ jours & $5$ jours & $8$ jours \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}} & 3 & 5 & 2 & 4 \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}} & 2 & 1 & 2 & 2
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Le toit \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}} ne peut être construit que lorsque la chambre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}} est finie. L’ordre est sans importance pour toutes les autres parts.
+
+Seuls $7$ ouvriers sous l’eau et $5$ ouvriers au-dessus de l’eau sont disponibles pour la construction d’une nouvelle hutte. Ils peuvent également contruire plusieurs parts en même temps. Voici un plan de travail permettant de construire la hutte en $20$ jours:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-fra/2023-HU-37-question-compatible-symbols-fra.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Développe un plan de travail permettant de finir la hutte en le moins de jours possible. Combien de jours faut-il?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est $12$ jours.
+
+Voici un plan permettant de construire la hutte en $12$ jours:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-fra/2023-HU-37-solution-compatible-symbols-fra.svg}\par}
+
+Un tel plan de durée minimale peut être développé en deux étapes:
+
+\begin{enumerate}
+  \item D’abord, la chambre doit être préparée avant le toit. Comme la chambre a besoin de cinq ouvriers sous l’eau, le barrage de $3$ et le salon de $4$, la chambre ne peut pas être construite en même temps que le salon ou le barrage avec $7$ ouvriers sous l’eau en tout. La chambre doit donc être construite en premier et les autres parts ensuite.
+  \item Le barrage et le salon peuvent être construits en même temps après la chambre, ou l’une des deux parts en même que le toit. Il n’est pas possible de construire les trois parts en même temps, parce qu’il faudrait $3$ + $4$ + $2$ = $9$ ouvriers sous l’eau et qu’il n’y en a que sept à disposition. La durée de construction la plus courte peut être atteinte en construisant les deux parties construites le plus rapidement (le toit et le salon) l’une après l’autre et le barrage en même temps.
+\end{enumerate}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+C’est une tâche difficile de planifier le déroulement rapide d’un projet en respectant certaines conditions. Les différentes tâches faisant partie d’un projet dépendent souvent les unes des autres; par exemple, certaines tâches ne pourront être effectuées qu’après la fin d’autre tâches – comme ici pour la construction de la chambre et du toit. De plus, chaque tâche nécessite certaines ressources, comme des travailleurs, du temps et des machines. Il est plus facile de réaliser un plan de projet si ce plan peut bien être représenté. Les diagrammes montrés dans cet exercice du Castor sont une sorte de diagramme de Gantt, diagrammes qui ont été développés par Henry Gantt (1861$-1919$) entre $1910$ et $1915$; des représentations similaires ont été utilisées indépendemment de Gantt à la même période en Allemagne. Ces diagrammes montrent l’utilisation des ressources (ici, des ouvriers) au cours du temps.
+
+On peut développer le plan optimal pour la hutte castor de tête en essayant toutes les possibilités. Cela durerait trop longtemps et serait trop complexe pour de plus grands projets. Dans ces cas-là, des programmes informatiques sont utiles, et le développement d’horaires et de plans (\emph{scheduling} en anglais) est un thème important en informatique. Comme souvent pour les problèmes complexes, des méthodes permettant de développer de bons horaires, mais pas forcément le meilleur horaire possible, ont été développées. Le \emph{scheduling} est aussi utilisé dans la gestion des ordinateurs eux-même et est appelé \emph{ordonnancement}, certaines tâches étant en compétition pour certaines ressources (mémoire, capacité de calcul, accès à des appareils externes comme des imprimantes, réseaux ou disques durs).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ordonnancement: \href{https://fr.wikipedia.org/wiki/Ordonnancement_de_travaux_informatiques}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ordonnancement\_de\_travaux\_informatiques}}
+  \item Diagramme de Gantt: \href{https://fr.wikipedia.org/wiki/Diagramme_de_Gantt}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diagramme\_de\_Gantt}}
+  \item Logiciel de gestion de projets: \href{https://fr.wikipedia.org/wiki/Logiciel_de_gestion_de_projets}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Logiciel\_de\_gestion\_de\_projets}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

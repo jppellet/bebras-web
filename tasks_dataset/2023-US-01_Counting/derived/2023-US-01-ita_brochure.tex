@@ -1,0 +1,128 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Escursioni}
+\renewcommand{\taskCountry}{US}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+A Mia piacciono le vacanze a piedi, in cui soggiorna ogni notte in un posto diverso. Per la sua prossima vacanza, Mia ha una mappa della regione.
+La mappa mostra il punto di partenza di Mia \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}, la sua destinazione \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}} e tutti i luoghi in cui può soggiornare \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-US-01-haus.svg}}.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-question-deu.svg}\par}
+
+Mia ha diviso la regione in sezioni con linee tratteggiate. Può percorrere solo uno o due tratti alla volta in un giorno.
+Ha già messo sulla mappa due diverse passeggiate che può fare:
+
+\begin{itemize}
+  \item L’escursione $1$ prevede tre soggiorni
+  \item L’escursione $2$ prevede quattro soggiorni.
+\end{itemize}
+
+Mia può però fare altre escursioni.
+
+
+
+% question (as \emph{})
+{\em
+Quante escursioni diverse può fare Mia in totale?
+Conta anche le escursioni 1 e 2.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $2$ escursioni
+
+B) $3$ escursioni
+
+C) $4$ escursioni
+
+D) $5$ escursioni
+
+E) $6$ escursioni
+
+F) $7$ escursioni
+
+G) $8$ escursioni
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta è E) $6$ escursioni.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/./graphics/2023-US-01-explanation-deu.svg}\par}
+
+Innanzitutto ci rendiamo conto che Mia deve pernottare a \textbf{B} e \textbf{C} perché la distanza tra questi due luoghi è la massima distanza ($2$) che può percorrere in un solo giorno.  Quindi, per il tragitto da \textbf{B} a \textbf{C}, Mia ha solo un’opzione.
+
+Ora possiamo determinare le possibilità per le altre parti del cammino:  Dal punto di partenza (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}) a \textbf{B}, Mia può percorrerlo tutto d’un fiato o pernottare in \textbf{A} tra un tratto e l’altro; queste sono due possibilità (come nelle escursioni $1$ e $2$). Da \textbf{C} alla destinazione (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}) Mia deve percorrere tre tratti, e può pernottare dopo ogni tratto.  Pertanto, può dividere l’intera camminata in tutte e tre le combinazioni di tratti $1$ e $2$:
+
+\begin{adjustwidth}{1.5em}{0em}
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};  \\
+\textbf{C \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};      \\
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}}.
+\end{adjustwidth}
+
+Quindi il numero totale di tutte le escursioni che Mia può fare è ${2 \times 1 \times 3 = 6}$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+A volte il numero di possibilità per eseguire un determinato compito può essere molto grande.  Ad esempio, esistono circa $14$ milioni di modi per scegliere $6$ numeri diversi da $1$ a $49$.  E ci sono circa mezzo miliardo di modi per scrivere i numeri da $1$ a $12$ in diverse sequenze.  Anche questo richiede al computer un po’ di tempo.
+
+È fortuito che in questo compito non ci sia un soggiorno dopo la terza sezione e che il conteggio di tutte le passeggiate che Mia può fare possa essere diviso in tre parti.  Il problema del conteggio viene scomposto in tre problemi di conteggio più piccoli, per così dire.  In informatica, la tecnica della \emph{scomposizione del problema} è spesso utilizzata nella progettazione di algoritmi.  Questo principio di soluzione è noto anche come \emph{divide et impera}.
+
+Alcuni importanti algoritmi di ordinamento, ad esempio, funzionano secondo questo principio.  Anche la programmazione dinamica, un metodo per la soluzione algoritmica di problemi di ottimizzazione (descritto nel $1957$ da Richard Bellman), si basa su questo principio: se si riconosce che le soluzioni ottimali di un problema sono composte dalle soluzioni ottimali di sottoproblemi, si può usare questo principio per \enquote{iniziare in piccolo}, per così dire:  In primo luogo, le soluzioni dei sottoproblemi più piccoli vengono calcolate direttamente e poi combinate per formare le soluzioni dei successivi sottoproblemi più grandi.  Questa operazione viene ripetuta fino a trovare la soluzione ottimale per il problema completo.  Poiché le soluzioni parziali trovate spesso contribuiscono alle soluzioni di molte parti più grandi, vengono memorizzate per evitare di ripetere calcoli identici.  La programmazione dinamica può anche essere molto utile per contare le possibilità, come in questo problema.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Decomposizione del problema, scomposizione
+  \item Divide et impera: \href{https://it.wikipedia.org/wiki/Divide_et_impera_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Divide\_et\_impera\_(informatica)}}
+  \item Programmazione dinamica: \href{https://it.wikipedia.org/wiki/Programmazione_dinamica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Programmazione\_dinamica}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorStijfA{} % \ifdefined\AuthorStijfA \BrochureFlag{nl}{} Alieke Stijf\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{nl}{} Justina Dauksaite\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorKamperM{} % \ifdefined\AuthorKamperM \BrochureFlag{nl}{} Merel Kämper\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

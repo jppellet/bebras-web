@@ -1,0 +1,98 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Ogham}
+\renewcommand{\taskCountry}{IE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Sue conosce l’antico alfabeto irlandese Ogham.
+Ogni lettera è composta da uno o più tratti disposti su una lunga linea.
+Due lettere consecutive sono separate da uno spazio.
+
+Sue usa l’Ogham come codice.  Codifica quattro parole (i suoi tipi di frutta preferiti in tedesco): \\
+ANANAS, BANANE, MELONE e ORANGE.
+
+
+
+% question (as \emph{})
+{\em
+Quale parola corrisponde a quale codice Ogham?
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-IE-02b-question-deu_compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-IE-02b-explanation-deu_compatible.svg}\par}
+
+Esistono vari modi per determinare l’assegnazione corretta. In ogni caso, però, bisogna scoprire in quale direzione sono scritte le lettere lungo la linea verticale. A questo proposito ci viene in aiuto la parola ANANAS, particolarmente suggestiva. In essa la lettera A ricorre tre volte, con una lettera diversa tra l’una e l’altra.
+
+Solo nel codice Ogham $4$ una lettera ricorre tre volte, e anche lì c’è una lettera in mezzo. Il codice $4$ è quindi l’unico a cui si adatta la parola ANANAS. Questo dimostra che nell’Ogham le parole sono scritte dal basso verso l’alto e che la lettera A, che ricorre tre volte nell’Ogham, è scritta come una linea orizzontale che attraversa la linea verticale.
+
+La lettera A in Ogham ricorre solo due volte nel codice $2$. Anche a causa della codifica di N (cinque linee orizzontali a destra della linea) scoperta da ANANAS e della disposizione delle altre lettere, solo BANANE si adatta a questo codice. ORANGE si adatta solo al codice $1$ perché la lettera A in Ogham si trova esattamente una volta. Ora rimane solo il codice $3$; deve quindi essere la parola Ogham per MELONE e contiene le lettere Ogham E e N scoperte dalle altre parole nei posti appropriati.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+In questo compito, un testo sconosciuto deve essere decodificato o decifrato.  Non si tratta di un compito molto difficile, perché il testo originale è noto. Inoltre, il testo sconosciuto è suddiviso in lettere e parole allo stesso modo del testo noto. Quando si decifra un testo segreto o un testo in una scrittura sconosciuta di cui non si conosce il testo in chiaro, spesso è utile pensare alla frequenza delle lettere e delle parole e su questa base cercare di trovarle nel testo. Alcuni alfabeti e scritture antiche sono stati decifrati in questo modo. Diventa difficile, tuttavia, quando i caratteri del testo sconosciuto non sono così facili da assegnare alle lettere e alle parole della lingua conosciuta, come nel caso dell’Ogham. In questi casi, l’unico modo per aiutarsi è confrontare il testo con testi o scritture note, come in questo compito. Per esempio, i geroglifici egiziani non sono stati decifrati per secoli finché, per caso, è stata trovata una pietra con geroglifici e due scritture conosciute, la Stele di Rosetta. Lo stesso testo è stato trovato tre volte sulla pietra. Era scritto in lingue diverse, ma conteneva sempre gli stessi nomi. In questo modo è stato possibile decifrare elementi essenziali dei geroglifici. Tuttavia, questo non vale per tutte le scritture: I circa $650$ caratteri della cultura Maya non sono ancora stati completamente decifrati, così come le scritture Lineare A e Lineare B della regione mediterranea.
+
+Anche in informatica i caratteri e i testi vengono decodificati, dopo essere stati precedentemente criptati per una trasmissione di dati a prova di intercettazione. Tuttavia, si utilizzano procedure completamente diverse rispetto alla codifica di parole in altre scritture. Codifiche così semplici sono troppo facili da decodificare, specialmente con l’aiuto dei computer, grazie alle considerazioni già citate sulla frequenza delle lettere e delle parole.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Crittografia: \href{https://it.wikipedia.org/wiki/Crittografia}{\BrochureUrlText{https://it.wikipedia.org/wiki/Crittografia}}
+  \item Crittoanalisi: \href{https://it.wikipedia.org/wiki/Crittoanalisi}{\BrochureUrlText{https://it.wikipedia.org/wiki/Crittoanalisi}}
+  \item Alfabeto ogamico: \href{https://it.wikipedia.org/wiki/Alfabeto_ogamico}{\BrochureUrlText{https://it.wikipedia.org/wiki/Alfabeto\_ogamico}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorColreavyE{} % \ifdefined\AuthorColreavyE \BrochureFlag{ie}{} Eimear Colreavy\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorBarichelloL{} % \ifdefined\AuthorBarichelloL \BrochureFlag{br}{} Leonardo Barichello\fi
+\def\AuthorStijfA{} % \ifdefined\AuthorStijfA \BrochureFlag{nl}{} Alieke Stijf\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

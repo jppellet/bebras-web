@@ -1,0 +1,11 @@
+BG: I would swap the word avarage with medium. The example picture should be below of the example, Kids will look at it after the first rule, and they will confused because of the same width values.
+SD: Sehr viel Erklärung notwendig – auch die Lösungsfindung kann sehr lange dauern. Trotzdem ist die Aufgabe interessant zu lösen und hat Informatikbezug. Implementierung: Braucht es evtl. Feedback? Viel Aufwand die Aufgabe richtig gut zu machen. Die Eigenschaften müssen in der Aufgabenstellung schneller ersichtlich sein – vielleicht eine Tabelle?
+WP: OK. DiI ist aber nix, oder?
+
+Text reduzieren!
+
+Ideen aus HU-Aufgabe evtl. benutzen - Quadris
+
+DiI: nur eine Sache rausnehmen
+
+Interaktive Version ist einfacher

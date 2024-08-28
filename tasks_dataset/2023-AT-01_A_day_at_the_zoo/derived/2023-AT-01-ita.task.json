@@ -1,0 +1,142 @@
+{
+    "id": "2023-AT-01",
+    "title": "Divertimento allo zoo",
+    "ages": {
+        "0": "--",
+        "1": "medium",
+        "2": "easy",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "medium",
+        "10-12": "easy",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "2023-AT-01-Comments-DACHHU.txt by Susanne Datzko",
+            "file_pattern": "2023-AT-01-Comments-DACHHU.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "reviews.txt by Susanne Datzko",
+            "file_pattern": "reviews.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Florentina Voboril, florentina.voboril@gmx.at, Austria (author)",
+            "name": "Florentina Voboril",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "author"
+            ],
+            "email": "florentina.voboril@gmx.at"
+        },
+        {
+            "src": "Svetlana Unkovic, svetlana.unkovic@tuwien.ac.at, Austria (author)",
+            "name": "Svetlana Unkovic",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "author"
+            ],
+            "email": "svetlana.unkovic@tuwien.ac.at"
+        },
+        {
+            "src": "Gerald Futschek, gerald.futschek@tuwien.ac.at, Austria (author)",
+            "name": "Gerald Futschek",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "author"
+            ],
+            "email": "gerald.futschek@tuwien.ac.at"
+        },
+        {
+            "src": "Aldrich Ellis Catapang Asuncion, aldrich@noi.ph, Philippines (contributor)",
+            "name": "Aldrich Ellis Catapang Asuncion",
+            "country": "Philippines",
+            "country_code": "PH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "aldrich@noi.ph"
+        },
+        {
+            "src": "Jean-Philippe Pellet, jean-philippe.pellet@hepl.ch, Switzerland (contributor)",
+            "name": "Jean-Philippe Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "jean-philippe.pellet@hepl.ch"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (translation from English into German, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 1.1
+    },
+    "name": "A Day in the Zoo",
+    "difficulties": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "AT",
+        "country": "Austria",
+        "num": 1
+    }
+}

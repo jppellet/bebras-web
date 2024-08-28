@@ -1,0 +1,170 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-NZ-01 Virus}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-NZ-01 Virus}
+
+
+\subsection*{Body}
+
+Deux nœuds d’un réseau informatique ont été infectés par des virus informatique: l’un avec le virus BlueBug \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusBB.svg}}, l’autre avec le virus RedRaptor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusRR.svg}}. Chaque matin, les deux virus se propagent: chaque virus infecte tous les nœuds qui sont directement reliés aux nœuds qu’il a déjà infectés. Lorsqu’un nœud est infecté par les deux virus, il se désactive au bout de quelques heures à cause de la surcharge \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusdeaktiviert.svg}}. Les virus ne peuvent plus se propager depuis les nœuds désactivés les jours suivants.
+
+Tu vois ci-dessous le réseau informatique avec les nœuds et leurs connexions directes. Les deux nœuds infectés au départ sont indiqués. Après quelques jours, tous les nœuds sont infectés ou désactivés.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quels nœuds sont alors désactivés, infectés par BlueBug \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusBB.svg}} ou infectés par RedRaptor \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-NZ-01-virusRR.svg}}?
+Choisis le bon symbole pour chaque nœud.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2022-NZ-01-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur chacun des nœuds du réseau pour choisir le bon symbole. Clique plusieurs fois sur un nœud pour passer de “neutre” à BlueBug, RedRaptor et désactivé. Clique sur “Effacer la réponse” pour enlever tous les symboles.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Tous les nœuds sont infectés ou désactivés après cinq jours. Voici la bonne solution:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-solution.svg}\par}
+
+Cinq nœuds sont infectés après un jour. Les deux nœuds infectés au départ sont désactivés parce qu’ils ont été infectés par les deux virus:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation1.svg}\par}
+
+Quatre nœuds supplémentaires sont infectés au bout de deux jours:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation2.svg}\par}
+
+Après trois jours, deux nœuds supplémentaires sont infectés par les deux virus et donc désactivés. Trois nœuds de plus sont infectés par BlueBug et deux par RedRaptor:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation3.svg}\par}
+
+Après quatre jours, un nouveau nœud est désactivé. BlueBug ne peut plus se propager:
+
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2022-NZ-01-explanation4.svg}\par}
+
+Le dernier nœud est infecté par RedRaptor le cinquième jour.
+
+
+\subsection*{It’s Informatics}
+
+Les virus et autres logiciels malveillants sont une grande menace pour les réseaux informatiques. Ils n’influencent pas uniquement la capacité des ordinateurs touchés, mais ont souvent une \emph{charge utile} qui inflige des dommages supplémentaires. Par exemple, certains virus peuvent lire les données transmises, découvrir des informations sensibles comme des mots de passes et les transmettre à un destinataire. Dans certains cas, les virus peuvent chiffer des données enregistrées sur l’ordinateur touché: si l’utilisateur veut accéder à ses données, il doit d’abord verser de l’argent sur un compte en banque. Parfois, des groupes d’ordinateurs infectés peuvent être contrôlés à distance par des criminels pour attaquer d’autres ordinateurs (\emph{Botnet}).
+
+Habituellement, les créateurs de virus ne cherchent pas à ce que les virus désactivent complètement un ordinateur, car cela empêche la propagation du virus. Cependant, certains virus sont créés spécialement pour le sabotage et la cyberguerre. Ceux-ci peuvent même endommager les ordinateurs infectés durablement.
+
+L’installation des mises à jour de sécurité est importante pour la défense contre les virus. Les logiciels anti-virus peuvent améliorer la sécurité, mais sont déjà inclus dans certains systèmes d’exploitations, ce qui peut les rendre inutiles. Une sauvegarde régulière des données et une attention au comportement du système pour détecter des choses inhabituelles sont cependant indispensables.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Réseau informatique: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9seau_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Réseau\_informatique}}
+  \item Virus: \href{https://fr.wikipedia.org/wiki/Virus_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Virus\_informatique}}
+  \item Charge utile: \href{https://fr.wikipedia.org/wiki/Charge_utile\#Informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Charge\_utile\#Informatique}}
+  \item Botnet: \href{https://fr.wikipedia.org/wiki/Botnet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Botnet}}
+  \item Cyberguerre: \href{https://fr.wikipedia.org/wiki/Cyberguerre}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cyberguerre}}
+\end{itemize}
+
+
+}
+\end{document}

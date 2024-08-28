@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-LT-01 Un, deux, trois, partez, feu!}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-LT-01 Un, deux, trois, partez, feu!}
+
+
+\subsection*{Body}
+
+Deux amis veulent se voir le plus vite possible. Ils peuvent passer d’une case à la case voisine de droite, de gauche, du haut ou du bas.
+
+La traversée d’une case à une autre prend $1$ minute à pied. S’ils arrivent sur une case avec un véhicule, il peuvent l’utiliser. Ils peuvent alors avancer de $2$ cases en $1$ minute à vélo et de $5$ cases en $1$ minute en voiture.
+
+Les changements de direction sont toujours possible. Ils ne peuvent pas traverser les étendues d’eau.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-LT-01-taskbody.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+De combien de minutes au minimum les deux amis ont-ils besoin pour se retrouver sur la même case?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & $1$ minute \\ 
+  B) & $2$ minutes \\ 
+  C) & $3$ minutes \\ 
+  D) & $4$ minutes \\ 
+  E) & $5$ minutes \\ 
+  F) & $6$ minutes
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est $4$. L’image montre un chemin permettant aux deux amis de se retrouver sur la même case en $4$ minutes.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-LT-01-solution.svg}\par}
+
+Maintenant, il faut encore prouver qu’ils ne peuvent pas se retrouver en $3$ minutes.
+Les deux amis sont à $11$ cases de distance l’un de l’autre. En trois minutes, s’ils se déplacent à pied, il ne peuvent se rapprocher que de $6$ cases en tout.
+Si l’un des deux a atteint un vélo et que l’autre va à pied, ils peuvent se rapprocher de $9$ cases, ce qui ne suffit pas non plus. Même s’ils se déplacent les deux à vélo, ils n’y arrivent pas: ils pourraient se rapprocher de $12$ cases en $3$ minutes, mais les deux vélos sont à $13$ cases l’un de l’autre.
+
+Il ne leur reste donc que la possibilité d’utiliser une voiture. En $3$ minutes, la fille peut atteindre une voiture, mais n’aurait plus le temps de l’utiliser. Le garçon ne peut pas atteindre de voiture en $3$ minutes.
+
+
+\subsection*{It’s Informatics}
+
+Comment as-tu résolu l’exercice? As-tu trouvé un chemin rapide par hasard et espéré qu’il n’en existe pas de plus rapide? Ou as-tu essayé beaucoup de chemins différents en te rappelant du plus rapide?
+
+Les programmes informatiques qui ont été développés pour résoudre ce genre de problème travaillent souvent avec une méthode appelée \emph{parcours en largeur}. Dans cet exercice, le parcours en largeur se passe comme cela:
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2021-LT-01-explanation01.svg}} & \begin{enumerate}
+  \item Sélectionne toutes les cases que chacun des deux amis peut atteindre en $1$ minute.
+\end{enumerate}
+
+ \\ 
+  \makecell[l]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2021-LT-01-explanation02.svg}} & \begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Sélectionne toutes les cases qui peuvent être atteinte en (maximum) $1$~minute depuis les cases sélectionnées à l’étape~$1$. Note quel moyen de transport a été utilisé.
+\end{enumerate}
+
+ \\ 
+  \makecell[l]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2021-LT-01-explanation03.svg}} & \begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Sélectionne toutes les cases qui peuvent être atteinte en (maximum) $1$ minute depuis les cases sélectionnées à l’étape~$2$.
+\end{enumerate}
+
+
+\end{tabularx}
+
+Comme les deux régions que tu as sélectionnées ne se chevauchent pas encore, les deux amis ne peuvent pas encore se voir après $3$~minutes.
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2021-LT-01-explanation04.svg}} & \begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Sélectionne toutes les cases qui peuvent être atteinte en (maximum) $1$~minute depuis les cases sélectionnées à l’étape~$3$.
+\end{enumerate}
+
+
+\end{tabularx}
+
+Maintenant, les deux régions se chevauchent sur une case. Elle peut être atteinte en $4$~minutes par la fille en voiture et par le garçon en vélo.
+
+Les systèmes de navigation trouvent le chemin le plus rapide entre deux points. Pour cela, ils font attention à ce que le chemin passe par des routes adaptées, et non pas à travers champs ou par des rivières. Cet exercice ressemble à un problème de navigation, mais ici, ce n’est pas une personne qui doit arriver à un but, mais deux personnes qui doivent arriver à un but commun inconnu au départ.
+
+Comme un ordinateur procède de manière systématique lors d’un parcours en largeur, il peut aussi trouver des solutions qui ne sont pas évidentes. Parfois, un détour par une route avec moins de feux peut être plus rapide que le chemin le plus court entre le départ et l’arrivée. Un voyage en train avec changement peut être plus rapide qu’un voyage direct en bus.
+
+Il existe en informatique plusieurs méthodes pour résoudre des problèmes de ce type. En plus de la méthode de parcours en largeur discutée ici, il existe une méthode appelée \emph{Branch and Bound} (\emph{séparation et évaluation} en français). Le parcours en largeur tient compte de chaque solution partielle obtenue après un certain nombre d’étapes. Avec \emph{Branch and Bound}, les solutions partielles ne menant pas à la solution optimale ne sont plus considérées dans les étapes suivantes.
+
+Lorsqu’un problème devient trop complexe, cela peut durer trop longtemps d’essayer toutes les possibilités pour trouver la meilleure solution, même avec l’ordinateur le plus rapide du monde. En pratique,  il suffit à un système de navigation de trouver un très bon chemin, même si ce n’est pas le meilleur chemin possible — si tu peux atteindre ton but en $78$ minutes, ça ne te fait probablement rien qu’on puisse théoriquement aussi l’atteindre en $77$ minutes.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Parcours en largeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_largeur}}
+  \item Séparation et évaluation: \href{https://fr.wikipedia.org/wiki/S\%C3\%A9paration_et_\%C3\%A9valuation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Séparation\_et\_évaluation}}
+\end{itemize}
+
+
+}
+\end{document}

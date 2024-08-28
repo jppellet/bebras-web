@@ -1,0 +1,167 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CH-04b Sudoku boisé 3\ensuremath{\times}3}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CH-04b Sudoku boisé 3\ensuremath{\times}3}
+
+
+\subsection*{Body}
+
+Les castors plantent des rangées de sapins. Les sapins ont trois hauteurs différentes ($1$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}, $2$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}} et $3$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}}) et il y a exactement un sapin de chaque hauteur sur chaque rangée.
+
+\begin{wrapfigure}{R}{202px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=202px]{\taskGraphicsFolder/graphics/2020-CH-04b_taskbody-compatible.svg}}
+\end{wrapfigure}
+
+Lorsque les castors observent une rangée de sapin depuis l’une de ses extrémités, il ne peuvent \textbf{pas} voir les plus petits sapins qui sont cachés derrière de plus grands sapins.
+
+C’est écrit sur un panneau au bout de chaque rangée combien de sapins l’on peut voir depuis cet endroit-là.
+
+Les castors plantent à présent neuf sapins sur un champ de 3\ensuremath{\times}$3$ cases, comme dans l’exemple à droite.
+
+Pour cela, les règles suivantes s’appliquent:
+
+\begin{itemize}
+  \item dans chaque ligne, il y a exactement un sapin de chaque hauteur;
+  \item dans chaque colonne, il y a exactement un sapin de chaque hauteur;
+  \item les panneaux indiquant le nombre de sapins visibles sont plantés tout autour du champ de 3\ensuremath{\times}$3$ cases.
+\end{itemize}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Écris dans chaque case la hauteur du sapin qui s’y trouve.
+
+{\centering%
+\includesvg[width=384.6px]{\taskGraphicsFolder/graphics/2020-CH-04b_question.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Il y a dans le champ deux panneaux indiquant que l’on peut voir trois sapins depuis leurs positions. On ne peut voir trois sapins dans une rangée que lorsque les sapins sont dans un ordre croissant, donc \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}} depuis cette position. La colonne de gauche et la ligne du haut sont ainsi déterminées:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-04b_solution_step1.svg}\par}
+
+Le panneau avec le $2$ à droite indique que l’on peut voir deux sapins depuis là, il doit donc y avoir un sapin de hauteur $3$ au milieu \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}} et la ligne centrale est ainsi $2$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}}), $3$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}}), $1$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}).
+
+Les cases suivante sont remplies d’après la règle du “sudoku” qui oblige chaque rangée à avoir exactement un sapin de chaque hauteur.
+
+Il doit y avoir un sapin de hauteur $1$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}) au milieu de la ligne du bas, car les deux autres hauteurs de sapin sont déjà présentes dans la colonne du milieu. Il manque un sapin de hauteur $2$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}}) tout en bas à droite pour compléter la rangée.
+
+Voici la solution complète:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-04b_solution.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Cet exercice est centré sur trois compétences fondamentales pour les informaticiennes et informaticiens.
+
+Premièrement, il s’agit de trouver une solution respectant certaines contrainte, ou si nécessaire de corriger une solution proposée.
+
+Deuxièmement, il s’agit de la capacité de reconstruire des objets en se basant sur leur représentation à partir d’informations partielles. Ceci est lié à la génération d’objets (représentation d’objets) à partir d’informations disponibles limitées lorsque leur conformité aux lois est connue. On peut aussi utiliser de tels procédés dans la compression de données.
+
+Troisièmement, on peut utiliser de tels champs d’arbres avec des panneaux pour créer des codes correcteurs. Des erreurs arrivant lors de l’entrée des données ou du transfert d’information peuvent ainsi être automatiquement reconnues ou même corrigées.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Sudoku: \href{https://fr.wikipedia.org/wiki/Sudoku}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sudoku}}
+  \item Détection et correction d’erreurs: \href{https://fr.wikipedia.org/wiki/Code_correcteur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_correcteur}}
+  \item Reconstruction d’objets à partir d’informations partielles
+  \item Vérification de l’exactitude de la représentation de données
+\end{itemize}
+
+
+}
+\end{document}

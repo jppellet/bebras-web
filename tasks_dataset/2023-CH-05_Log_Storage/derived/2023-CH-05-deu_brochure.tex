@@ -1,0 +1,99 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Timeas Sägerei}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Biber Timea schneidet Holzstämme in verschiedenen Längen zu und verkauft sie dann.
+Sobald sie einen Stamm zugeschnitten hat, legt sie ihn auf dem $18$ Meter langen Weg ab.
+Dabei beachtet Timea folgende Regel: Sie legt den Stamm in die erste Lücke von links, in die der Stamm passt.
+
+Sie verkauft einige Stämme. Danach gibt es drei Lücken auf dem Weg:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-body2-compatible.svg}\par}
+
+Nun will Timea vier Stämme zuschneiden, mit Längen von $1$, $2$, $3$ und $4$ Metern.
+
+
+
+% question (as \emph{})
+{\em
+In welcher Reihenfolge muss Timea die Stämme zuschneiden, damit sie alle vier in die Lücken legen kann?
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/interactive/2023-CH-05-question-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-solution-compatible.svg}\par}
+
+Schneidet Timea die Stämme in der Reihenfolge (3\thinspace{}m, 4\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m) zu, passen sie alle auf den Weg: Für den 3\thinspace{}m-Stamm ist die 3\thinspace{}m-Lücke ganz links die erste  freie Lücke von links, in die der Stamm passt; dort legt Timea den Stamm ab. Der 4\thinspace{}m-Stamm kommt dann in die 6\thinspace{}m-Lücke links. Dann ist die verbleibende 2\thinspace{}m-Lücke die erste freie Lücke von links; darein passt der nächste Stamm, und den letzten Stamm legt Timea in die 1\thinspace{}m-Lücke ab.
+
+Weitere richtige Reihenfolgen sind (3\thinspace{}m, 2\thinspace{}m, 4\thinspace{}m, 1\thinspace{}m) und (4\thinspace{}m, 3\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m).
+
+Alle anderen Reihenfolgen führen dazu, dass Timea nicht in der Lage ist alle Baumstämme abzulegen: Der 1\thinspace{}m lange Stamm muss immer als letztes an der Reihe sein, weil nur dieser Stamm den letzten freien Platz ausfüllen kann. Der 2\thinspace{}m-Stamm darf nicht vor dem 3\thinspace{}m-Stamm kommen, weil er sonst in die 3\thinspace{}m-Lücke gelegt würde und dadurch eine zweite 1\thinspace{}m-Lücke entsteht. Ausser den drei genannten Reihenfolgen gibt es keine Reihenfolgen, die diese Bedingungen erfüllen.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Diese Biberaufgabe ist ein Spezialfall des \emph{Behälterproblems} (Englisch auch \emph{bin packing problem}). Beim Behälterproblem müssen Objekte unterschiedlicher Grössen in einer bestimmten Anzahl von Behältern untergebracht werden, die selbst auch wieder unterschiedliche Grössen haben können. Die Objekte sind hier die Baumstämme, die Behälter die Lücken auf dem Weg.
+
+Das Behälterproblem kommt in ganz unterschiedlichen Lebensbereichen vor. Einige Beispiele: (a) In einem Möbellager müssen kleine und grosse Möbel platzsparend untergebracht werden. (b) Eine Spedition kann Geld sparen, wenn sie zum Transport von Gütern durch geschicktes Packen weniger Lastwagen braucht. (c) Das Betriebssystem eines Computers muss Dateien unterschiedlicher Grösse auf der Festplatte speichern. Wenn Dateien gelöscht werden, entstehen Lücken auf der Festplatte. Diese Lücken müssen gefüllt werden, damit kein Speicherplatz verschwendet wird, ganz ähnlich wie auf der Strasse bei dieser Biberaufgabe.
+
+In der Informatik gilt das Behälterproblem als eines der schwersten Probleme; garantiert optimale Lösungen können auch von Computerprogrammen nur für kleine Fälle mit wenigen Objekten und wenigen Behältern gelöst werden. Es gibt aber verschiedene Verfahren und Strategien, mit denen gute Lösungen des Behälterproblems bestimmt werden können. In dieser Biberaufgabe ist die Strategie durch Timeas Regel vorgegeben. Sie legt jeden Baumstamm immer in die erste Lücke von links, in die er passt. Diese Strategie nennt man \emph{First Fit}. Man sieht am Beispiel dieser Aufgabe, dass diese Strategie zu schlechten Ergebnissen führen kann: Nur wenn die Stämme in einer bestimmten Reihenfolge abgelegt werden, können alle Lücken gefüllt werden.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Behälterproblem: \href{https://de.wikipedia.org/wiki/Beh\%C3\%A4lterproblem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Behälterproblem}}, \href{https://lamarr-institute.org/de/blog/bin-packing/}{\BrochureUrlText{https://lamarr-institute.org/de/blog/bin-packing/}}
+  \item Speicherverwaltung: \href{https://de.wikipedia.org/wiki/Speicherverwaltung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Speicherverwaltung}}
+  \item Fragmentierung: \href{https://de.wikipedia.org/wiki/Fragmentierung_(Dateisystem)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Fragmentierung\_(Dateisystem)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+
+\newpage}{}

@@ -1,0 +1,158 @@
+{
+    "id": "2023-NZ-01",
+    "title": "Costruiamo ponti!",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "--",
+        "3": "--",
+        "4": "hard",
+        "5": "medium",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "--",
+        "12-14": "--",
+        "14-16": "hard",
+        "16-19": "medium"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko and James Atlas",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko",
+                "James Atlas"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "James Atlas, james.atlas@canterbury.ac.nz, New Zealand (author, graphics)",
+            "name": "James Atlas",
+            "country": "New Zealand",
+            "country_code": "NZ",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "james.atlas@canterbury.ac.nz"
+        },
+        {
+            "src": "Tracy Henderson, tracy.henderson@canterbury.ac.nz, New Zealand (contributor)",
+            "name": "Tracy Henderson",
+            "country": "New Zealand",
+            "country_code": "NZ",
+            "roles": [
+                "contributor"
+            ],
+            "email": "tracy.henderson@canterbury.ac.nz"
+        },
+        {
+            "src": "Tim Bell, tim.bell@canterbury.ac.nz, New Zealand (contributor)",
+            "name": "Tim Bell",
+            "country": "New Zealand",
+            "country_code": "NZ",
+            "roles": [
+                "contributor"
+            ],
+            "email": "tim.bell@canterbury.ac.nz"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Ahto Truu, ahto.truu@ut.ee, Estonia (contributor)",
+            "name": "Ahto Truu",
+            "country": "Estonia",
+            "country_code": "EE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "ahto.truu@ut.ee"
+        },
+        {
+            "src": "Karima Sayeh, lasmars@yahoo.fr, Algeria (contributor)",
+            "name": "Karima Sayeh",
+            "country": "Algeria",
+            "country_code": "DZ",
+            "roles": [
+                "contributor"
+            ],
+            "email": "lasmars@yahoo.fr"
+        },
+        {
+            "src": "Filiz Kalelioğlu, filizk@baskent.edu.tr, Turkey (contributor)",
+            "name": "Filiz Kalelioğlu",
+            "country": "Turkey",
+            "country_code": "TR",
+            "roles": [
+                "contributor"
+            ],
+            "email": "filizk@baskent.edu.tr"
+        },
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (contributor)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Wilfried Baumann, baumann@ocg.at, Austria (contributor)",
+            "name": "Wilfried Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "baumann@ocg.at"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.2
+    },
+    "name": "BridgeBuilding",
+    "difficulties": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        2
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "NZ",
+        "country": "New Zealand",
+        "num": 1
+    }
+}

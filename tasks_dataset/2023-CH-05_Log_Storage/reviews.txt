@@ -1,0 +1,26 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Willem van der Vegt (svn: vandervegt)
+on 2023-04-11
+Assigned review
+Beautiful task and pictures. 
+Another part of the It's informatics could be the organization of the hard drive, where files are deleted and new are placed, and the role of the file allocation table. 
+An interactive solution part would be possible (put the new logs in order) or an interactive helper could be offered (play with it and deduce the proper order).
+========================================
+By: gates  (svn: gates)
+on 2023-04-19
+Assigned review
+[AGE] Appropriate age levels.
+[IDEA] Overall, this is a good Bebras task. The question may be more engaging/challenging in a drag and drop format, as it is fairly easy to determine the answer from the given options at present.
+[TEXT] Addresses all aspects of the question in a good amount of text, in a logical fashion.
+[EXPL] Thoroughly explains each of the answers, excellent.
+[TiI Could use some editing for clarity, but otherwise strong.
+[TiCT] Succinct.
+[GRAPH] Very charming and appropriate graphics. I particularly appreciate the visual differences between several of the logs.
+========================================
+By: baumann wilfried (svn: baumann)
+on 2023-04-21
+Assigned review
+Nice task for this age group.
+instead of "she places it as far left as she can". Maybe something like: She starts to fill the available space from the left using the first gap big enough ...
+========================================

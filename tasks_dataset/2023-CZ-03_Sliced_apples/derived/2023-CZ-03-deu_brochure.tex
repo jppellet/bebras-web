@@ -1,0 +1,101 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Äpfel halbieren}
+\renewcommand{\taskCountry}{CZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Äpfel kann man in eine obere und untere Hälfte teilen.
+Einige Apfelkerne bleiben in der oberen Hälfte, die anderen in der unteren Hälfte.
+An den Löchern und Kernen sieht man, dass die Hälften zusammen passen:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-taskbody.svg}\par}
+
+Das macht man in Tschechien zu Weihnachten. Gala halbiert vier Äpfel.
+Sie legt die oberen Hälften und die unteren Hälften in zwei Reihen.
+
+
+
+% question (as \emph{})
+{\em
+Welche Apfelhälften passen zusammen? Ordne die Apfelhälften einander zu.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-question-brochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-solution_draglines.svg}\par}
+
+Jeder Apfel hat $5$ Apfelkerne. Zwei zueinander passende Apfelhälften müssen also insgesamt $5$ Kerne haben. Diese Hälften können damit einfach zugeordnet werden:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation1.svg}\par}
+
+Die übrigen vier Hälften sind nicht so einfach zuzuordnen. Die beiden oberen Hälften haben jeweils $3$ Kerne, die beiden unteren Hälften haben jeweils $2$ Kerne.  Deshalb schauen wir uns die Muster der Apfelkerne genauer an.  Denn wenn zwei Hälften zusammen passen, passen auch die Muster zusammen.  Um das zu sehen, kann es aber nötig sein, die Hälften zu drehen.  Dann lassen sich die Hälften so zuordnen wie unten im Bild:  Links hat die obere Hälfte drei Kerne direkt hintereinander und danach zwei Löcher (K-K-K-L-L), die untere Hälfte hat drei Löcher direkt hintereinander und danach zwei Kerne (L-L-L-K-K): die Hälften passen zusammen.  Auch die rechten Hälften passen zusammen:  Das Muster der oberen Hälfte lautet K-L-K-L-K, das Muster der unteren Hälfte L-K-L-K-L.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation-deu-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Bei der Erklärung der richtigen Antwort haben wir gesehen:  Wenn zwei Hälften zusammen passen, passen nicht nur die Anzahlen der Kerne zusammen, sondern auch die Reihenfolgen der Kerne und Löcher (also der leeren Kernfächer).  Für die richtige Zuordnung der Hälften muss man also auch diese Reihenfolgen betrachten.  Es genügt nicht zu wissen, wie viel Kerne in jeder Hälfte sind.
+
+Bei Problemen, die mit Hilfe von Computerprogrammen gelöst werden sollen, stellen sich ähnliche Fragen. Informatikerinnen und Informatiker müssen sich Gedanken machen, wie die Informationen, die das Programm berücksichtigen soll, als Daten beschrieben werden.  Dabei wird oft versucht, es so einfach wie möglich zu machen.  Einfache Programme sind nämlich weniger anfällig für Fehler.  Beim Apfelhälften-Problem in dieser Biberaufgabe schien es zunächst ausreichend zu sein, die Hälften allein durch die Anzahl der Kerne zu beschreiben.  Doch dann wurde klar, dass das nicht in allen Fällen genügt.  Zur Beschreibung der Apfelhälften in einem Computerprogramm muss es also möglich sein, eine Reihenfolge zu beschreiben.  Das geht zum Beispiel mit Hilfe der Datenstruktur \emph{Liste}, die in den meisten Programmiersprachen zur Verfügung steht.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Reihenfolge
+  \item Liste: \href{https://de.wikipedia.org/wiki/Liste_(Datenstruktur)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Liste\_(Datenstruktur)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorBabazadehM{} % \ifdefined\AuthorBabazadehM \BrochureFlag{ch}{} Masiar Babazadeh\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

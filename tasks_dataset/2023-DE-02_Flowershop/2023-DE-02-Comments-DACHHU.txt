@@ -1,0 +1,2 @@
+SD: Implementierung wie beschrieben müsste programmiert werden. Ich würde eher 4 Bouquets zum Auswählen geben und nach dem nicht richtigen fragen. Oder wie z.B. in den Kommentaren von Michael vorgeschlagen.
+WP: Gute einfache „Programmier-Aufgabe“. Vgl. CZ-02?

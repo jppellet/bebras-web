@@ -1,0 +1,185 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-PK-02 Piles de troncs d'arbres}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-PK-02 Piles de troncs d’arbres}
+
+
+\subsection*{Body}
+
+Dans le village des castors, les troncs d’arbres sont répartis dans quatre groupes (A, B, C, D) d’après trois propriétés (le nombre d’anneaux de croissance, le nombre de traces sur l’écorce et le nombre de nœuds dans le bois). Le diagramme de décision montre comment cela se passe.
+
+{\centering%
+\includesvg[width=396.9px]{\taskGraphicsFolder/graphics/2020-PK-02_taskbody1-compatible.svg}\par}
+
+\begin{wrapfigure}{R}{144.3px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-PK-02_taskbody2-fra-compatible.svg}}
+\end{wrapfigure}
+
+Par exemple, ce tronc-ci est posé sur la pile~D en raison des décisions suivantes:
+
+\begin{itemize}
+  \item Ali voit trois anneaux de croissance et donne le tronc à Bob;
+  \item Bob voit trois traces sur l’écorce et donne le tronc à Conni;
+  \item Conni voit deux nœuds dans le bois et pose le tronc sur la pile~D.
+\end{itemize}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Sur quelle pile ce tronc va-t-il être posé?
+
+{\centering%
+\includesvg[width=49.8px]{\taskGraphicsFolder/graphics/2020-PK-02_question-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & Pile~A \\ 
+  B) & Pile~B \\ 
+  C) & Pile~C \\ 
+  D) & Pile~D
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est la pile~C, car Ali voit deux anneaux de croissance et donne le tronc à Bea. Bea voit trois traces sur l’écorce et transmets le tronc à Chloé. Chloé voit un nœud dans le bois et pose le tronc sur la pile~C.
+
+Si l’on veut, on peut déterminer quels troncs correspondent à chaque pile. Il y a deux types de troncs sur chaque pile.
+
+Sur la pile \textbf{A}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $2$ traces sur l’écorce et $1$ nœud dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $2$ traces sur l’écorce et $1$ nœud dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{B}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $2$ traces sur l’écorce et $2$ nœuds dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $2$ traces sur l’écorce et $2$ nœuds dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{C}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $3$ traces sur l’écorce et $1$ nœud dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $3$ traces sur l’écorce et $1$ nœud dans le bois.
+\end{itemize}
+
+Sur la pile \textbf{D}:
+
+\begin{itemize}
+  \item Les troncs avec $2$ anneaux de croissance, $3$ traces sur l’écorce et $2$ nœuds dans le bois.
+  \item Les troncs avec $3$ anneaux de croissance, $3$ traces sur l’écorce et $2$ nœuds dans le bois.
+\end{itemize}
+
+
+\subsection*{It’s Informatics}
+
+Cet exercice touche à plusieurs concepts informatiques.
+
+En premier lieu, le concept des \emph{diagrammes de décision} est traité, diagrammes qui ont des applications très variées en informatique. Ici, on les utilise pour la \emph{classification} d’objects dans certaines catégories (très souvent, on utilise des arbres de décision, une forme spéciale de diagrammes de décision. Le diagramme de décision de l’exercice n’est pas un arbre de décision, car deux groupes sont posés sur la même pile au dernier niveau du diagramme).
+
+On peut aussi voir le diagramme de décision de cet exercice comme la représentation abstraite des valeurs d’une fonction à plusieurs variables. La terminologie exacte en informatique est \emph{diagramme de décision binaire}.
+
+De plus, on aborde ici le concept des \emph{attributs} (caractéristiques ou propriétés) d’objets. Dans cet exemple, les objects ont trois attributs (anneaux de croissance, trace sur l’écorce, nœuds dans le bois), et chaque attribut a deux valeurs possible (deux ou trois anneaux ou traces et un ou deux nœud[s]).
+
+Il y a beaucoup d’applications possibles pour de tel diagramme de décision. L’une d’entre elles est la classification de paquets envoyés sur un réseau (par des routeurs ou des commutateurs réseau).
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Arbre de décision: \href{https://fr.wikipedia.org/wiki/Arbre_de_d\%C3\%A9cision}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_de\_décision}}
+  \item Classification: \href{https://fr.wikipedia.org/wiki/Classement_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Classement\_automatique}}
+\end{itemize}
+
+
+}
+\end{document}

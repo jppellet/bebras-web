@@ -1,0 +1,184 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CA-01 L'albero magico}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CA-01 L’albero magico}
+
+
+\subsection*{Body}
+
+Ben ha un albero di mele speciale in giardino:
+
+\begin{itemize}
+  \item Se un uccello \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}} atterra sull’albero, crescono immediatamente due nuove mele.
+  \item Se uno scoiattolo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}} si arrampica sull’albero, cade una mela. Se non c’è nessuna mela appesa all’albero, non succede nulla.
+  \item Se un serpente \raisebox{-0.5ex}{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}} visita l’albero, tutte le mele scompaiono immediatamente.
+\end{itemize}
+
+Questa mattina ci sono $25$ mele appese all’albero. Poi alcuni animali visitano l’albero uno dopo l’altro, per ultimo uno scoiattolo. Ben ha scritto esattamente il loro ordine:
+
+{\centering%
+\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-taskbody.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quante mele sono rimaste appese all’albero?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) $3$ mele
+
+B) $7$ mele
+
+C) $17$ mele
+
+D) $31$ mele
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta B è corretta. Dopo che l’ultimo scoiattolo si è arrampicato sull’albero, ci sono ancora $7$ mele appese all’albero.
+
+È possibile calcolare per ogni visita animale quante mele sono appese all’albero in quel momento:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Inizio}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & +2 & +2 & –1 & +2 & reset \\ 
+  \textbf{Mele:} & 25 & 27 & 29 & 28 & 30 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Riporto}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & – & – & +2 & +2 & +2 & –1 & +2 & reset \\ 
+  \textbf{Mele:} & 0 & 0 & 0 & 2 & 4 & 6 & 5 & 7 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Riporto}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & +2 & +2 & +2 & +2 & –1 \\ 
+  \textbf{Mele:} & 0 & 2 & 4 & 6 & 8 & \textbf{7}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Poiché tutte le mele scompaiono immediatamente quando un serpente visita l’albero, possiamo ignorare tutto ciò che accade prima dell’arrivo del secondo (e ultimo) serpente. Come mostrato nella tabella, quattro uccelli atterrano sull’albero dopo la visita dell’ultimo serpente. Successivamente, ci sono ${4 \times 2 = 8}$ mele appese all’albero. Poi uno scoiattolo si arrampica sull’albero e fa cadere una mela, lasciando ${8 - 1 = 7}$ mele.
+
+
+\subsection*{This is Informatics}
+
+La visita di un animale cambia le condizioni dello speciale albero di mele, ma solo in un modo molto specifico: cambia solo il numero di mele appese all’albero. La visita di un animale non ha alcuna influenza su altre proprietà dell’albero, come il numero di foglie, la lunghezza dei singoli rami o la forma della chioma. Per questo compito è quindi sufficiente osservare il numero di mele.
+
+Anche un programma per computer ha uno stato che viene modificato dalle singole istruzioni del programma. I dati memorizzati da un programma sono solitamente considerati lo stato; il programma memorizza questi dati nelle \emph{variabili} introdotte durante la programmazione.
+
+La sequenza di visite degli animali all’albero in questo compito del castoro è come un programma per computer: ogni visita degli animali è un’istruzione che cambia lo stato dell’albero di mele. Questo stato - cioè il numero di mele, vedi sopra - può essere memorizzato in un’unica variabile.
+
+Durante la risoluzione del compito, avrete notato che non avete dovuto esaminare l’intero \enquote{programma}, ma solo la parte successiva all’ultima occorrenza del serpente. Osservando da vicino gli effetti delle singole istruzioni sullo stato del programma, siete riusciti a scoprire una proprietà speciale del programma. Questa analisi dei programmi (informatici) è una delle attività più frequenti degli informatici.
+
+
+\subsection*{This is Computational Thinking}
+
+The solution of the task requires algorithmic thinking.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Variabile: \href{https://it.wikipedia.org/wiki/Variabile_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Variabile\_(informatica)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Astrazione: \href{https://it.wikipedia.org/wiki/Astrazione_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Astrazione\_(informatica)}}
+  \item Algoritmo: \href{https://it.wikipedia.org/wiki/Algoritmo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo}}
+\end{itemize}
+
+
+\end{document}

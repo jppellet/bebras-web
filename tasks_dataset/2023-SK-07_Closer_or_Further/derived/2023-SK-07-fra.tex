@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-SK-07 Chaud ou froid}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-SK-07 Chaud ou froid}
+
+
+\subsection*{Body}
+
+Nina et Daniel jouent à la chasse au trésor. Dans sa tête, Nina choisit une case sur une planche de jeu à cases carrées. C’est là que le trésor est caché.
+
+Daniel choisit une case de départ. En partant de là, son pion \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-SK-07-Daniel.svg}} avance pas à pas d’une case vers la gauche, la droite, le haut ou le bas.
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example1.svg}} & Pour commencer, Nina et Daniel prennent un petit plateau. Nina cache le trésor sur la case avec l’étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07_stern.svg}}. Daniel commence en haut à droite et fait deux pas en suivant les flèches. Après chaque pas, Nina lui dit s’il est plus près \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-SK-07-warmer.svg}} ou plus loin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07-colder.svg}} du trésor qu’avant. \\ 
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example3.svg}} & Cette image montre la distance entre Daniel et le trésor pour ces trois cases. Cette distance est le nombre minimal de pas qui pourraient amener le pion de Daniel au trésor.
+\end{tabularx}
+
+Ils prennent maintenant une plus grande planche de jeu. Nina cache le trésor sur une des cases bleues. L’image montre les pas de Daniel et ce que Nina dit après chaque pas.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Où se cache le trésor?
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-question_symbols.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Clique sur la bonne case. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+click-to-select-one:  Man kann nur auf die fünf gelben Quadrate klicken. Es wird genau eines ausgewählt.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-solution_compatible.svg}\par}
+
+Nous suivons le chemin de Daniel et les indications de Nina. Daniel commence sur la ligne $1$ de la planche de jeu. Après le premier pas, il est sur la ligne $2$ et est plus près du trésor que sur la ligne $1$. Après le pas suivant, il est sur la ligne $3$ et à nouveau plus loin du trésor que sur la ligne $2$. Comme il est resté sur la même colonne, le trésor doit se trouver sur une case de la ligne $2$. En effet, quelle que soit la colonne sur laquelle le trésor est caché, on a le chemin le plus court depuis une autre colonne en partant de la même ligne que le trésor.
+
+Mais sur quelle colonne le trésor est-il caché? En continuant son chemin jusqu’à la ligne $4$, Daniel arrive plus près après quelques pas vers la gauche; il est plus près du trésor sur la colonne $3$ que sur la colonne $4$. Mais après le dernier pas sur la ligne $4$, Daniel est de nouveau plus loin du trésor sur la colonne $2$ que sur la colonne $3$. Le trésor doit donc être sur une case de la colonne $3$, car ce qui vaut pour les lignes vaut aussi pour les colonnes: le chemin le plus court part de la même colonne que celle où se trouve le trésor.
+
+
+\subsection*{This is Informatics}
+
+Daniel se déplace (avec son pion) sur la planche de jeu. Nina mesure la distance entre chaque case sur laquelle il se trouve et le trésor et utilise cela pour son feeback. Habituellement, on utilise la longueur de la ligne droite reliant deux points comme mesure de la distance entre eux (\emph{distance euclidienne}). Cependant, les deux cases ne sont pas des points. C’est pour cela que Nina utilise le nombre de pas minimal que Daniel devrait faire pour atteindre le trésor comme distance. Cette \emph{mesure} peut être appliquée aux grilles et est connue sous le nom de \emph{distance de Manhattan} en informatique, d’après la forme de grille du plan de Manhattan, à New York.
+
+Les informaticiennes et informaticiens choisissent le type de mesure de la distance entre deux objets en fonction de la question à laquelle ils veulent répondre. Par exemple, si l’on veut mesurer la distance entre deux mots de même taille d’un langage naturel, on peut compter le nombre de positions auxquelles les mots diffèrent; il s’agit alors de la \emph{distance de Hamming}. Si les mots sont de tailles différentes, on peut utiliser la \emph{distance de Levenshtein}. En informatique, les distances jouent souvent un rôle dans la recherche de solutions optimales: qu’importe si la solution du problème doit être la plus rapide, la plus courte ou la moins chère, il suffit souvent de changer la mesure de distance (durée, longueur ou coût) sans rien changer à l’algorithme.
+
+
+\subsection*{This is Computational Thinking}
+
+Um diese Aufgabe zu bewältigen, überlegen wir uns zunächst eine verständliche und systematische Strategie. Mithilfe dieser Strategie können wir anschliessend die Navigation durch das Gitter vornehmen und die Hinweise für die Schatzsuche interpretieren. Systematik und Verständlichkeit sind wesentliche Zutaten guter Algorithmen und algorithmisch denkende Problemlöser. ((dieses finde ich zu allgemein und fast zu trivial)–> Es ist sehr allgemein - stimme zu. Wir füllen This is Computational Thinking nicht, in diesem Sinne würde ich es nicht entfernen)
+
+Die Interpretation der Hinweise “N” und “W” helfen uns den Suchraum des Problems schrittweise zu verkleinen. Dieser Ansatz entspricht einer allgemeinen Methode, um Probleme zu lösen, die als \emph{Teile und Herrsche} bekannt ist. In unserem konkreten Fall signalisiert “W”, dass wir uns im vorhergehenden Schritt vom Standort des Schatzes entfernt haben. Unter der verbleibenden potentiellen Standorten gibt es möglicherweise welche, die uns nun näher liegen als zuvor. Diese können als Standort des Schatzes ausgeschlossen werden. Die nun verbleibenden potentiellen Standorte werden mithilfe des nächsten Hinweises untersucht, bis am Ende ein Standort übrig bleibt, der dann unsere Lösung ist.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Distance de Manhattan: \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Manhattan}}
+  \item Distance de Hamming: \href{https://fr.wikipedia.org/wiki/Distance_de_Hamming}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Hamming}}
+  \item Distance de Levenshtein: \href{https://fr.wikipedia.org/wiki/Distance_de_Levenshtein}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Levenshtein}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithmus
+\end{itemize}
+
+
+\end{document}

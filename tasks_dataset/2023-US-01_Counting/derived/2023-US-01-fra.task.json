@@ -1,0 +1,161 @@
+{
+    "id": "2023-US-01",
+    "title": "Randonnée",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "bonus",
+        "3": "hard",
+        "4": "medium",
+        "5": "easy",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "bonus",
+        "12-14": "hard",
+        "14-16": "medium",
+        "16-19": "easy"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Eljakim Schrijvers and Kyra Willekes and Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Eljakim Schrijvers",
+                "Kyra Willekes",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Eljakim Schrijvers, eljakim@gmail.com, USA (author, graphics)",
+            "name": "Eljakim Schrijvers",
+            "country": "USA",
+            "country_code": "US",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "eljakim@gmail.com"
+        },
+        {
+            "src": "Alieke Stijf, astijf@eljakim.nl, Netherlands (author)",
+            "name": "Alieke Stijf",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "roles": [
+                "author"
+            ],
+            "email": "astijf@eljakim.nl"
+        },
+        {
+            "src": "Justina Dauksaite, justina@cuttle.org, Netherlands (author)",
+            "name": "Justina Dauksaite",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "roles": [
+                "author"
+            ],
+            "email": "justina@cuttle.org"
+        },
+        {
+            "src": "Kyra Willekes, kyra@cuttle.org, Netherlands (graphics)",
+            "name": "Kyra Willekes",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "roles": [
+                "graphics"
+            ],
+            "email": "kyra@cuttle.org"
+        },
+        {
+            "src": "Merel Kämper, mkamper@eljakim.nl, Netherlands (author)",
+            "name": "Merel Kämper",
+            "country": "Netherlands",
+            "country_code": "NL",
+            "roles": [
+                "author"
+            ],
+            "email": "mkamper@eljakim.nl"
+        },
+        {
+            "src": "Chris Roffey, chris@codingclub.co.uk, United Kingdom (contributor)",
+            "name": "Chris Roffey",
+            "country": "United Kingdom",
+            "country_code": "UK",
+            "roles": [
+                "contributor"
+            ],
+            "email": "chris@codingclub.co.uk"
+        },
+        {
+            "src": "Zsuzsa Pluhár, pluharzs@ik.elte.hu, Hungary (translation from English into German)",
+            "name": "Zsuzsa Pluhár",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "pluharzs@ik.elte.hu"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (contributor, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.3
+    },
+    "name": "Counting",
+    "difficulties": [
+        0,
+        0,
+        4,
+        3,
+        2,
+        1
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "US",
+        "country": "USA",
+        "num": 1
+    }
+}

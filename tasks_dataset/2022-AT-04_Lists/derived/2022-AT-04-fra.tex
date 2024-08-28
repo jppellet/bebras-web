@@ -1,0 +1,165 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-AT-04 Séquences}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-AT-04 Séquences}
+
+
+\subsection*{Body}
+
+Tu vois ici une séquence de chiffres appelée X. Les chiffres $5$,~$4$,~$3$,~$2$,~$1$ occupent les positions $1$~à~$5$~de la séquence~X.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-AT-04-taskbody1.svg}\par}
+
+Le chiffre occupant une certaine position d’une séquence est désigné en utilisant le nom de la séquence et le numéro de la position entre parenthèses. Par exemple, le chiffre en deuxième position de la séquence X est désigné par (X~$2$). Actuellement, (X~$2$)~=~$3$.
+
+Un chiffre désigné ainsi peut lui-même être une position, par exemple (X~(X~$2$))~=~(X~$3$)~=~$2$.
+
+Voici trois autres séquences: A,~B~et~C.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-AT-04-taskbody2.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quel est le chiffre désigné par (A~(B~(C~3)))?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) 1
+
+B) 2
+
+C) 3
+
+D) 4
+
+E) 5
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est D) $4$.
+
+La désignation (A~(B~(C~$3$))) décrit le chiffre de la séquence A en position (B~(C~$3$)); la position du chiffre est donc en position (C~$3$) dans la séquence B, position qui est elle-même en position $3$~de la séquence C. C’est compliqué.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-AT-04-explanation-compatible.svg}\par}
+
+C’est plus facile de considérer la désignation “de l’intérieur vers l’extérieur”, comme une expression arithmétique, et de procéder comme montré dans la description de l’exercice: (A~(B~(C~$3$))) = (A~(B~$4$))~=~(A~$3$)~=~$4$.
+
+
+\subsection*{It’s Informatics}
+
+Il n’y a pas si longtemps que le travail des ordinateurs était qualifié de \emph{traitement de données}, et pour cause: les ordinateurs traitent toute sortes de données comme des nombres, des textes, des images, des sons, et ainsi de suite. La plupart des données intéressantes enregistrées dans des ordinateurs sont complexes et structurées: les températures mesurées au cours da la journée par une station météorologique, par exemple, peuvent être représentées comme des paires de nombres composées chacune de l’heure de la mesure et de la température mesurée. Il y a dans ce cas une structure par paire et une structure par séquence.
+
+Les données peuvent avoir beaucoup de structures différentes, et les informaticiennes et informaticiens ont développé beaucoup de \emph{structures de données} différentes afin de pouvoir enregistrer des données de manière pratique, et, ce qui est tout aussi important, y accéder de manière efficace. Un \emph{tableau} est une structure de données simple qui est au centre de cet exercice. Dans un tableau, un nombre fixe de données (par exemple des chiffres) peut être enregistré dans des positions adjacentes. Ces positions donnent aux données du tableau une structure séquentielle – ce qui serait donc adapté aux paires température/heure mentionnées plus haut. Les tableaux font partie des structures de données \emph{statiques} à cause de leur taille fixe. Il existe aussi des structures de données \emph{dynamiques} pour les séquences, comme les \emph{listes}, dont la taille peut être changée selon les besoins.
+
+Qu’elles soient statiques ou dynamiques, si une structure de données séquentielle contient des chiffres, ces chiffres peuvent indiquer des positions dans cette structure de données ou dans une autre structure de données. Ceci est souvent utilisé pour l’adressage indirect en informatique: l’adresse (ou position) dans une séquence n’est pas indiquée directement par chiffre, mais indirectement par une valeur dans une séquence, qui peut elle-même être adressée indirectement, et ainsi de suite.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Traitement de données: \href{https://fr.wikipedia.org/wiki/Traitement_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Traitement\_de\_données}}
+  \item Structure de données: \href{https://fr.wikipedia.org/wiki/Structure_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_données}}
+  \item Tableau: \href{https://fr.wikipedia.org/wiki/Tableau_(structure_de_donn\%C3\%A9es)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tableau\_(structure\_de\_données)}}
+  \item Adressage: \href{https://fr.wikipedia.org/wiki/Mode_d\%27adressage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Mode\_d'adressage}}
+\end{itemize}
+
+
+}
+\end{document}

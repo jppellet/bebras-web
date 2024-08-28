@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Nouveau pantalon}
+\renewcommand{\taskCountry}{KR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Christian a besoin d’un nouveau pantalon. Le magasin vend son pantalon préféré en sept longueurs et sept largeurs différentes. Les $49$ tailles sont rangées dans les cases d’une étagère, classées par largeur et longueur.
+
+Comme Christian ne connaît pas sa taille, il doit trouver la bonne taille en essayant les pantalons. À chaque essai, Christian note si le pantalon lui va ou s’il a besoin d’un pantalon plus large, plus étroit, plus court ou plus long. Pour qu’un pantalon lui aille, il faut que la largeur et la longueur soient bonnes.
+
+\raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-fra/2019-KR-04-taksbody_compatible-fra.svg}}
+
+
+Le vendeur gémit: ça risque de prendre du temps de trouver la bonne taille parmi $49$.
+
+Mais Christian a pensé à une méthode lui permettant de toujours trouver la bonne taille avec le moins d’essais possible.
+
+
+
+% question (as \emph{})
+{\em
+Combien de pantalons Christian doit-il au maximum essayer avant d’identifier la bonne taille?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est $2$.
+
+Christian pourrait bien sûr avoir de la chance et tomber sur la bonne taille de pantalon à son premier essai, mais il ne peut pas se fier au hasard et procède d’après la méthode suivante:
+
+Il commence par essayer le pantalon du milieu (à la position + sur l’image) et en vérifie la longueur et la largeur.
+
+\begin{itemize}
+  \item Si la longueur et la largeur vont, il a trouvé le pantalon à la bonne taille.
+  \item Si le pantalon est trop court et trop large, le bon pantalon se trouve dans le secteur $1$.
+  \item Si le pantalon est trop court mais a la bonne largeur, le bon pantalon se trouve dans le secteur $2$.
+  \item Si le pantalon est trop court et trop étroit, le bon pantalon se trouve dans le secteur $3$.
+  \item Et ainsi de suite pour les secteurs $4$ à $8$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-fra/2019-KR-04-explanation_compatible-fra.svg}\par}
+
+Imaginons que le pantalon ayant la bonne taille soit dans le secteur $1$. Pour son deuxième essai, Christian choisit le pantalon rangé au milieu du secteur $1$. Il y a à nouveau plusieurs possibilités:
+
+\begin{itemize}
+  \item Si la longueur et la largeur vont, il a trouvé le pantalon à la bonne taille.
+  \item Si le pantalon est trop court et trop large, Christian sait que le bon pantalon se trouve en position A.
+  \item Si le pantalon est trop court mais a la bonne largeur, Christian sait que le bon pantalon se trouve en position B.
+  \item Et ainsi de suite pour les autres positions du secteur $1$.
+\end{itemize}
+
+Comme la case centrale de chaque secteur numéroté ne possède qu’une case voisine dans chaque directions, aucun essai supplémentaire n’est nécessaire. Christian a donc besoin de deux essais au maximum pour trouver la bonne taille de pantalon.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La méthode que Christian utilise pour ses essais de pantalons s’appelle \emph{recherche dichotomique} en informatique. Lors de la recherche dichotomique d’un objet dans une liste d’objets triés, l’objet du milieu est comparé à l’objet recherché. Si l’objet du milieu ne correspond pas à celui que l’on recherche, on sait dans quelle moitié de la liste l’objet recherché se trouve et l’on peut y continuer la recherche dichotomique. Ainsi, la liste est est séparée en deux à chaque étape de la recherche – d’où “dichotomique”. De cette manière, on trouve rapidement l’objet recherché. Environ $10$ étapes sont nécessaire pour rechercher dans une liste de $1000$ objets, et $20$ étapes pour une liste de ${1\,000\,000}$ objets. De manière générale, on peut le formuler ainsi: il faut en moyenne ${\log(n)}$ étapes pour un tableau de ${n}$ objets (la fonction log est le logarithme en base $2$). La recherche dichotomique est souvent utilisée par les programmes informatiques pour les recherches dans les données triées en raison de sa rapidité.
+
+Dans cet exercice du Castor, l’espace de recherche (les pantalons dans l’étagère) est séparé en deux dimensions (longueur et largeur). Christian peut donc appliquer la recherche dichotomique dans les deux dimensions en même temps, et l’espace de recherche n’est pas divisé en deux à chaque étape, mais directement en huit – pour autant que Christian ne soit pas directement tombé sur la bonne taille!
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Recherche dichotomique: \href{https://fr.wikipedia.org/wiki/Recherche_dichotomique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Recherche\_dichotomique}}
+  \item Algorithme de recherche: \href{https://fr.wikipedia.org/wiki/Algorithme_de_recherche}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_recherche}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKimJ{} % \ifdefined\AuthorKimJ \BrochureFlag{kr}{} Jihye Kim\fi
+\def\AuthorAbdElAalE{} % \ifdefined\AuthorAbdElAalE \BrochureFlag{eg}{} Eslam AbdElAal\fi
+\def\AuthorFesakisG{} % \ifdefined\AuthorFesakisG \BrochureFlag{gr}{} Georgios Fesakis\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

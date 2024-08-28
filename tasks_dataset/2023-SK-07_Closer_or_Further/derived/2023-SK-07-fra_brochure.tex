@@ -1,0 +1,100 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Chaud ou froid}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Nina et Daniel jouent à la chasse au trésor. Dans sa tête, Nina choisit une case sur une planche de jeu à cases carrées. C’est là que le trésor est caché.
+
+Daniel choisit une case de départ. En partant de là, son pion \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-SK-07-Daniel.svg}} avance pas à pas d’une case vers la gauche, la droite, le haut ou le bas.
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example1.svg}} & Pour commencer, Nina et Daniel prennent un petit plateau. Nina cache le trésor sur la case avec l’étoile \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07_stern.svg}}. Daniel commence en haut à droite et fait deux pas en suivant les flèches. Après chaque pas, Nina lui dit s’il est plus près \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2023-SK-07-warmer.svg}} ou plus loin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-SK-07-colder.svg}} du trésor qu’avant. \\ 
+  \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-example3.svg}} & Cette image montre la distance entre Daniel et le trésor pour ces trois cases. Cette distance est le nombre minimal de pas qui pourraient amener le pion de Daniel au trésor.
+\end{tabularx}
+
+Ils prennent maintenant une plus grande planche de jeu. Nina cache le trésor sur une des cases bleues. L’image montre les pas de Daniel et ce que Nina dit après chaque pas.
+
+
+
+% question (as \emph{})
+{\em
+Où se cache le trésor?
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-question_symbols.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-SK-07-solution_compatible.svg}\par}
+
+Nous suivons le chemin de Daniel et les indications de Nina. Daniel commence sur la ligne $1$ de la planche de jeu. Après le premier pas, il est sur la ligne $2$ et est plus près du trésor que sur la ligne $1$. Après le pas suivant, il est sur la ligne $3$ et à nouveau plus loin du trésor que sur la ligne $2$. Comme il est resté sur la même colonne, le trésor doit se trouver sur une case de la ligne $2$. En effet, quelle que soit la colonne sur laquelle le trésor est caché, on a le chemin le plus court depuis une autre colonne en partant de la même ligne que le trésor.
+
+Mais sur quelle colonne le trésor est-il caché? En continuant son chemin jusqu’à la ligne $4$, Daniel arrive plus près après quelques pas vers la gauche; il est plus près du trésor sur la colonne $3$ que sur la colonne $4$. Mais après le dernier pas sur la ligne $4$, Daniel est de nouveau plus loin du trésor sur la colonne $2$ que sur la colonne $3$. Le trésor doit donc être sur une case de la colonne $3$, car ce qui vaut pour les lignes vaut aussi pour les colonnes: le chemin le plus court part de la même colonne que celle où se trouve le trésor.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Daniel se déplace (avec son pion) sur la planche de jeu. Nina mesure la distance entre chaque case sur laquelle il se trouve et le trésor et utilise cela pour son feeback. Habituellement, on utilise la longueur de la ligne droite reliant deux points comme mesure de la distance entre eux (\emph{distance euclidienne}). Cependant, les deux cases ne sont pas des points. C’est pour cela que Nina utilise le nombre de pas minimal que Daniel devrait faire pour atteindre le trésor comme distance. Cette \emph{mesure} peut être appliquée aux grilles et est connue sous le nom de \emph{distance de Manhattan} en informatique, d’après la forme de grille du plan de Manhattan, à New York.
+
+Les informaticiennes et informaticiens choisissent le type de mesure de la distance entre deux objets en fonction de la question à laquelle ils veulent répondre. Par exemple, si l’on veut mesurer la distance entre deux mots de même taille d’un langage naturel, on peut compter le nombre de positions auxquelles les mots diffèrent; il s’agit alors de la \emph{distance de Hamming}. Si les mots sont de tailles différentes, on peut utiliser la \emph{distance de Levenshtein}. En informatique, les distances jouent souvent un rôle dans la recherche de solutions optimales: qu’importe si la solution du problème doit être la plus rapide, la plus courte ou la moins chère, il suffit souvent de changer la mesure de distance (durée, longueur ou coût) sans rien changer à l’algorithme.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Distance de Manhattan: \href{https://fr.wikipedia.org/wiki/Distance_de_Manhattan}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Manhattan}}
+  \item Distance de Hamming: \href{https://fr.wikipedia.org/wiki/Distance_de_Hamming}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Hamming}}
+  \item Distance de Levenshtein: \href{https://fr.wikipedia.org/wiki/Distance_de_Levenshtein}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Levenshtein}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorWettsteinM{} % \ifdefined\AuthorWettsteinM \BrochureFlag{ch}{} Manuel Wettstein\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorKohJ{} % \ifdefined\AuthorKohJ \BrochureFlag{tw}{} Jia-Ling Koh\fi
+\def\AuthorKohS{} % \ifdefined\AuthorKohS \BrochureFlag{sg}{} Sophie Koh\fi
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,163 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-04 La maison de Karla}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-04 La maison de Karla}
+
+
+\subsection*{Body}
+
+Karla a trois cartes qui montrent exactement la même région. Une carte montre les forêts; une autre, les rivières, et la troisième, les maisons dans cette région. La maison de rêve de Karla se trouve dans la forêt et près d’une rivière.
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Forest-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Rivers-compatible.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}} \\ 
+  Carte des forêts & Carte des rivières & Carte des maisons
+\end{tabular}
+
+\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quelle est la maison de rêve de Karla?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Clique sur la bonne maison sur la carte des maisons. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Karla’s dream house shall be selected by click on the rightmost map \href{graphics/-fra_ita/2023-DE-04-Map_Houses-compatible.svg}{\BrochureUrlText{maph}}. All houses are clickable on that map, and the selection can be seen. Next click on the house or a click on another house will remove the selection.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La maison en haut à gauche de la carte des maisons est la maison de rêve de Karla:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-solution-compatible.svg}\par}
+
+Pour trouver la maison de rêve de Karla, il faut analyser les informations des trois cartes. La maison de rêve doit se trouver dans une forêt et près d’une rivière. Ce n’est vrai que pour la maison en haut à gauche. C’est facile à voir en superposant les trois cartes:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/-fra_ita/2023-DE-04-Maps_Overlay-compatible.svg}\par}
+
+
+\subsection*{This is Informatics}
+
+Lorsque les informations sur les forêts, les rivières et les maisons sont représentées sur une seule carte, c’est facile de trouver la maison recherchée.
+
+Un \emph{système d’information géographique} (SIG) assemble une multitude d’informations spatiales (par exemple les forêts, routes, frontières, stations service, maisons, etc.) et les représente sur une carte. Un SIG sert donc à la visualisation et à l’analyse de \emph{données géographiques}. Un SIG permet par exemple à la protection civile de mettre en place des plans d’évacuation.
+
+Les programmes graphiques utilisent aussi plusieurs \emph{niveaux} avec des informations graphiques différentes (appelés \emph{calques}). Une question importante est toujours quel niveau est le plus haut et est donc représenté au premier plan. Ici, ce sont par exemple les maisons qui doivent être au premier plan afin qu’elles ne soient pas cachées par les forêts.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item SIG: \href{https://fr.wikipedia.org/wiki/Syst\%C3\%A8me_d\%27information_g\%C3\%A9ographique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Système\_d'information\_géographique}}
+  \item Calque: \href{https://fr.wikipedia.org/wiki/Calque_(infographie)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Calque\_(infographie)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Abstraction
+  \item Data structure analysis
+\end{itemize}
+
+
+\end{document}

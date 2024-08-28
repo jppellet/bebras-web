@@ -1,0 +1,99 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Moitiés de pommes}
+\renewcommand{\taskCountry}{CZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+On peut partager des pommes en deux, ce qui donne la moitié du bas et la moitié du haut. Certains pépins de pomme restent dans la moitié du haut, les autres dans la moitié du bas. On peut voir que les moitiés vont ensemble en regardant les pépins et les trous:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-taskbody.svg}\par}
+
+On fait cela pour Noël en Tchéquie. Gala partage quatre pommes. Elle arrange les moitiés du haut et celles du bas en deux rangées.
+
+
+
+% question (as \emph{})
+{\em
+Quelles moitiés de pommes vont ensemble? Relie les moitiés de pommes.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-question-brochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-solution_draglines.svg}\par}
+
+Chaque pomme a cinq pépins. Deux moitiés de pomme allant ensemble doivent donc avoir cinq pépins en tout. Ces moitiés peuvent donc facilement être reliées:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation1.svg}\par}
+
+Les quatre moitiés restantes ne sont pas si faciles à relier. Les deux moitiés du haut ont trois pépins chacune, les deux moitiés du bas deux pépins chacune. Il faut donc regarder le motif formé par les pépins plus exactement, car si deux moitiés vont ensemble, leurs motifs vont aussi ensemble. Pour vérifier cela, il peut être nécessaire de tourner les moitiés de pomme. Les moitiés de pommes peuvent ensuite être reliées comme sur l’image ci-dessous: à gauche, la moitié du haut a trois pépins côte à côte, puis deux trous (P-P-P-T-T), la moitié du bas a trois trous côte à côte, puis deux pépins (T-T-T-P-P): les moitiés vont ensemble. Les moitiés de droite vont également ensemble: la moitié du haut a le motif P-T-P-T-P (en commençant en haut au centre), et celle du bas T-P-T-P-T.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation-fra-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+On a vu dans l’explication de la réponse que si deux moitiés de pomme vont ensemble, il n’y a pas que le nombre de pépins qui correspond, mais aussi l’ordre des pépins et des trous. Il faut donc également considérer cet ordre lors de l’attribution des moitiés de pomme. Il ne suffit pas de savoir combien de pépins a chaque moitié.
+
+Des questions semblables sont présentes dans des problèmes qui doivent être résolus à l’aide d’ordinateurs. Les informaticiennes et informaticiens doivent réfléchir à la manière dont les informations que le programme doit considérer sont décrites. On essaie en général de faire aussi simple que possible: les programmes simples ont moins de risque de contenir des erreurs. Pour le problème des moitiés de pomme, il semblait d’abord suffisant de décrire les moitiés uniquement à l’aide du nombre de pépins. Ensuite, on a vu que ce n’était pas suffisant dans toutes les situations. Il faut donc pouvoir décrire un ordre afin de pouvoir décrire les moitiés de pomme dans un programme informatique. C’est possible à l’aide de la structure de données appelée \emph{liste}, par exemple, qui existe dans la plupart des langages de programmation.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ordre
+  \item Liste: \href{https://fr.wikipedia.org/wiki/Liste_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Liste\_(informatique)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorBabazadehM{} % \ifdefined\AuthorBabazadehM \BrochureFlag{ch}{} Masiar Babazadeh\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

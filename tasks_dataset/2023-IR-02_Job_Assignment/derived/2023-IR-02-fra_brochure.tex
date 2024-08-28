@@ -1,0 +1,117 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Répartition des tâches}
+\renewcommand{\taskCountry}{IR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Une école de langue organise quatre cours d’été. Sur l’image ci-dessous, les lignes montrent quel enseignant de l’école est capable de donner quel cours.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2023-IR-02-taskbody.svg}\par}
+
+Chaque enseignant ne peut donner qu’un seul cours. Il y a quand même plusieurs possibilités d’assigner un enseignant capable à chaque cours.
+
+
+
+% question (as \emph{})
+{\em
+Assigne un enseignant à chaque cours. Pour cela, surligne la ligne reliant l’enseignant au cours.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  D est la seule personne capable d’enseigner le hongrois. Elle doit donc être assignée à ce cours et ne peut pas en donner d’autre. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-fra/2023-IR-02-explanation01-compatible-fra.svg}} \\ 
+  E est maintenant la seule personne capable d’enseigner l’esapgnol. Elle doit donc être assignée à ce cours et ne peut pas en donner d’autre. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-fra/2023-IR-02-explanation02-compatible-fra.svg}} \\ 
+  Pour les deux cours restants, l’anglais et l’italien, on a le choix. B et F ne peuvent être assignés qu’à un seul cours chacun, même s’ils sont capables d’enseigner les deux. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-fra/2023-IR-02-explanation03-compatible-fra.svg}}
+\end{tabularx}
+
+Il y a ainsi dix possibilités en tout d’assigner un enseignant capable à chaque cours:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{anglais}} & {\setstretch{1.0}\thead[cb]{italien}} & {\setstretch{1.0}\thead[cb]{hongrois}} & {\setstretch{1.0}\thead[cb]{espagnol}} \\ 
+\midrule
+  A & B & D & E \\ 
+  A & F & D & E \\ 
+  A & G & D & E \\ 
+  B & F & D & E \\ 
+  B & G & D & E \\ 
+  C & B & D & E \\ 
+  C & F & D & E \\ 
+  C & G & D & E \\ 
+  F & B & D & E \\ 
+  F & G & D & E
+\end{tabular}
+
+
+\end{adjustwidth}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Un \emph{graphe} est constitué de \emph{nœuds} (points) qui sont reliés par des \emph{arêtes} (lignes). Les \emph{graphes bipartis} sont un type de graphe spécial: les nœuds peuvent être séparés en deux sous-ensembles de manière à ce qu’il n’y ait d’arêtes qu’entre les deux sous-ensembles.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-IR-02-itsinformatics.svg}\par}
+
+La situation de cet exercice du Castor peut être représentée par un graphe biparti: les cours forment l’un des sous-ensembles et les enseignants l’autre sous-ensemble. Les graphes bipartis sont bien adapté à la modélisation et la résolution de problèmes d’affectation. On rencontre fréquemment des problèmes d’affectation au quotidien, par exemple lors de l’élaboration d’horaires ou de la répartition du travail entre des employés ou des machines. Pour le petits problèmes, il est possible de trouver simplement une solution optimale; cela devient cependant vite très complexe pour les plus grands problèmes. C’est pour cela que différents algorithmes permettant de trouver un maximum de paires rapidement ont été développés en informatique.
+
+Une autre exemple de problème pouvant être représenté par un graphe biparti est le problème des mariages. Un ensemble d’hommes désirant se marier fait face à un ensemble de femmes désirant également se marier. Le but du procédé est de marier chaque homme à une femme (et chaque femme à un homme) en respectant les souhaits de partenaire de chacun. Le mathématicien Philipp Hall a formulé les conditions dans lesquelles une telle affectation est possible dans le lemme des mariages en $1935$.
+
+Dans notre cas, il ne s’agit pas de ce type d’affectation complète, mais d’affecter à chaque nœud d’un sous-ensemble (les cours) un nœud d’un autre sous-ensemble (les enseignants).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe biparti: \href{https://fr.wikipedia.org/wiki/Graphe_biparti}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_biparti}}
+  \item Problème d’affectation: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_d\%27affectation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_d’affectation}}
+  \item Programme pour résoudre l’exercice: \href{https://www.coding4you.at/dachu_2023/ir02/index.html}{\BrochureUrlText{https://www.coding4you.at/dachu\_2023/ir02/index.html}}
+  \item Lemme des mariages: \href{https://images.math.cnrs.fr/Le-lemme-des-Mariages.html}{\BrochureUrlText{https://images.math.cnrs.fr/Le-lemme-des-Mariages.html}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNedaeepourJ{} % \ifdefined\AuthorNedaeepourJ \BrochureFlag{ir}{} Jalil Nedaeepour\fi
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorOzdemirO{} % \ifdefined\AuthorOzdemirO \BrochureFlag{tr}{} Özgür Özdemir\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

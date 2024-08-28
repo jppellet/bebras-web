@@ -1,18 +1,17 @@
-import getTaskById from "@/app/actions/getTaskById";
-import Empty from "@/app/components/Empty";
-import { Task } from "@/app/types/Task";
-import TaskPage from "./TaskPage";
-import { Suspense } from "react";
-import Loading from "@/app/loading";
+import getTaskById from "@/app/actions/getTaskById"
+import Empty from "@/app/components/Empty"
+import Loading from "@/app/loading"
+import { Suspense } from "react"
+import TaskPage from "./TaskPage"
 
 interface TaskPageProps {
-  params: { taskId: string };
+  params: { taskId: string }
 }
 
 export default function Page({ params }: TaskPageProps) {
-  const task: Task = getTaskById(params.taskId);
+  const task = getTaskById(params.taskId)
   if (!task) {
-    return <Empty subtitle="La tâche recherchée n'existe pas." />;
+    return <Empty subtitle="La tâche recherchée n'existe pas." />
   }
 
   return (
@@ -22,5 +21,5 @@ export default function Page({ params }: TaskPageProps) {
         <TaskPage task={task} />
       </Suspense>
     </div>
-  );
+  )
 }

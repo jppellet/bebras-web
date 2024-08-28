@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Les clans de Castorland}
+\renewcommand{\taskCountry}{PH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+À Castorland vivent cinq clans, autrefois ennemis, qui possèdent chacun un certain nombre de maisons, comme on peut le voir dans l’image: les Mac Intosh, les Applondt, les Mac Rosoft, les Androidier et les Libredosset. Comme ils vivent en paix depuis longtemps, ils décident d’accomplir le rituel d’union. Les règles de ce rituel sont les suivantes:
+
+\begin{itemize}
+  \item Seuls deux clans peuvent s’unir en même temps.
+  \item Une fête d’une semaine a lieu dans chacune des maisons appartenant aux clans qui s’unissent afin de sceller le pacte. La durée du rituel de l’union, en semaines, est donc égale au nombre de maisons des deux clans.
+  \item Après ce rituel, les deux clans ne forment plus qu’un clan. L’union des clans peut alors continuer.
+\end{itemize}
+
+Les clans décident de procéder à l’union en le moins de temps possible. Pour cela, il faut bien planifier l’ordre dans lequel les unions se feront.
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2021-PH-03-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Combien de semaines au minimum l’union de tous les clans dure-t-elle?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r J @{} }
+  A) & $15$ semaines \\ 
+  B) & $33$ semaines \\ 
+  C) & $35$ semaines \\ 
+  D) & $50$ semaines \\ 
+  E) & $120$ semaines
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B) $33$ semaines.
+
+La stratégie optimale pour minimiser le nombre total de semaines nécessaire à l’union de tous les clans consiste à minimiser le nombre de maisons y prenant part. Les maisons des clans unis au début doivent aussi être prises en compte dans les unions suivantes, c’est donc raisonnable de commencer avec les petits clans afin que les grands clans ne doivent pas participer au rituel trop souvent. Pour cela, à chaque étape, les deux clans avec le moins de maisons devraient être unis.
+
+Les étapes du processus sont représentées dans le tableau suivant; pour avoir une meilleure vue d’ensemble, nous laissons les noms des clans de côté et mentionnons seulement la taille des clans entre parenthèses:
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  \makecell[l]{\includesvg[scale=0.13]{\taskGraphicsFolder/graphics/2021-PH-03-explan1.svg}} & ($1$) et ($2$) deviennent un seul clan ($3$); cela dure trois semaines. \\ 
+  \makecell[l]{\includesvg[scale=0.13]{\taskGraphicsFolder/graphics/2021-PH-03-explan2.svg}} & ($3$) et ($3$) sont réunis en ($6$) en six semaines. \\ 
+  \makecell[l]{\includesvg[scale=0.13]{\taskGraphicsFolder/graphics/2021-PH-03-explan3.svg}} & Maintenant, c’est le tour de ($4$) et ($5$) de former ($9$) en neuf semaines. \\ 
+  \makecell[l]{\includesvg[scale=0.13]{\taskGraphicsFolder/graphics/2021-PH-03-explan4.svg}} & Finalement, les deux clans ($6$) et ($9$) restant sont réunis. Cela dure quinze semaines.
+\end{tabularx}
+
+Le processus est donc terminé après ${15+9+6+3=33}$ semaines, ce qui correspond à la réponse B).
+
+{\centering%
+\includesvg[scale=0.13]{\taskGraphicsFolder/graphics/2021-PH-03-explan5.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice est un \emph{problème d’optimisation} — une tâche consistant à minimiser (dans ce cas, la durée du rituel d’union) ou maximiser une valeur. Souvent, des algorithmes sont utilisés pour cela, dont on ne peut ajourd’hui plus se passer pour des méthodes de production écologiques qui économisent les ressources, par exemple
+
+Dans notre cas, le problème peut être résolu de manière optimale à l’aide d’un simple \emph{algorithme glouton}. Celui-ci fait à chaque étape ce qui semble être le mieux d’après un critère simple. Dans notre cas, le critère est que les clans doivent être les plus petits parce que cela prend moins de temps.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Optimisation - \href{https://fr.wikipedia.org/wiki/Optimisation_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_(mathématiques)}}
+  \item Algorithme glouton - \href{https://fr.wikipedia.org/wiki/Algorithme_glouton}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_glouton}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGonzalesM{} % \ifdefined\AuthorGonzalesM \BrochureFlag{ph}{} Mark Edward M.~Gonzales\fi
+\def\AuthorPippingJ{} % \ifdefined\AuthorPippingJ \BrochureFlag{se}{} Jonatan Pipping\fi
+\def\AuthorSiaulysT{} % \ifdefined\AuthorSiaulysT \BrochureFlag{lt}{} Tomas Šiaulys\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

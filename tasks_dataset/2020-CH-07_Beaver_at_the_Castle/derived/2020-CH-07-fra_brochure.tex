@@ -1,0 +1,150 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Troc au château}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un castor malin a besoin d’un sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}} pour construire un barrage sur la rivière. Malheureusement, il n’a qu’une carotte \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}}. C’est un jour de marché au château aujourd’hui, et le castor veut y troquer sa carotte \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} contre un sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}}.
+
+Dans chaque salle du château, deux types de troc sont proposés. Le table suivante liste ces propositions:
+
+{\centering%
+\begin{tabular}{ @{} l r c l l c l r c l @{} }
+  \textbf{Salle A:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} &  & ou &  & \makecell[r]{\includesvg[width=23.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_coin.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=24.5px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_leaf.svg}} \\ 
+  \textbf{Salle B:} & \makecell[r]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} \\ 
+  \textbf{Salle C:} & \makecell[r]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=23.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_coin.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=24.5px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_leaf.svg}} \\ 
+  \textbf{Salle D:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} \\ 
+  \textbf{Salle E:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=23.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_coin.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=22.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}} \\ 
+  \textbf{Salle F:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=23.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_coin.svg}} &  & ou &  & \makecell[r]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} \\ 
+  \textbf{Salle G:} & \makecell[r]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=24.5px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_leaf.svg}} \\ 
+  \textbf{Salle H:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=24.5px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_leaf.svg}} &  & ou &  & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}}
+\end{tabular}
+
+\par}
+
+Dans la salle B, le castor peut par exemple troquer une bague \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} contre une glace \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}}, mais pas l’inverse.
+
+
+
+% question (as \emph{})
+{\em
+Dans quel ordre le castor doit-il passer dans les salles du château pour finalement avoir le sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}} désiré?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & DGE: D’abord la salle D, puis la salle G et finalement la salle E. \\ 
+  B) & GCE: D’abord la salle G, puis la salle C et finalement la salle E. \\ 
+  C) & AGE: D’abord la salle A, puis la salle G et finalement la salle E. \\ 
+  D) & DBC: D’abord la salle D, puis la salle B et finalement la salle C.
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est A) DGE. D’abord la salle D, puis la salle G et finalement la salle E.
+
+Dans la salle D, le castor troque sa carotte \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} contre une glace \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}}. Ensuite il va dans la salle G, où il troque la glace \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} contre une bague \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}}. Finalement, le castor va dans la salle E pour troquer la bague \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} contre un sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}}.
+
+Voici le déroulement complet:
+
+{\centering%
+\begin{tabular}{ @{} l r c l @{} }
+  \textbf{Salle D:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} \\ 
+  \textbf{Salle G:} & \makecell[r]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} \\ 
+  \textbf{Salle E:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=22.4px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}}
+\end{tabular}
+
+\par}
+
+Il y a deux stratégies appropriées pour trouver le bon ordre dans lequel visiter les salles. La première essaie de prendre toutes les possibilités de troc en considération. Elle commence avec le premier troc, lors duquel on peut échanger la carotte dans cinq salles (A, D, E, G et H) contre six objects différents. Ensuite, toutes les possibilités de troc pour chacun de ces six objects sont considérées. C’est complexe et peut même tourner en rond, comme dans l’exemple suivant dans lequel le castor peut passer dans les salles B et H indéfiniment:
+
+{\centering%
+\begin{tabular}{ @{} l r c l @{} }
+  \textbf{Salle A:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} \\ 
+  \textbf{Salle B:} & \makecell[r]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}} \\ 
+  \textbf{Salle H:} & \makecell[r]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} \\ 
+  \textbf{Salle B:} & \makecell[r]{\includesvg[width=28.1px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_fish.svg}} & \ensuremath{\rightarrow} & \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_cake.svg}}
+\end{tabular}
+
+\par}
+
+Cette première stratégie est donc très complexe et n’arrive rapidement à une solution qu’avec beaucoup de chance.
+
+La deuxième stratégie atteint rapidement le but dans cet exemple concret. Le principe est de commencer la recherche par le résultat souhaité, donc le sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}}. Le castor ne peut obtenir un sapin que dans la salle E. On ne reçoit un sapin \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_tree.svg}} qu’en échange d’une bague \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}}. Le prochain object désiré est donc une bague! La bague ne peut aussi être obtenue que dans une salle, la salle G, en échange d’une glace \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}}. On peut obtenir une glace  \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ice.svg}} soit dans la salle B contre une bague \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_ring.svg}}, soit dans la salle D contre une carotte \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2020-CH-07_taskbody_carrot.svg}}. Le castor malin doit donc commencer sa série de trocs dans la salle D.
+
+On peut représenter les trocs possibles par un graphe avec des arêtes orientées (flèches) pour avoir une meilleure vue d’ensemble. Chaque nœud du graphe représente un des objects du troc et chaque arête qui en part une possibilité de troc. Sur l’arête est aussi noté le nom de la salle dans laquelle le troc est possible.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-07_explanation-compatible.svg}\par}
+
+Cette représentation visuelle des objects, des possibilités de troc et des salles permet de trouver facilement comment aller de la carotte au sapin, soit en suivant un chemin sur le graphe orienté: d’abord la salle D, puis la salle G et finalement la salle E.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+De manière générale, on peut considérer les \emph{processus de calcul} comme des \emph{suites de transformations} (ici, ce sont des trocs) ou comme des \emph{suites d’états} d’un système. L’état de départ du système est dans notre cas la carotte, et la transformation (la transition) de la carotte à la glace change cet état en glace.
+
+Une \emph{transition} mène donc d’un état à un autre. On appelle aussi un suite de transitions un \emph{calcul}.
+
+Cet exercice traite donc aussi de calcul à un niveau très général. Le système de l’exemple est \emph{non déterministe}: cela veut dire qu’il y a parfois plusieurs étapes de calcul possibles, comme il y a plusieurs possibilité de trocs dans l’exercice. Le non-déterminisme est un concept important dans la modélisation en informatique. Les étapes de calcul possibles sont décrites par des règles de transformation (la table montrant les possibilités de troc). Il s’agit du célèbre \emph{problème d’accessibilité} lorsque l’on veut déterminer si le castor peut troquer une carotte contre un sapin, donc si un certain \emph{état final} peut être atteint depuis un certain \emph{état initial} — un problème qui a de nombreuses applications.
+
+L’exercice ci-dessus montre que c’est parfois une bonne idée de chercher l’état initial en partant de l’état final plutôt que le contraire. Cette stratégie s’appelle aussi \emph{recherche en arrière}.
+
+En comparant les différentes stratégies pour résoudre le problème, on voit que le graphe orienté offre une possibilité claire de représenter l’\emph{espace d’états} d’un système avec toutes les transitions possibles entre les états. Dans ce modèle de base, on pourrait appliquer les algorithmes de parcours de graphes fondamentaux, comme le \emph{parcours en largeur} et le \emph{parcours en profondeur}.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorie des graphes: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Problème d’accessibilité: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_d\%27accessibilit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_d'accessibilité}}
+  \item Parcours en profondeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_profondeur}}
+  \item Parcours en largeur: \href{https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_parcours\_en\_largeur}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorWincklerJ{} % \ifdefined\AuthorWincklerJ \BrochureFlag{ch}{} Jonas Winckler\fi
+\def\AuthorAdamS{} % \ifdefined\AuthorAdamS \BrochureFlag{ch}{} Serge Adam\fi
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorFeklistovaL{} % \ifdefined\AuthorFeklistovaL \BrochureFlag{ee}{} Lidia Feklistova\fi
+\def\AuthorLuanV{} % \ifdefined\AuthorLuanV \BrochureFlag{vn}{} Vũ Văn Luân\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

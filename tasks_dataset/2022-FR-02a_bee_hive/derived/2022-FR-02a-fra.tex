@@ -1,0 +1,169 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-FR-02a Ruche}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-FR-02a Ruche}
+
+
+\subsection*{Body}
+
+Un castor a besoin d’aide pour loger toutes les abeilles dans sa ruche.
+
+{\centering%
+\includesvg[scale=0.9]{\taskGraphicsFolder/graphics/2022-FR-02a-taskbody1.svg}\par}
+
+Sous chaque abeille, un dessin illustre la règle déterminant dans quel alvéole elle peut loger.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Loge les abeilles dans la ruche en respectant les règles illustrées sous les abeilles.
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+L’alvéole change de couleur lorsque tu y poses l’abeille:
+
+\begin{itemize}
+  \item Si l’alvéole devient rouge, tu n’as pas suivi la règle pour la loger.
+  \item Si l’alvéole devient vert, l’abeille est logée selon la règle.
+\end{itemize}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La seule manière de loger les abeilles est la suivante:
+
+{\centering%
+\includesvg[scale=0.9]{\taskGraphicsFolder/graphics/2022-FR-02a-solution.svg}\par}
+
+On peut résoudre l’exercice en essayant différentes solutions, mais cela peut prendre beaucoup de temps. Pour trouver une méthode plus rapide, observe attentivement les règles pour chaque abeille. Dans l’image ci-dessous, tu vois chaque abeille et la règle qui lui correspond. Les alvéoles dans lesquels les abeilles peuvent être logées d’après les règles sont entourés en vert.
+
+{\centering%
+\includesvg[scale=0.9]{\taskGraphicsFolder/graphics/2022-FR-02a-explanation.svg}\par}
+
+Tu vois que les règles permettent de loger certaines abeilles dans plusieurs alvéoles, et certaines autres pas. Trois abeilles ne peuvent être logées que dans un seul alvéole.
+
+Pour résoudre l’exercice plus rapidement qu’en essayant plusieurs possibilités, on peut procéder comme suit:
+
+Loge d’abord les abeilles qui ne peuvent loger que dans un seul alvéole.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2022-FR-02a-explanation2.svg}\par}
+
+Il ne reste alors plus qu’une possibilité pour les deux abeilles suivantes.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2022-FR-02a-explanation3.svg}\par}
+
+On loge les deux dernières abeilles l’une après l’autre de la même manière.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, il faut loger sept abeilles dans sept alvéoles différents. Il y a beaucoup de possibilités de loger les abeilles. Le nombre de possibilités diminue déjà beaucoup si on prend les règles en compte, mais demanderait quand même encore beaucoup de travail. La clé pour arriver à résoudre l’exercice rapidement est de loger les abeilles dans le bon ordre. Dans notre cas, pour limiter le nombre de cas à prendre en compte, nous commençons avec les éléments les plus limités, c’est-à-dire les abeilles qui ne peuvent loger que dans un seul alvéole.
+
+Une telle approche s’appelle une \emph{heuristique} en informatique. La bonne solution a pu être trouvée en peu d’étapes en utilisant un ordre de résolution adapté. Pour certains problèmes, comme par exemple la planification d’un itinéraire entre différents endroits par un système de navigation, l’utilisation d’une heuristique implique une perte d’exactitude. En effet, il existe énormément de solutions. Pour s’assurer de trouver la meilleure solution, tous les itinéraires possibles sur l’ensemble du réseau routier doivent être calculés et comparés, ce qui demanderait énormément de calculs. En commençant par calculer les itinéraires qui correspondent probablement à de bonnes solutions, on peut fortement réduire la quantité de calculs nécessaire. On peut ainsi trouver un bon itinéraire en quelques secondes au lieu de trouver le meilleur en plusieurs années.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Heuristique: \href{https://fr.wikipedia.org/wiki/Heuristique_(math\%C3\%A9matiques)\#Heuristique_au_sens_de_l'algorithmique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Heuristique\_(mathématiques)\#Heuristique\_au\_sens\_de\_l’algorithmique}}
+  \item Problème du plus court chemin: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_plus_court_chemin}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_plus\_court\_chemin}}
+  \item Problème du voyageur de commerce: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_du_voyageur_de_commerce}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_du\_voyageur\_de\_commerce}}
+\end{itemize}
+
+
+}
+\end{document}

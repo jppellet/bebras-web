@@ -1,0 +1,154 @@
+{
+    "id": "2023-CH-01",
+    "title": "L'Ombrello di Anna",
+    "ages": {
+        "0": "--",
+        "1": "medium",
+        "2": "easy",
+        "3": "--",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "medium",
+        "10-12": "easy",
+        "12-14": "--",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming",
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice with images",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Vaidotas Kinčius, adapted by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Vaidotas Kinčius",
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "2023-CH-01-Comments-DACHHU.txt by Susanne Datzko",
+            "file_pattern": "2023-CH-01-Comments-DACHHU.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        },
+        {
+            "src": "reviews.txt by Susanne Datzko",
+            "file_pattern": "reviews.txt",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Angélica Herrera Loyo, ETH Zürich, angelica.herrera@inf.ethz.ch, Switzerland (author)",
+            "name": "Angélica Herrera Loyo, ETH Zürich",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "author"
+            ],
+            "email": "angelica.herrera@inf.ethz.ch"
+        },
+        {
+            "src": "Valentina Dagienė, Vilnius University, valentina.dagiene@mif.vu.lt, Lithuania (contributor)",
+            "name": "Valentina Dagienė, Vilnius University",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "valentina.dagiene@mif.vu.lt"
+        },
+        {
+            "src": "Nora A. Escherle, nora.escherle@informatik-biber.ch, Switzerland (translation from English into German)",
+            "name": "Nora A. Escherle",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "nora.escherle@informatik-biber.ch"
+        },
+        {
+            "src": "Zsuzsa Pluhár, pluharzs@ik.elte.hu, Hungary (contributor)",
+            "name": "Zsuzsa Pluhár",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pluharzs@ik.elte.hu"
+        },
+        {
+            "src": "Vaidotas Kinčius, vaidotas.kincius@bebras.lt, Lithuania (contributor, graphics)",
+            "name": "Vaidotas Kinčius",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "vaidotas.kincius@bebras.lt"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (contributor, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Giovanni Serafini, serafini@inf.ethz.ch, Switzerland (contributor)",
+            "name": "Giovanni Serafini",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "serafini@inf.ethz.ch"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.2
+    },
+    "name": "Umbrella",
+    "difficulties": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CH",
+        "country": "Switzerland",
+        "num": 1
+    }
+}

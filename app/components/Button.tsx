@@ -1,22 +1,22 @@
-"use client";
+"use client"
 
-import { IconType } from "react-icons";
+import { IconType } from "react-icons"
 
 interface ButtonProps {
-  label: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  outline?: boolean;
-  large?: boolean;
-  bgColor?: string;
-  textColor?: string;
-  icon?: IconType;
-  iconSize?: string;
+  label: string
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  outline?: boolean
+  large?: boolean
+  bgColor?: string
+  textColor?: string
+  icon?: IconType
+  iconSize?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
-  outline: outline,
+  outline,
   large,
   bgColor,
   textColor,
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
       {label}
       {Icon && <Icon size={iconSize} />}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

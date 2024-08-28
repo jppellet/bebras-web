@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="23.917805mm"
+   height="21.931841mm"
+   viewBox="0 0 23.917805 21.931841"
+   version="1.1"
+   id="svg7337"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="2023-BE-01-inline-apotheke.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:serif="http://www.serif.com/">
+  <sodipodi:namedview
+     id="namedview7339"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.72337262"
+     inkscape:cx="-24.192235"
+     inkscape:cy="202.52356"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs7334" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-111.66918,-95.105508)">
+    <g
+       id="g391964"
+       serif:id="g39196"
+       transform="matrix(0.52916666,0,0,0.52916666,-125.70969,37.788292)"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round">
+      <path
+         id="path863-34"
+         serif:id="path863-3"
+         d="m 451.249,119.062 v 15.35 l 26.588,15.35 v -15.35 z"
+         style="fill:#e5e5e5;fill-rule:nonzero" />
+      <path
+         id="path12928-24"
+         serif:id="path12928-2"
+         d="m 463.214,138.25 v -9.211 l 11.964,6.908 v 9.21 z"
+         style="fill:#afdde9;fill-rule:nonzero;stroke:#b2b2b2;stroke-width:0.31px;stroke-linecap:butt" />
+      <path
+         id="path865-64"
+         serif:id="path865-6"
+         d="m 491.131,126.737 -13.294,7.675 v 15.35 l 13.294,-7.675 z"
+         style="fill:#bfbfbf;fill-rule:nonzero" />
+      <path
+         id="path12928-2-94"
+         serif:id="path12928-2-9"
+         d="m 488.472,140.552 v -9.21 l -7.976,4.605 v 9.21 z"
+         style="fill:#afdde9;fill-rule:nonzero;stroke:#b2b2b2;stroke-width:0.31px;stroke-linecap:butt" />
+      <path
+         id="path869-74"
+         serif:id="path869-7"
+         d="m 464.543,108.316 -15.953,9.211 29.247,16.885 15.952,-9.21 z"
+         style="fill:#808080;fill-rule:nonzero" />
+      <path
+         id="path129284"
+         serif:id="path12928"
+         d="m 453.908,135.947 v -12.28 l 7.976,4.605 v 12.28 z"
+         style="fill:#afdde9;fill-rule:nonzero;stroke:#b2b2b2;stroke-width:0.31px;stroke-linecap:butt" />
+      <path
+         id="path133074"
+         serif:id="path13307"
+         d="M 457.896,125.969 V 138.25"
+         style="fill:none;fill-rule:nonzero;stroke:#b2b2b2;stroke-width:0.31px;stroke-linecap:butt" />
+      <path
+         id="path155294"
+         serif:id="path15529"
+         d="m 448.59,117.527 29.247,16.885 v 1.535 L 448.59,119.062 v -1.535"
+         style="fill:#cccccc;fill-rule:nonzero" />
+      <path
+         id="path157294"
+         serif:id="path15729"
+         d="m 477.837,134.412 v 1.535 l 15.952,-9.21 v -1.535 z"
+         style="fill:#a8b2b2;fill-rule:nonzero" />
+      <g
+         id="g335434"
+         serif:id="g33543"
+         transform="matrix(1.08306,0,0,1.08306,198.001,-12.5682)">
+        <path
+           id="path331244"
+           serif:id="path33124"
+           d="m 246.715,119.764 -1.227,0.708 v 5.67 l 1.227,-0.709 v -5.669"
+           style="fill:#b3b3b3;fill-rule:nonzero" />
+        <g
+           id="g335364"
+           serif:id="g33536">
+          <path
+             id="path327564"
+             serif:id="path32756"
+             d="m 238.123,116.22 v 5.67 l 7.365,4.252 v -5.67 z"
+             style="fill:#ffffff;fill-rule:nonzero" />
+          <path
+             id="path328594"
+             serif:id="path32859"
+             d="m 238.123,116.22 7.365,4.252 1.227,-0.708 -7.365,-4.252 z"
+             style="fill:#e6e6e6;fill-rule:nonzero" />
+          <path
+             id="path332254"
+             serif:id="path33225"
+             d="m 243.646,122.953 v -1.418 l -1.227,-0.708 v -1.418 l -1.228,-0.708 v 1.417 l -1.227,-0.709 v 1.418 l 1.227,0.708 v 1.418 l 1.228,0.708 v -1.417 z"
+             style="fill:#ff0000;fill-rule:nonzero" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

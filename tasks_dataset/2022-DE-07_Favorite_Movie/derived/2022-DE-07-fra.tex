@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-DE-07 Soirée ciné}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-DE-07 Soirée ciné}
+
+
+\subsection*{Body}
+
+Quelques amis veulent regarder un film ensemble. ils ont le choix entre sept films. Pour prendre une décision, chaque personne évalue chaque film: bon \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, moyen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou mauvais \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}.
+
+Tu vois le résultat ci-dessous. Malheureusement, il n’y a pas de favori pour la soirée.
+
+Un film est un “favori” quand il reçoit de chaque personne la meilleure évaluation parmi les films. Par exemple, le film $1$ n’est pas un favori parce que Niklaus a donné sa meilleure évaluation à un autre film, le film $4$.
+
+Ada aimerait devoir convaincre le moins de personnes possible de changer leurs évaluations pour avoir un favori malgré tout.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Aide Ada en changeant le moins d’évaluations possible pour qu’il y ait un favori.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-taskbody-compatible.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique plusieurs fois sur les évaluations pour les changer. Pour revenir à l’état de départ, clique sur “Effacer la réponse”. Les évaluations que tu as changées sont agrandies.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Il n’y a pas de favori au départ. Pour chaque film, nous trouvons des amis qui ont mieux évalué d’autres films.
+
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Film}} & {\setstretch{1.0}\thead[lb]{Amis qui ont mieux évalué d’autres films}} \\ 
+\midrule
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation1.svg}} & $4$: Nancy, Niklaus, Grace et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation2.svg}} & $3$: Niklaus, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation3.svg}} & $3$: Niklaus, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation4.svg}} & $3$: Nancy, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation5.svg}} & $3$: Nancy, Grace et Edsger \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation6.svg}} & $2$: Niklaus et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation7.svg}} & $3$: Niklaus, Grace et Rozsa
+\end{tabular}
+
+Il n’y a que deux amis qui ont mieux évalué d’autres films que le film $6$. Tous les autres films ont été moins bien évalués que d’autres par plus de deux des amis. Il ne suffit donc pas qu’un seul ami change son évaluation pour qu’il y ait un favori. Ada doit convaincre Niklaus et Rozsa de faire du film $6$ leur film préféré, et elle obtient alors un favori après deux changements.
+
+Quelles évaluations Niklaus et Rosza peuvent-ils changer afin que le film $6$ ait leur meilleure évaluation? Chacun a trois possibilités:
+
+\begin{itemize}
+  \item Niklaus peut changer son évaluation du film $6$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, ou alors changer son évaluation du film $4$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}. Dans les trois cas, le film $6$ obtient sa meilleure évaluation.
+  \item Rozsa peut changer son évaluation du film $6$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, ou alors changer son évaluation du film $5$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}. Dans les trois cas, le film $6$ obtient sa meilleure évaluation.
+\end{itemize}
+
+Chacune des trois possibilités de Niklaus et Rosza peuvent être combinées de n’importe quelle manière. Il existe en tout ${3 \times 3 = 9}$ possibilités de ne changer que deux évaluations afin d’obtenir un favori.
+
+
+\subsection*{It’s Informatics}
+
+Comment procédons-nous pour résoudre cet exercice? Une idée est de vérifier pour chaque film et chaque personne s’il y a un autre film que cette personne a mieux évalué. Dans notre cas, on obtient ainsi la table plus haut. Cette table nous aide à trouver quelles personnes doivent changer leurs évaluations pour que nous obtenions un favori avec le moins de changements possible.
+
+Ada peut utiliser cet algorithme pour résoudre son problème. Mais cet algorithme est-il \emph{efficace}? Ada pourrait-elle résoudre le problème encore plus vite?
+
+Dans ce qui suit, nous dénotons le nombre de film par ${M}$ et le nombre d’amis par ${F}$. Ada doit considérer les ${M \times F}$ entrées individuellement et doit prendre en compte les ${M-1}$ autres évaluations de la même personne pour chaque entrée. Ada doit donc considérer ${M \times (M-1) \times F}$ évaluations en tout.
+
+Pour déterminer si une évaluation est problématique, Ada ne doit la comparer qu’à la meilleure évaluation de la même personne. Si cette personne a mieux évalué un autre film, le film considéré par Ada ne peut pas être un favori.
+
+Autrement dit, Si Ada commence par déterminer la meilleure évaluation de chaque personne (en considérant toutes les ${M \times F}$ évaluations), elle peut déterminer pour chacune des ${M \times F}$ évaluations si elle est moins bonne que la meilleure évaluation de la même personne.
+
+Cet algorithme alternatif qui commence par rechercher la meilleure évaluation permet à Ada de considérer ${2 \times M \times F}$ évaluations en tout. Pour ${M=7}$ et ${F=6}$, il s’agit de $84$ comparaisons, alors que le premier algorithme avait besoin de $252$ comparaisons. Le deuxième algorithme résoud aussi correctement le problème d’Ada, mais beaucoup plus efficacement que le premier.
+
+Une des tâches les plus importantes en informatique est de résoudre des problèmes non seulement de manière correcte, mais aussi le plus efficacement possible. On arrive plus rapidement à des solutions avec des ordinateurs plus rapides, mais si aucun algorithme efficace n’est connu, même les ordinateurs les plus rapides peuvent atteindre leurs limites.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Complexité (efficacité): \href{https://fr.wikipedia.org/wiki/Analyse_de_la_complexit\%C3\%A9_des_algorithmes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Analyse\_de\_la\_complexité\_des\_algorithmes}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,12 @@
+{'Englisch': 'A', 'Italienisch': 'B', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'C', 'Italienisch': 'B', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'F', 'Italienisch': 'B', 'Ungarisch': 'D', 'Spanisch': 'E'}
+
+{'Englisch': 'A', 'Italienisch': 'F', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'B', 'Italienisch': 'F', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'C', 'Italienisch': 'F', 'Ungarisch': 'D', 'Spanisch': 'E'}
+
+{'Englisch': 'A', 'Italienisch': 'G', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'B', 'Italienisch': 'G', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'C', 'Italienisch': 'G', 'Ungarisch': 'D', 'Spanisch': 'E'}
+{'Englisch': 'F', 'Italienisch': 'G', 'Ungarisch': 'D', 'Spanisch': 'E'}

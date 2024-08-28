@@ -1,0 +1,165 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-DE-07 Chemins tortueux}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-DE-07 Chemins tortueux}
+
+
+\subsection*{Body}
+
+\begin{wrapfigure}{R}{80.1px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepath-move.svg}}
+\end{wrapfigure}
+
+Une tortue doit brouter plusieurs jardins. Chaque jardin est divisé en carrés qui sont recouverts soit de gazon, soit de pierres. La tortue ne peut pas traverser un carré avec des pierres, mais elle peut passer d’une case d’herbe à une autre case d’herbe qui se trouve directement à côté.
+
+La tortue doit complètement brouter les jardins. elle commence sur la case sur laquelle elle est sur l’image. À la fin, elle doit avoir passé exactement une fois sur chaque case d’herbe.
+
+Il y a malheureusement un jardin qu’elle ne peut pas brouter complètement de cette façon.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+De quel jardin s’agit-il?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathA.svg}} & B) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathC.svg}} & D) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathA-solution.svg}} & B) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathB-solution.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathC-solution.svg}} & D) & \makecell[l]{\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathD-solution.svg}}
+\end{tabularx}
+
+La tortue peut brouter les jardins A, B et D complètement.
+
+La tortue ne peut pas brouter le jardin C de cette façon. La tortue a deux possibilités depuis son point de départ:
+
+\begin{itemize}
+  \item Si elle part d’abord vers la gauche, elle arrive au point B. Depuis là, elle devrait brouter les $6$ cases de droite de manière à terminer au point A, mais aucun des chemins possibles depuis le point B ne se termine au point A.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathC-explanation01.svg}\par}
+
+\begin{itemize}
+  \item Si la tortue part d’abord vers la droite, alle arrive au point B et devrait brouter les $6$ cases de manière à atteindre le point A à la fin. On peut utiliser le même argument que si dessus en inversant le haut et le bas. Il n’y a donc pas non plus de chemin adapté.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.89]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepathC-explanation02.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+La tortue doit trouver un chemin à travers un jardin en passant exactement une fois par chaque case d’herbe. Le problème de cet exercice est un problème du type \emph{chemin hamiltonien}
+
+Les carrés d’herbes du jardin de la tortues peuvent être considérés comme des \emph{nœuds}. On représente alors le jardin D comme ceci:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2021-DE-07-turtlepath-graph-D.svg}\par}
+
+Au XIX\textsuperscript{e} siècle, Sir William Hamilton se demanda s’il existait pour de telle structures (appelées \emph{graphes} en informatique et en mathématiques) un chemin les long des arêtes passant exactement une fois par chaque nœud. C’est pour cela que l’on appele un tel chemin un \emph{chemin hamiltonien}. La question de savoir si un chemin hamiltonien existe dans un certain graphe est en règle générale très difficile à résoudre. Personne de connait d’\emph{algorithme} permettant de déterminer si un chemin hamiltonien existe dans un graphe quelconque de manière efficiente (assez rapidement pour que ce soit utile). Cela est vrai de tous les problèmes dits \emph{NP-complets}, dont le problème du chemin hamiltonien est le plus connu.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Graphe hamiltonien, chemin hamiltonien: \href{https://fr.wikipedia.org/wiki/Graphe_hamiltonien}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_hamiltonien}}
+\end{itemize}
+
+
+}
+\end{document}

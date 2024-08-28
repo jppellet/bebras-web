@@ -1,0 +1,98 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Bols}
+\renewcommand{\taskCountry}{IE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Trois frères et sœurs veulent manger leur petit-déjeuner dans trois bols pareils. Ils ont une grande pile de bols. Par précaution, ils n’enlèvent toujours qu’un bol à la fois du haut de la pile.
+
+{\centering%
+\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-IE-09_taskbody1-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quel est le plus petit nombre de bols qu’ils doivent enlever de la pile dessinée pour en avoir trois pareils?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & $3$ bols \\ 
+  B) & $4$ bols \\ 
+  C) & $5$ bols \\ 
+  D) & $6$ bols \\ 
+  E) & $7$ bols \\ 
+  F) & $8$ bols \\ 
+  G) & $9$ bols \\ 
+  H) & $10$ bols \\ 
+  I) & $11$ bols \\ 
+  J) & $12$ bols \\ 
+  K) & $13$ bols \\ 
+  L) & $14$ bols \\ 
+  M) & $15$ bols \\ 
+  N) & $16$ bols
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Réponse K): Au moins $13$ bols doivent être enlevés de la pile pour avoir trois bols pareils.
+
+{\centering%
+\includesvg[width=396.9px]{\taskGraphicsFolder/graphics/2020-IE-09_explanationB-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Une \emph{pile}, aussi appelée \emph{stack} en informatique, est une façon très répandue d’enregistrer des choses. Une pile est une structure très simple, mais très puissante, que l’on utilise souvent en programmation. Il y a des règles qui décrivent comment on peut ajouter ou enlever des choses de la pile, le plus souvent seulement depuis le haut. Dans cet exercice, nous n’avons travaillé qu’avec des choses à enlever de la pile. La règle indique que seul l’objet le plus haut de la pile peut être enlevé. Si l’on veut le dixième bol de la pile, on doit donc enlever dix bols les uns après les autres. Pour cela, c’est important d’avoir un autre endroit à disposition où poser les neuf autres bols; c’est pareil en programmation. Si l’on a une deuxième pile et que les piles peuvent être aussi hautes que l’on veut, on peut en théorie déjà tout calculer ce qui est calculable avec un ordinateur (en informatique, on dit d’une telle chose qu’elle est \emph{complète au sens de Turing})! De simples piles comme ça sont vraiment puissantes!
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pile: \href{https://fr.wikipedia.org/wiki/Pile_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pile\_(informatique)}}
+  \item Machine de Turing: \href{https://fr.wikipedia.org/wiki/Machine_de_Turing}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Machine\_de\_Turing}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNaughtonT{} % \ifdefined\AuthorNaughtonT \BrochureFlag{ie}{} Tom Naughton\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

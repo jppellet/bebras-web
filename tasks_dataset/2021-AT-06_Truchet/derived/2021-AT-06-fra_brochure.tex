@@ -1,0 +1,88 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Pavage de Truchet}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les motifs suivants ont été créés en n’utilisant qu’un seul type de pavé. Les images des pavés individuels sont agrandies.
+
+
+
+% question (as \emph{})
+{\em
+Assigne chaque pavé au motif correspondant.
+
+{\centering%
+\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-AT-06-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne attribution:
+
+{\centering%
+\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-AT-06-solution-compatible.svg}\par}
+
+En mettant cinq mêmes pavés côte à côte et en comparant les différents pavés, on voit de claires différences:
+
+{\centering%
+\includesvg[scale=0.37]{\taskGraphicsFolder/graphics/2021-AT-06-explanation.svg}\par}
+
+Le pavé \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-AT-06-tile3.svg}} est le seul pavé dont les quatre côtés ne vont pas exatement ensemble. C’est le seul moyen pour obtenir des lignes de largueurs différentes comme dans le motif D.
+Le pavé \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-AT-06-tile4.svg}} est le seul avec lequel on peut créer des points carrés comme sur le motif B, en mettant bout à bout quatre coins avec un triangle. De plus, il a la plus grande proportion de brun par rapport au jaune, comme le motif B.
+Il ne reste donc que le pavé \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-AT-06-tile2.svg}} pour former le motif A aux formes arrondies, alors que les lignes droites du motif C ne peuvent être créées qu’avec le pavé \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2021-AT-06-tile1.svg}}.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Ces pavés sont nommé d’après Sébastien Truchet (* $1657$; † $1729$), qui en a développé différentes variantes. Les pavés ayant quatre côtés pareils forment un sous-ensemble des pavés de Truchet (mais les pavés de Truchet ne doivent pas forcément avoir quatre côtés pareils, comme dans trois des motifs de cet exercice).
+Le fait que des motifs complets peuvent être générés à partir d’éléments très simple est une propriété intéressante que l’on rencontre souvent en informatique. Les pavés de Truchet sont étudiés en mathématiques et en informatique, et sont utilisé dans les jeux vidéos pour créér des labyrinthes et des décors.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pavés de Truchet: \href{https://en.wikipedia.org/wiki/Truchet_tiles}{\BrochureUrlText{https://en.wikipedia.org/wiki/Truchet\_tiles}}
+  \item Sébastien Truchet: \href{https://fr.wikipedia.org/wiki/S\%C3\%A9bastien_Truchet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sébastien\_Truchet}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

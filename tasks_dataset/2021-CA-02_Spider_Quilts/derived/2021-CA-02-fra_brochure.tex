@@ -1,0 +1,111 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Toiles d'araignée}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Thekla l’araignée aimerait construire autant de toiles différentes que possible. Pour cela, elle a mis au point une méthode lui permettant de décrire la structure exacte de ses toiles.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-taskbody.svg}\par}
+
+Elle procède de la façon suivante: elle numérote les points d’ancrage de la toile de $1$ à ${N}$ et utilise les case d’une grille comme cela:
+
+\begin{itemize}
+  \item S’il y a un fil qui relie le point d’ancrage ${x}$ au point d’ancrage ${y}$, elle met un “X” dans la case située dans la colonne ${x}$ et dans la ligne ${y}$.
+\end{itemize}
+
+Un fil qui relie le point d’ancrage ${x}$ au point d’ancrage ${y}$ relie également le point d’ancrage ${y}$ au point d’ancrage ${x}$.
+
+Thekla construit à présent cette toile:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-question.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Comment Thekla décrit-elle la structure de cette toile?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  La réponse A est correcte, car toutes les cases sont remplies correctement d’après la règle. & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-answerA.svg}} \\ 
+  La réponse B comporte une connection supplémentaire erroné (entre le point d’ancrage $1$ et le point d’ancrage $2$ dans les deux directions) et une connection a été oubliée (entre le point d’ancrage $2$ et le point d’ancrage $5$ dans les deux directions). & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationB.svg}} \\ 
+  Concernant la réponse C: d’après la règle, aucun “X” ne peut être présent dans la diagonale allant du haut à gauche au bas à droite. ils représenteraient en effet des connections entre d’un point d’ancrage et lui-même. Ceux-ci peuvent exister dans certains réseaux, mais pas dans notre toile d’araignée. La réponse C comporte cependant deux telles connections (au points d’ancrage $1$ et $4$). & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationC.svg}} \\ 
+  Le réponse D n’est pas symétrique par rapport à la diagonale allant du haut à gauche au bas à droite, alors que toutes les descriptions de toiles devraient l’être. Dans cette réponse, le point d’ancrage $2$ et le point d’ancrage $5$ sont connectés, mais la connection correspondante dans l’autre direction manque. & \makecell[r]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-explanationD.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La toile d’araignée peut être considérée comme un \emph{graphe}; un concept qui apparait fréquemment en informatique.
+
+Un graphe est composé de \emph{nœuds} (les points d’ancrage de la toile) et d’\emph{arêtes} (les fils entre les points d’ancrage). Les graphes peuvent aussi être utilisés pour représenter des objets et les relations entre ces objets. Par exemple, un graphe pourrait représenter la manière dont des personnes sont connectées sur un réseau social ou des vols d’avion entre différents pays.
+
+Cet exercice montre comment la structure d’une toile d’araignée peut être enregistrée dans une grille. Certaines propriétés de la toiles sont perdues dans cette représentation, comme par exemple l’apparence exacte de la toile. Souvent, on ne s’intéresse pas aux propriétés géométriques exactes d’une toile, mais seulement à sa structure. Les informations essentielles sont conservées: combien y a-t-il de nœuds? Quelles paires de nœuds sont-elles reliées par une arête?
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CA-02-itsinformatics-compatible.svg}\par}
+
+La représentation utilisée ici n’est qu’une possibilité parmi beaucoup de représenter la structure d’un réseau. Cette méthode n’est pas très économe, car toutes les connections sont enregistrées dans les deux sens, ce qui ne serait pas nécessaire; les cases de la diagonale ne seraient pas nécessaire non plus. Cette méthode a par contre l’avantage de mettre en évidence les erreurs de représentation. Les réponses C et D, par exemple, peuvent être éliminées sans même considérer la toile d’araignée.
+
+La méthode de représentation utilisée dans cet exercice s’appelle une \emph{matrice d’adjacence}.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Matrice d’adjacence: \href{https://fr.wikipedia.org/wiki/Matrice_d\%27adjacence}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Matrice\_d’adjacence}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

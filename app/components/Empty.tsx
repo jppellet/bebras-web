@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
-import Button from "./Button";
-import Heading from "./Heading";
+import Button from "./Button"
+import Heading from "./Heading"
 
 interface EmptyProps {
-  title?: string;
-  subtitle?: string;
-  showButton?: boolean;
+  title?: string
+  subtitle?: string
+  showButton?: boolean
 }
 
 export default function Empty({
@@ -16,7 +16,7 @@ export default function Empty({
   subtitle = "Essayez de retirer certains filtres",
   showButton,
 }: EmptyProps) {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div
@@ -40,5 +40,5 @@ export default function Empty({
         )}
       </div>
     </div>
-  );
+  )
 }

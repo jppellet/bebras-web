@@ -1,0 +1,225 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-AU-05a Mattoni di castoro}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-AU-05a Mattoni di castoro}
+
+
+\subsection*{Body}
+
+I mattoni di castoro Otto si differenziano per quattro caratteristiche:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  \begin{enumerate}
+  \item larghezza: stretta, media, larga
+  \item altezza: piccola, media, grande
+  \item numero di sporgenze sulla parte superiore: zero, uno, due
+  \item numero di scanalature nella parte inferiore: zero, una, due.
+\end{enumerate}
+
+ & \makecell[l]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/-ita/2023-AU-05-taskbody_compatible-ita.svg}}
+\end{tabularx}
+
+\begin{wrapfigure}{R}{134.20000000000002px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_example.svg}}
+\end{wrapfigure}
+
+Otto divide i mattoni in gruppi di tre. Lo fa in modo che per ogni gruppo valga quanto segue: i tre mattoni hanno per ciascuna delle quattro proprietà …
+
+\begin{itemize}
+  \item … o tutte con lo stesso valore …
+  \item … o tutte con tre valori diversi.
+\end{itemize}
+
+A destra, uno dei gruppi di Otto.
+
+Perché questi tre mattoni hanno tutti
+
+\begin{itemize}
+  \item la stessa larghezza,
+  \item diverse altezze,
+  \item numero diverso di sporgenze e
+  \item numero diverso di scanalature.
+\end{itemize}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Dividi questi mattoni in gruppi di tre, come farebbe Otto.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Trascina i mattoni nelle caselle. Al termine, fai clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The blocks are draggable. The script should check if the draggbles in the group fit the contraints in the taskbody.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta giusta:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task_solution-compatible.svg}\par}
+
+I mattoni sono divisi in gruppi secondo le regole di Otto.
+La tabella mostra i tre gruppi, per i quali i valori delle proprietà sono tutti diversi o tutti uguali.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Proprietà}} & {\setstretch{1.0}\thead[cb]{Gruppo A}} & {\setstretch{1.0}\thead[cb]{Gruppo B}} & {\setstretch{1.0}\thead[cb]{Gruppo C}} \\ 
+\midrule
+  Larghezza & diversa & uguale & diversa \\ 
+  Altezza & uguale & diversa & diversa \\ 
+  Sporgenze & uguali & uguali & diversi \\ 
+  Scanalature & diverse & diverse & uguali
+\end{tabular}
+
+\par}
+
+Ma è questo l’unico modo per dividere i mattoni come farebbe Otto?
+
+Si può considerare che se i valori di una proprietà devono essere diversi in tutti i gruppi, i valori diversi devono verificarsi in tutti i mattoni tante volte quanti sono i gruppi. In caso contrario, deve esistere almeno un gruppo in cui i valori di questa proprietà sono tutti uguali.
+
+Un’analisi più attenta di tutti i mattoni mostra che i valori di larghezza di $2$ e $4$ unità si verificano solo due volte. Deve quindi esistere un gruppo in cui tutti i mattoni hanno una larghezza di tre unità.
+
+Dei cinque mattoni di larghezza di tre unità, nessuno ha una sola sporgenza. Pertanto, non è possibile formare un gruppo con un numero diverso di sporgenze. Ma ci sono tre mattoni con zero sporgenze - e tutti hanno altezze diverse e un numero diverso di scanalature. Pertanto, il gruppo B è l’unico gruppo possibile di mattoni con larghezza di tre unità.
+
+Negli altri due gruppi, le larghezze devono essere tutte diverse.
+
+Nei sei mattoni rimanenti, i valori di altezza di tre unità e due unità si verifica solo una volta. Deve quindi esistere un gruppo in cui tutti i mattoni hanno un’altezza di un’unità. Il gruppo A è l’unico gruppo possibile di tre mattoni con altezza di un’unità che corrisponde alle idee di Otto. Restano i tre mattoni del gruppo C. Anch’essi formano un gruppo di tre, proprio come vorrebbe Otto.
+
+
+\subsection*{This is Informatics}
+
+In questo compito i mattoni sono descritti usando quattro \emph{proprietà} (o \emph{attributi}).
+
+Per poter dividere i mattoni in gruppi di tre come vuole Otto, è necessario conoscere i valori delle proprietà di ciascun mattone.
+
+Per questo, è sufficiente guardare ciascun elemento costitutivo. Un programma informatico che deve creare i gruppi di tre non può \enquote{vedere} e ha bisogno di una descrizione in una \emph{struttura di dati}.
+
+Ad esempio, i mattoni in una \emph{base di dati} possono essere descritti come righe di una tabella. Le colonne della tabella corrispondono alle proprietà e ogni riga (chiamata anche \emph{dataset}) contiene i valori di un mattone nelle colonne appropriate:
+
+{\centering%
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Mattone n.}} & {\setstretch{1.0}\thead[lb]{Larghezza}} & {\setstretch{1.0}\thead[lb]{Altezza}} & {\setstretch{1.0}\thead[lb]{Sporgenze}} & {\setstretch{1.0}\thead[lb]{Scanalature}} \\ 
+\midrule
+  1 & 1 & 3 & 1 & 0 \\ 
+  2 & 2 & 2 & 2 & 0 \\ 
+  … & … & … & … & …
+\end{tabular}
+
+\par}
+
+La progettazione di tabelle di basi di dati è un’attività comune per gli informatici.
+
+È necessario essere scrupolosi e considerare quali proprietà degli oggetti sono importanti per l’elaborazione da parte di un programma informatico. Le modifiche successive non sono così facili, soprattutto se i dati di molti oggetti sono già memorizzati.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Struttura dati: \href{https://it.wikipedia.org/wiki/Struttura_dati}{\BrochureUrlText{https://it.wikipedia.org/wiki/Struttura\_dati}}
+  \item Basi di dati: \href{https://it.wikipedia.org/wiki/Tabella_(basi_di_dati)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Tabella\_(basi\_di\_dati)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

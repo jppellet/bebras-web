@@ -1,0 +1,130 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{L'albero magico}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ben ha un albero di mele speciale in giardino:
+
+\begin{itemize}
+  \item Se un uccello \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}} atterra sull’albero, crescono immediatamente due nuove mele.
+  \item Se uno scoiattolo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}} si arrampica sull’albero, cade una mela. Se non c’è nessuna mela appesa all’albero, non succede nulla.
+  \item Se un serpente \raisebox{-0.5ex}{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}} visita l’albero, tutte le mele scompaiono immediatamente.
+\end{itemize}
+
+Questa mattina ci sono $25$ mele appese all’albero. Poi alcuni animali visitano l’albero uno dopo l’altro, per ultimo uno scoiattolo. Ben ha scritto esattamente il loro ordine:
+
+{\centering%
+\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quante mele sono rimaste appese all’albero?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $3$ mele
+
+B) $7$ mele
+
+C) $17$ mele
+
+D) $31$ mele
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta B è corretta. Dopo che l’ultimo scoiattolo si è arrampicato sull’albero, ci sono ancora $7$ mele appese all’albero.
+
+È possibile calcolare per ogni visita animale quante mele sono appese all’albero in quel momento:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Inizio}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & +2 & +2 & –1 & +2 & reset \\ 
+  \textbf{Mele:} & 25 & 27 & 29 & 28 & 30 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Riporto}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-snake.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & – & – & +2 & +2 & +2 & –1 & +2 & reset \\ 
+  \textbf{Mele:} & 0 & 0 & 0 & 2 & 4 & 6 & 5 & 7 & 0
+\end{tabular}
+
+\begin{tabular}{ @{} l c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Animale:}} & {\setstretch{1.0}\thead[cb]{Riporto}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-bird.svg}}} & {\setstretch{1.0}\thead[cb]{\includesvg[scale=0.21]{\taskGraphicsFolder/graphics/2023-CA-01-squirrel.svg}}} \\ 
+\midrule
+  \textbf{Istruzione:} & – & +2 & +2 & +2 & +2 & –1 \\ 
+  \textbf{Mele:} & 0 & 2 & 4 & 6 & 8 & \textbf{7}
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Poiché tutte le mele scompaiono immediatamente quando un serpente visita l’albero, possiamo ignorare tutto ciò che accade prima dell’arrivo del secondo (e ultimo) serpente. Come mostrato nella tabella, quattro uccelli atterrano sull’albero dopo la visita dell’ultimo serpente. Successivamente, ci sono ${4 \times 2 = 8}$ mele appese all’albero. Poi uno scoiattolo si arrampica sull’albero e fa cadere una mela, lasciando ${8 - 1 = 7}$ mele.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La visita di un animale cambia le condizioni dello speciale albero di mele, ma solo in un modo molto specifico: cambia solo il numero di mele appese all’albero. La visita di un animale non ha alcuna influenza su altre proprietà dell’albero, come il numero di foglie, la lunghezza dei singoli rami o la forma della chioma. Per questo compito è quindi sufficiente osservare il numero di mele.
+
+Anche un programma per computer ha uno stato che viene modificato dalle singole istruzioni del programma. I dati memorizzati da un programma sono solitamente considerati lo stato; il programma memorizza questi dati nelle \emph{variabili} introdotte durante la programmazione.
+
+La sequenza di visite degli animali all’albero in questo compito del castoro è come un programma per computer: ogni visita degli animali è un’istruzione che cambia lo stato dell’albero di mele. Questo stato - cioè il numero di mele, vedi sopra - può essere memorizzato in un’unica variabile.
+
+Durante la risoluzione del compito, avrete notato che non avete dovuto esaminare l’intero \enquote{programma}, ma solo la parte successiva all’ultima occorrenza del serpente. Osservando da vicino gli effetti delle singole istruzioni sullo stato del programma, siete riusciti a scoprire una proprietà speciale del programma. Questa analisi dei programmi (informatici) è una delle attività più frequenti degli informatici.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Variabile: \href{https://it.wikipedia.org/wiki/Variabile_(informatica)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Variabile\_(informatica)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorGaalB{} % \ifdefined\AuthorGaalB \BrochureFlag{hu}{} Bence Gaál\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

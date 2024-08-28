@@ -1,0 +1,134 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Domino}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ogni domino ha due caselle. Su ogni casella ci sono da $1$ a $6$ punti. Hai questi otto domino:
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2023-DE-09-taskbody.svg}\par}
+
+Posiziona tutti e otto i domino in fila in modo che ci sia sempre lo stesso numero di punti sulle caselle adiacenti di due domino vicini.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-good.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-bad.svg}}\par}
+
+È possibile disporre varie file di questo tipo. Tuttavia, ci sono domino che non possono essere posizionati all’inizio o alla fine della fila.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-edge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Quali sono questi domino?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Tre delle otto pietre non possono essere posizionate all’inizio o alla fine della fila:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+Per risolvere il compito, si esamina il numero di occhi (i punti sul domino sono chiamati anche \emph{occhi}, come su un dado) delle $16$ caselle.  Registriamo la frequenza dei singoli numeri di occhi e se la frequenza è pari o dispari:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Numero di occhi}} & {\setstretch{1.0}\thead[lb]{Frequenza}} & {\setstretch{1.0}\thead[lb]{Pari/dispari}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints1.svg}} & 3 & dispari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints2.svg}} & 3 & dispari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints3.svg}} & 2 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints4.svg}} & 2 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints5.svg}} & 4 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints6.svg}} & 2 & pari
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Le caselle con un numero di punti pari devono trovarsi a coppie al centro della riga o contemporaneamente all’inizio e alla fine. Tuttavia, le caselle con un numero dispari di punti non possono trovarsi tutti al centro della fila: non è possibile trovare un quadrato adiacente corrispondente per ogni quadrato con questo numero di punti; questo è possibile solo con frequenze pari. Qui si vede una riga in cui una pietra con un numero $1$ (che esiste tre volte) non si adatta più al centro.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_explanation_spare2.svg}\par}
+
+Poiché sulle otto pietre di questo compito ci sono caselle con frequenze dispari, le pietre con tale caselle devono essere posizionate all’esterno. Le pietre che hanno due caselle con frequenza pari non possono essere posizionate all’inizio o alla fine della fila. Si tratta delle seguenti pietre:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Esistono diversi modi per posizionare le otto pietre di domino di questo compito in una fila corretta. Per avere una visione d’insieme, gli informatici utilizzano i cosiddetti \emph{grafi}:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation.svg}\par}
+
+Nel grafo qui sopra sono visibili le caselle (i cosiddetti \emph{nodi}), che mostrano i sei numeri del domino. Le otto linee (chiamate \emph{bordi}) rappresentano gli otto domino; ogni linea collega due caselle. Ad esempio, il domino 2$-6$ è rappresentato dal seguente bordo:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-highlighted.svg}\par}
+
+Per risolvere il compito, tutti e otto i domino devono essere posizionati in una fila corrispondente. Dopo aver posizionato il primo domino, è già chiaro con quale numero di punti deve iniziare il secondo domino, perché i campi adiacenti di due domino devono sempre avere lo stesso numero di punti. Nel grafo, questo si può vedere dal fatto che i domino possono essere posizionati l’uno accanto all’altro esattamente quando i loro bordi si incontrano nello stesso nodo. Per esempio, le pietre 2$-6$ e 6$-3$ possono essere accostate perché entrambe contengono il numero $6$:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-two-lines.svg}\par}
+
+L’allineamento delle pietro può essere inteso come un \emph{percorso} (una sequenza di bordi) attraverso il grafo. Questo percorso deve visitare tutti gli spigoli \emph{esattamente una volta} per garantire che le otto pietre del domino vengano utilizzate tutte, ma anche che non vengano utilizzate più di una volta.  Un percorso che visita \emph{ogni bordo esattamente una volta} è chiamato \emph{cammino euleriano}. Il nome risale a Leonhard Euler, matematico svizzero e inventore della teoria dei grafi. Euler  è riuscito a dimostrare che in un grafo connesso, un cammino di Euler, esiste esattamente quando al massimo due nodi hanno un numero dispari di bordi che partono da quel nodo.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grafo: \href{https://it.wikipedia.org/wiki/Teoria_dei_grafi}{\BrochureUrlText{https://it.wikipedia.org/wiki/Teoria\_dei\_grafi}}
+  \item Nodi: \href{https://it.wikipedia.org/wiki/Vertice_(teoria_dei_grafi)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Vertice\_(teoria\_dei\_grafi)}}
+  \item Cammino euleriano: \href{https://it.wikipedia.org/wiki/Cammino_euleriano}{\BrochureUrlText{https://it.wikipedia.org/wiki/Cammino\_euleriano}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorStaubJ{} % \ifdefined\AuthorStaubJ \BrochureFlag{de}{} Jacqueline Staub\fi
+\def\AuthorChothiaZ{} % \ifdefined\AuthorChothiaZ \BrochureFlag{de}{} Zaheer Chothia\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-CH-19 Travail d'équipe}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-CH-19 Travail d’équipe}
+
+
+\subsection*{Body}
+
+Tu dois répartir huit personnes en groupes de travail pour un projet.
+Un éclair est dessiné entre deux personnes qui ne veulent pas travailler ensemble. Dans ce cas, tu ne veux pas les mettre dans le même groupe de travail.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-taskbody01.svg}\par}
+
+Dans l’exemple du haut, une répartition en trois groupes (rouge, bleu, violet) est possible en tenant compte des inimitiés. Il n’y a donc jamais d’éclair entre deux personnes de la même couleur.
+
+Si tu arrives à convaincre les deux bonnes personnes de travailler ensemble, une répartition en seulement deux groupes (deux couleurs) est possible.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Enlève le bon éclair.
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2021-CH-19-solution.svg}\par}
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Nous représentons la situation de manière plus abstraite sous forme de \emph{graphe} dans lequel les personnes sont les \emph{nœuds} (cercles) et les éclairs les \emph{arêtes} (lignes). & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation01.svg}} \\ 
+  La seule option possible est d’enlever l’arête orange. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation02.svg}} \\ 
+  Après avoir enlevé cette arête, nous pouvons colorer les nœuds de deux couleurs. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation03.svg}}
+\end{tabularx}
+
+Chaque couleur représente un groupe. On peut voir qu’il n’y a jamais deux personnes du même groupe qui refusent de travailler ensemble: les nœuds voisins ont toujours des couleurs différentes.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Pour déterminer que la seule option est d’enlever cette ligne-là, nous commençons par considérer le triangle orange. & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation04.svg}}
+\end{tabularx}
+
+Si une ligne en dehors de ce triangle est éliminée, nous avons toujours besoin de trois couleurs simplement pour le triangle en question.
+
+\begin{tabularx}{\columnwidth}{ @{} J r @{} }
+  Considérons maintenant le pentagone orange: & \makecell[r]{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2021-CH-19-explanation05.svg}}
+\end{tabularx}
+
+Si une arête en dehors de ce pentagone est éliminée, il reste intact et c’est donc impossible de le colorer avec deux couleurs: si l’on parcours le pentagone dans le sens des aiguilles d’une montre, on doit alterner entre les deux couleurs. Lorsque l’on arrive au dernier nœud, celui-ci a alors la même couleur que le premier nœud juste à côté, étant donné que le nombre de nœuds est impair, comme c’ést le cas pour le triangle.
+
+La seule solution est donc d’enlever l’arête commune au triangle et au pentagone.
+
+
+\subsection*{It’s Informatics}
+
+Beaucoup de problèmes du quotidien peuvent être formulés comme des problèmes de \emph{coloration de graphe}.
+Dans cet exercice du castor, les \emph{nœuds} d’un \emph{graphe} représentent les personnes et une \emph{arête} entre deux personnes montre qu’elles refusent de travailler dans le même groupe. Si nous colorons les nœuds avec \emph{k} couleurs, cela représente l’assignation des personnes à l’un des \emph{k} groupes de travail. Un telle coloration est valide si deux nœuds reliés par une arête ont toujours deux couleurs différentes. Dans notre cas, une coloration est donc valide lorsque toutes les personnes de chaque groupe travaillent ensemble. Une arête est appelée \emph{critique} quand une coloration valide avec une couleur de moins devient possible en enlevant cette arête (on peut pour cela changer la couleur de tous le nœuds du graphe). Ici, une arête est donc critique quand on peut réduire le nombre de groupes en convaiquant les deux personnes correspondantes de travailler ensemble.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Théorie de graphe: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+\end{itemize}
+
+
+}
+\end{document}

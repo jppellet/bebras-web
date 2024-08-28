@@ -1,0 +1,139 @@
+{
+    "id": "2023-IN-03b",
+    "title": "Zug entladen",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "hard",
+        "3": "medium",
+        "4": "easy",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "hard",
+        "12-14": "medium",
+        "14-16": "easy",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "open integer",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Madhavan Mukund, madhavan@cmi.ac.in, India (author, graphics)",
+            "name": "Madhavan Mukund",
+            "country": "India",
+            "country_code": "IN",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "madhavan@cmi.ac.in"
+        },
+        {
+            "src": "Susanne Datzko, susanne.datzko@informatik-biber.ch, Switzerland (graphics, contributor)",
+            "name": "Susanne Datzko",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "graphics",
+                "contributor"
+            ],
+            "email": "susanne.datzko@informatik-biber.ch"
+        },
+        {
+            "src": "Josefine Hiebler, josefine.hiebler@ocg.at, Austria (contributor)",
+            "name": "Josefine Hiebler",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "josefine.hiebler@ocg.at"
+        },
+        {
+            "src": "Laila Alharthi, laila.alharthi5@gmail.com, Saudi Arabia (contributor)",
+            "name": "Laila Alharthi",
+            "country": "Saudi Arabia",
+            "country_code": "SA",
+            "roles": [
+                "contributor"
+            ],
+            "email": "laila.alharthi5@gmail.com"
+        },
+        {
+            "src": "Diego César, dbalbuena@fiuna.edu.py, Paraguay (contributor)",
+            "name": "Diego César",
+            "country": "Paraguay",
+            "country_code": "PY",
+            "roles": [
+                "contributor"
+            ],
+            "email": "dbalbuena@fiuna.edu.py"
+        },
+        {
+            "src": "Tom Naughton, tomn@cs.nuim.ie, Ireland (contributor)",
+            "name": "Tom Naughton",
+            "country": "Ireland",
+            "country_code": "IE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "tomn@cs.nuim.ie"
+        },
+        {
+            "src": "Kirsten Schlüter, kirsten.schlueter@sonnwendjoch.de, Germany (translation from English into German)",
+            "name": "Kirsten Schlüter",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "kirsten.schlueter@sonnwendjoch.de"
+        },
+        {
+            "src": "Gerald Futschek, gerald.futschek@tuwien.ac.at, Austria (contributor)",
+            "name": "Gerald Futschek",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "gerald.futschek@tuwien.ac.at"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.2
+    },
+    "name": "Unloading",
+    "difficulties": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        0
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "IN",
+        "country": "India",
+        "num": 3,
+        "variant": "b"
+    }
+}

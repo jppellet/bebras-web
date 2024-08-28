@@ -1,0 +1,116 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Pierres précieuses}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+\begin{wrapfigure}{R}{313.2px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-04-illustration.svg}}
+\end{wrapfigure}
+
+Peter a plusieurs pierres précieuses. Elles ont toutes une valeur différente.
+
+Sarah connait les pierres précieuses de Peter, mais pas leur valeur. Elle aimerait savoir quelle pierre a le plus de valeur.
+
+Pour cela, elle fait la chose suivante trois fois de suite:
+
+\begin{itemize}
+  \item Elle choisit quatre pierres parmi la collection de Peter et lui demande laquelle des quatre a le plus de valeur.
+\end{itemize}
+
+Elle choisit à chaque étape quatre pierres comme elle veut, et Peter lui répond toujours honnêtement.
+
+À la fin, Sarah sait quelle pierre précieuse a le plus de valeur.
+
+
+
+% question (as \emph{})
+{\em
+Combien de pierres précieuses Peter peut-il avoir au maximum?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $8$ pierres précieuses
+
+B) $10$ pierres précieuses
+
+C) $11$ pierres précieuses
+
+D) $12$ pierres précieuses
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La réponse B): $10$ pierres précieuses est correcte.
+
+Si Peter a $10$ pierres précieuses, Sarah peut choisir en tout huit pierres différentes lors de ses deux premières questions. Les deux pierres “gagnantes” de chaque question (c’est à dire le deux qui ont la plus grande valeur parmi les deux groupes de quatre) peuvent chaucune être la “grande gagnante”, c’est à dire la pierre ayant la plus grande valeur de toutes. Les six autres pierres comparées sont éliminées. Pour sa dernière question, Sarah compare les deux gagnantes et les deux pierres qu’elle n’a pas encore choisi jusque-là. La gagnante de la dernière question est aussi la grande gagnante.
+
+Sarah peut donc (entre autres) procéder de cette façon pour trouver la pierre ayant la plus grande valeur parmi $10$ pierres. Si Peter a $11$ pierres, cela ne fonctionne pas:
+
+Si Sarah procède comme décrit plus haut et compare huit pierres différentes lors de ses deux premières questions, il lui reste ensuite les deux gagnantes et trois autres pierres à comparer pour trouver la grande gagnante, donc trop de pierres pour sa troisième question. Si Sarah décide de comparer la gagnate de sa première question avec trois nouvelles pierres lors de sa deuxième question, cela lui apprend quelle pierre a le plus de valeur parmi les sept pierres comparées. Elle doit ensuite encore comparer cette pierre avec les quatre autres pierres qu’elle n’a pas encore choisies, ce qui fait une pierre de trop pour sa troisième question.
+
+Si Sarah choisisait six pierres ou moins parmi $11$ pour ses deux premières questions, ou si Peter avait plus de $12$ pierres, elle aurait besoin d’encore plus de questions pour déterminer laquelle a le plus de valeur.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice présente un \emph{algorithme} qui est limité par des conditions. Ici, ces conditions sont que Sarah ne peut poser que trois questions et que chaque question ne peut contenir que quatre éléments.
+
+Malgré cette limite, l’algorithme fonctionne bien pour des collections de moins de $11$ éléments, mais échoue pour de plus grandes collections.
+
+Il existe plusieurs raisons d’imposer des contraintes à un algorithme. On pourrait par exemple imposer qu’une opération soit effectuée en un temps limite, ce qui est nécessaire pour les systèmes d’exploitation temps réel. De plus, certains procédés peuvent engendrer des coûts externes ou endommager des composants.
+
+Ce n’est pas un problème que l’algorithme échoue à partir d’un certain seuil du moment que l’on contrôle que ce seuil ne soit jamais dépassé. La stratégie limitée de cet exercice ne doit par exemple jamais être utilisée pour des collections de plus de $10$ éléments.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Complexité en temps: \href{https://fr.wikipedia.org/wiki/Complexit\%C3\%A9_en_temps}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Complexité\_en\_temps}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorPrettiJ{} % \ifdefined\AuthorPrettiJ \BrochureFlag{ca}{} J.P.~Pretti\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorKimD{} % \ifdefined\AuthorKimD \BrochureFlag{kr}{} Dong Yoon Kim\fi
+\def\AuthorKimH{} % \ifdefined\AuthorKimH \BrochureFlag{kr}{} Hakin Kim\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,3 @@
+SD: Sehr schönes „Puzzle“ – meiner Meinung nach zu simpel zu lösen insbesondere, bei einer Implementierung als drag and drop. Ein Teil der Abstraktion evtl. in der Lösungserklärung bereits einbauen.
+ZsP: ein leichte Aufgabe für die „kleinste“ in HU
+WP: Einfach und schick.

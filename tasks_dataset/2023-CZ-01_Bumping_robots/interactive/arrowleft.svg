@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 12.906242 12.906249"
+   height="12.906249mm"
+   width="12.906241mm"
+   sodipodi:docname="2023-CZ-01-arrow-left.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview69"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.8424739"
+     inkscape:cx="-25.509181"
+     inkscape:cy="-5.156111"
+     inkscape:window-width="1680"
+     inkscape:window-height="1027"
+     inkscape:window-x="2040"
+     inkscape:window-y="22"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1358" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1561" />
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-8"
+       style="overflow:visible">
+      <path
+         id="path1561-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend-8-3"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1561-9-9" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(-125.42773,-103.18986)"
+     id="layer1">
+    <g
+       transform="translate(99.733987,74.321116)"
+       id="g1358">
+      <g
+         id="rect1233"
+         transform="rotate(-90,32.15924,35.308844)">
+        <path
+           style="color:#000000;fill:#ffe6d5;stroke-width:0.664228;stroke-miterlimit:1.5;-inkscape-stroke:none;paint-order:fill markers stroke"
+           d="m 28.836399,29.188181 h 6.645631 c 1.555485,0 2.807733,1.252249 2.807733,2.807733 v 6.626893 c 0,1.555484 -1.252248,2.807733 -2.807733,2.807733 h -6.645631 c -1.555485,0 -2.807733,-1.252249 -2.807733,-2.807733 v -6.626893 c 0,-1.555484 1.252248,-2.807733 2.807733,-2.807733 z"
+           id="path2003" />
+        <path
+           id="path2005"
+           style="color:#000000;fill:#000000;stroke-width:3.77953;stroke-miterlimit:1.5;-inkscape-stroke:none;paint-order:fill markers stroke"
+           d="m 11.876953,-0.05078125 c -6.5526726,0 -11.86328112,5.31841725 -11.86328112,11.87109325 v 25.046876 c 0,6.552676 5.31060852,11.861328 11.86328112,11.861328 h 25.119141 c 6.552676,0 11.863281,-5.308652 11.863281,-11.861328 V 11.820312 c 0,-6.552676 -5.310605,-11.87109325 -11.863281,-11.87109325 z m 0,2.50976565 h 25.119141 c 5.205301,0 9.353515,4.1560267 9.353515,9.3613276 v 25.046876 c 0,5.205301 -4.148214,9.351562 -9.353515,9.351562 H 11.876953 c -5.2053013,0 -9.3535155,-4.146261 -9.3535155,-9.351562 V 11.820312 c 0,-5.2053009 4.1482142,-9.3613276 9.3535155,-9.3613276 z M 24.765625,4.5488281 12.501953,24.939453 19.517578,23.638672 18.839844,42.236328 h 11.986328 l -0.396484,-18.597656 6.597656,1.300781 z"
+           transform="matrix(0.26458333,0,0,0.26458333,25.693743,28.868744)" />
+      </g>
+      <g
+         id="path59"
+         transform="matrix(1,0,0,-1,0,70.64471)" />
+    </g>
+  </g>
+</svg>

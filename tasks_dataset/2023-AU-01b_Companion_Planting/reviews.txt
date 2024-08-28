@@ -1,0 +1,62 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: luan  (svn: luan)
+on 2023-04-15
+Non-assigned review
+It is a good idea. There are some mistakes such as:
++ The example is 3x3, not 2x3.
++ There are 6 plants but only 15 squares in the question table.
+========================================
+By: Bence Gaál (svn: gaal)
+on 2023-04-17
+Assigned review
+Great and fun task! I like it!
+
+In the example: You mentioned 2x3 table, but it is a 3x3.
+
+For me, the colouring the table is unnecessary, and the contrast in the case of corn is not enough. Maybe a table with pictures is better
+
+This is Computational Thinking: missing
+CT keywwords are missing too.
+========================================
+By: Esraa almajhad (svn: majhad)
+on 2023-04-17
+Non-assigned review
+[AGE] ok
+[IDEA] i like the idea .
+[TEXT] there is a mistake in the number of the  garden bed (3*3)
+[EXPL]    I prefere explain all correct possibilities of solutions 
+[TiCT] missing
+[AUTH] ok
+[NAME] ok
+========================================
+By: Susanne Datzko (svn: sdatzko)
+on 2023-04-19
+Assigned review
+[AGE] I think the task is harder than rated. I think it is "medium" for 12-14 yo. The task is relatively complex and there are many dependencies that need to be considered.
+[IDEA] I like the task idea and its relation to reality.
+[TEXT] However, the task needs to be better and more clearly structured. The table with the good and bad neighbors should also be presented with the graphs. It all needs to be on one page so that you don't have to have the information from the table in your head.
+The question must be shorter and more clearly formulated. Parts of the question can already be explained in the body. In the example, you could also include a misplaced plant. (By the way, the field is 3x3 and not 2x3).
+Nasturtiums - whats that?! - I would only call it flower. Think about not using at all the name of the plants and only work with the pictures.
+[EXPL] Go probably step by step how it could be solved in a smarter way than brute force. Start with tomatos and beans probably? How many different solutions are possible?
+Is there a possibility to make the relations between the different plants more visible? Graph?
+Explain why the tomatos and the beans will allwasy be in the same place.
+[ANSWERTYPE] I think its really appealing and motivating to solve this task with drag and drop - but it could be a time killer like this. Add some more planted fields to reduce the possibilities. Think about making another MC version with 4 different planted beds.
+[TiI] Many different computer science keywords are used but none of them is really explained. Consentrate on one or 2 keywords and formulate a direct connection to the task.
+[TiCT] Not filled out
+[GRAPH]I like the style of the graphics. Probably make them a bit simpler and then smaller so that it fits better on one page.
+========================================
+By: Nora Anna Escherle (svn: escherle)
+on 2023-04-21
+Assigned review
+[AGE] The age/difficulty level is specified and seems appropriate for the task and question. 
+[IDEA] Not extremely original idea but nice and relatable. It does require some computational thinking skill to be understood and solved.
+[TEXT]  Very long, could and should be shortened. The question and conditions are clear though.
+[EXPL]  The “Answer Explanation” section is available and complete. It is understandable by students of the appropriate level. There is a clear reason why the correct answer is correct.
+[TiI] The “It’s informatics” section is available but does not really refer to how/ why this is informatics. It focuses on the solving process which would be more suitable in the “TiCT”-section. Connection to the “story” is well made.
+[TiCT] “This is Computational Thinking” section is not available . 
+[GRAPH] The figures are clear and appealing. They are CC-licensed and may be re-used and modified. They are available in SVG format (i.e., as vector graphics).
+[AUTH] The name(s) and mail address(es) of the author(s) are available.
+[NAME] The names of the task folder and file(s) comply with the prescribed format.
+[OTHER] -
+========================================

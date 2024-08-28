@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-DE-08a Cadeau favori}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-DE-08a Cadeau favori}
+
+
+\subsection*{Body}
+
+La famille castor a trois cadeaux pour ses trois enfants. Chaque enfant indique d’abord son cadeau favori, puis son second choix. Les cadeaux doivent être bien distribués:
+
+\begin{enumerate}
+  \item Le plus d’enfants possible doivent recevoir leur cadeau favori.
+  \item Les autres enfants doivent recevoir leur second choix.
+\end{enumerate}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Donne les bons cadeaux aux enfants.
+
+{\centering%
+\includesvg[scale=0.75]{\taskGraphicsFolder/graphics/2021-DE-08a-question-compatible.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la seule manière de distribuer les cadeaux en respectant les deux conditions.
+
+{\centering%
+\includesvg[scale=0.75]{\taskGraphicsFolder/graphics/2021-DE-08a-solution-compatible.svg}\par}
+
+Seul le deuxième castor désire le troisième cadeau, c’est donc lui qui doit le recevoir. Sinon, un autre castor recevrait un cadeau qui n’est ni son cadeau favori, ni son deuxième choix. La distribution des deux autres cadeaux est claire: chaque castor reçoit son cadeau favori.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, nous avons affaire à un \emph{problème d’affectation} univoque: nous voulons affecter les cadeaux de manière à ce que tous les enfants recoivent un cadeau. Les enfants n’ont ici pas qu’un seul souhait, mais une liste de préférence. De tels problèmes d’affectation avec listes de préférence peuvent devenir très compliqués. L’informatique nous aide à résoudre de tels problèmes rapidement.
+
+Une possibilité est de donner une valeur aux affectations: le cadeau favori a la valeur $1$ et le deuxième choix la valeur $2$. Un \emph{couplage} (\emph{matching} en anglais) est optimal s’il n’existe pas d’autre couplage avec plus de premiers choix distribués. Un tel couplage est appelé \emph{couplage parfait de poids minimum}. Il existe beaucoup de problèmes d’affectation. L’un deux est appelé \emph{problème des marriages stables} (\emph{Stable Marriage Problem} en anglais). Intéressant? L’informatique est une branche très variée!
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Problème d’affectation: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_d\%27affectation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_d’affectation}}
+  \item Couplage: \href{https://fr.wikipedia.org/wiki/Couplage_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Couplage\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+\end{document}

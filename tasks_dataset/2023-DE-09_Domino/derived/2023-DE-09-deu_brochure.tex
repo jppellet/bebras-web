@@ -1,0 +1,132 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Domino}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Jeder Dominostein hat zwei Felder. Auf jedem Feld sind $1$ bis $6$ Punkte. Du hast diese acht Steine:
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2023-DE-09-taskbody.svg}\par}
+
+Alle acht Steine sollst du so in eine Reihe legen, dass auf den angrenzenden Feldern zweier benachbarter Steine immer gleich viele Punkte sind.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-good.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-bad.svg}}\par}
+
+Du kannst mehrere solcher Reihen legen. Es gibt aber Steine, die du auf keinen Fall an den Anfang oder das Ende deiner Reihe legen kannst.
+
+{\centering%
+\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-edge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Welche Steine sind das?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Drei der acht Steine können nicht an den Anfang oder das Ende der Reihe gelegt werden:
+
+{\centering%
+\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+Um die Aufgabe zu lösen, untersuchen wir die Augenzahlen (die Punkte auf Dominosteinen nennt man auch \emph{Augen}, wie bei einem Würfel) der $16$ Felder der Dominosteine.  Wir halten fest, wie häufig die einzelnen Augenzahlen vorkommen, und ob die Häufigkeit eine gerade oder eine ungerade Zahl ist:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Augenzahl}} & {\setstretch{1.0}\thead[lb]{Häufigkeit}} & {\setstretch{1.0}\thead[lb]{Gerade/Ungerade}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints1.svg}} & 3 & ungerade \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints2.svg}} & 3 & ungerade \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints3.svg}} & 2 & gerade \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints4.svg}} & 2 & gerade \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints5.svg}} & 4 & gerade \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints6.svg}} & 2 & gerade
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Felder mit Augenzahlen, die mit gerader Häufigkeit vorkommen, müssen paarweise mitten in der Reihe liegen oder gleichzeitig an Anfang und Ende. Felder mit Augenzahlen, die mit ungerader Häufigkeit vorkommen, können aber nicht alle mitten in der Reihe liegen: Es kann nämlich nicht für jedes Feld mit dieser Augenzahl ein passendes angrenzendes Feld gefunden werden; das geht nur bei gerader Häufigkeit. Hier siehst du eine Reihe, in die ein Stein mit der dreimal vorkommenenden Augenzahl $1$ nicht mehr mitten hinein passt.
+
+{\centering%
+\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino_explanation_spare2.svg}\par}
+
+Da es auf den acht Steinen dieser Biberaufgabe Felder mit ungerader Häufigkeit gibt, müssen Steine mit solchen Feldern außen liegen.  Steine, die zwei Felder mit gerader Häufigkeit haben, können also nicht an den Anfang oder das Ende der Reihe gelegt werden. Das sind folgende Steine:
+
+{\centering%
+\includesvg[scale=0.44]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Es gibt mehrere Möglichkeiten, die acht Dominosteine dieser Biberaufgabe in eine korrekte Reihe zu legen. Um sich hier eine bessere Übersicht zu verschaffen, verwenden Informatiker sogenannte \emph{Graphen}:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation.svg}\par}
+
+Im Graphen oben sind Quadrate (sogenannte \emph{Knoten}) ersichtlich, die die sechs Augenzahlen der Dominosteine aufzeigen. Die acht Linien (sogenannte \emph{Kanten}), stellen die acht Dominosteine dar; jede Linie verbindet zwei Felder. Der Dominostein 2$-6$ wird beispielsweise durch die folgende Kante dargestellt:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-highlighted.svg}\par}
+
+Um die Aufgabe zu lösen, müssen alle acht Dominosteine passend aneinander gereiht werden. Dabei ist nach dem Legen des ersten Dominosteins bereits klar, mit welcher Augenzahl der zweite Stein beginnen muss, denn angrenzende Felder zweier Steine sollen ja immer die gleiche Augenzahl haben. Im Graph erkennt man dies dadurch, dass Dominosteine genau dann nebeneinander gelegt werden dürfen, wenn deren Kanten sich bei demselben Knoten treffen. Die Steine 2$-6$ und 6$-3$ können beispielsweise aneinander gelegt werden, da sie beide die Augenzahl $6$ enthalten:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-two-lines.svg}\par}
+
+Das Aneinanderreihen der Dominosteine lässt sich als \emph{Weg} (eine Abfolge von Kanten) durch den Graphen verstehen. Dieser Weg soll sämtliche Kanten \emph{genau einmal} besuchen, um sicherzustellen, dass die acht Dominosteine einerseits alle verwendet werden, andererseits aber auch nicht mehrmals zum Einsatz kommen.  Ein Weg, der \emph{jede  Kante genau einmal} besucht, wird \emph{Eulerweg} genannt. Der Name geht auf Leonhard Euler, einen Schweizer Mathematiker und den Erfinder der Graphentheorie, zurück. Euler konnte zeigen, dass in einem zusammenhängenden Graphen ein Eulerweg genau dann existiert, wenn maximal zwei Knoten eine ungerade Anzahl von diesem Knoten ausgehender Kanten haben.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graph, Knoten, Kanten: \href{https://de.wikipedia.org/wiki/Graph_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Graph\_(Graphentheorie)}}
+  \item Eulerweg: \href{https://de.wikipedia.org/wiki/Eulerkreisproblem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Eulerkreisproblem}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorStaubJ{} % \ifdefined\AuthorStaubJ \BrochureFlag{de}{} Jacqueline Staub\fi
+\def\AuthorChothiaZ{} % \ifdefined\AuthorChothiaZ \BrochureFlag{de}{} Zaheer Chothia\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+
+\newpage}{}

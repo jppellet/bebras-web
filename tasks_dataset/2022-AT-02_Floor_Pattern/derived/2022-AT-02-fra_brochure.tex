@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Carrelage}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le sol d’une pièce carrée est divisé en ${30 \times 30}$ cases. Sur dix des cases sont posées des puces avec les symboles colorés suivants:
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_circle.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_cross.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_triangle.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_square.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_star.svg}}.
+
+\begin{wrapfigure}{R}{173.2px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=173.2px]{\taskGraphicsFolder/graphics/2022-AT-02-taskbody.svg}}
+\end{wrapfigure}
+
+Un robot doit décorer le sol case par case avec ces symboles. Il utilise pour cela quatre règles différentes. Il décore une case sur laquelle il n’y a pas de puce avec…
+
+\textbf{1} … le symbole de la puce la plus proche de lui.
+
+\textbf{2} … le symbole de la puce la plus éloignée de lui.
+
+\textbf{3} … le symbole de la deuxième puce la plus proche de lui.
+
+\textbf{4} … le symbole le plus fréquent parmi les six puces les plus proches de lui.
+
+Le robot décore toutes les cases d’après la même règle. S’il y a plusieurs symboles possibles pour une case d’après la règle utilisée, le robot en choisit un au hasard.
+
+Tu peux voir ci-dessous comment le sol est décoré avec chacune des règles.
+
+
+
+% question (as \emph{})
+{\em
+À quelle règle correspond chaque sol? Assigne les règles aux sols correspondants.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2022-AT-02-question_2x2.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Comme toutes les cases d’un sol sont décorées en suivant la même règle, il suffit de vérifier quelle règle est utilisée pour une seule case. Nous considérons une case différente pour chaque sol:
+
+\begin{tabularx}{\columnwidth}{ @{} C C @{} }
+  {\setstretch{1.0}\thead[cb]{Règle 1}} & {\setstretch{1.0}\thead[cb]{Règle 2}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationA.svg}} & \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationB.svg}} \\ 
+  La case est décorée avec un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-circle.svg}} parce la puce la plus proche est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_circle.svg}}. & La case est décorée avec un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-triangle.svg}} parce que la puce la plus éloignée est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_triangle.svg}}.
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} C C @{} }
+  {\setstretch{1.0}\thead[cb]{Règle 3}} & {\setstretch{1.0}\thead[cb]{Règle 4}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationC.svg}} & \makecell[c]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2022-AT-02-explanationD.svg}} \\ 
+  La case est décorée avec une \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-star.svg}} parce que la deuxième puce la plus proche est \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_star.svg}}. & La case est décorée avec une \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-cross.svg}} parce que la puce \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-AT-02-chips_cross.svg}} est la plus fréquente parmi les six puces les plus proches.
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La division d’un plan et sa construction \emph{algorithmique} jouent un rôle important dans différents domaines de l’informatique, par exemple en simulation et en graphisme.
+
+Les \emph{diagrammes de Voronoi}, nommés d’après le mathématicien ukrainien Georgi Feodosjewitsch Woronoi (*$1868$ - †$1908$), divisent un plan en \emph{cellules} centrées sur un \emph{germe}. Tous les points d’une cellule sont plus proches de leur germe que de tous les autres germes; le résultat de la règle $1$ est un diagramme de Voronoi. Ces diagrammes sont des représentations fréquentes du monde réel, par exemple des réseaux de téléphonie mobile. Ils sont aussi utilisé pour l’analyse de matchs de football ou d’autres processus socio-économiques, comme la relation entre la population et les écoles, hôpitaux ou autres fournisseurs de services à proximité.
+
+Le météorologue Alfred H. Thiessen (*$1872$ - †$1956$) a développé en $1911$ une méthode basée sur les diagrammes de Voronoi permettant de déterminer les valeurs moyennes régionales (les volumes de précipitations, par exemple) de manière plus fidèle à la réalité. Il n’a pas calculé la moyenne des mesures de différentes stations de mesure en ne prenant en compte que le nombre de stations, mais en prenant en compte la surface considérée par chaque station à l’aide d’un diagramme de Voronoi. Les mesures locales ont ainsi des poids différents dans le calcul de la moyenne pondérée.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Diagramme de Voronoi: \href{https://fr.wikipedia.org/wiki/Diagramme_de_Vorono\%C3\%AF}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diagramme\_de\_Voronoï}}
+  \item Moyenne pondérée: \href{https://fr.wikipedia.org/wiki/Moyenne_pond\%C3\%A9r\%C3\%A9e}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Moyenne\_pondérée}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

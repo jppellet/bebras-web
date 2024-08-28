@@ -1,0 +1,112 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Il villaggio di Martina}
+\renewcommand{\taskCountry}{PE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Nel villaggio di Martina ci sono sei case.
+Ci sono anche sentieri che possono essere utilizzati per camminare da una casa all’altra.
+Martina ha bisogno della stessa quantità di tempo per tutti questi percorsi.
+
+Martina ha disegnato una mappa speciale del villaggio.
+In essa ha disegnato i percorsi esatti che può utilizzare per raggiungere le altre case.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-taskbody.svg}\par}
+
+C’è anche una vera e propria mappa del villaggio, con tutti i sentieri.
+
+
+
+% question (as \emph{})
+{\em
+Quale di questi disegni non può essere la mappa corretta?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} c c @{} }
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerA.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerB.svg}} \\ 
+  A) & B) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerD.svg}} \\ 
+  C) & D)
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta C è corretta: \raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}}
+
+La mappa di Martina mostra che il modo più veloce per raggiungere la casa all’estrema destra è attraverso tre percorsi. Se C fosse la mappa giusta del villaggio, Martina potrebbe raggiungere questa casa più velocemente, cioè attraverso due sentieri. Quindi C non può essere la mappa giusta del villaggio.
+
+Con le mappe A, B e D non c’è modo di raggiungere una delle altre case più velocemente che attraverso i percorsi della mappa speciale di Martina. Quindi queste mappe potrebbero essere vere e proprie mappe del villaggio.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Martina è un’esperta di informatica. Ha disegnato la sua mappa come un \emph{grafo}. I grafi sono costituiti da \emph{nodi} (qui le case) che possono essere collegati da \emph{bordi} (qui i percorsi). Sono adatti a modellare la realtà in molte aree dell’informatica e anche in questo compito.
+
+Martina sa che esiste un’intera gamma di algoritmi per i grafi, ad esempio la cosiddetta ricerca in ampiezza, per risolvere compiti come \enquote{Qual è il modo più veloce per raggiungere un’altra casa?}. Forse ha creato la sua particolare mappa del villaggio utilizzando una ricerca in ampiezza su un grafo più grande, la vera mappa del villaggio con tutti i percorsi.
+
+Nella teoria dei grafi, che si occupa di grafi e algoritmi di grafi, la mappa di Martina corrisponde a un sottografo della mappa complessiva del villaggio. Il sottografo di Martina ha due caratteristiche particolari:
+
+\begin{itemize}
+  \item Tutti i nodi sono collegati direttamente (tramite un bordo) o indirettamente (tramite più bordi).
+  \item Non importa quali due nodi si scelgano a caso, esiste sempre un solo percorso tra i due.
+\end{itemize}
+
+Un grafo con queste caratteristiche è chiamato \emph{albero} in informatica. La casa di Martina rappresenta la \emph{radice} dell’albero. Dalla radice, Martina può raggiungere tutti gli altri nodi (le altre case del villaggio) lungo un unico percorso. Il sottografo di Martina è quindi un albero; inoltre, contiene tutti i nodi dell’intero grafo (l’intera mappa del villaggio) - ma forse non tutti i bordi. Un sottografo con queste proprietà è chiamato \emph{albero ricoprente} dell’intero grafo.
+
+In informatica ci sono molte applicazioni per gli algoritmi a grafo, soprattutto nel contesto delle reti (reti di traffico, reti di telecomunicazione, …), ad esempio nel calcolo dei percorsi nei sistemi di navigazione. Gli alberi ricoprenti possono essere utilizzati per la costruzione di reti a basso costo e possono essere utili per risolvere problemi particolarmente difficili.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grapho: \href{https://it.wikipedia.org/wiki/Grafo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo}}
+  \item Albero: \href{https://it.wikipedia.org/wiki/Albero_(grafo)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Albero\_(grafo)}}
+  \item Ricerca in ampiezza: \href{https://it.wikipedia.org/wiki/Ricerca_in_ampiezza}{\BrochureUrlText{https://it.wikipedia.org/wiki/Ricerca\_in\_ampiezza}}
+  \item Albero ricoprente: \href{https://it.wikipedia.org/wiki/Albero_ricoprente}{\BrochureUrlText{https://it.wikipedia.org/wiki/Albero\_ricoprente}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGutierrezJ{} % \ifdefined\AuthorGutierrezJ \BrochureFlag{pe}{} Juan Gutiérrez\fi
+\def\AuthorLunaC{} % \ifdefined\AuthorLunaC \BrochureFlag{pe}{} Carlos Luna\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

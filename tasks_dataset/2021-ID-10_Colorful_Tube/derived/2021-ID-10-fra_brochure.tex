@@ -1,0 +1,93 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Couches de liquides}
+\renewcommand{\taskCountry}{ID}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Marc a des des bouteilles qui contiennent chacune trois liquides formant des couches superposées. Il sait que les liquides à densité plus faible se mettent toujours au dessus des liquides à densité plus forte. Il aimerait maintenant voir à quoi une grande bouteille dans laquelle on met tous les liquides colorés ressemble.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-ID-10-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Arrange les cinq couches de liquides colorés dans la bouteille dans leur ordre final.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-ID-10-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+L’image montre le bon arrangement des couches de liquide dans la grande bouteille.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2021-ID-10-solution-compatible.svg}\par}
+
+Tu trouves dans quel ordre se trouvent les couches de liquide de la façon suivante: étape par étape, tu enlèves dans ta tête les liquides qui ne sont pas au dessus d’autres liquides dans aucune des trois bouteilles données, et les verses dans la grande bouteille.
+
+Au départ, le liquide bleu est tout au fond des bouteilles $1$ et $3$ et jamais au dessus d’une autre couche de liquide. Le liquide rouge est tout au fond de la bouteille $2$, mais au-dessus du liquide bleu dans la bouteille $1$ et doit donc avoir une densité plus faible que le liquide bleu. On enlève donc le liquide bleu des bouteilles et le verse dans la grande bouteille.
+
+La liquide rouge est maintenant le seul qui n’est pas au dessus d’un autre liquide. On l’enlève des bouteilles $1$ et $2$ et le met dans la grande bouteille. Ensuite viennent le liquide jaune, puis le vert et finalement le violet, qui a la plus faible densité et au dessus duquel ne se trouve aucun autre liquide.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, tu as évalué l’arrangement des liquides dans les trois bouteilles et trié les liquides par densité.
+
+Une substance a beaucoup de propriétés mesurables, par exemple la température d’ébulition, la température de fusion, la conductivité et la densité. Dans le cas présent, la densité a été utilisée comme critère pour trier des substances.
+
+Le tri de données joue un rôle important dans beaucoup de programmes informatiques. La méthode utilisée dans cet exercice pour déterminer l’ordre des couches de liquide s’appelle \emph{tri topologique}. Elle est utilisée pour trier des objets lorsque l’on connait la \emph{relation d’ordre} entre certains des objets (si l’on sait déjà que certains objets en précèdent ou suivent d’autres).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Relation d’ordre: \href{https://fr.wikipedia.org/wiki/Relation_d\%27ordre}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Relation\_d’ordre}}
+  \item Tri topologique: \href{https://fr.wikipedia.org/wiki/Tri_topologique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tri\_topologique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNovianaM{} % \ifdefined\AuthorNovianaM \BrochureFlag{id}{} Mochammad Irfan Noviana\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

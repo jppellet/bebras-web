@@ -1,0 +1,119 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Réseau de communication}
+\renewcommand{\taskCountry}{MK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors aiment bien diffuser des informations entre eux. Pour cela, ils utilisent le réseau de communication ci-dessous. Lorsqu’un castor reçoit une nouvelle information, il l’envoie à tous les castors avec qui il partage un canal de communication direct (une ligne blanche). L’envoi d’information se passe en étapes. Une étape se passe entre l’envoi et la réception d’une information.
+
+
+
+% question (as \emph{})
+{\em
+À partir de quel castor une nouvelle atteint-elle tous les autres castors le plus vite possible, c’est-à-dire en le moins d’étapes possible?
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est le castor B. Il peut diffuser une information à tous les autres castors en deux tours.
+
+Lors du premier tour, le castor B envoie l’information à ses voisins, donc aux castors A, D et J, avec qui il partage un canal de communication direct. L’image ci-dessous montre qui possède l’information après un tour.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation1-compatible.svg}\par}
+
+Lors du deuxième tour, les castors A, D et J envoient l’information à leurs voisins respectifs:
+
+\begin{itemize}
+  \item le castor A envoie l’information aux castors E et H;
+  \item le castor D envoie l’information aux castors I et K;
+  \item le castor J envoie l’information aux castors C, F, G et L.
+\end{itemize}
+
+De plus, le castor B reçoit l’information trois fois en retour, car c’est aussi un voisin des castors A, D et J, mais comme ce n’est pas une nouvelle information, le castor B ne ne va pas la diffuser lors des tours suivants. Les castors A et D vont également s’envoyer l’information mutuellement par leur canal de communication direct, mais ne vont pas continuer à la diffuser non plus, étant donné qu’elle n’est pas nouvelle.
+
+\begin{samepage}
+L’image ci-dessous montre la situation à la fin du deuxième tour.
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation2-compatible.svg}\par}
+\end{samepage}
+
+L’information a donc atteint tous les castors en seulement deux tours.
+
+Une diffusion plus rapide n’est pas possible, car pour cela, l’un des castors devrait être relié à tous les autres castors par une ligne blanche afin d’envoyer l’information à tout le monde en un tour.
+
+Le castor B est le seul castor pouvant diffuser une information à tous les castors en deux tours: les castors C, E, F, G, H et J ne pourraient pas atteindre le castor I en deux tours, et les castors A, D, E, H, I et K ne pourraient pas atteindre le castor L en deux tours.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+On peut utiliser un \emph{graphe} pour décrire le réseau de communication des castors. Chaque castor ce trouve à ce que l’on appelle un \emph{nœud}, qui est dans ce cas désigné par une lettre. Les lignes blanches s’appellent des \emph{arêtes} et relient deux nœuds. Les informations dont diffusées dans le réseau de communications en tours \emph{synchronisés}, tous les castors envoient donc l’information en même temps. Lors d’un tour, chaque castor envoie les nouvelles informations à chacun de ses ses voisins. Ce que les castors font ici est appelé un \emph{broadcast} sur un \emph{réseau informatique} par les informaticiens et informaticiennes. Dans l’exercice ci-dessus, nous avons analysé à quelle vitesse un tel broadcast peut avoir lieu, c’est-à-dire à quelle vitesse une information peut atteindre tous les participants.
+
+Un exercice encore plus exigeant consisterait à former un réseau de manière à ce qu’un broadcast rapide soit possible à partir de tous les nœuds sans que le nombre de connections ne soit trop grand.
+
+Le nœud du castor B s’appelle le centre du graphe. D’une manière abstraite, le centre est un nœud qui minimise la distance entre lui-même et nœud le plus éloigné de lui. Il n’y a donc pas d’autre nœud ayant une plus petite distance à tous les autres nœuds. Dans l’exercice précédent, il n’y a qu’un centre. Dans certains graphes, il peut aussi y avoir plusieurs nœuds qui minimisent chacun la distance au nœud le plus éloigné; un graphe peut donc avoir plusieurs centres.
+
+Ce n’est pas toujours aussi simple de trouver le centre d’un graphe que dans cet exercice. C’est possible par exemple que la transmission entre certains nœuds reliés directement dure plusieurs tours. Les graphes peuvent aussi être beaucoup plus grands et complexes. Pour de tels graphes, on peut par exemple utiliser l’\emph{algorithme de Floyd-Warshall} pour trouver un centre de manière efficiente.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}, \href{https://fr.wikipedia.org/wiki/Cha\%C3\%AEne_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chaîne\_(théorie\_des\_graphes)}}
+  \item Centre d’un graphe: \href{https://fr.wikipedia.org/wiki/Centralit\%C3\%A9\#Centralit\%C3\%A9_de_proximit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Centralité\#Centralité\_de\_proximité}}
+  \item Algorithme de Floyd-Warshall: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Floyd-Warshall}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Floyd-Warshall}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorLokarM{} % \ifdefined\AuthorLokarM \BrochureFlag{si}{} Matija Lokar\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

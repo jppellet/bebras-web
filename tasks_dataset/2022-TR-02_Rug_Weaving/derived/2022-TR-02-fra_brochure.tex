@@ -1,0 +1,113 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Tissage}
+\renewcommand{\taskCountry}{TR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Hale est une artiste turque. Elle définit le motif d’un tapis grâce à une grille de six colonnes et six lignes.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2022-TR-02-taskbody.svg}\par}
+
+Hale numérote les lignes et les colonnes. Chaque case de la grille a donc un numéro de ligne et un numéro de colonne. Les employés de Hale doivent maintenant mettre un symbole dans chaque case. Pour cela, Hale leur a donné les instructions suivantes:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2022-TR-02-taskbody-fra-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Comment sera le tapis une fois terminé?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} l c l c @{} }
+  A) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerA.svg}} & B) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerB.svg}} \\ 
+  C) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerC.svg}} & D) & \makecell[c]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerD.svg}}
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B).
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  On répond à la première question de l’image d’instruction par “oui” pour toutes les cases au bord de la grille, car chaque case du bord se trouve dans la première ou sixième ligne et/ou colonne. Ces cases sont ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol1.svg}} et le motif suivant en résulte: & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation1.svg}} \\ 
+  On répond à la deuxième question par “oui” pour toutes les cases de la diagonale, car les numéros de ligne et de colonne sont les mêmes sur la diagonale. Ces cases sont ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol2.svg}} et le motif est le suivant: & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation2.svg}} \\ 
+  La troisième question indique que toutes les cases dont le numéro de ligne est plus grand que le numéro de colonne doivent être ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol3.svg}}. & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-explanation3.svg}} \\ 
+  On répond “non” à la troisième question pour les cases restantes, car leur numéro de ligne n’est pas plus grand que leur numéro de colonne. Elles sont donc ornées du symbole \raisebox{\dimexpr -0.5ex -0.7ex \relax}[0pt][0pt]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-explanation_symbol4.svg}}. On obtient ainsi le motif de la réponse B. & \makecell[l]{\includesvg[width=166px]{\taskGraphicsFolder/graphics/2022-TR-02-answerB.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’image que l’artiste Hale a développé comme instruction s’appelle en informatique un \emph{arbre de décision}. Comme un vrai arbre, il est composé de branchements. À chaque branchement (E1-E3) se trouve une question à laquelle on peut répondre par “oui” ou “non”. Si l’on parcourt l’arbre de haut en bas, répond aux questions et suit les lignes correspondante, une décision s’ensuit.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-TR-02-itsinformatics1-fra-compatible.svg}\par}
+
+
+
+
+Dans l’exercice, l’arbre de décision est au cœur des instructions pour le tissage d’un tapis. Chaque personne qui suit ces instructions pour tisser fabrique exactement le même tapis. En principe, une machine pouvant lire et comprendre les instructions pourrait produire le même tapis.
+
+En informatique, on appelle de telles instructions univoques un \emph{algorithme}. Lorsqu’un algorithme est écrit dans un \emph{langage de programmation} et peut être exécuté par un ordinateur, on parle d’un \emph{programme informatique}.
+
+On quotidien, on a souvent à faire à des programmes informatiques qui prennent des décisions: le contrôleur du feu de circulation décide quand le feu piéton devient vert; le système d’exploitation du natel décide quand passer en mode d’économie d’énergie; le contrôle automatique des passeports à l’aéroport décide si un passeport est valable.
+
+Des arbres de décision se trouvent dans tous ces programmes informatiques.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Arbre de décision: \href{https://fr.wikipedia.org/wiki/Arbre_de_d\%C3\%A9cision}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_de\_décision}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Langage de programmation: \href{https://fr.wikipedia.org/wiki/Langage_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_de\_programmation}}
+  \item Programme informatique: \href{https://fr.wikipedia.org/wiki/Programme_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programme\_informatique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGulbaharY{} % \ifdefined\AuthorGulbaharY \BrochureFlag{tr}{} Yasemin Gülbahar\fi
+\def\AuthorAfacanG{} % \ifdefined\AuthorAfacanG \BrochureFlag{tr}{} Gulgun Afacan\fi
+\def\AuthorGrodeckA{} % \ifdefined\AuthorGrodeckA \BrochureFlag{au}{} Adam Grodeck\fi
+\def\AuthorShanY{} % \ifdefined\AuthorShanY \BrochureFlag{tw}{} Yeh Yi Shan\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

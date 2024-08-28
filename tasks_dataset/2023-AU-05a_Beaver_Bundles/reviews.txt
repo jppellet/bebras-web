@@ -1,0 +1,47 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Willem van der Vegt (svn: vandervegt)
+on 2023-04-05
+Assigned review
+Very interesting task, of course based on the game of SET. It is possible that pupils with knowledge of this game will have an advantage. The pictures are well-designed to avoid problems with colorblindness. The It's Informatics part is valuable, but short; some details on the implication of Ramsey theory could be helpfull.
+========================================
+By: Esraa almajhad (svn: majhad)
+on 2023-04-18
+Non-assigned review
+I like the idea, but I think the story needs improvement to be more clear.
+["For each day’s bundles, the four characteristics, when looked at one-by-one, will be the same for each meal, or different for each meal".]
+
+I can’t understand if the rules that are followed by Carolina mean: that just one characteristic is enough to be the same and the other must be different. or for each meal, the characteristics can all be the same or all be different, or one different and others the same 
+
+or all this possibilities can be used to solve a problem.
+
+
+Wording and Phrases: missing 
+Graphic: great (Color blindness was taken into account)
+========================================
+By: Tim Bell (svn: bell)
+on 2023-04-21
+Assigned review
+[AGE] Will depend on whether students have seen this before (especially if they have played Set); probably about right if they haven't
+[IDEA] It's a nice re-packaging of "Set", in a way that would fit Bebras
+[TEXT] Seems fine to me, but I've played Set a lot, so it was hard to not understand it(!)
+
+[GRAPH]  Great that it has taken account of accessibility. Nice vibrant images.
+[OTHER] It could be good to explicitly link it to the game of Set (it is currently implicit from the Wikipedia entry)
+========================================
+By: Carlos Luna (svn: luna)
+on 2023-04-22
+Assigned review
+Nice task. The attention to accessibility is a very nice feature, and got me thinking if I should review my own task to check if it is colour-blind friendly. 
+
+[TEXT] I had some trouble understanding the instructions at first. I don't know if it's because of the language, as English i not my native tongue. I specifically found the "bundle" idea a bit strange at first.
+
+[OTHER} Wording and phrases are missing. Maybe it wouls help to explain the "bundle" thing to help ins translation, and to keep the original spirit of the task untouched.
+========================================
+By: Jiří Vaníček (svn: vanicek)
+on 2023-04-23
+Non-assigned review
+Only small comment to the graphics:
+These things with black contours are puzzling. Look at the big picture in question part: if I fill the black empty leave (1-st row) with orange filling it becames an orange one. So empty black-contoured one is black at filled one is orange?
+I recommend to avoid black colour and make contours of all things a bit darker than the filling.
+========================================

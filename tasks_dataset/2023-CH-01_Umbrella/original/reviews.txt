@@ -1,0 +1,53 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Goran Sukovic (svn: sukovic)
+on 2023-04-13
+Non-assigned review
+A very nice task for the youngest group.
+Extensive explanation with nice images.
+There are  two tiny typos in the text.
+1. Missing the letter 's' in the word "pattern" in "check the order of all following pattern"
+2. Choose between a colon and a dot in the text "wants: We" in the following paragraph: "Nevertheless, we can determine which umbrella our beaver wants: We can look at the four pattern sequences and notice that only one also occurs in the desired umbrella."  
+Consider changing the following sentence: "The same principle as for the “umbrella search” is applied when searching a text document". It's slightly misleading. The following text in the section suggests that we search for a word in a text. For example, insert the phrase "for a word in a text document" in the sentence.
+========================================
+By: Valentina Dagienė (svn: dagiene)
+on 2023-04-15
+Assigned review
+I am one of the authors of this task, I thought not to review it, but I can briefly assess.
+    [AGE] fine
+    [IDEA] The idea of the task is not original, we have several "pattern recognition" tasks earlier. But there are some new elements like rotated patterns. This task requires computational thinking skills to be solved also spatial thinking is needed.
+    [TEXT] clear
+    [EXPL] Explanation is very well done.
+    [TiI] “It’s informatics” section is written good enough. 
+    [TiCT] “This is Computational Thinking” section can be improved to write more about approach that we are using to solve this task.Could we talk about tinkering? Also we can mention decomposition.
+    [GRAPH] Well done
+    [AUTH] Yes
+    [NAME] Yes
+    [OTHER] I like the idea of Fabian (in "Comments" section): make more harder version by using reverse side of umbrella. Actually it can be different Bebras task.
+========================================
+By: Alvida Lozdienė (svn: lozdiene)
+on 2023-04-15
+Assigned review
+The task is very interesting and pedagogically correct. I suggest the authors to think about its interactivity.
+For example, only the side parts of the umbrella should be presented, while the middle parts can be drag and drop by the participant from the collection of parts provided near.
+========================================
+By: Leonardo Cavalcante (svn: cavalcante)
+on 2023-04-20
+Non-assigned review
+Very nice task for the youngest age groups.
+
+The TICT section can be improved, connecting the ct skills to the context of the task.
+========================================
+By: Carlos Luna (svn: luna)
+on 2023-04-22
+Assigned review
+Interesting task, specially for the youngest ones.
+
+[AGE} I think this task could be of interest for the second age group (8yo-10yo).
+
+[TEXT] I think there could be a little more story to the task, to make it more attractive.
+
+[EXPL} It is a great idea to include images in the answer exlanation, as it helps better understand the idea of patterns and the comparison between the favorite umbrella's patterns anf the other ones.
+
+Also related to this section, the final comment about option C being the correct option only if we can see the back side might be a little confusing. The idea itself is good and relevant, but I recommend rephrasing it to make it clear that since we are working with incomplete information. C is the best option, and to be 100% sure it's the right one, more information would be needed. And to get that extra information we would need to be able to look at the backside.
+========================================

@@ -1,0 +1,122 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Sauvetage d'arbre}
+\renewcommand{\taskCountry}{UZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un des arbres du jardin de Bruno est malade: toutes ses feuilles sont sèches. Bruno veut le sauver. Pour cela, il doit scier certaines branches de façon à enlever toutes les feuilles. De nouvelles branches avec de nouvelles feuilles peuvent ensuite pousser.
+
+\begin{wrapfigure}{R}{123.19999999999999px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-UZ-02-taskbody01-compatible.svg}}
+\end{wrapfigure}
+
+Bruno aimerait terminer le plus vite possible. L’image montre un exemple:
+
+Pour enlever les deux feuilles, Bruno peut soit scier les deux branches portant les feuilles, soit scier la branche de laquelle partent les deux autres branches. Les chiffres sur chaque branche indiquent combien de temps est nécessaire pour la scier. Bruno va donc scier les deux branches avec des feuilles, étant donnée que ${3 + 1 < 5}$. Tu peux voir l’arbre complet ci-dessous.
+
+
+
+% question (as \emph{})
+{\em
+Quelles branches Bruno va-t-il scier pour terminer le plus vite possible?
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-UZ-02-question-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne solution est la suivante:
+Bruno scie les branches encadrées en rouge pour terminer le plus vite possible.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-UZ-02-solution-compatible.svg}\par}
+
+Mais pourquoi est-ce la bonne solution? On peut commencer par calculer de combien de temps Bruno a besoin pour scier uniquement les branches portant des feuilles — il aurait ainsi terminé:
+
+$$1 + 3 + 1 + 3 + 3 + 5 + 2 + 1 + 3 + 2 + 1 = 25$$
+
+Maintenant, on va en direction du tronc et vérifie à chaque étape si ce serait plus rapide de scier la branche à laquelle les branches précédentes sont directement ou indirectement reliées.
+On dérive le calcul suivant de la première de ces étapes (la fonction “min” calcule le minimum de ses arguments):
+
+$$\begin{aligned}
+    &1 + 3 + \min(5, 1 + 3) + \min(4, 3 + 5) + \min(5, 2 + 1) + \min(5, 3 + 2 + 1)\\
+={} &1 + 3 + (1 + 3) + 4 + (2 + 1) + 5\\
+={} &20
+\end{aligned}$$
+
+On ne calcule pas tout de suite le temps total afin de mieux voir quelles branches doivent être sciées. L’étape suivant nous mène déjà au tronc:
+
+$$\begin{aligned}
+    &\min(9, 1 + 3 + 1 + 3) + \min(8, 4 + 2 + 1) + 5\\
+={} &(1 + 3 + 1 + 3) + (4 + 2+ 1) + 5\\
+={} &20
+\end{aligned}$$
+
+Bruno ne peut pas terminer plus rapidement.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Imaginons que les branches sciées ne tombent pas tout de suite de l’arbre — comme lorsque l’on résout cet exercice à l’écran. On pourrait alors dire que l’arbre est séparé en deux parties lorsque l’on scie: une partie comporte tous les morceaux sciés, et surtout toutes les feuilles, et l’autre partie comporte le tronc et les branches qui n’ont pas été sciées. Cette séparation ou \emph{coupe} de l’arbre est minimale par rapport au temps nécessaire à Bruno pour enlever toutes les feuilles.
+
+L’informatique traite aussi d’arbres, qui y sont utilisés pour réprésenter des objets reliés entre eux de manière spécifique. Les objets sont appelés \emph{nœuds} et les liens entre eux \emph{arêtes}. Il n’existe toujours qu’un seul chemin entre deux nœuds le long des arêtes — comme il n’existe qu’un seul chemin entre une feuille ou un branchement jusqu’au tronc le long des branches. Si l’on renonce à cette contrainte, on parle plus généralement d’un \emph{graphe}.
+
+Pour les graphes généraux, ce n’est pas si facile de calculer la \emph{coupe minimale}, c’est à dire la séparation en deux ou plusieurs parties à un coût minimal, que pour un arbre comme nous l’avons fait ici, mais pas trop compliqué non plus. Heureusement, car il existe des applications intéressantes. Les coupes minimales peuvent être utilisées pour diviser des images en parties similaires. Dans les \emph{réseaux de flot}, un type de graphe spécial avec lequel on peut, entre autres, modéliser le flot des données dans des réseaux, le coût d’une coupe minimale correspond au flot maximal dans le réseau complet.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Arbre: \href{https://fr.wikipedia.org/wiki/Arbre_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_(théorie\_des\_graphes)}}
+  \item Coupe: \href{https://fr.wikipedia.org/wiki/Coupe_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coupe\_(théorie\_des\_graphes)}}
+  \item Réseau de flot: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9seau_de_flot}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Réseau\_de\_flot}}
+  \item Théorème flot-max/coupe-min: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me_flot-max/coupe-min}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorème\_flot-max/coupe-min}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorSitdikovT{} % \ifdefined\AuthorSitdikovT \BrochureFlag{uz}{} Timur Sitdikov\fi
+\def\AuthorTruuA{} % \ifdefined\AuthorTruuA \BrochureFlag{ee}{} Ahto Truu\fi
+\def\AuthorBilbaoJ{} % \ifdefined\AuthorBilbaoJ \BrochureFlag{es}{} Javier Bilbao\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,167 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-ID-04 Séquence ADN}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-ID-04 Séquence ADN}
+
+
+\subsection*{Body}
+
+Notre patrimoine génétique est enregistré sous forme de séquences d’ADN. Une séquence d’ADN est essentiellement une suite de bases dont quatre formes existent: A, C, D et T.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-ID-04_taskbody-compatible.svg}\par}
+
+Nous considérons les trois sortes de mutations suivantes:
+
+{\centering%
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Mutation}} & {\setstretch{1.0}\thead[lb]{Description}} & {\setstretch{1.0}\thead[lb]{Exemple}} \\ 
+\midrule
+  Substitution & Une base est remplacée par une autre. & AT\textbf{G}GT \ensuremath{\rightarrow} AT\textbf{A}GT \\ 
+  Délétion & Une base est perdue sans être remplacée. & ATG\textbf{G}T \ensuremath{\rightarrow} ATGT \\ 
+  Insertion & Une base est ajoutée dans une séquence. & ATGGT \ensuremath{\rightarrow} A\textbf{C}TGGT
+\end{tabular}
+
+\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Il y a exactement une des séquences suivantes qui ne peut \textbf{pas} être générée par trois mutations de la séquence GTATCG. Laquelle est-ce?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & GCAATG \\ 
+  B) & ATTATCCG \\ 
+  C) & GAATGC \\ 
+  D) & GGTAAAC
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est D) GGTAAAC.
+
+La meilleure méthode pour trouver la réponse est de procéder par élimination, étant donné que les trois autres séquences peuvent résulter de trois mutations.
+
+\begin{adjustwidth}{1.5em}{0em}
+Réponse A: GTATCG~\ensuremath{\Rightarrow}~G\textbf{C}ATCG~\ensuremath{\Rightarrow}~GCA\textbf{A}CG~\ensuremath{\Rightarrow}~GCAATG \\
+Réponse B: GTATCG~\ensuremath{\Rightarrow}~\textbf{A}TATCG~\ensuremath{\Rightarrow}~AT\textbf{T}ATCG~\ensuremath{\Rightarrow}~ATTAT\textbf{C}CG \\
+Réponse C: GTATCG~\ensuremath{\Rightarrow}~G\textbf{A}ATCG~\ensuremath{\Rightarrow}~GAAT\textbf{G}G~\ensuremath{\Rightarrow}~GAATG\textbf{C}
+\end{adjustwidth}
+
+En comparaison, il faut quatre mutations pour obtenir la séquence de la réponse D), par exemple celles-ci:
+
+\begin{adjustwidth}{1.5em}{0em}
+GTATCG~\ensuremath{\Rightarrow}~G\textbf{G}TATCG~\ensuremath{\Rightarrow}~GGT\textbf{A}ATCG~\ensuremath{\Rightarrow}~GGTAA\textbf{A}CG~\ensuremath{\Rightarrow}~GGTAAAC
+\end{adjustwidth}
+
+Ce n’est pas facile de prouver que moins de quatre mutations ne sont pas suffisantes.
+
+
+\subsection*{It’s Informatics}
+
+La représentation d’information à l’aide de \emph{chaînes de caractères} (des séquences de lettres) et leur utilisation est une tâche centrale de l’informatique.
+
+Une question importante est de déterminer quel est le degré de différence entre deux chaînes de caractères. Il existe plusieurs méthodes pour mesurer le degré de différence entre deux chaînes de caractères. Une méthode fréquemment utilisée est la \emph{distance de Levenshtein}, qui est définie à base des trois sortes de mutations décrites plus haut: la distance de Levenshtein entre deux chaînes de caractères est le nombre minimal de mutations permettant de transformer une chaîne en l’autre.
+
+L’algorithme courant utilisé pour calculer la distance de Levenshtein se base sur la \emph{programmation dynamique}: la distance de Levenshtein entre des préfixes toujours plus longs des deux chaînes de caractères sont inscrites dans un tableau jusqu’à ce que les préfixes correspondent aux mots entiers et que l’on puisse lire les résultats dans la table.
+
+Lorsque l’exactitude de l’algorithme est prouvée, on peut calculer que la distance entre la séquence d’origine et celle de la réponse D) est exactement $4$. On a ainsi prouvé que moins de quatre mutations ne suffisent pas.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Distance de Levenshtein: \href{https://fr.wikipedia.org/wiki/Distance_de_Levenshtein}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Distance\_de\_Levenshtein}}
+  \item \href{https://fr.wikipedia.org/wiki/Cha\%C3\%AEne_de_caract\%C3\%A8res}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Chaîne\_de\_caractères}}
+\end{itemize}
+
+
+}
+\end{document}

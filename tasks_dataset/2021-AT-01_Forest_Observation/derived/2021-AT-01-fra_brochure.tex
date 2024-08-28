@@ -1,0 +1,95 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Gardes forestiers}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les gardes forestiers veulent observer les animaux sur les sentiers de la forêt. Depuis chaque clairière, ils peuvent voir tous les sentiers allant de cette clairière à une clairière suivante. Il doit y avoir aussi peu de gardes forestiers que possible qui surveillent les sentiers.
+
+
+
+% question (as \emph{})
+{\em
+Choisis des clairières afin que tous les sentiers puissent être surveillés par aussi peu de gardes forestiers que possible
+
+{\centering%
+\includesvg[scale=0.65]{\taskGraphicsFolder/graphics/2021-AT-01-taskbody.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+L’image montre la solution minimale permettant aux gardes forestiers de surveiller tous les sentiers à partir de trois clairières.
+
+{\centering%
+\includesvg[scale=0.65]{\taskGraphicsFolder/graphics/2021-AT-01-solution-withlegend-compatible.svg}\par}
+
+Il y a huit sentiers à surveiller. Si seuls deux gardes forestiers suffisaient pour surveiller tous les sentiers, il devrait y avoir une clairière de laquelle partent au moins quatre sentiers, mais il n’y a pas de telle clairière dans cette forêt. Deux gardes forestiers ne suffisent donc pas.
+
+Il faut donc au minimum trois gardes forestiers pour assurer la surveillance de tous les sentiers. La solution présentée ici a donc le plus petit nombre de gardes forestiers possible. Il n’y a pas d’autre solution avec exactement trois gardes forestiers.
+
+Nous pouvons déduire du nombre de sentiers et du fait qu’il n’y a aucune clairière de laquelle plus de trois sentiers partent que chaque garde forestier doit surveiller au moins deux sentiers qu’aucun autre garde forestier ne surveille.
+
+Un garde forestier doit être placé sur la clairière F afin de surveiller le sentier entre les clairières F et G. Pour surveiller le sentier entre les clairières B et C, le deuxième garde forestier doit observer la forêt depuis la clairière B. Le dernier garde forestier doit être dans la clairière D pour que les deux derniers sentiers puissent être surveillés par un seul garde forestier. On obtient ainsi la solution donnée ici et il n’en existe pas d’autre.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les relations entre des choses (par exemple des sentiers entre des clairières) peuvent être représentées par ce que l’on appelle un \emph{graphe}. Un graphe est constitué de \emph{nœuds} (ici, les clairières) et d’\emph{arêtes} (ici, les sentiers) représentées par des lignes reliant les nœuds. Le graphe de cet exercice ressemble à ceci:
+
+{\centering%
+\includesvg[scale=0.65]{\taskGraphicsFolder/graphics/2021-AT-01-itsinformatics-compatible.svg}\par}
+
+Dans cet exercice du castor, il faut trouver le plus petit nombre de nœuds afin que chacune des arêtes commence ou finisse sur l’un des ces nœuds. Les informaticien·nes appelent un tel ensemble de nœuds une \emph{couverture par sommets} ou une \emph{transversale} (engl. \emph{minimal vortex cover}). Dans la vie quotidienne, on recontre de tels problèmes de couverture par sommets lorsque l’on cherche les meilleurs emplacements pour des lampadaires ou pour des caméras de surveillance, par exemple.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Couverture par sommets: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_couverture_par_sommets}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_couverture\_par\_sommets}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorFloresSicichM{} % \ifdefined\AuthorFloresSicichM \BrochureFlag{us}{} Margarita Flores-Sicich\fi
+\def\AuthorAtkinsS{} % \ifdefined\AuthorAtkinsS \BrochureFlag{au}{} Sarah Atkins\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

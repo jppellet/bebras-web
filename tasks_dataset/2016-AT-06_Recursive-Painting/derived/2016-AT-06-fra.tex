@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2016 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2016-AT-06 Peinture récursive}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2016-AT-06 Peinture récursive}
+
+
+\subsection*{Body}
+
+Tina et Ben aident à préparer une exposition temporaire au musée de l’informatique. Ils doivent peindre une image de ${16 \times 16}$ mètres sur le sol d’une salle d’exposition.
+L’artiste leur donne un set de cartes d’instruction de peinture avec des indications sur les éléments des images, leurs dimensions et leurs orientations.
+
+Certaines cartes d’instruction ont des cases numérotées qui font référence à d’autres cartes.
+
+Voici un exemple d’un précédent projet de peinture par carte. Si on effectue les instructions des trois cartes de la bonne manière, on obtient l’image d’un castor:
+
+{\centering%
+\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-example-compatible.svg}\par}
+
+Tina et Ben reçoivent ces deux cartes pour l’exposition temporaire:
+
+{\centering%
+\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-challenge-compatible.svg}\par}
+
+Ben fronce les sourcils. “Comment ça marche? la carte de gauche réfère à elle-même, et en plus les deux cartes ont le même numéro!”
+Tina rigole: “On va y arriver! Commençons par la carte de gauche, la carte de droite nous dira plus tard quand nous devons arrêter de peindre.”
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+De quoi aura l’air le sol de la salle d’exposition?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c c c @{} }
+  \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerA.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerB.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerC.svg}} & \makecell[c]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerD.svg}} \\ 
+  A) & B) & C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La réponse A est juste: \raisebox{-0.5ex}{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2016-AT-06-answerA.svg}}
+
+La carte d’instruction de gauche montre qu’un demi-cercle doit être peint sur la moitié gauche du sol, son côté arrondi tourné vers la gauche. La même carte d’instruction doit être utilisée deux fois pour le côté droit du sol. L’orientation de images sur le sol doit être la même que l’orientation des “$1$” sur la carte.
+
+Les deux “$1$” sur la carte sont tourné de $180$ degrés, la tête en bas. Les éléments d’images doivent donc également être tournés de façon à ce que le côté arrondi des demi-cercles soit tourné du côté opposé. Lors de la première application de la carte $1$ (pour une largeur de $16$ m), le côté arrondi du demi-cercle est tourné vers la gauche; pour $8$ m, vers la droite; pour $4$ m, à nouveau vers la gauche; et ainsi de suite. Pour $0$,$5$ m, la deuxième carte $1$ est utilisée: Ben et Tina finissent de peindre la surface restante et peuvent s’arrêter.
+
+De cette manière, c’est exactement l’image de la réponse A qui est peinte sur le sol.
+
+
+\subsection*{It’s Informatics}
+
+La première des deux cartes d’instruction $1$ dans cet exercice du Castor fait référence à elle-même. Elle appelle, pour ainsi dire, Ben et Tina à s’appliquer elle-même une fois de plus avec une largeur différente. En informatique, les instructions qui font référence à elles-mêmes sont dites \emph{récursives}. Ce terme vient du latin \emph{recurrere} (“revenir” en français). La récursivité est un concept puissant. Certains problèmes complexes peuvent être résolus à l’aide d’une instruction récursive courte et simple.
+
+Une instruction récursive doit contenir une condition définissant quand la récursivité doit être terminée. Sinon, le récursivité continue jusqu’à ce qu’une des ressources nécessaires soit épuisée, comme la mémoire de l’ordinateur ou la patience de l’utilisateur. Dans cet exercice, c’est la deuxième carte $1$ qui a cette fonction: elle doit être utilisée lorsque la condition qu’une surface de $0$,$5$ m de largeur doit encore être peinte est remplie. Comme elle ne fait référence à aucune carte, elle termine la récursivité.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Programmation: \href{https://fr.wikipedia.org/wiki/Programmation_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_informatique}}
+  \item Récursivité: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9cursivit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Récursivité}}
+  \item Algorithme récursif: \href{https://fr.wikipedia.org/wiki/Algorithme_r\%C3\%A9cursif}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_récursif}}
+\end{itemize}
+
+
+}
+\end{document}

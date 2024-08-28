@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-LV-03 Morpion}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-LV-03 Morpion}
+
+
+\subsection*{Body}
+
+Le morpion est un jeu pour deux personnes.
+
+Les deux joueurs remplissent une grille de ${3 \times 3}$ cases à tour de rôle: un joueur dessine des \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} et l’autre des \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} dans les cases. Le premier joueur qui place ses trois symboles dans trois cases alignées dans une colonne, une ligne ou une diagonale a gagné et le jeu est terminé. Si personne n’a gagné et que toutes les cases sont remplies, c’est un match nul.
+
+Tu vois ici les étapes possibles d’un jeu: les quatre premiers tours et le dernier tour. Le joueurs avec les \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} a gagné.
+
+{\centering%
+\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-taskbody.svg}\par}
+
+Nous appelons la dernière étape du jeu “état final”. Les règles du jeu déterminent exactement de quelle manière les cases peuvent être remplies de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} et de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} et quand le jeu se termine.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Une seule des images suivantes montre l’état final d’un jeu de morpion. Laquelle?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-answerD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La réponse C est juste: \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-answerC.svg}}
+
+\begin{tabularx}{\columnwidth}{ @{} r J @{} }
+  \makecell[r]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-explanationC.svg}} & La réponse C est correcte, car un joueur a gagné (trois \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} en diagonale) et le jeu s’est terminé. \\ 
+  \makecell[r]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-explanationA.svg}} & La réponse A n’est pas correcte. Le joueur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} a gagné, mais le joueur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} a continué de remplir des cases. Comme le gagnant remplit toujours la dernière case, il ne peut jamais dessiner moins de symboles que le perdant. \\ 
+  \makecell[r]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-explanationB.svg}} & La réponse B n’est pas correcte, car cinq cases ont des \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} alors seulement trois ont des \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}}. Ce n’est pas possible, car le nombre de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} et de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} ne peuvent avoir qu’un point de différence. \\ 
+  \makecell[r]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-LV-03-explanationD.svg}} & Le réponse D n’est pas correcte, car elle ne montre pas un état final. il n’y a pas de gagnant et les cases ne sont pas toutes remplies.
+\end{tabularx}
+
+
+\subsection*{It’s Informatics}
+
+Pour résoudre l’exercice, nous avons vérifié pour chacune des images si elle correspondait à un état final valide. On peut déduire de nouvelles règles définissant un état final à partir des règles du morpion, par exemple celles-ci:
+
+\begin{enumerate}
+  \item La différence entre le nombre de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.9px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyX.svg}} et de \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-LV-03-taskbodyO.svg}} doit être égale à $0$, –$1$ ou $1$.
+  \item Si aucun joueur n’a gagné, toutes les cases doivent être remplies.
+  \item Le perdant peut avoir rempli au maximum le même nombre de cases que le gagnant.
+  \item Il ne peut pas y avoir plus d’une seule suite de trois symboles alignés.
+\end{enumerate}
+
+Ces nouvelles règles ne sont pas des règles de jeu, mais servent à vérifier si une grille remplie représente un état final. Si une image entre en conflit avec une de ces règles, elle ne peut pas représenter d’état final.
+
+Les règles sont très inmportantes en informatique. Un \emph{interprète} qui exécute un programme vérifie si le texte du programme correspond aux règles de syntaxe du langage de programmation.
+
+En programmation, on utilise des règles appelées assertions pour pouvoir vérifier qu’un programme est correct pendant son exécution.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Morpion: \href{https://fr.wikipedia.org/wiki/Tic-tac-toe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tic-tac-toe}}
+  \item Interprète: \href{https://fr.wikipedia.org/wiki/Interpr\%C3\%A8te_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Interprète\_(informatique)}}
+  \item Langage de programmation: \href{https://fr.wikipedia.org/wiki/Langage_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_de\_programmation}}
+\end{itemize}
+
+
+}
+\end{document}

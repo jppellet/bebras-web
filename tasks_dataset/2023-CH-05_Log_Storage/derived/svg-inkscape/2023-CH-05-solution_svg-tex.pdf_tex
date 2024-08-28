@@ -1,0 +1,72 @@
+%% Creator: Inkscape 1.2.1 (9c6d41e, 2022-07-14), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '2023-CH-05-solution_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1377.27360282bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.21792238)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{2023-CH-05-solution_svg-tex.pdf}}%
+    \put(0.40729701,0.02667421){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3 m\end{tabular}}}}%
+    \put(0.72748731,0.03426325){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1 m\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{2023-CH-05-solution_svg-tex.pdf}}%
+    \put(0.77937354,0.06946113){\makebox(0,0)[lt]{\lineheight{1.60074127}\smash{\begin{tabular}[t]{l}\textbf{1 m}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{2023-CH-05-solution_svg-tex.pdf}}%
+    \put(0.55449443,0.05561856){\makebox(0,0)[lt]{\lineheight{1.60074127}\smash{\begin{tabular}[t]{l}\textbf{4 m}\end{tabular}}}}%
+    \put(0.6693191,0.0610042){\makebox(0,0)[lt]{\lineheight{1.60074127}\smash{\begin{tabular}[t]{l}\textbf{2 m}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{2023-CH-05-solution_svg-tex.pdf}}%
+    \put(0.28062729,0.05806905){\makebox(0,0)[lt]{\lineheight{1.60074127}\smash{\begin{tabular}[t]{l}\textbf{3 m}\end{tabular}}}}%
+    \put(0.14607211,0.02935983){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4 m\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{2023-CH-05-solution_svg-tex.pdf}}%
+    \put(0.28068177,0.02710571){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3 m\end{tabular}}}}%
+    \put(0.77554367,0.03654789){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1 m\end{tabular}}}}%
+    \put(0.60986061,0.03074458){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}6 m\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

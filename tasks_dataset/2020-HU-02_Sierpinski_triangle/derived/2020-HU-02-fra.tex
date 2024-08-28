@@ -1,0 +1,152 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-HU-02 Triangle de Sierpiński}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-HU-02 Triangle de Sierpiński}
+
+
+\subsection*{Body}
+
+Pour obtenir un triangle de Sierpiński, on dessine d’abord un triangle équilatéral blanc, puis on procède étape par étape. À chaque étape, chaque triangle blanc existant est divisé en quatre triangles plus petits et celui du centre est coloré en noir, comme montré ci-dessous:
+
+{\centering%
+\includesvg[width=331.9px]{\taskGraphicsFolder/graphics/2020-HU-02_taskbody1-compatible.svg}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Dessine la figure obtenue après trois étapes. Pour cela, colorie les bons petits triangles en noir.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_question-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Après la première étape, le triangle central est noir et il y a trois triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation1-compatible.svg}\par}
+
+Lors de la deuxième étape, les trois triangles blancs sont également divisés en quatre triangles plus petits, et chaque triangle central est coloré en noir. Il y a maintenant ${3 \cdot 3 = 9}$ petits triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation2-compatible.svg}\par}
+
+Lors de la troisième et dernière étape, ces neufs triangles blancs sont à nouveau divisés en quatre triangles chacun, et chaque triangle central est coloré en noir. Il en résulte la figure suivante avec  ${3 \cdot 9 = 27}$ triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation3-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Le triangle de Sierpiński est une \emph{fractale} qui a été décrite pour la première fois par le mathématicien polonais Waclaw Franciszek Sierpiński ($1882$–$1969$) en $1915$. Les fractales sont des figures dans lesquelles apparaissent des éléments toujours plus petits, éléments qui sont semblables à la figure complète. C’est un travail très fastidieux de dessiner des images de fractales. Lorsque des ordinateurs capable de faire les calculs nécessaires sont apparus au XX\textsuperscript{e} siècle, les fractales sont devenues très populaires. Le \emph{flocon de Koch} et l’\emph{ensemble de Mandelbrot} sont des fractales connues.
+
+La construction du triangle de Sierpiński est récursive (du latin \emph{re-currere}: se reproduire). Cela signifie que les règles de construction contiennent une instruction stipulant qu’il faut répéter l’application des règles. Dans cet exercice, cette instruction dit: “Divise le triangle blanc en quatre triangles plus petits, colore le triangle central en noir, puis répète cette instruction pour les triangles blancs résultants.” Une application de l’instruction s’appelle une \emph{étape récursive}, et l’instruction demandant de réappliquer les règles s’appelle un \emph{appel récursif} (dans l’exemple, il y a trois appels récursifs par étape récursive). Comme chaque appel récursif contient d’autres appels récursifs, on doit encore et toujours répéter l’étape récursive, ce qui peut durer indéfiniment. On peut éviter cela avec une condition de terminaison. Dans l’exemple, les appels récursifs s’arrêtent lorsque les triangles deviennent trop petits.
+
+Le concept de la récursivité a un large domaine d’application en informatique, car beaucoup d’objects complexes – par exemple les fractales – peuvent être décrits de manière compacte grâce à la récursivité, et beaucoup de tâches complexes – par exemple les tours de Hanoï – peuvent être résolues à l’aide d’algorithmes récursifs très simples.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Triangle de Sierpiński: \href{https://fr.wikipedia.org/wiki/Triangle_de_Sierpi\%C5\%84ski}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Triangle\_de\_Sierpiński}}
+  \item Récursivité: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9cursivit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Récursivité}}
+  \item Fractale: \href{https://fr.wikipedia.org/wiki/Fractale}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fractale}}
+  \item \href{https://fr.wikipedia.org/wiki/Wac\%C5\%82aw_Sierpi\%C5\%84ski}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Wacław\_Sierpiński}}
+  \item \href{https://fr.wikipedia.org/wiki/Tours_de_Hano\%C3\%AF\#Solution_r\%C3\%A9cursive}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tours\_de\_Hanoï\#Solution\_récursive}}
+  \item \href{https://fr.wikipedia.org/wiki/Flocon_de_Koch}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Flocon\_de\_Koch}}
+  \item \href{https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_de\_Mandelbrot}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-HU-04 Déchampignonneur}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-HU-04 Déchampignonneur}
+
+
+\subsection*{Body}
+
+Au début de jeu du “déchampignonneur”, un seul champignon et quelques cases contenant des chiffres sont visibles. Toutes les autres cases du jeu sont cachées. Lorsque tu découvres une case, un champignon ou le nombre de champignons présents dans les cases voisines apparaît. Tu gagnes le jeu si tu arrives à découvrir uniquement toutes les cases sans champignon.
+
+Voici un exemple de jeu complètement découvert:
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-HU-04-taskbody.svg}\par}
+
+Tu commences un nouveau jeu – regarde en dessous.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quelles cases ne peut-il pas y avoir de champignon?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-HU-04-question.svg}\par}
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur les cases pour les sélectionner. Clique à nouveau pour les désélectionner.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne solution:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-solution.svg}\par}
+
+Afin d’expliquer la bonne réponse, nous assignons des lettres aux cases couvertes. Nous disons qu’un chiffre ${N}$ sur une case est épuisé lorsque que nous savons quelles ${N}$ cases voisines contiennent un champignon; il ne peut alors plus y avoir de champignon sur les autres cases voisines.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-explanation1.svg}\par}
+
+\begin{itemize}
+  \item Il n’y a pas de champignon sur la case D, parce que le chiffre $1$ à côté est épuisé.
+  \item Il n’y a pas de champignon sur les cases B, C, E et F, parce que le chiffre $1$ sur leur case voisine commune est épuisé.
+  \item Il y a un champignon sur la case A, car les chiffres $1$, $2$ et $1$ sur les cases voisines n’indiqueraient sinon pas le bon nombre de champignon sur les cases voisines.
+\end{itemize}
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-explanation2.svg}\par}
+
+Il y a donc un champignon caché sur la case A. Les cases B, C, D, E et F peuvent être découvertes.
+
+
+\subsection*{It’s Informatics}
+
+Comment avons-nous résolu cet exercice? Parfois, il faut commencer avec une supposition et continuer logiquement. Si l’on se trouve face à une contradiciton, on revient en arrière et continue avec la supposition suivante. Il s’agit alors d’une recherche “ciblée” et non pas aléatoire.
+
+Comment un ordinateur résoudrait-il cet exercice? Si au moins une case avec un champignon est découverte, de simples règles peuvent être énoncées. Par exemple, s’il y a déjà une case avec un champignon découvert à côté d’une case avec le chiffre $1$, il ne peut plus y avoir de champignon sur les autres cases voisines. Si l’on formule cette règle précisément pour tous les chiffres, un ordinateur peut l’utiliser comme \emph{instruction} à exécuter pas à pas. Nous obtienons ainsi un \emph{algorithme} que nous pouvons “simplement” exécuter pour gagner le jeu (si au moins un champignon est déjà découvert).
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Démineur: \href{https://fr.wikipedia.org/wiki/D\%C3\%A9mineur_(genre_de_jeu_vid\%C3\%A9o)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Démineur\_(genre\_de\_jeu\_vidéo)}}
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,120 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Soirée ciné}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Quelques amis veulent regarder un film ensemble. ils ont le choix entre sept films. Pour prendre une décision, chaque personne évalue chaque film: bon \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, moyen \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou mauvais \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}.
+
+Tu vois le résultat ci-dessous. Malheureusement, il n’y a pas de favori pour la soirée.
+
+Un film est un “favori” quand il reçoit de chaque personne la meilleure évaluation parmi les films. Par exemple, le film $1$ n’est pas un favori parce que Niklaus a donné sa meilleure évaluation à un autre film, le film $4$.
+
+Ada aimerait devoir convaincre le moins de personnes possible de changer leurs évaluations pour avoir un favori malgré tout.
+
+
+
+% question (as \emph{})
+{\em
+Aide Ada en changeant le moins d’évaluations possible pour qu’il y ait un favori.
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Il n’y a pas de favori au départ. Pour chaque film, nous trouvons des amis qui ont mieux évalué d’autres films.
+
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{Film}} & {\setstretch{1.0}\thead[lb]{Amis qui ont mieux évalué d’autres films}} \\ 
+\midrule
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation1.svg}} & $4$: Nancy, Niklaus, Grace et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation2.svg}} & $3$: Niklaus, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation3.svg}} & $3$: Niklaus, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation4.svg}} & $3$: Nancy, Edsger et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation5.svg}} & $3$: Nancy, Grace et Edsger \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation6.svg}} & $2$: Niklaus et Rozsa \\ 
+  \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-DE-07-explanation7.svg}} & $3$: Niklaus, Grace et Rozsa
+\end{tabular}
+
+Il n’y a que deux amis qui ont mieux évalué d’autres films que le film $6$. Tous les autres films ont été moins bien évalués que d’autres par plus de deux des amis. Il ne suffit donc pas qu’un seul ami change son évaluation pour qu’il y ait un favori. Ada doit convaincre Niklaus et Rozsa de faire du film $6$ leur film préféré, et elle obtient alors un favori après deux changements.
+
+Quelles évaluations Niklaus et Rosza peuvent-ils changer afin que le film $6$ ait leur meilleure évaluation? Chacun a trois possibilités:
+
+\begin{itemize}
+  \item Niklaus peut changer son évaluation du film $6$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, ou alors changer son évaluation du film $4$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}. Dans les trois cas, le film $6$ obtient sa meilleure évaluation.
+  \item Rozsa peut changer son évaluation du film $6$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-good.svg}}, ou alors changer son évaluation du film $5$ en \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-ok.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-DE-07-bad.svg}}. Dans les trois cas, le film $6$ obtient sa meilleure évaluation.
+\end{itemize}
+
+Chacune des trois possibilités de Niklaus et Rosza peuvent être combinées de n’importe quelle manière. Il existe en tout ${3 \times 3 = 9}$ possibilités de ne changer que deux évaluations afin d’obtenir un favori.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Comment procédons-nous pour résoudre cet exercice? Une idée est de vérifier pour chaque film et chaque personne s’il y a un autre film que cette personne a mieux évalué. Dans notre cas, on obtient ainsi la table plus haut. Cette table nous aide à trouver quelles personnes doivent changer leurs évaluations pour que nous obtenions un favori avec le moins de changements possible.
+
+Ada peut utiliser cet algorithme pour résoudre son problème. Mais cet algorithme est-il \emph{efficace}? Ada pourrait-elle résoudre le problème encore plus vite?
+
+Dans ce qui suit, nous dénotons le nombre de film par ${M}$ et le nombre d’amis par ${F}$. Ada doit considérer les ${M \times F}$ entrées individuellement et doit prendre en compte les ${M-1}$ autres évaluations de la même personne pour chaque entrée. Ada doit donc considérer ${M \times (M-1) \times F}$ évaluations en tout.
+
+Pour déterminer si une évaluation est problématique, Ada ne doit la comparer qu’à la meilleure évaluation de la même personne. Si cette personne a mieux évalué un autre film, le film considéré par Ada ne peut pas être un favori.
+
+Autrement dit, Si Ada commence par déterminer la meilleure évaluation de chaque personne (en considérant toutes les ${M \times F}$ évaluations), elle peut déterminer pour chacune des ${M \times F}$ évaluations si elle est moins bonne que la meilleure évaluation de la même personne.
+
+Cet algorithme alternatif qui commence par rechercher la meilleure évaluation permet à Ada de considérer ${2 \times M \times F}$ évaluations en tout. Pour ${M=7}$ et ${F=6}$, il s’agit de $84$ comparaisons, alors que le premier algorithme avait besoin de $252$ comparaisons. Le deuxième algorithme résoud aussi correctement le problème d’Ada, mais beaucoup plus efficacement que le premier.
+
+Une des tâches les plus importantes en informatique est de résoudre des problèmes non seulement de manière correcte, mais aussi le plus efficacement possible. On arrive plus rapidement à des solutions avec des ordinateurs plus rapides, mais si aucun algorithme efficace n’est connu, même les ordinateurs les plus rapides peuvent atteindre leurs limites.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Complexité (efficacité): \href{https://fr.wikipedia.org/wiki/Analyse_de_la_complexit\%C3\%A9_des_algorithmes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Analyse\_de\_la\_complexité\_des\_algorithmes}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorSukovicG{} % \ifdefined\AuthorSukovicG \BrochureFlag{me}{} Goran Sukovic\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorSerafiniG{} % \ifdefined\AuthorSerafiniG \BrochureFlag{ch}{} Giovanni Serafini\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

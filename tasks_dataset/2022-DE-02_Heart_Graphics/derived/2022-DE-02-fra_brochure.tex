@@ -1,0 +1,125 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Cœur composé}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Tina a deux formes: un rond et un carré. Elle les transforme en cœur.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-taskbody.svg}\par}
+
+Elle utilise pour cela ces trois transformations:
+
+\begin{itemize}
+  \item \emph{tourner}: tourner une forme autant que désiré
+  \item \emph{déplacer}: déplacer une forme autant que désiré
+  \item \emph{dupliquer}: dupliquer une forme de manière à ce que les deux formes restent au même endroit.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Quelles transformations a-t-elle effectuées et dans quel ordre?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) \emph{dupliquer} le rond, \emph{tourner} le carré, \emph{dépacer} le rond, \emph{déplacer} le rond
+
+B) \emph{dupliquer} le carré, \emph{tourner} le carré, \emph{déplacer} le carré, \emph{déplacer} le rond
+
+C) \emph{dupliquer} le rond, \emph{tourner} le rond, \emph{déplacer} le rond, \emph{déplacer} le carré
+
+D) \emph{déplacer} le rond, \emph{déplacer} le rond, \emph{dupliquer} le rond, \emph{déplacer} le carré
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Si l’on observe attentivement le cœur, on constate qu’il est formé de deux ronds et d’un carré tourné d’$1$/$8$ de tour. Les transformations doivent donc inclure \emph{dupliquer} le rond pour obtenir deux ronds et \emph{tourner} le carré pour que le carré soit tourné d’$1$/$8$ de tour. Les réponses B), C) et D) sont donc exclues, car:
+
+\begin{itemize}
+  \item Dans la réponse B), un carré est dupliqué et non un rond
+  \item Dans la réponse C), un rond est tourné, mais pas le carré
+  \item Dans la réponse D), aucune forme n’est tournée, donc le carré n’est pas tourné.
+\end{itemize}
+
+Mais la réponse A) est-elle juste? Les formes doivent encore être déplacées! Les transformations suivantes sont indiquées:
+
+\begin{itemize}
+  \item Ceci: \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-taskbody_shapes.svg}}
+  \item est transformé par la duplication du rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation1.svg}}
+  \item est transformé par la rotation du carré en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation2.svg}}
+  \item est transformé par le déplacement d’un rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation3.svg}}
+  \item est transformé par le déplacement de l’autre rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation_heartpuzzle.svg}}
+\end{itemize}
+
+La réponse A) Dupliquer le rond, tourner le carré, délpacer le rond, déplacer le rond est donc correcte.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les logiciels de traitement d’images permettent de réaliser beaucoup de transformations sur une image. Dans cet exercice, il s’agit de transformations comme tourner, déplacer ou dupliquer. Cependant, cela n’est pas suffisant: il faut encore indiquer à l’ordinateur comment une forme doit être tournée ou vers quel endroit elle doit être déplacée.
+
+Tu pourrais bien sûr aussi décrire les étapes pour transformer un rond et un carré en cœur par un texte plus long, mais en informatique, c’est souvent mieux d’utiliser aussi peu de transformations de base que possible, et de les répéter ou de les effectuer de manières différentes. Le développement de solutions générales à partir d’exemples précis s’appelle la généralisation. De telles commandes pourraient par exemple avoir la forme suivante:
+
+\begin{itemize}
+  \item Tourner une forme: tourne la forme, angle
+  \item Déplacer une forme: déplace la forme, destination
+  \item Dupliquer une forme: duplique la forme
+\end{itemize}
+
+Le logiciel de traitement d’images de Tina peut paraître inhabituel: au lieu que l’image soit enregistrée sous forme de \emph{pixels} comme une photo, une description de la forme (par exemple “rond, rayon $2$ cm, couleur rouge”) est enregistrée. C’est ainsi possible que deux formes soient l’une sur l’autre, comme les ronds, et que l’une d’elles soit ensuite déplacée sans que l’autre n’ait été effacée. De tels images sont appelées \emph{images vectorielles}. Elles sont souvent utilisées pour dessiner des formes abstraites en haute qualité. Les autres images, appelées \emph{images matricielles}, sont souvent des photos ou des dessins réalistes.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pixel: \href{https://fr.wikipedia.org/wiki/Pixel}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pixel}}
+  \item Image matricielle: \href{https://fr.wikipedia.org/wiki/Image_matricielle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Image\_matricielle}}
+  \item Image vectorielle: \href{https://fr.wikipedia.org/wiki/Image_vectorielle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Image\_vectorielle}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorPrettiJ{} % \ifdefined\AuthorPrettiJ \BrochureFlag{ca}{} J.P.~Pretti\fi
+\def\AuthorSukovicG{} % \ifdefined\AuthorSukovicG \BrochureFlag{me}{} Goran Sukovic\fi
+\def\AuthorJustinaD{} % \ifdefined\AuthorJustinaD \BrochureFlag{us}{} Dauksaite Justina\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

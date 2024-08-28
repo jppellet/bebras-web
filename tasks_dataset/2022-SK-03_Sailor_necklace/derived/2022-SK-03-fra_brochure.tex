@@ -1,0 +1,125 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Collier de marin}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Voici les instructions de Monica pour faire son collier de marin avec des perles blanches à vagues rouges et des perles unies bleues.
+
+Tu commences toujours par une perle à vagues puis une perle bleue, dans cet ordre:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody1.svg}\par}
+
+Tu peux ensuite allonger le collier:
+
+\begin{itemize}
+  \item en ajoutant une perle bleue de chaque côté du fil (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}});
+  \item en ajoutant deux perles à vagues du côté droit du fil (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}).
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody2.svg}\par}
+
+Tu peux répéter ces actions plusieurs fois pour obtenir un collier de plus en plus long.
+
+
+
+% question (as \emph{})
+{\em
+Lequel des colliers suivants n’est \textbf{pas} un collier de marin de Monica?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerA.svg}}
+
+B) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerB.svg}}
+
+C) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerC.svg}}
+
+D) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerD.svg}}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est D).
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerD.svg}\par}
+
+Tu peux résoudre cet exercice de différentes manières.
+
+Par exemple, tu peux commencer par chercher les deux perles de départ dans chaque collier, puis effectuer une suite d’action \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+
+\begin{itemize}
+  \item Pour le collier A, tu peux commencer avec la deuxième et troisième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier B, tu peux commencer avec la troisième et quatrième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier C, tu peux commencer avec la deuxième et troisième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier D, les deuxième et troisième perles devraient être les perles de départ. Tu pourrais ensuite effectuer l’action \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} une fois, mais il n’y a ensuite plus d’autres actions permettant d’obtenir le reste du collier.
+\end{itemize}
+
+Cette méthode ne fonctionne pas bien lorsque le collier est très long et a beaucoup de perles de départ possibles. Dans ce cas-là, une méthode déconstructive mène plus facilement à la solution. Pour cela, tu enlèves des perles petit à petit en effectuant les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} à l’envers jusqu’à ce qu’il ne reste que deux perles.
+
+Une autre stratégie utilise la \emph{parité}. D’après les instructions pour fabriquer les colliers de marin, ils ont toujours un nombre pair de perles unies bleues et un nombre impair de perles blanches à vagues rouges (“parité impaire”). Tu vois pourquoi c’est le cas?
+
+Le collier D a un nombre pair des deux sortes de billes et ne peut donc pas âtre un collier de marin.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, tu ne peux ajouter des perles qu’aux bouts du collier. Tu ne peux pas insérer une perle au milieu, et tu ne peux pas non plus enlever une perle du milieu sans avoir d’abord enlevé les perles du bout du collier.
+
+Cette forme de structure de stockage, à laquelle il est facile d’ajouter et d’enlever des éléments aux bouts mais pas au milieu, s’appelle une \emph{file d’attente à double extrémité} ou \emph{deque} (de l’anglais “double-ended queue”).
+
+Les deques peuvent être utilisées pour enregistrer l’activité d’un browser, pour planifier des ordres d’impression ou encore pour vérifier la validité d’expressions mathématiques. Dans ce cas-là, on peut vérfifier qu’une parenthèse fermante correspond toujours à une parenthèse ouvrante de manière très similaire à celle utilisée pour vérifier si un collier est un collier de marin à Monica.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item deque: \href{https://fr.wikipedia.org/wiki/File_d\%27attente_\%C3\%A0_double_extr\%C3\%A9mit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/File\_d'attente\_à\_double\_extrémité}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorMikovaK{} % \ifdefined\AuthorMikovaK \BrochureFlag{sk}{} Karolína Miková\fi
+\def\AuthorBarichelloL{} % \ifdefined\AuthorBarichelloL \BrochureFlag{br}{} Leo Barichello\fi
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Elettrodomestici}
+\renewcommand{\taskCountry}{JP}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Nella casa del castoro Bruno ci sono cinque elettrodomestici (computer, lavatrice, televisione, macchina per il caffè e aspirapolvere) e cinque pulsanti (A, B, C, D ed E) per accendere e spegnere. Tuttavia, il cablaggio è molto insolito. Ogni pulsante è collegato a diversi dispositivi, come mostrato nella figura sotto. Ogni volta che si preme un tasto, esso commuta tutti i dispositivi collegati: Quelli che sono spenti vengono accesi e quelli che sono accesi vengono spenti.
+
+All’inizio tutti gli apparecchi sono spenti. Ad esempio, se si premono i pulsanti A, C ed E, l’aspirapolvere si accende perché il primo pulsante lo accende, il secondo lo spegne e il terzo lo riaccende.
+
+
+
+% question (as \emph{})
+{\em
+Quali pulsanti deve premere Bruno affinché alla fine si accendano solo il televisore e la macchina del caffè?
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-JP-01b_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Se si premono i pulsanti B, C, D, E (in qualsiasi ordine), si accendono solo il televisore e la macchina del caffè.
+
+Possiamo anche scoprire sistematicamente come accendere e spegnere ogni apparecchio separatamente. Iniziamo con due semplici combinazioni:
+
+\begin{itemize}
+  \item A~+~E (premendo A ed E) si comanda la macchina del caffè da sola.
+  \item C~+~E (premendo C ed E) si comanda il computer da solo.
+\end{itemize}
+
+Osserviamo poi che la lavatrice può essere comandata individualmente premendo prima B e poi riportando immediatamente il computer e la macchina da caffè al punto di partenza premendo A + E e C + E. Così, tutto sommato, la lavatrice è controllata individualmente da B + A + E + C + E. Qui E appare due volte. Premere due volte lo stesso interruttore è come non averlo premuto affatto. Pertanto, la lavatrice può essere comandata anche singolarmente da B + A + C. Con questo metodo si ottiene la seguente lista di combinazioni di pulsanti per il controllo dei singoli apparecchi:
+
+\begin{itemize}
+  \item Computer: C~+~E
+  \item Macchina del caffé: A~+~E
+  \item Lavatrice: A~+~B~+~C
+  \item Televisione: A~+~B~+~C~+~D
+  \item Aspirapolvere: A~+~B~+~C~+~D~+~E
+\end{itemize}
+
+Per accendere la televisione e la macchina del caffè, dobbiamo quindi premere A + B + C + D + A + E, il che semplifica a B + C + D + E, in quanto le due A si annullano a vicenda.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il sistema di dispositivi e pulsanti per l’accensione e lo spegnimento può essere modellato come un cosiddetto \emph{automa a stati finiti}. Questo avviene come segue.
+
+Il sistema dei cinque dispositivi ha molti \emph{stati} diversi. Per esempio, uno stato è quando è acceso solo il televisore. Un altro stato è quando tutti gli apparecchi sono spenti (poiché tutti gli apparecchi sono spenti all’inizio, lo chiamiamo lo \emph{stato iniziale}). E un altro stato è quello in cui sono accese solo la TV e la macchina del caffè (nel nostro esempio questo è lo \emph{stato finale} perché è lo stato che vogliamo).
+
+Premendo un pulsante si sposta il sistema da uno stato all’altro.
+
+Per esempio: Se il sistema è nello stato iniziale, premendo E si passa allo stato in cui sono accesi solo il televisore e l’aspirapolvere. Un tale cambiamento di stato è anche chiamato \emph{transizione}.
+
+Se si disegnano gli stati del sistema come cerchi e le transizioni come frecce, si ottiene un’immagine come quella qui sotto (per ragioni di spazio, sono disegnati solo quattro stati e solo le transizioni tra di essi.) Lo stato iniziale è contrassegnato da una freccia speciale. In informatica questo si chiama automa a stati finiti (a proposito, un automa a stati finiti è semplicemente un grafo speciale; gli stati sono i \emph{nodi} e le transizioni sono gli \emph{archi}). Nella foto, ora possiamo facilmente vedere in quale stato ci troviamo quando vengono premuti diversi pulsanti.
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2020-JP-01b_explanation-compatible.svg}\par}
+
+Il compito consiste nel passare dallo stato iniziale (tutti i dispositivi spenti) allo stato di destinazione (solo TV e macchina del caffè accesa). Quindi si tratta di trovare un modo per passare dallo stato iniziale allo stato di destinazione. Trovare percorsi nei grafi è un compito fondamentale dell’informatica.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Automa a stati finiti: \href{https://it.wikipedia.org/wiki/Automa_a_stati_finiti}{\BrochureUrlText{https://it.wikipedia.org/wiki/Automa\_a\_stati\_finiti}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchoolS{} % \ifdefined\AuthorSchoolS \BrochureFlag{jp}{} Students in Hakuyo High School\fi
+\def\AuthorMorpurgoA{} % \ifdefined\AuthorMorpurgoA \BrochureFlag{it}{} Anna Morpurgo\fi
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios O.~Choudary\fi
+\def\AuthorShimabukuM{} % \ifdefined\AuthorShimabukuM \BrochureFlag{jp}{} Maiko Shimabuku\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

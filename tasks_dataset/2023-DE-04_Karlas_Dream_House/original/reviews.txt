@@ -1,0 +1,34 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Mattia Monga (svn: monga)
+on 2023-04-11
+Assigned review
+[AGE] ok
+    [IDEA] Nice task with a clear connection with common applications
+    [TEXT] The text seems to me too implicit: in particular I miss a key piece of information about the pictures, they are maps of the same region with the same scale,  this is the crucial point for the solution.
+    [EXPL] It does not explain why overlapping makes sense
+    [TiI] ok
+    [TiCT] missing
+    [GRAPH] ok
+    [AUTH] ok
+    [NAME] ok
+    [OTHER] nothing
+========================================
+By: Mārtiņš Opmanis (svn: opmanis)
+on 2023-04-17
+Assigned review
+[AGE] Yes. It seems harder than stated.
+[IDEA] Good idea, while not obvious whether it is not enough to have two layers (rivers+meadows & houses) instead of three.
+[TEXT] Clear.
+[EXPL] Is Ok.
+[TiI] Yes.
+[TiCT] No.
+[GRAPH] Yes.
+[AUTH] Yes.
+[NAME] Yes.
+========================================
+By: Ungyeol Jung (svn: purnagi)
+on 2023-04-21
+Assigned review
+It's a novel idea. However, the description and constraints of the task appear unclear or insufficient. And there is a lack of consideration for color blindness. TCT is missing.
+========================================

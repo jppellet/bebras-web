@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Objets magiques}
+\renewcommand{\taskCountry}{CA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Il y a quatre objets magiques différents dans le pays merveilleux:
+
+Des chapeaux de magicien~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_hat.svg}}, des boules de cristal~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_cristalball.svg}}, des livres magiques~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_book.svg}} et des potions magiques~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=6.5px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_potion.svg}}.
+
+Les chapeaux de magicien et les boules de cristal peuvent chacun être transformés de deux manières différentes. La table suivante montre ce qui remplace les objets — exactement là où ils se trouvaient et dans l’ordre indiqué — lors des transformations:
+
+\begin{tabular}{ @{} l l @{} }
+  {\setstretch{1.0}\thead[lb]{avant . . .}} & {\setstretch{1.0}\thead[lb]{après}} \\ 
+\midrule
+  \multicolumn{2}{l}{\makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-transformation1.svg}}} \\ 
+  \multicolumn{2}{l}{\makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-transformation2.svg}}} \\ 
+  \multicolumn{2}{l}{\makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-transformation3.svg}}} \\ 
+  \multicolumn{2}{l}{\makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-transformation4.svg}}}
+\end{tabular}
+
+Les transformations peuvent avoir lieu aussi souvent que désiré et dans n’importe quel ordre. Ainsi, un seul objet magique peut se transformer en une longue séquence d’objets.
+
+
+
+% question (as \emph{})
+{\em
+Quelle séquence ne peut pas être générée à partir d’un seul chapeau de magicien?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-answerA.svg}}
+
+B) \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-answerB.svg}}
+
+C) \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-answerC.svg}}
+
+D) \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-answerD.svg}}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La réponse B) est la bonne: \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-CA-02-answerB.svg}}.
+
+Les séquences des réponses A, C et D peuvent être générées à partir d’un seul chapeau de magicien:
+
+\begin{tabular}{ @{} c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Réponse A}} & {\setstretch{1.0}\thead[cb]{Réponse C}} & {\setstretch{1.0}\thead[cb]{Réponse D}} \\ 
+\midrule
+  \makecell[c]{\includesvg[width=0.3\linewidth]{\taskGraphicsFolder/graphics/2022-CA-02-explanationA.svg}} & \makecell[c]{\includesvg[width=0.3\linewidth]{\taskGraphicsFolder/graphics/2022-CA-02-explanationC.svg}} & \makecell[c]{\includesvg[width=0.3\linewidth]{\taskGraphicsFolder/graphics/2022-CA-02-explanationD.svg}}
+\end{tabular}
+
+Le séquence de la réponse B ne peut pas être générée. Elle contient un nombre différent de potions (${3\,\times}$~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=6.5px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_potion.svg}}) et de livres magiques (${2\,\times}$~\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-CA-02-taskbody_book.svg}}), alors que chaque transformation générant une potion magique génère également un livre magique (\raisebox{-0.5ex}{\includesvg[width=57.7px]{\taskGraphicsFolder/graphics/2022-CA-02-transformation3.svg}} et \raisebox{-0.5ex}{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2022-CA-02-transformation4.svg}}). Au pays merveilleux, toutes les séquences générées par des transformations doivent donc contenir le même nombre de livres et de potions magiques. La séquence de la réponse B) ne peut donc être générée ni à partir d’un chapeau de magicien, ni à partir d’une boule de cristal.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Si les chapeaux de magicien et les boules de cristal de cet exercice du castor sont tranformés à plusieurs reprises, de nouvelles séquences sont générées. Comme les transformations génèrent de nouveaux chapeaux de magicien et boules de cristal, un nombre infini de séquences différentes peut être généré. Ce n’est donc pas possible d’énumérer toutes les séquences pouvant être générées par des transformations, mais ce n’est pas nécessaire, car l’ensemble des séquences est directement déterminé par les transformations.
+
+L’idée de décrire un ensemble infini de séquences à l’aide d’un relativement petit ensemble fini de transformations prédate l’invention des ordinateurs. En informatique, ces transformations sont appelées \emph{règles de production}, les ensembles de règles des \emph{grammaires} et les ensembles que celles-ci définissent des \emph{langages}. Un problème central lié à ces \emph{langages formels} est celui de la décidabilité: Une séquence d’objets appartient-elle au langage (et peut donc être générée en appliquant ses règles) ou pas?
+
+Pour résoudre cet exercice du castor, tu as du répondre à cette question pour quatre séquences. Heureusement, la grammaire du pays merveilleux entre dans la catégorie des \emph{grammaires non contextuelles}: les boules de cristal et les chapeaux de magicien peuvent être transformés quelles que soit les choses qui les entourent, donc leur contexte. Le problème de décidabilité est en général facilement résoluble quand il s’agit de grammaires non contextuelles. C’est pour cela qu’elles sont appréciées en informatique, par exemple pour décrire des langages de programmation.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grammaire régulière: \href{https://fr.wikipedia.org/wiki/Grammaire_r\%C3\%A9guli\%C3\%A8re}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Grammaire\_régulière}}
+  \item Langage non contextuel: \href{https://fr.wikipedia.org/wiki/Langage_alg\%C3\%A9brique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_algébrique}}
+  \item Grammaire non contextuelle: \href{https://fr.wikipedia.org/wiki/Grammaire_non_contextuelle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Grammaire\_non\_contextuelle}}
+  \item Langage formel: \href{https://fr.wikipedia.org/wiki/Langage_formel}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Langage\_formel}}
+  \item Décidabilité: \href{https://fr.wikipedia.org/wiki/D\%C3\%A9cidabilit\%C3\%A9\#D\%C3\%A9cidabilit\%C3\%A9,_ind\%C3\%A9cidabilit\%C3\%A9_algorithmique_d'un_probl\%C3\%A8me_de_d\%C3\%A9cision}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Décidabilité\#Décidabilité,\_indécidabilité\_algorithmique\_d’un\_problème\_de\_décision}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

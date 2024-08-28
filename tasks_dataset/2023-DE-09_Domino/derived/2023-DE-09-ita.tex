@@ -1,0 +1,195 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-09 Domino}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-09 Domino}
+
+
+\subsection*{Body}
+
+Ogni domino ha due caselle. Su ogni casella ci sono da $1$ a $6$ punti. Hai questi otto domino:
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2023-DE-09-taskbody.svg}\par}
+
+Posiziona tutti e otto i domino in fila in modo che ci sia sempre lo stesso numero di punti sulle caselle adiacenti di due domino vicini.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-good.svg}} \raisebox{-0.5ex}{\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-bad.svg}}\par}
+
+È possibile disporre varie file di questo tipo. Tuttavia, ci sono domino che non possono essere posizionati all’inizio o alla fine della fila.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino-example-edge.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quali sono questi domino?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fa clic su un domino nell’immagine superiore per selezionarlo. Fa nuovamente clic per rimuoverlo dalla selezione. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Every domino tile can be selected by clicking on it. Then the tile will be highlighted. By clicking again, the tile is deselected. Multiple tiles can be highlighted at the same time.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Tre delle otto pietre non possono essere posizionate all’inizio o alla fine della fila:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+Per risolvere il compito, si esamina il numero di occhi (i punti sul domino sono chiamati anche \emph{occhi}, come su un dado) delle $16$ caselle.  Registriamo la frequenza dei singoli numeri di occhi e se la frequenza è pari o dispari:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Numero di occhi}} & {\setstretch{1.0}\thead[lb]{Frequenza}} & {\setstretch{1.0}\thead[lb]{Pari/dispari}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints1.svg}} & 3 & dispari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints2.svg}} & 3 & dispari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints3.svg}} & 2 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints4.svg}} & 2 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints5.svg}} & 4 & pari \\ 
+  \makecell[l]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-DE-09-numberofpoints6.svg}} & 2 & pari
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Le caselle con un numero di punti pari devono trovarsi a coppie al centro della riga o contemporaneamente all’inizio e alla fine. Tuttavia, le caselle con un numero dispari di punti non possono trovarsi tutti al centro della fila: non è possibile trovare un quadrato adiacente corrispondente per ogni quadrato con questo numero di punti; questo è possibile solo con frequenze pari. Qui si vede una riga in cui una pietra con un numero $1$ (che esiste tre volte) non si adatta più al centro.
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_explanation_spare2.svg}\par}
+
+Poiché sulle otto pietre di questo compito ci sono caselle con frequenze dispari, le pietre con tale caselle devono essere posizionate all’esterno. Le pietre che hanno due caselle con frequenza pari non possono essere posizionate all’inizio o alla fine della fila. Si tratta delle seguenti pietre:
+
+{\centering%
+\includesvg[scale=0.48]{\taskGraphicsFolder/graphics/2023-DE-09-domino_solution.svg}\par}
+
+
+\subsection*{This is Informatics}
+
+Esistono diversi modi per posizionare le otto pietre di domino di questo compito in una fila corretta. Per avere una visione d’insieme, gli informatici utilizzano i cosiddetti \emph{grafi}:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation.svg}\par}
+
+Nel grafo qui sopra sono visibili le caselle (i cosiddetti \emph{nodi}), che mostrano i sei numeri del domino. Le otto linee (chiamate \emph{bordi}) rappresentano gli otto domino; ogni linea collega due caselle. Ad esempio, il domino 2$-6$ è rappresentato dal seguente bordo:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-highlighted.svg}\par}
+
+Per risolvere il compito, tutti e otto i domino devono essere posizionati in una fila corrispondente. Dopo aver posizionato il primo domino, è già chiaro con quale numero di punti deve iniziare il secondo domino, perché i campi adiacenti di due domino devono sempre avere lo stesso numero di punti. Nel grafo, questo si può vedere dal fatto che i domino possono essere posizionati l’uno accanto all’altro esattamente quando i loro bordi si incontrano nello stesso nodo. Per esempio, le pietre 2$-6$ e 6$-3$ possono essere accostate perché entrambe contengono il numero $6$:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2023-DE-09-explanation-two-lines.svg}\par}
+
+L’allineamento delle pietro può essere inteso come un \emph{percorso} (una sequenza di bordi) attraverso il grafo. Questo percorso deve visitare tutti gli spigoli \emph{esattamente una volta} per garantire che le otto pietre del domino vengano utilizzate tutte, ma anche che non vengano utilizzate più di una volta.  Un percorso che visita \emph{ogni bordo esattamente una volta} è chiamato \emph{cammino euleriano}. Il nome risale a Leonhard Euler, matematico svizzero e inventore della teoria dei grafi. Euler  è riuscito a dimostrare che in un grafo connesso, un cammino di Euler, esiste esattamente quando al massimo due nodi hanno un numero dispari di bordi che partono da quel nodo.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Grafo: \href{https://it.wikipedia.org/wiki/Teoria_dei_grafi}{\BrochureUrlText{https://it.wikipedia.org/wiki/Teoria\_dei\_grafi}}
+  \item Nodi: \href{https://it.wikipedia.org/wiki/Vertice_(teoria_dei_grafi)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Vertice\_(teoria\_dei\_grafi)}}
+  \item Cammino euleriano: \href{https://it.wikipedia.org/wiki/Cammino_euleriano}{\BrochureUrlText{https://it.wikipedia.org/wiki/Cammino\_euleriano}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+
+\end{document}

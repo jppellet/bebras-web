@@ -1,0 +1,5 @@
+ZsP: für mich ist sie eine MAthAufgabe. Aber HU hat diese Altersgruppe nicht.
+SD: Sortiere die Hüte der Biber der Grösse nach (Implementierung drag-and-drop – von links nach rechts und von rechts nach links zulassen) – Viel Informatik ist hier nicht dabei… eher viel Ablenkung. 8-10 einfach
+WP: Fast so schön wie DE-06. ;-) Nett, dass man genau hinsehen muss.
+
+implementierung: Drag-and-drop in leeren Bereich

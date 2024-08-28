@@ -1,0 +1,111 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Porte-clés}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+ANNA, BELLA et LENA font des porte-clés avec leur nom. Elles utilisent deux sortes de perles pour les lettres: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beaddiamond.svg}}. Différentes lettres sont séparées par la perle \raisebox{\dimexpr -0.5ex +0.5ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01-beadsquare-withoutwhitespace.svg}}~.
+
+\begin{tabularx}{\columnwidth}{ @{} c J @{} }
+  ANNA & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-taskbody-anna.svg}} \\ 
+  BELLA & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-taskbody-bella.svg}}
+\end{tabularx}
+
+
+
+% question (as \emph{})
+{\em
+Quel porte-clés LENA a-t-elle fait?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-answerA.svg}} \\ 
+  B) & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-answerB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-answerC.svg}} \\ 
+  D) & \makecell[l]{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est A) \raisebox{\dimexpr -0.5ex -1.5ex \relax}{\includesvg[scale=0.33]{\taskGraphicsFolder/graphics/2021-SK-01-answerA.svg}}.
+
+Le mot LENA commence par un L. La lettre L est la troisième et quatrième lettre du mot BELLA, on peut donc reconnaître la suite de perles utilisée pour la lettre L dans BELLA: \raisebox{-0.5ex}{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterL.svg}}. Seules les réponses A et D) commencent par cette lettre et peuvent être la solution. La deuxième lettre de Lena, le E, est aussi la deuxième lettre de BELLA, on peut trouve donc la perle \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} dans les deux porte-clés. Les réponses A) et D) ont les deux la perle \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} comme deuxième lettre, les deux peuvent donc toujours être la solution. On veut ensuite trouver quelles perles sont utilisées pour la lettre N. On trouve la suite de perles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterN.svg}} dans le porte-clé d’ANNA. On ne trouve ces perles pour la lettre suivante que dans la réponse A).
+
+Une autre possibilité pour trouver quelles perles sont utilisées pour le porte-clés de LENA est de faire un tableau montrant les perles correpondant aux lettres connues. Le porte-clés d’ANNA nous donne la suite de perles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterA.svg}} pour la lettre A et la suite de perles \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterN.svg}} pour la lettre N. Le porte-clés de BELLA nous donne la suite de perles pour B: \raisebox{-0.5ex}{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterB.svg}}, pour E: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} et pour L: \raisebox{-0.5ex}{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterL.svg}}.
+
+{\centering%
+\begin{tabular}{ @{} c c @{} }
+  {\setstretch{1.0}\thead[cb]{Lettres}} & {\setstretch{1.0}\thead[cb]{Perles}} \\ 
+\midrule
+  A & \makecell[c]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterA.svg}} \\ 
+  N & \makecell[c]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterN.svg}} \\ 
+  B & \makecell[c]{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterB.svg}} \\ 
+  E & \makecell[c]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} \\ 
+  L & \makecell[c]{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterL.svg}}
+\end{tabular}
+
+\par}
+
+On peut donc faire le porte-clés de LENA avec les suites de perles \raisebox{-0.5ex}{\includesvg[width=57px]{\taskGraphicsFolder/graphics/2021-SK-01-letterL.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterN.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterA.svg}} si on sépare les difféerentes lettres avec la perle \raisebox{\dimexpr -0.5ex +0.5ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01-beadsquare-withoutwhitespace.svg}} . On obtient le porte-clés \raisebox{-0.5ex}{\includesvg[width=151.5px]{\taskGraphicsFolder/graphics/2021-SK-01-solution-lena.svg}}, ce qui correspond à la réponse A). Si l’on décode les autres porte-clés à l’aide du tableau, on trouve BENA pour B), NENA pour C) et LEAN pour D).
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+L’information est \emph{encodée} pour pouvoir transférer des messages sous certaines conditions ou pour transmettre des informations de manière secrète (\emph{chiffrée}). Le codage de cet exercice est basé sur l’alphabet Morse. le point \raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}} de l’alphabet Morse est représenté par la perle ronde \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beadround.svg}} et le trait \raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDash.svg}} par \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2021-SK-01-beaddiamond.svg}}. La lettre A s’écrit \raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDash.svg}} en alphabet Morse, donc \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=25.3px]{\taskGraphicsFolder/graphics/2021-SK-01-letterA.svg}} en perles. Pour encoder des textes quelconques, il faut un code pour chaque lettre de l’alphabet.
+
+L’alphabet Morse a été créé au XIX\textsuperscript{e} siècle. Samuel Morse inventa un télégraphe électromagnétique simple en $1837$. Le code utilisé à l’époque ne comprenait que les dix chiffres de $0$ à $9$; les chiffres transmis devaient être traduits en lettres puis en mots à l’aide d’une tableau. Albert Lewis Vail, un collègue de Morse, developpa dès $1838$ le premier code comprenant aussi des lettres. Le code fut développé pour pouvoir transmettre des textes par voie acoustique, optique ou électromagnétique à l’aide d’un télégraphe. Un point représente une courte durée de transmission et un trait une durée trois fois plus longue. Un pause sépare les lettres, et une pause plus longue sépare les mots. L’alphabet Morse est encore utilisé aujourd’hui pour le signal SOS. Un SOS en Morse \raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDash.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDash.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDash.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~\raisebox{\dimexpr -0.5ex +0.7ex \relax}[0pt][0pt]{\includesvg[width=3.6px]{\taskGraphicsFolder/graphics/2021-SK-01_morseDot.svg}}~ (3x court, 3x long, 3x court) peut être transmis facilement en criant, tapant ou avec une lampe de poche.
+
+Dans le traitement de données informatiques, les caractères sont encodés par des valeurs numériques pour être transmis ou enregistrés.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Codage des caractères: \href{https://fr.wikipedia.org/wiki/Codage_des_caract\%C3\%A8res}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Codage\_des\_caractères}}
+  \item Alphabet Morse: \href{https://fr.wikipedia.org/wiki/Code_Morse_international}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_Morse\_international}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorHruseckaA{} % \ifdefined\AuthorHruseckaA \BrochureFlag{sk}{} Andrea Hrušecká\fi
+\def\AuthorJungU{} % \ifdefined\AuthorJungU \BrochureFlag{kr}{} Ungyeol Jung\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

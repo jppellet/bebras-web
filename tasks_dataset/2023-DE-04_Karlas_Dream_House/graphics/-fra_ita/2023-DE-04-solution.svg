@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100%"
+   height="100%"
+   viewBox="0 0 367 364"
+   version="1.1"
+   xml:space="preserve"
+   style="fill-rule:evenodd;clip-rule:evenodd;"
+   id="svg49"
+   sodipodi:docname="2023-DE-04-solution.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:serif="http://www.serif.com/"><defs
+   id="defs53" /><sodipodi:namedview
+   id="namedview51"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   inkscape:zoom="1.9752747"
+   inkscape:cx="183.51878"
+   inkscape:cy="182"
+   inkscape:window-width="2048"
+   inkscape:window-height="1017"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g47" />
+    <g
+   transform="translate(-0.1,-0.1)"
+   id="g47">
+        <g
+   id="path997"
+   transform="translate(4.55633,3.63408)">
+            <path
+   d="M 355.544,0.1 -2.326,354.336 c 121.999,0.793 246.116,0.796 364.024,5.958 C 357.144,240.13 356.437,120.056 355.544,0.1 Z"
+   style="fill:#c4b8b8;fill-rule:nonzero"
+   id="path2" />
+        </g>
+        <path
+   id="path9971"
+   serif:id="path997"
+   d="m 0.1,0.1 v 360 l 360.356,-0.345 C 358.447,241.523 359.93,120.237 360.1,0.1 Z"
+   style="fill-rule:nonzero" />
+        <rect
+   id="path999"
+   x="2.23"
+   y="2.23"
+   width="355.73999"
+   height="355.73999"
+   style="fill:#ffffff;fill-rule:nonzero" />
+        <rect
+   id="path1003"
+   x="20.124001"
+   y="11.603"
+   width="20.875999"
+   height="20.875999"
+   style="fill-rule:nonzero" />
+        <circle
+   id="circle1001"
+   cx="30.562"
+   cy="22.041"
+   r="18.306999"
+   style="fill:#ffcb34" />
+        <rect
+   x="225.047"
+   y="174.77499"
+   width="22.153999"
+   height="22.153999"
+   id="rect9" />
+        <rect
+   x="111.721"
+   y="173.922"
+   width="19.598"
+   height="19.598"
+   id="rect11" />
+        <rect
+   id="path1011"
+   x="256.99899"
+   y="180.313"
+   width="20.875999"
+   height="20.875999"
+   style="fill-rule:nonzero" />
+        <rect
+   id="path1015"
+   x="303.86301"
+   y="314.08801"
+   width="20.875999"
+   height="21.302"
+   style="fill-rule:nonzero" />
+        <g
+   id="path1019"
+   transform="translate(-0.109729,-7.0093)">
+            <rect
+   x="21.402"
+   y="334.112"
+   width="21.302"
+   height="21.302"
+   style="fill-rule:nonzero"
+   id="rect15" />
+        </g>
+        
+        <rect
+   id="path10031"
+   serif:id="path1003"
+   x="20.124001"
+   y="11.603"
+   width="20.875999"
+   height="20.875999"
+   style="fill:#e62121;fill-rule:nonzero" />
+    <path
+   id="path833-5"
+   d="M 309.9388,81.7584 V 26.2396"
+   style="clip-rule:evenodd;fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:1.728px" /><g
+   id="path835-5"
+   transform="matrix(0.3625544,0,0,0.4,29.340795,3.0656118)"
+   style="clip-rule:evenodd;fill-rule:evenodd"><path
+     d="M 705.199,134.747 H 843.995"
+     style="fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:4.32px"
+     id="path20" /></g><g
+   transform="matrix(0.4,0,0,0.4,338.34644,62.720628)"
+   id="g31"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1850-1"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text28">E</text></g></g><g
+   transform="matrix(0.4,0,0,0.4,304.03222,19.18556)"
+   id="g38"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1758-8"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text35">N</text></g></g><g
+   transform="matrix(0.4,0,0,0.4,304.84573,96.15)"
+   id="g43"
+   style="clip-rule:evenodd;fill-rule:evenodd"><g
+     id="text1772-7"><text
+       x="0"
+       y="0"
+       style="font-size:39.48px;font-family:AppleSymbols, 'Apple Symbols'"
+       id="text40">S</text></g></g><path
+   id="path2386-0"
+   d="m 315.6916,34.8932 -5.7528,-9.836 -5.7528,9.836"
+   style="clip-rule:evenodd;fill:none;fill-rule:nonzero;stroke:#000000;stroke-width:1.728px" /><text
+   x="268.57483"
+   y="62.720627"
+   style="font-size:15.792px;font-family:AppleSymbols, 'Apple Symbols';clip-rule:evenodd;fill-rule:evenodd;stroke-width:0.4"
+   id="text23">O</text></g>
+</svg>

@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Fleuriste}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+{\centering%
+\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody.svg}\par}
+
+Florian vend des bouquets de fleurs. Il assemble chaque bouquet d’après ces instructions:
+
+\begin{enumerate}
+  \item Prendre une première fleur du seau A.
+  \item Si cette première fleur est une marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, prendre une deuxième marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}.
+  \item Prendre maintenant une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} du seau B jusqu’à ce que le bouquet ait quatre éléments. Voilà!
+\end{enumerate}
+
+
+
+% question (as \emph{})
+{\em
+Aide Florian: suis les instructions et choisis des fleurs et des branches pour un bouquet.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-02-question-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Il y a deux solutions possibles:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer01.svg}}
+\raisebox{-0.5ex}{\includesvg[scale=0.5]{\taskGraphicsFolder/graphics/2023-DE-02-answer02.svg}}\par}
+
+Pour assembler les bouquets de fleurs correctement, Florian doit suivre les instructions. On peut représenter ces instructions à l’aide d’un diagramme:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2023-DE-02-explanation-fra-compatible.svg}\par}
+
+Après que Florian a choisi la première fleur du seau A, il doit prendre une décision qui dépend de la première fleur. Soit il prend une deuxième marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, soit il suit la flèche “non” et prend une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}}.
+
+Ensuite, il vérifie si son bouquet a déjà quatre éléments. Si non, il suit la flèche “non” et prend encore une branche \raisebox{\dimexpr -0.5ex -0.5ex \relax}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-sprig.svg}} avant de vérifier à nouveau le nombre d’éléments.
+
+S’il commence par prendre une marguerite \raisebox{\dimexpr -0.5ex -1.0ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-taskbody-flower.svg}}, il va donc prendre une deuxième marguerite puis deux fois une branche. Par contre, s’il commence par prendre une tulipe \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-DE-02-tulpe.svg}}, il va ensuite directement prendre des branches du seau B jusqu’à avoir $4$ éléments, donc $3$ branches en tout.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Les \emph{instructions} pour l’assemblage de bouquets de fleurs sont claires et pourraient être effectuées par une machine. En informatique, cela s’appelle un \emph{algorithme}. Certaines instructions utilisées ici sont aussi souvent utilisées dans les programmes informatiques:
+
+\begin{itemize}
+  \item La première instruction est la sélection d’un objet au hasard parmi un ensemble d’objets;
+  \item La deuxième instruction s’appelle une \emph{instruction conditionnelle}, car il faut choisir entre deux possibilités ou plus;
+  \item La troisième instruction a l’air relativement simple, mais doit être bien structurée dans un programme informatique. La partie intérieure de l’instruction (une instruction en elle-même: “prend une branche dans le seau B”) doit être répétée plusieurs fois jusqu’à ce que le bouquet de fleurs soit composé de quatre éléments. L’instruction intérieure est donc effectuée jusqu’à ce que la condition “le bouquet a quatre éléments” soit remplie. Un telle \emph{instruction itérative} est aussi appelée \emph{boucle}.
+\end{itemize}
+
+Il existe différentes manières de représenter un algorithme. Dans cet exercice, l’algorithme “bouquet” de Florian est formulé par des instructions en langage naturel. Dans l’explication de la solution, il est représenté sous la forme d’un organigramme de programmation.
+
+Les fleuristes sont des artisans. Il existe des traditions et des règles gouvernant l’assemblage des bouquets et couronnes de fleurs. C’est un exemple de situation de la vie quotidienne dans laquelle les instructions et les algorithmes jouent un rôle.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Instruction conditionnelle: \href{https://fr.wikipedia.org/wiki/Instruction_conditionnelle_(programmation)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_conditionnelle\_(programmation)}}
+  \item Boucle: \href{https://fr.wikipedia.org/wiki/Structure_de_contr\%C3\%B4le\#Boucles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_contrôle\#Boucles}}
+  \item Organigramme de programmation: \href{https://fr.wikipedia.org/wiki/Organigramme_de_programmation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Organigramme\_de\_programmation}}
+  \item Fleuriste: \href{https://fr.wikipedia.org/wiki/Fleuriste}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fleuriste}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorMaoY{} % \ifdefined\AuthorMaoY \BrochureFlag{cn}{} Yong Mao\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

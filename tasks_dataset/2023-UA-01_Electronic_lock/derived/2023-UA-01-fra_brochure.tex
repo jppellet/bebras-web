@@ -1,0 +1,127 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Cadenas}
+\renewcommand{\taskCountry}{UA}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Bob a un cadenas sur la porte de sa maison. Pour l’ouvrir, il faut y entrer un code. Tous les chiffres du code doivent être différents. Actuellement, le code a cinq chiffres:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-code_compatible.svg}\par}
+
+Bob a noté le code en le cachant un peu: \emph{n} >\textcompwordmark{}> \emph{c} veut dire qu’il y a exactement \emph{n} chiffres plus grands que \emph{c} à gauche du chiffre \emph{c} dans le code. Par exemple, en écrivant
+
+$1$ >\textcompwordmark{}> 3
+
+Bob note qu’il y a exactement un chiffre plus grand que $3$ à sa gauche, à savoir le $4$. Il a noté le code actuel comme cela:
+
+$0$ >\textcompwordmark{}> $0$ ; $3$ >\textcompwordmark{}> $1$ ; $0$ >\textcompwordmark{}> $2$ ; $1$ >\textcompwordmark{}> $3$ ; $0$ >\textcompwordmark{}> 4
+
+Bob ne trouve pas qu’un code à cinq chiffres est assez sûr. Il choisit donc un nouveau code avec les chiffres de $0$ à $7$. Il note le noveau code comme ceci:
+
+$3$ >\textcompwordmark{}> $0$ ; $2$ >\textcompwordmark{}> $1$ ; $4$ >\textcompwordmark{}> $2$ ; $4$ >\textcompwordmark{}> $3$ ; $1$ >\textcompwordmark{}> $4$ ; $1$ >\textcompwordmark{}> $5$ ; $1$ >\textcompwordmark{}> $6$ ; $0$ >\textcompwordmark{}> 7
+
+
+
+% question (as \emph{})
+{\em
+Quel est le nouveau code?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-question_brochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-solution_compatible.svg}\par}
+
+Pour déterminer le code, nous analysons la notation de Bob pour les chiffres de $0$ à $7$ les uns après les autres.
+
+\begin{itemize}
+  \item $3$ >\textcompwordmark{}> $0$:  Il y a exactement trois chiffres plus grands que $0$ à gauche du $0$. Le $0$ doit donc se trouver à la quatrième position du code.
+  \item $2$ >\textcompwordmark{}> $1$:  Il y a exactement deux chiffres plus grands que $1$ à gauche du $1$. Le chiffre $1$ doit donc être à la troisième position du code.
+  \item $4$ >\textcompwordmark{}> $2$:  Il y a exactement quatre chiffres plus grands que $2$ à gauche du $2$. Comme les petits chiffres $0$ et $1$ sont déjà aux positions trois et quatre, les chiffres plus grands doivent être en première, deuxième, cinquième et sixième positions. Le chiffre $2$ doit donc être à la septième position du code.
+  \item $4$ >\textcompwordmark{}> $3$:  Il y a exactement quatre chiffres plus grands que $3$ à gauche du $3$. Le chiffre $3$ doit donc être à la huitième et dernière position du code.
+  \item $1$ >\textcompwordmark{}> $4$:  Il y a exactement un chiffre plus grand que $4$ à gauche du $4$. Le chiffre $4$ doit donc être à la deuxième des positions restantes; c’est la deuxième position du code.
+  \item $1$ >\textcompwordmark{}> $5$:  Il y a exactement un chiffre plus grand que $5$ à gauche du $5$. Le chiffre $5$ doit donc être à la deuxième des positions restantes; c’est la cinquième position du code.
+  \item $1$ >\textcompwordmark{}> $6$:  Il y a exactement un chiffre plus grand que $6$ à gauche du $6$. Le chiffre $6$ doit donc être à la deuxième des positions restantes; c’est la sixème position du code.
+  \item $0$ >\textcompwordmark{}> $7$:  Il n’y a aucun chiffre plus grand que $7$. Le chiffre $7$ doit être à la dernière des positions libres, donc à la première position du code.
+\end{itemize}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans sa notation, Bob décrit le code par rapport à une suite ordonnée des chiffres (ou nombres) utilisés.
+
+Regardons à nouveau le code à cinq chiffres: $0$ $2$ $4$ $3$ $1$. Il est généré en prenant les chiffres ordonnés $0$ $1$ $2$ $3$ $4$ et en changeant leurs positions. On appelle le résutlat une \emph{permutation} (des chiffres de $0$ à $4$). Dans une permutation, l’ordre des chiffres est modifié. Par exemple, dans le code, le $4$ précède le $3$ alors que le $3$ précède le $4$ dans la suite ordonnée (car $3$ < $4$). Le $3$ est donc à la “mauvaise position” par rapport à l’ordre de la suite. En combinatoire, un domaine des mathématiques, on appelle cela une \emph{inversion}.
+
+Le code de Bob est donc une permutation, et sa notation indique le nombre de fois que chaque chiffre est inversé: Le $0$ est à la bonne position, le $1$ participe à $3$ inversions ($3$ >\textcompwordmark{}> $1$: trois chiffres plus grands sont avant le $1$), le $2$ est à la bonne position, le $3$ est inversé une fois, le $4$ est à la bonne position. Cette suite de nombre d’inversions s’appelle une \emph{séquence d’inversions}. La somme du nombre d’inversions décrit également le degré de désordre d’une permutation – voir l’exercice “Train de marchandises”.
+
+Nous avons à présent trois suites – le code (la permutation), le suite ordonnée et la séquence d’inversions – et les regroupons dans un tableau:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l l l l @{} }
+  \textbf{Code / Permutation} & 0 & 2 & 4 & 3 & 1 \\ 
+  \textbf{Suite ordonnée} & 0 & 1 & 2 & 3 & 4 \\ 
+  \textbf{Séquence d’inversions} & 0 & 3 & 0 & 1 & 0
+\end{tabular}
+
+
+\end{adjustwidth}
+
+La description de la solution a montré qu’il existe un algorithme efficace pour déterminer la permutation en partant de la séquence d’inversion. Il suffit de parcourir une fois la séquence d’inversions. L’informatique traite souvent de problèmes combinatoires et il y a beaucoup d’algorithmes pour résoudre de tels problèmes. Ils peuvent être utilisés pour la résolution automatique de casses-tête (comme les sudokus), mais aussi pour des problèmes “sérieux”. En général, ils sont beaucoup plus compliqués que l’algorithme utilisé pour résoudre cet exercice du Castor.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Permutation: \href{https://fr.wikipedia.org/wiki/Permutation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Permutation}}
+  \item Combinatoire: \href{https://fr.wikipedia.org/wiki/Combinatoire}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Combinatoire}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorShpakovychR{} % \ifdefined\AuthorShpakovychR \BrochureFlag{ua}{} Rostyslav Shpakovych\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorMaoY{} % \ifdefined\AuthorMaoY \BrochureFlag{cn}{} Yong Mao\fi
+\def\AuthorKoleszarV{} % \ifdefined\AuthorKoleszarV \BrochureFlag{uy}{} Víctor Koleszar\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

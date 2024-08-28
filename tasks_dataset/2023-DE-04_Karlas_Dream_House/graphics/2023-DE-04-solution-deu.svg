@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 367 364" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,-0.1,-0.1)">
+        <g id="path997" transform="matrix(1,0,0,1,4.55633,3.63408)">
+            <path d="M355.544,0.1L-2.326,354.336C119.673,355.129 243.79,355.132 361.698,360.294C357.144,240.13 356.437,120.056 355.544,0.1Z" style="fill:rgb(196,184,184);fill-rule:nonzero;"/>
+        </g>
+        <path id="path9971" serif:id="path997" d="M0.1,0.1L0.1,360.1L360.456,359.755C358.447,241.523 359.93,120.237 360.1,0.1L0.1,0.1Z" style="fill-rule:nonzero;"/>
+        <rect id="path999" x="2.23" y="2.23" width="355.74" height="355.74" style="fill:white;fill-rule:nonzero;"/>
+        <rect id="path1003" x="20.124" y="11.603" width="20.876" height="20.876" style="fill-rule:nonzero;"/>
+        <circle id="circle1001" cx="30.562" cy="22.041" r="18.307" style="fill:rgb(255,203,52);"/>
+        <rect x="225.047" y="174.775" width="22.154" height="22.154"/>
+        <rect x="111.721" y="173.922" width="19.598" height="19.598"/>
+        <rect id="path1011" x="256.999" y="180.313" width="20.876" height="20.876" style="fill-rule:nonzero;"/>
+        <rect id="path1015" x="303.863" y="314.088" width="20.876" height="21.302" style="fill-rule:nonzero;"/>
+        <g id="path1019" transform="matrix(1,0,0,1,-0.109729,-7.0093)">
+            <rect x="21.402" y="334.112" width="21.302" height="21.302" style="fill-rule:nonzero;"/>
+        </g>
+        <g id="g2517" transform="matrix(0.4,0,0,0.4,0.1,0.1)">
+            <path id="path833-5" d="M774.597,204.146L774.597,65.349" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:4.32px;"/>
+            <g transform="matrix(1,0,0,1,0.0720784,6.11998)">
+                <g id="path835-5" transform="matrix(0.906386,0,0,1,73.0299,6e-06)">
+                    <path d="M705.199,134.747L843.995,134.747" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:4.32px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,681.115,145.369)">
+                    <g id="text1836-6">
+                        <text x="0px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:39.48px;">W</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,845.544,145.369)">
+                    <g id="text1850-1">
+                        <text x="0px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:39.48px;">E</text>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,764.679,47.7139)">
+                <g id="text1758-8">
+                    <text x="0px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:39.48px;">N</text>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,765.893,235.125)">
+                <g id="text1772-7">
+                    <text x="0px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:39.48px;">S</text>
+                </g>
+            </g>
+            <path id="path2386-0" d="M788.979,86.983L774.597,62.393L760.215,86.983" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:4.32px;"/>
+        </g>
+        <rect id="path10031" serif:id="path1003" x="20.124" y="11.603" width="20.876" height="20.876" style="fill:rgb(230,33,33);fill-rule:nonzero;"/>
+    </g>
+</svg>

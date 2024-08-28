@@ -1,0 +1,186 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-UY-01 Pirat Biberbart}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-UY-01 Pirat Biberbart}
+
+
+\subsection*{Body}
+
+Auf einer Insel gibt es drei Schatzkisten:
+Eine Kiste ist am Fuss des Vulkans, die zweite ist unter einer Palme, und die dritte ist am Strand.
+Alle Kisten sind leer.
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-question.svg}\par}
+
+An einem Tag kreuzt der Pirat Biberbart auf, füllt eine der Kisten mit Gold und verschliesst sie.
+Am gleichen Tag sind drei Touristinnen auf der Insel: Anita, Britta und Carla.
+Jede macht ein Foto: eine, bevor Biberbart Gold in eine Kiste gefüllt hat, die anderen beiden danach.
+
+\begin{tabularx}{\columnwidth}{ @{} J J J @{} }
+  {\setstretch{1.0}\thead[lb]{Anitas Foto}} & {\setstretch{1.0}\thead[lb]{Brittas Foto}} & {\setstretch{1.0}\thead[lb]{Carlas Foto}} \\ 
+\midrule
+  \makecell[l]{… zeigt die Kiste am Strand. \\ ${~}$ \\ ${~}$} & \makecell[l]{… zeigt die zwei Kisten unter \\ der Palme und am Strand. \\ ${~}$} & \makecell[l]{… zeigt die zwei Kisten unter \\ der Palme und am Fuss des \\ Vulkans.} \\ 
+  \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_AnitaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_BrittaPhoto.svg}} & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-UY-01_CarlaPhoto.svg}}
+\end{tabularx}
+
+Auf den Fotos sind alle Kisten leer. Biberbart hatte also Glück, dass keine Touristin sein Gold gefunden hat.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+In welcher Schatzkiste ist das Gold?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Klicke im obersten Bild eine Kiste an, um sie auszuwählen. Wenn du fertig bist, klicke auf \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+click-to-select-one:  Man kann eine Kiste anklicken, um sie auszuwählen, und wieder anklicken, um die Auswahl aufzuheben.  Ist eine Kiste ausgewählt und klickt man eine andere Kiste an, ist die andere Kiste ausgewählt und die erste Kiste nicht mehr.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2023-UY-01-solution.svg}\par}
+
+Das Gold ist in der Schatzkiste am Fuss des Vulkans.
+
+Wir prüfen für jede Kiste, ob darin das Gold sein kann.  Dazu untersuchen wir jeweils, ob in diesem Fall die Fotos mit der Geschichte übereinstimmen.
+
+\begin{enumerate}
+  \item \textbf{Die Kiste unter der Palme.}
+Brittas und Carlas Fotos zeigen die leere Schatzkiste unter der Palme. Wäre dies die Kiste mit dem Gold, müssten beide Fotos gemacht worden sein, bevor die Kiste gefüllt wurde. Wir wissen aber, dass nur eine Touristin ihr Foto gemacht hat, bevor Biberbart Gold in eine Kiste gefüllt hat. Die Annahme, dass das Gold in der Kiste unter der Palme ist, ergibt also einen Widerspruch. Daraus schliessen wir, dass in der Kiste unter der Palme kein Gold ist.
+  \item \textbf{Die Kiste am Strand.}
+Auf Anitas und Brittas Fotos ist die Schatzkiste am Strand leer. Wäre dies die Kiste mit dem Gold, müssten beide Fotos gemacht worden sein, bevor die Kiste gefüllt wurde. Wir wissen aber, dass nur eine Touristin ihr Foto gemacht hat, bevor Biberbart Gold in eine Kiste gefüllt hat. Die Annahme, dass das Gold in der Kiste am Strand ist, ergibt also einen Widerspruch. Daraus schliessen wir, dass in der Kiste am Strand kein Gold ist.
+  \item \textbf{Die Kiste am Fuß des Vulkans}
+… ist nur auf Carlas Foto und ist dort leer. Wäre dies die Kiste mit dem Gold, könnte Carla die Touristin sein, die ihr Foto gemacht hat, bevor Biberbart Gold in eine Kiste gefüllt hat. Auf Anitas und Brittas Fotos ist die Kiste am Fuß des Vulkans nicht zu sehen.  Anita und Britta können also die Touristinnen sein, die ihre Fotos danach gemacht haben.  Die Annahme, dass das Gold in der Kiste am Fuß des Vulkans ist, ergibt \emph{keinen} Widerspruch.
+\end{enumerate}
+
+Da sich das Gold in einer der drei Kisten befinden muss, können wir insgesamt schlussfolgern, dass das Gold tatsächlich in der Kiste am Fuß des Vulkans ist.
+$3$. \textbf{Die Kiste am Fuss des Vulkans}
+… ist nur auf Carlas Foto und ist dort leer. Wäre dies die Kiste mit dem Gold, könnte Carla die Touristin sein, die ihr Foto gemacht hat, bevor Biberbart Gold in eine Kiste gefüllt hat. Auf Anitas und Brittas Fotos ist die Kiste am Fuss des Vulkans nicht zu sehen.  Anita und Britta können also die Touristinnen sein, die ihre Fotos danach gemacht haben.  Die Annahme, dass das Gold in der Kiste am Fuss des Vulkans ist, ergibt \emph{keinen} Widerspruch.
+
+Da sich das Gold in einer der drei Kisten befinden muss, können wir insgesamt schlussfolgern, dass das Gold tatsächlich in der Kiste am Fuss des Vulkans ist.
+
+
+\subsection*{This is Informatics}
+
+Beim Beantworten dieser Biberaufgabe hat \emph{logisches Schlussfolgern} geholfen.
+Wir haben die drei Fotos und unser Wissen über die Situation auf der Insel verwendet, um Gründe zu finden, wieso bestimmte Annahmen zutreffen könnten oder eben nicht.
+Widersprüche zu konstruieren spielt beim logischen Schlussfolgern eine besonders wichtige Rolle.
+Wenn aus einer Annahme rein logisch eine Aussage folgt, aber Annahme und Aussage nicht gleichzeitig wahr sein können, dann können wir mit Sicherheit sagen, dass die Annahme falsch ist.
+
+Logik spielt eine überaus wichtige Rolle in vielen Bereichen der Informatik: Die Schaltungen in der Computer-Hardware, ob in den Recheneinheiten oder in Speichermedien, sind Realisierungen von logischen Operationen.  Mit logischen Verknüpfungen können komplexe Bedingungen in Programmen oder komplexe Abfragen an Datenbanken formuliert werden.  Das Verhalten von Programmen kann mit Hilfe logischer Kalküle beschrieben und verifiziert werden.  Und \emph{logische Programmiersprachen} arbeiten direkt mit logischen Aussagen und logischem Schlussfolgern, um Berechnungen durchzuführen.
+
+
+\subsection*{This is Computational Thinking}
+
+\textbf{TODO:} Soll laut englischem Text leer bleiben.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Logisches Schlussfolgern: \href{https://de.wikipedia.org/wiki/Schlussfolgerung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Schlussfolgerung}}
+  \item Logische Programmierung: \href{https://de.wikipedia.org/wiki/Logische_Programmierung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Logische\_Programmierung}}
+  \item Prolog: \href{https://de.wikipedia.org/wiki/Prolog_(Programmiersprache)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Prolog\_(Programmiersprache)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Simulation: \href{https://de.wikipedia.org/wiki/Simulation}{\BrochureUrlText{https://de.wikipedia.org/wiki/Simulation}}
+\end{itemize}
+
+
+\end{document}

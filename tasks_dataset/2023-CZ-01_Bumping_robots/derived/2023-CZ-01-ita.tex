@@ -1,0 +1,187 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CZ-01 Go-Bot}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CZ-01 Go-Bot}
+
+
+\subsection*{Body}
+
+I Go-Bot sono robot molto semplici. Si muovono su una tavola con delle caselle.
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-example1_compatible.svg}\par}
+
+Per controllarli, bisogna prima selezionare uno dei go-bot.
+Quindi si invia il Go-bot in una direzione con un comando a freccia:
+su \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}}, giù \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}}, sinistra \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}} e destra \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}.
+Il Go-Bot procede ostinatamente dritto finché non arriva direttamente davanti a un ostacolo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-square.svg}} o a un altro robot.
+Rimane lì finché non riceve un nuovo commando.
+
+Con un’abile sequenza di comandi si deve fare in modo che il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} raggiunga l’obiettivo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} e che si fermi esattamente lì.
+
+In basso a sinistra c’è una tavola con due Go-Bot.
+Con questa sequenza di comandi, il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} raggiunge l’obiettivo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}} - vedi sotto a destra:
+
+{\centering%
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}}
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-example2_compatible.svg}\par}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Crea una sequenza di comandi con quattro frecce che il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} utilizza per raggiungere l’obiettivo \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-star.svg}}!
+
+{\centering%
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-question2.svg}\par}
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-question_compatible.svg}\par}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Trascina alternando un Go-Bot e una freccia sulle caselle grigie. Al termine, fai clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Die Bot-Symbole und die Pfeile können auf die Felder gezogen werden.  Es gibt $8$ Felder (die richtige Antwort besteht aus $8$ Symbolen.)  Man könnte dafür sorgen, dass auf ungerade Felder nur Bot-Symbole und auf gerade Felder nur Pfeile gezogen werden dürfen; das ist aber nicht zwingend.  Bot-Symbole und Pfeile müssen mehrfach verwendbar sein.  Bot-Symbole, Pfeile und Felder sind oberhalb des Spielbretts zu sehen.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta:
+\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-up.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-left.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-down.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-arrow-right.svg}}
+
+Affinché il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} raggiunga l’obiettivo attraverso una sequenza di comandi con quattro frecce, i tre Go-Bot devono cooperare.
+Prima \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} sale fino a fermarsi davanti a un ostacolo.
+Così diventa un ostacolo per \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} nel suo percorso verso sinistra.
+Se ora si invia \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} verso il basso, esso raggiunge \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} e da lì può andare a destra,
+dove si ferma prima dell’ostacolo - sulla stella.
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-explanation_compatible.svg}\par}
+
+Come trovare la giusta sequenza di comandi?  Si può partire dal fondo e pensare a quale deve essere l’ultimo movimento del Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} verso l’obiettivo. Ci sono solo due possibilità:
+
+a) Viene da sinistra, come nella nostra soluzione. \\
+b) Viene dall’alto. In questo caso, il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot4.svg}} dovrebbe essere spostato verso l’alto a destra con tre comandi per fungere da ostacolo per \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}}. Avremmo quindi bisogno di ${3 + 2 = 5}$ comandi.
+
+Ma stiamo cercando una sequenza con quattro comandi. Quindi la possibilità a) deve essere corretta, in quanto il Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} arriva alla stella da sinistra. Quindi il penultimo movimento del Go-Bot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot1.svg}} è dall’alto verso il basso. Affinché si fermi nel punto giusto, i robot \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot2.svg}} e \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2023-CZ-01-robot3.svg}} devono essere spostati prima come nell’immagine.
+
+
+\subsection*{This is Informatics}
+
+In questo compito, diversi robot hanno lavorato insieme per raggiungere un obiettivo. Avevano compiti diversi. Il robot blu doveva raggiungere l’obiettivo e gli altri fungevano da ostacoli.
+
+La distribuzione dei compiti è un aspetto importante della robotica. Ad esempio, in un magazzino automatizzato, diversi robot lavorano insieme per immagazzinare, prelevare e trasportare le merci. Tutte le attività sono coordinate in modo da ridurre al minimo i tempi morti inutili, da ridurre al minimo i percorsi di trasporto, da consumare poca energia e da far funzionare il magazzino nel modo più efficiente possibile.
+
+I robot sciame sono un settore speciale della robotica. Si tratta, come i Go-Bot, di macchine semplici che lavorano insieme in un grande gruppo per risolvere un compito. In agricoltura, gli sciami di robot possono ora effettuare la semina del mais, osservare lo sviluppo delle piante e le condizioni del terreno e, infine, raccogliere il grano. Ogni robot dello sciame è piccolo e progettato in modo semplice, ma lo sciame nel suo insieme può fare grandi cose. Questo principio si applica anche ai sistemi multi-agente: Si tratta di semplici unità software che possono lavorare insieme per risolvere problemi complessi. Il compito dell’informatica è quello di sviluppare algoritmi per il coordinamento e la cooperazione ottimali di sistemi complessivi con più attori, siano essi hardware o software.
+
+
+\subsection*{This is Computational Thinking}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Robotica degli sciami: \href{https://it.wikipedia.org/wiki/Robotica_degli_sciami}{\BrochureUrlText{https://it.wikipedia.org/wiki/Robotica\_degli\_sciami}}
+  \item Robot industriali: \href{https://it.wikipedia.org/wiki/Robot_industriale}{\BrochureUrlText{https://it.wikipedia.org/wiki/Robot\_industriale}}
+  \item Sistema multiagente: \href{https://it.wikipedia.org/wiki/Sistema_multiagente}{\BrochureUrlText{https://it.wikipedia.org/wiki/Sistema\_multiagente}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\end{document}

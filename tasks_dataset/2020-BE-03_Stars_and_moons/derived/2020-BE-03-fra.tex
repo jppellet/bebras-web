@@ -1,0 +1,185 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-BE-03 Bracelet céleste}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-BE-03 Bracelet céleste}
+
+
+\subsection*{Body}
+
+\begin{wrapfigure}{R}{115.4px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody1-compatible.svg}}
+\end{wrapfigure}
+
+Marie aimerait le bracelet à droite.
+
+Elle donne donc les instructions suivantes à Jonas:
+
+\begin{itemize}
+  \item Prends une étoile (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_star-compatible.svg}}) et une lune (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2020-BE-03_taskbody_moon-compatible.svg}}) et relie-les pour former une paire. Répète ceci trois fois en tout afin d’avoir trois paires.
+  \item Prends ces trois paires, tourne-les comme tu veux, et relie-les pour former une longue chaîne.
+  \item Ajoute deux étoiles supplémentaires à l’un des bouts de la chaîne. Relie maintenant les deux bouts de la chaîne pour obtenir un bracelet.
+\end{itemize}
+
+Jonas n’a pas d’image du bracelet désiré. C’est possible que Jonas obtienne un bracelet complètement différent, même s’il suit exactement les instructions de Marie.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+L’un de ces quatre bracelets ne peut \textbf{pas} être obtenu par Jonas s’il suit exactement les instructions de Marie. Lequel?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerA-squarecentered-compatible.svg}} & B) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerB-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  C) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}} & D) & \makecell[l]{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerD-squarecentered-compatible.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est C) \raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_answerC-squarecentered-compatible.svg}}.
+
+Seul ce bracelet ne peut pas être obtenu en suivant les instructions de Marie.
+
+Les bracelets des trois autres réponses sont par contre corrects d’après les instructions de Marie. On peut le voir, par exemple, en observant que chacun de ces bracelets peut être séparé en trois paires étoile-lune et une paire étoile-étoile, comme montré sur l’image.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationA-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationB-compatible.svg}}
+\raisebox{-0.5ex}{\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationD-compatible.svg}}\par}
+
+Une lune ne peut être présente que comme la moitié d’une paire étoile-lune dans le bracelet. Chaque lune est donc à côté d’au moins une étoile. Ce n’est donc pas possible d’obtenir trois lunes côte à côte comme dans le bracelet C. C’est aussi impossible d’avoir cinq étoiles ou plus côte à côte.
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/graphics/2020-BE-03_explanationC-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Lorsque des programmeurs et programmeuses donnent des instructions à un ordinateur, c’est important qu’ils spécifient exactement ce que l’ordinateur doit faire. Sinon, on pourrait obtenir un résultat non désiré. Par exemple, Marie a oublié, dans ses instructions, de dire exactement comment les trois paires étoile-lune devaient être reliées. Dans le bracelet qu’elle désire, une lune est toujours entourée d’étoiles. Il manquait donc quelque chose, même si les instructions avaient l’air très précises. S’il existait un ordinateur qui contrôle une machine fabriquant des bracelets, les instructions de Marie ne seraient pas assez précises. Heureusement, en général, les vrais ordinateurs s’arrêteraient simplement en annonçant: “Je ne sais pas ce que tu veux dire parce que les instructions ne sont pas assez claires.”
+
+En informatique, il y a beaucoup de mécanismes permettant de décrire les choses très précisément. L’un de ces mécanismes est appelé \emph{grammaire}. Une grammaire contient des \emph{règles} qui décrivent précisément comme certains \emph{mots} (une suite de lettres) peuvent être générés. On pourrait par exemple exprimer les instructions de Marie à l’aide d’une grammaire comme ceci:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\rightarrow} CEE & ($1$) \\ 
+  C \ensuremath{\rightarrow} PPP & ($2$) \\ 
+  P \ensuremath{\rightarrow} EL & ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Ici, B représente le bracelet, C la chaîne, P la paire, E l’étoile et L la lune. On commence avec B et peut générer de nouveau mots en appliquant les trois règles de substitutions aussi souvent que nécessaire. On fait cela jusqu’à ce que le mot ne contiennent plus que les symboles E et L. Par exemple:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l @{} }
+  B \ensuremath{\Rightarrow} CEE & à l’aide de la règle ($1$) \\ 
+  CEE \ensuremath{\Rightarrow} PPPEE & à l’aide de la règle ($2$) \\ 
+  PPPEE \ensuremath{\Rightarrow} ELPPEE \ensuremath{\Rightarrow} ELELPEE \ensuremath{\Rightarrow} ELELELEE & à l’aide de la règle ($3$)
+\end{tabular}
+
+
+\end{adjustwidth}
+
+On peut se demander si la grammaire ci-dessus correspond exactement aux instructions de Marie.
+
+En informatique, il ne s’agit pas que de programmer. Souvent, il s’agit de décrire des objets. Beaucoup de règles de production (comme une grammaire ou les instructions de Marie) peuvent décrire une classe d’objets (certains mots ou les bracelets possibles). Dans cette classe se trouvent exactement les objects que l’on peut générer à l’aide des règles.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Grammaire formelle: \href{https://fr.wikipedia.org/wiki/Grammaire_formelle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Grammaire\_formelle}}
+\end{itemize}
+
+
+}
+\end{document}

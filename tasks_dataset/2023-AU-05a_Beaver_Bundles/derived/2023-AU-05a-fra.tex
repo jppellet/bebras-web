@@ -1,0 +1,224 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-AU-05a Briques castor}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-AU-05a Briques castor}
+
+
+\subsection*{Body}
+
+Les briques castor ont quatre propriétés qui les différencient:
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  \begin{enumerate}
+  \item Largeur: étroite, moyenne, large
+  \item Hauteur: petite, moyenne, grande
+  \item Nombre de bosses en haut: zéro, une, deux
+  \item Nombre de creux en bas: zéro, un, deux
+\end{enumerate}
+
+ & \makecell[l]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/-fra/2023-AU-05-taskbody_compatible-fra.svg}}
+\end{tabularx}
+
+\begin{wrapfigure}{R}{134.20000000000002px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_example.svg}}
+\end{wrapfigure}
+
+Otto répartit les briques en groupes de trois. Il le fait de manière à ce que les trois briques de chaque groupe aient, pour chacune des quatre propriétés…
+
+\begin{itemize}
+  \item … trois fois la même valeur…
+  \item … ou trois valeurs différentes.
+\end{itemize}
+
+Voici l’un des groupes d’Otto, à droite.
+
+Ces trois briques ont:
+
+\begin{itemize}
+  \item toutes la même largeur,
+  \item trois hauteurs différentes,
+  \item un nombre de bosses différent,
+  \item un nombre de creux différent.
+\end{itemize}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Répartis ces briques en groupes de trois comme le ferait Otto.
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les brique dans les cases des groupes. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+The blocks are draggable. The script should check if the draggbles in the group fit the contraints in the taskbody.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne répartition:
+
+{\centering%
+\includesvg[scale=1.1]{\taskGraphicsFolder/graphics/2023-AU-05_interactive_task_solution-compatible.svg}\par}
+
+Les briques sont réparties en groupes comme Otto le ferait. La table suivante montre quelles propriétés ont la même valeur ou des valeurs différentes pour chaque groupe.
+
+{\centering%
+\begin{tabular}{ @{} l c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Propriété}} & {\setstretch{1.0}\thead[cb]{Groupe A}} & {\setstretch{1.0}\thead[cb]{Groupe B}} & {\setstretch{1.0}\thead[cb]{Groupe C}} \\ 
+\midrule
+  Largeur & différentes & égales & différentes \\ 
+  Hauteur & égales & différentes & différentes \\ 
+  Bosses & égales & égales & différentes \\ 
+  Creux & différentes & différentes & égales
+\end{tabular}
+
+\par}
+
+Mais est-ce la seule possibilité de répartir les briques comme Otto le ferait?
+
+On peut y réfléchir de la manière suivante: si une propriété doit avoir des valeurs différentes dans chaque groupe, chaque valeur doit être présente sur le même nombre de briques qu’il y a de groupes. Si ce n’est pas le cas, il doit y avoir au moins un groupe dans lequel toutes les briques ont la même valeur pour cette propriété.
+
+En observant les briques, on voit que les valeurs de largeur étroite et large ne sont présentes que sur deux briques chacune. Il doit donc y avoir un groupe pour lequel la valeur de la largeur est moyenne pour toutes les briques.
+
+Aucune des cinq briques de largeur moyenne n’a qu’une seule bosse; il ne peut donc pas y avoir de groupe dans lequel toutes les briques ont un nombre de bosses différent. Par contre, il y a trois briques avec zéro bosse – et elles ont toutes une hauteur différente et un nombre de creux différent. Le groupe B est donc le seul groupe de brique de largeur moyenne possible.
+
+Chacun des deux autres groupes doit contenir des briques ayant toutes une largeur différente.
+
+Parmi les six briques restantes, la valeur de la hauteur n’est grande ou moyenne qu’une seule fois. Il doit donc y avoir un groupe dans lequel toute les briques sont petites. Le groupe A est le seul groupe correspondant aux règles d’Otto avec des briques de petite taille. Les trois briques restantes forment le groupe C, qui correspond également aux règles d’Otto.
+
+
+\subsection*{This is Informatics}
+
+Dans cet exercice du Castor, les briques castor sont décrites à l’aide de quatre \emph{propriétés} (ou \emph{attributs}). Pour pouvoir répartir les briques dans des groupes de trois comme Otto, il faut connaître la valeur des propriétés de chaque brique.
+
+Pour cela, il suffit à un être humain de jeter un coup d’œil à chaque brique. Un programme informatique devant faire des groupes de trois ne peut généralement pas voir et a besoin d’une description enregistrée dans une \emph{structure de données}.
+
+On peut par exemple décrire les briques dans les lignes d’une \emph{base de données}. Les colonnes de la base de données correspondent aux propriétés, et dans chaque ligne (aussi appelée \emph{enregistrement}) se trouvent les valeurs d’une brique dans les colonnes correspondantes:
+
+{\centering%
+\begin{tabular}{ @{} l l l l l @{} }
+  {\setstretch{1.0}\thead[lb]{Brique}} & {\setstretch{1.0}\thead[lb]{Largeur}} & {\setstretch{1.0}\thead[lb]{Hauteur}} & {\setstretch{1.0}\thead[lb]{Bosses}} & {\setstretch{1.0}\thead[lb]{Creux}} \\ 
+\midrule
+  1 & étroite & grande & 1 & 0 \\ 
+  2 & moyenne & moyenne & 2 & 0 \\ 
+  … & … & … & … & …
+\end{tabular}
+
+\par}
+
+L’élaboration de bases de données est une tâche habituelle pour les informaticiennes et informaticiens.
+C’est un travail minutieux et il faut bien réfléchir à quels attributs des objets sont importants pour le traitement des données par un programme informatique. Ce n’est pas facile de faire des changements une fois la base de données remplie, surtout quand les données de beaucoup d’objets sont déjà enregistrées.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Structure de données: \href{https://fr.wikipedia.org/wiki/Structure_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_données}}
+  \item Base de données: \href{https://fr.wikipedia.org/wiki/Base_de_donn\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Base\_de\_données}}
+  \item Enregistrement: \href{https://fr.wikipedia.org/wiki/Enregistrement_(base_de_donn\%C3\%A9es)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Enregistrement\_(base\_de\_données)}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

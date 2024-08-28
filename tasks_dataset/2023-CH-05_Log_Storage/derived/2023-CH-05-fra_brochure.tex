@@ -1,0 +1,101 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Les troncs de Timea}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Timea la castor coupe des troncs d’arbre de différentes longueurs, puis les vend.
+Dès qu’elle a coupé un tronc, elle le pose sur le chemin long de $18$ mètres.
+Timea suit pour cela la règle suivante: en commençant à gauche, elle place le tronc dans le premier espace vide assez grand pour l’y mettre.
+
+Elle vend quelques troncs. Il y a ensuite trois espaces vides sur le chemin:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-body2-compatible.svg}\par}
+
+Timea veut maintenant couper quatre troncs longs de $1$, $2$, $3$, et $4$ mètres.
+
+
+
+% question (as \emph{})
+{\em
+Dans quel ordre Timea doit-elle couper les troncs afin de tous pouvoir les placer dans les espaces sur le chemin?
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/interactive/2023-CH-05-question-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-CH-05-solution-compatible.svg}\par}
+
+Si Timea coupe les troncs dans l’ordre (3\thinspace{}m, 4\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m), elle peut tous les mettre dans les espaces sur le chemin.
+Pour le tronc de $3$ m, l’espace de $3$ m tout à gauche est le premier espace depuis la gauche assez grand pour l’y mettre. Timea y met donc le tronc de $3$ m. Le tronc de $4$ m va ensuite dans l’espace de $6$ m à gauche, laissant un espace de $2$ m. Cet espace de $2$ m est le premier espace de libre pour le tronc de $2$ m, et Timea met le dernier tronc dans l’espace de $1$ m restant.
+
+D’autres ordres possibles sont (3\thinspace{}m, 2\thinspace{}m, 4\thinspace{}m, 1\thinspace{}m) et (4\thinspace{}m, 3\thinspace{}m, 2\thinspace{}m, 1\thinspace{}m).
+
+Aucun des autres ordres ne permet à Timea de poser tous les troncs: le tronc de $1$ m doit toujours venir en dernier, car c’est le seul à pouvoir occuper le dernier espace. Le tronc de $2$ m ne peut pas être coupé avant celui de $3$ m, car il serait mis dans l’espace de $3$ m et générerait un nouvel espace de $1$ m. Seuls les trois ordres ci-dessus remplissent ces conditions.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice du Castor est un cas particulier du \emph{problème de bin packing}. Dans ce problème, il s’agit de ranger des objets de tailles différentes dans un certain nombre de boîtes, boîtes pouvant elles aussi avoir des tailles différentes. Ici, les objets sont les troncs et les boîtes sont les espaces vides sur le chemin.
+
+Les problèmes de \emph{bin packing} se rencontrent dans des situations très différentes de la vie quotidienne. Quelques exemples: (a) des petits et grands meubles doivent être rangés dans un dépôt de meubles en économisant la place; (b) une société de transport veut faire des économies et utiliser moins de camions en rangeant les paquets de manière optimale; (c) le système d’exploitation d’un ordinateur doit enregistrer des données de différentes tailles sur le disque dur. Lorsque les données sont effacées, des espaces vides apparaissent sur le disque dur. Ces espaces doivent être remplis sans que de l’espace de stockage ne soit gaspillé, comme sur le chemin de cet exercice.
+
+En informatique, le problème de \emph{bin packing} est considéré comme l’un des problèmes les plus difficiles. Même les programmes informatiques ne peuvent trouver de solutions garanties optimales que pour les cas ne comptant que peu d’objets et de boîtes. Il existe par contre plusieurs méthodes et stratégies permettant de trouver de bonnes solutions aux problèmex de \emph{bin packing}. Dans cet exercice, la stratégie est imposée par la règle de Timea: elle pose chaque tronc dans le premier espace assez grand depuis la gauche. On appelle cette stratégie \emph{first fit}. On observe dans cet exercice que cette stratégie peut mener à de mauvais résultats: les troncs doivent être placés dans un certain ordre pour pouvoir remplir tous les espaces vides sur le chemin.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Problème de \emph{bin packing}: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_bin_packing}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_bin\_packing}}
+  \item Gestion de la mémoire: \href{https://fr.wikipedia.org/wiki/Gestion_de_la_m\%C3\%A9moire}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Gestion\_de\_la\_mémoire}}
+  \item Fragmentation: \href{https://fr.wikipedia.org/wiki/Fragmentation_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fragmentation\_(informatique)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPelletJ{} % \ifdefined\AuthorPelletJ \BrochureFlag{ch}{} Jean-Philippe Pellet\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{ch}{} Susanne Datzko-Thut\fi
+\def\AuthorDasovicD{} % \ifdefined\AuthorDasovicD \BrochureFlag{hr}{} Darija Dasović\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-08 La mission de Zérobot}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-08 La mission de Zérobot}
+
+
+\subsection*{Body}
+
+Zérobot a un réservoir de carburant échangeable. Il se déplace dans une grille: vers le haut, le bas, la gauche et la droite. Le niveau de son réservoir baisse de $1$ à chaque déplacement d’une case.
+
+Il y a des réservoirs de rechange sur certaines cases; le chiffre écrit dessus indique leur niveau de carburant. Lorsque Zérobot arrive sur une de ces cases, il change son réservoir indépendemment du niveau de carburant de celui-ci. Il prend le réservoir de rechange, dépose son réservoir précédent sur la case et continue sa route.
+
+La position de Zérobot et le niveau de son réservoir sont représentés comme cela sur l’image: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-zerobot_9_compatible.svg}}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08a-challenge_compatible.svg}\par}
+
+Alarme: les réservoirs sont défectueux et pourraient exploser!
+
+Voici la mission de Zérobot: il doit aller à la station de base \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-basisstation.svg}} en vidant tous les réservoirs (niveau $0$).
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Comment Zérobot doit-il se déplacer pour accomplir sa mission?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Glisse les symboles des réservoirs dans l’ordre dans lequel Zérobot doit les prendre. Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+It must be possible to click on replacement batteries and the home square to mark Zerobot’s stops. Then, we envision two alternatives:
+
+\begin{enumerate}
+  \item Upon each click, Zerobot moves to that stop, with the battery charges updating. This would result in a full feedback task.
+  \item Upon each click, an illustration of the (growing) sequence of intermediate goals is updated; it is empty at the beginning. In this case, it was necessary to distinguish the replacement battery. Alternatively, the batteries / home square could be marked with numbers, according to the order that they are visited in.
+\end{enumerate}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2023-DE-08-solution.svg}\par}
+
+Zérobot peut rouler jusqu’à la station de base en $15$ déplacements de manière à ce que tous les réservoirs aient un niveau de carburant~$0$:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-DE-08-explanation_steps_compatible.svg}\par}
+
+Pour pouvoir expliquer la bonne réponse plus facilement, nous nommons les cases contenant les réservoirs et la station de base A, B et C, respectivement.
+
+Zérobot se déplace de trois cases jusqu’à la case~A et échange \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}} (niveau~$6$) contre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}}~(niveau~$3$). Il se déplace ensuite de trois cases jusqu’à la case~B et échange \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank1-withoutdiget.svg}}~(niveau~$0$) contre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}}~(niveau~$3$). Il se déplace ensuite à nouveau jusqu’à la case~A et échange \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank2-withoutdiget.svg}}~(niveau~$0$) contre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}}~(niveau~$6$). Il se déplace ensuite de $6$~cases jusqu’à la station de base~C. \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=13px]{\taskGraphicsFolder/graphics/2023-DE-08-tank0-withoutdiget.svg}}~a ensuite le niveau de carburant~$0$. Mission accomplie!
+
+Est-ce la seule bonne réponse? Zérobot doit effectuer exactement $15$~déplacements: $15$~déplacements sont nécessaires pour utiliser tout le carburant disponible, soit ${9 + 3 + 3 = 15}$~unités. Il n’y a pas assez de carburant pour plus de déplacements. Pour vider tous les réservoirs, Zérobot doit passer par les deux cases contenant les réservoirs de rechange, et même deux fois par la case~A. Si Zérobot commençait par passer par la case~B, il aurait besoin de $17$~déplacements pour atteindre la station de base, ce qui n’est pas possible. La réponse ci-dessus est donc la seule solution possible.
+
+
+\subsection*{This is Informatics}
+
+Cet exercice du Castor aborde des problèmes fondamentaux de la mobilité autonome: chaque robot mobile autonome (comme une voiture autonome) doit considérer quelle quantité d’énergie, sous forme de carburant ou de charge des batteries, il a à disposition lorsqu’il planifie ses activités. D’un côté, il doit s’assurer d’atteindre une station service ou une station de charge avant d’avoir épuisé ses réserves d’énergie; d’un autres côté, il y a certaines conditions à respecter. Dans cet exercice, la condition est que tout le carburant doit être utilisé à la fin de la mission. En réalité, les conditions sont plutôt liées à la position et disponibilité de stations de charge. Les logiciels qui dirigent les robots mobiles contiennent des éléments qui assurent un niveau d’énergie suffisant par la recharge (systèmes de contrôle de batterie intelligents).
+
+En plus de cela, des programmes informatiques sont utilisés pour planifier et gérer des réseaux de recharge efficaces. Les informaticiens et informaticiennes étudient le problème du placement des stations de charge: les stations de charge pour les robots mobiles doivent être placées de manière à ce qu’un robot ayant une certaine charge minimale puisse atteindre une des stations de charge disponible. Des protocoles de communication entre les stations de charge et les voitures autonomes comme l’OCPP (\emph{Open Charge Point Protocol}) ont été dévelopés.
+
+
+\subsection*{This is Computational Thinking}
+
+It certainly is.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Véhicule autonome: \href{https://fr.wikipedia.org/wiki/V\%C3\%A9hicule_autonome}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Véhicule\_autonome}}
+  \item Station de recharge: \href{https://fr.wikipedia.org/wiki/Station_de_recharge\#Infrastructures_de_recharge}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Station\_de\_recharge\#Infrastructures\_de\_recharge}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+EDIT HERE
+
+
+\end{document}

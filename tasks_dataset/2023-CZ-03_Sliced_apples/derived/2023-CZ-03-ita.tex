@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CZ-03 Dimezzare le mele}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CZ-03 Dimezzare le mele}
+
+
+\subsection*{Body}
+
+Le mele possono essere divise in metà superiore e inferiore.
+Alcuni torsoli di mela rimangono nella metà superiore, gli altri in quella inferiore.
+Dai fori e dai torsoli della mela si vede che le metà si incastrano:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-taskbody.svg}\par}
+
+Questo è quello che fanno nella Repubblica Ceca a Natale. Gala taglia a metà quattro mele.
+Mette le metà superiori e quelle inferiori in due file.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quali metà di mele stanno bene insieme? Abbina le metà della mela l’una all’altra.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-question-brochure.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Traccia delle linee tra le metà della mela che si incastrino tra loro. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+$4$ apple slices are draggables in $4$ containers. The draggables can be dropped in the fields with question mark.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta corretta:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-solution_draglines.svg}\par}
+
+Ogni mela ha $5$ torsoli. Due metà di mele uguali devono avere un totale di $5$ torsoli. Queste metà possono quindi essere facilmente abbinate:
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation1.svg}\par}
+
+Le altre quattro metà non sono così facili da assegnare. Le due metà superiori hanno $3$ torsoli ciascuna, mentre le due metà inferiori hanno $2$ torsoli ciascuna. Pertanto, osserviamo più da vicino i modelli dei torsoli delle mele.  Perché quando due metà si uniscono, anche i modelli si uniscono. Per vedere questo, tuttavia, potrebbe essere necessario girare le metà.  A questo punto le metà possono essere disposte come mostrato nell’immagine seguente: a sinistra, la metà superiore ha tre semi direttamente uno dietro l’altro e poi due fori (S-S-S-F-F), la metà inferiore ha tre fori direttamente uno dietro l’altro e poi due semi (F-F-F-S-S): le metà si incastrano. Anche le metà destre si incastrano tra loro: lo schema della metà superiore è (se si parte dall’alto al centro) S-F-S-F-S, quello della metà inferiore è F-S-F-S-F.
+
+{\centering%
+\includesvg[scale=1]{\taskGraphicsFolder/graphics/2023-CZ-03-explanation-ita-compatible.svg}\par}
+
+
+\subsection*{This is Informatics}
+
+Nella spiegazione della risposta corretta, abbiamo visto che se due metà combaciano, non solo i numeri dei semi combaciano, ma anche le sequenze dei semi e dei fori (cioè i compartimenti vuoti del torsolo). Per un corretto abbinamento delle metà, occorre quindi considerare anche queste sequenze. Non è sufficiente sapere quanti semi ci sono in ogni metà.
+
+Domande simili sorgono per i problemi che devono essere risolti con l’aiuto di programmi informatici. Gli informatici devono pensare a come descrivere le informazioni che il programma deve prendere in considerazione come dati. Spesso gli informatici cercando di semplificare questo \enquote{modello} il più possibile.  Dopotutto, i programmi semplici sono meno soggetti a errori. Nel caso del problema delle metà della mela in questo compito, inizialmente sembrava sufficiente descrivere le metà con il solo numero di semi. In seguito si è capito che questo non è sufficiente in tutti i casi. Per descrivere le metà della mela in un programma per computer, deve essere possibile descrivere un ordine. Questo può essere fatto, ad esempio, con l’aiuto della struttura dati \emph{lista}, disponibile nella maggior parte dei linguaggi di programmazione.
+
+
+\subsection*{This is Computational Thinking}
+
+–
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Ordine
+  \item Lista: \href{https://it.wikipedia.org/wiki/Lista_concatenata}{\BrochureUrlText{https://it.wikipedia.org/wiki/Lista\_concatenata}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

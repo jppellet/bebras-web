@@ -1,0 +1,184 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-DE-01 Détecteur de conflit}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-DE-01 Détecteur de conflit}
+
+
+\subsection*{Body}
+
+Anna et Ben veulent construire un “détecteur de conflit” qui indique s’ils sont d’avis différents.
+
+Pour cela, ils utilisent des éléments qui peuvent être dans deux états: Oui ou Non. Deux éléments peuvent être reliés par un câble.
+
+Lorsqu’un élément est
+
+\begin{itemize}
+  \item dans l’état Oui: il transmet un signal par tous ses câbles sortants;
+  \item dans l’état Non: il ne transmet aucun signal.
+\end{itemize}
+
+On peut régler chaque câble pour qu’un signal transmis devienne positif (+) ou négatif (–) pour l’élément de droite auquel il est relié. Un élément qui reçoit des signaux passe à l’état Oui s’il reçoit plus de signaux positifs que de signaux négatifs, et reste à l’état Non sinon.
+
+Anna fixe l’état de l’élément A et Ben l’état de l’élément B; ce sont les entrées du détecteur.
+
+\begin{tabular}{ @{} l l @{} }
+  Anna et Ben & Ils remarquent que l’élément Z n’est dans l’état Oui \\ 
+  commencent par & que lorsque A est dans l’état Oui et B est dans l’état Non. \\ 
+  construire cette machine: & Ce n’est pas ce qu’ils veulent. \\ 
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-example_compatible.svg}} & \makecell[l]{\includesvg[width=346.3px]{\taskGraphicsFolder/graphics/graphics-new/-fra/2023-DE-01-example_explanation-compatible-fra.svg}}
+\end{tabular}
+
+Anna et Ben construisent alors une plus grande machine (image ci-dessous) et sont sûrs qu’elle peut être un détecteur de conflit: l’état de Z ne doit être Oui que lorsque les état de A et B sont différents (Oui et Non ou Non et Oui). Sinon, Z doit être dans l’état Non. Il ne reste plus qu’à régler les câbles correctement.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Règle le type de signal, positif ou négatif, transmis par chaque câble afin que le détecteur de conflit fonctionne correctement.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-question_compatible.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Clique sur un câble pour changer le type de signal entre positif (+) et négatif (-). Quand tu as fini, clique sur “Enregistrer la réponse”.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+In the picture of the network, each edge has a marker that can take values “+” and “–”. Clicking on the edge or the marker toggles between the two values. Initially, all edges have an empty grey box.  (DACH: We decided to have the markers preset to –.)
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Les deux réponses suivantes sont justes:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-solution01.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-solution02.svg}}\par}
+
+L’élement de sortie Z du détecteur de conflit doit être dans l’état Oui seulement en présence de deux entrées différentes (A = Oui et B = Non ainsi que A = Non et B = Oui). Z ne peut être en l’état Oui que s’il reçoit plus de signaux positifs que négatifs par ses deux câbles entrant. Au moins un des câbles doit donc transmettre un signal positif (+). Imaginons que seul le câble du haut menant à Z soit réglé sur +. L’élément en haut au centre doit alors pouvoir reconnaître les deux combinaisons d’entrées en conflit, donc être en l’état Oui dans les deux cas. Mais cet élément forme, avec les deux éléments d’entrée A et B, exactement la machine qu’Anna et Ben avait construite au début. Cet élément ne peut donc être en l’état Oui que dans un des deux cas de conflit, et l’un des câbles doit être réglé sur + et l’autre sur – pour cela:
+
+{\centering%
+\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/2023-DE-01-explanation-wp.svg}\par}
+
+Il faut donc un élément central pour chacun des cas de conflit, un pour A = Oui et B = Non et un pour A = Non et B = Oui. Les câbles entrant dans le premier élément doivent être réglés sur + (câble sortant de A) et – (câble sortant de B), les câbles entrant dans l’autre élément sur – (A) et + (B). Lequel des deux éléments centraux réagit à quel cas n’a pas d’importance, c’est pour cela qu’il y a deux possibilités de régler les câbles allant de A et B au milieu. Comme chaque élément central est dans l’état Oui dans exactement un des deux cas de conflit, les deux câbles sortant du milieu et entrant en Z doivent être réglés sur + afin que Z soit dans l’état Oui exactement dans ces deux cas.
+
+L’image ci-dessous montre le fonctionnement du détecteur de conflit pour la première bonne réponse. On voit que l’élément du haut au milieu reconnaît le cas A = Oui et B = Non et celui du bas le cas A = Non et B = Oui. L’élement reconnaissant le conflit transmet un signal positif à Z, et Z passe donc en l’état Oui. Pour les autres entrées (A = Oui et B = Oui ainsi que A = Non et B = Non), les deux éléments du milieu sont en l’état Non, Z ne reçoit donc pas de signal positif et passe en l’état Non.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-fra/2023-DE-01-explanation01_compatible-fra.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-fra/2023-DE-01-explanation02_compatible-fra.svg}}
+
+\raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-fra/2023-DE-01-explanation03_compatible-fra.svg}} \raisebox{-0.5ex}{\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/graphics-new/-fra/2023-DE-01-explanation04_compatible-fra.svg}}\par}
+
+
+\subsection*{This is Informatics}
+
+Le détecteur de conflit traite deux valeurs d’entrée (Oui et Non) et retourne la sortie Oui lorsque les deux valeurs d’entrée sont différentes. Cette fonction logique s’appelle un OU exclusif (XOR, disjonction). La première machine d’Anna et Ben décrite dans cet exercice est une version simplifiée d’un \emph{perceptron} comme décrit par Frank Rosenblatt en $1957$. L’élément de sortie simule une cellule nerveuse (un neurone) qui peut traiter des signaux d’entrée et générer un signal de sortie. On peut implémenter les fonctions logiques ET et OU à l’aide d’un perceptron, mais pas le OU exclusif. Pour cela, une couche d’éléments supplémentaire est nécessaire, comme décrit dans cet exercice. C’est uniquement dans les années $80$ que ceci a été découvert (Rumelhart, Hinton \& Williams, $1986$) et qu’on a par la suite été en mesure de programmer des réseaux de neurones artificiels qui fonctionnent de manière similaire au cerveau humain et sont capables, par exemple, d’analyser des images et d’y reconnaître des objets.
+On a développé des méthodes informatiques permettant à de grands réseaux de neurones comprenant beaucoup de couches et d’éléments d’effectuer leurs calculs de manière efficace. Ces réseaux forment la base de beaucoup de systèmes d’intelligence artificielle actuels.
+
+
+\subsection*{This is Computational Thinking}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Rumelhart, D. E., Hinton, G. E., \& Williams, R. J. ($1986$). Learning representations by back-propagating errors. Nature, $323$($6088$), 533$-536$: \href{http://www.cs.toronto.edu/~hinton/absps/naturebp.pdf}{\BrochureUrlText{http://www.cs.toronto.edu/\textasciitilde{}hinton/absps/naturebp.pdf}}
+  \item Perceptron: \href{https://fr.wikipedia.org/wiki/Perceptron}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Perceptron}}
+  \item Fonction OU exclusif: \href{https://fr.wikipedia.org/wiki/Fonction_OU_exclusif}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_OU\_exclusif}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Dieser Abschnitt wird in diesem Jahr nicht bearbeitet.
+
+
+\end{document}

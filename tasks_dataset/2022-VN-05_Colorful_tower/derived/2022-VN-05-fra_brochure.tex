@@ -1,0 +1,112 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Pyramide colorée}
+\renewcommand{\taskCountry}{VN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Sami assemble des hexagones blancs, puis il les colorie de trois couleurs différentes.
+
+\begin{wrapfigure}{R}{76.7px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[scale=1.3]{\taskGraphicsFolder/graphics/2022-VN-05-taskbody1.svg}}
+\end{wrapfigure}
+
+Trois hexagones assemblés côte à côte comme montré ci-contre (deux en bas et un au milieu en dessus) doivent toujours avoir:
+
+\begin{itemize}
+  \item soit tous la même couleur,
+  \item soit trois couleurs différentes.
+\end{itemize}
+
+Sami trouve cela joli comme ça.
+
+Sami a assemblé beaucoup d’hexagones et en a déjà colorié quelques-uns.
+
+
+
+% question (as \emph{})
+{\em
+Colorie le reste des hexagones comme Sami aime.
+
+{\centering%
+\includesvg[scale=1.3]{\taskGraphicsFolder/graphics/2022-VN-05-taskbody2.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne solution:
+
+{\centering%
+\includesvg[scale=1.3]{\taskGraphicsFolder/graphics/2022-VN-05-solution.svg}\par}
+
+Dès que deux hexagones qui sont côte à côte dans la pyramide sont coloriés, la couleur du troisième est déterminée:
+
+\begin{tabularx}{\columnwidth}{ @{} J J @{} }
+  S’ils sont de couleurs différentes, le troisième hexagone est colorié de la troisième couleur. L’hexagone blanc du bas est par exemple colorié en bleu. & S’ils sont de la même couleur, le troisième est aussi colorié de la même couleur. Par exemple, l’hexagone en dessus des deux jaunes est aussi colorié en jaune.
+\end{tabularx}
+
+\begin{tabularx}{\columnwidth}{ @{} C C @{} }
+  \makecell[c]{\includesvg[scale=1.3]{\taskGraphicsFolder/graphics/2022-VN-05-explanation.svg}} & \makecell[c]{\includesvg[scale=1.3]{\taskGraphicsFolder/graphics/2022-VN-05-explanation2.svg}}
+\end{tabularx}
+
+On peut colorier ainsi les hexagones restants ligne par ligne en commençant en bas de manière à ce que Sami trouve ça joli.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Comment résout-on cet exercice du Castor? En coloriant un hexagone, on exécute une action. Pour choisir la bonne action (la bonne couleur), il faut considérer les hexagones en dessous et vérifier quelles \emph{conditions} ils remplissent: ont-ils la même couleur ou des couleurs différentes? Cette vérification et l’action qui s’ensuit sont \emph{répétées} pour chaque hexagone blanc situé en dessus de deux hexagones déjà coloriés.
+
+Actions, conditions, répétitions: il s’agit là des bases de tout \emph{algorithme}. Un algorithme est une méthode décrite précisément qui peut être implémentée comme programme informatique. En résolvant cet exercice, tu as donc inventé un algorithme. C’est là une des tâches les plus importantes des informaticiennes et informaticiens: inventer des algorithmes ou utiliser des algorithmes existants et en faire des programmes informatiques afin de résoudre des exercices et des problèmes en traitant les informations automatiquement.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+  \item Instruction conditionnelle: \href{https://fr.wikipedia.org/wiki/Instruction_conditionnelle_(programmation)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_conditionnelle\_(programmation)}}
+  \item Boucle: \href{https://fr.wikipedia.org/wiki/Structure_de_contr\%C3\%B4le\#Boucles}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Structure\_de\_contrôle\#Boucles}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorQuanL{} % \ifdefined\AuthorQuanL \BrochureFlag{vn}{} Le Quang Quan\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{us}{} Justina Dauksaite\fi
+\def\AuthorPrettiJ{} % \ifdefined\AuthorPrettiJ \BrochureFlag{ca}{} J.P.~Pretti\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

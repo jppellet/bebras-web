@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[german]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-deu}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-SK-02 Rüebli pflanzen}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-SK-02 Rüebli pflanzen}
+
+
+\subsection*{Body}
+
+Der Kaninchenroboter kann folgende Anweisungen ausführen:
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_L.svg}} Springe nach \textbf{links} auf den nächsten Hügel.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_R.svg}} Springe nach \textbf{rechts} auf den nächsten Hügel.
+
+\raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2023-SK-02_seed.svg}} \textbf{Pflanze} einen Karottensamen auf den Hügel, auf dem du stehst.
+
+Der Kaninchenroboter hat diese Folge von Anweisungen ausgeführt:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_prog.svg}\par}
+
+Dabei ist der Roboter auf vier Hügeln gewesen.
+Wir wissen aber nicht, auf welchem Hügel er angefangen hat.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Auf welche Hügel hat der Roboter die Rüeblisamen gepflanzt?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02_mounds.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Ziehe die Samen auf die richtigen Hügel. Wenn du fertig bist, klicke \enquote{Antwort speichern}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+So ist es richtig: \raisebox{-0.5ex}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-SK-02-solution-compatible.svg}}
+
+Um die richtige Antwort besser erklären zu können, geben wir den Hügeln Buchstaben (siehe oben) und den Anweisungen Nummern:
+
+{\centering%
+\includesvg[width=1\linewidth]{\taskGraphicsFolder/graphics/2023-SK-02_explanation-compatible.svg}\par}
+
+Zuerst bestimmen wir den Startpunkt des Roboters: Da der Roboter dreimal hintereinander nach links springt (Anweisungen $3$, $5$, $6$), muss er vorher auf Hügel D stehen. Bevor er dreimal nach links springt, springt er einmal nach rechts (Anweisung $1$). Der Roboter hat also auf Hügel C angefangen.
+Folglich werden die Rüeblisamen – den Anweisungen $2$, $4$ und $7$ entsprechend – zuerst auf Hügel D, dann auf Hügel C und zuletzt auf Hügel A gepflanzt.
+
+
+\subsection*{This is Informatics}
+
+Echte Roboter haben eingebaute Computer, und die werden so ähnlich \emph{programmiert} wie der Kaninchenroboter. Ein Computerprogramm besteht aus vielen einzelnen \emph{Anweisungen}.
+
+In unserem Fall wird die Abfolge der Anweisungen für den Roboter-Computer mit Hilfe von Bildblöcken angegeben. Das Ergebnis (\emph{Output}) des Programms hängt nicht nur von der Startposition (\emph{Input}), sondern auch von der Folge und Reihenfolge der Anweisungen ab.
+
+Diese Biberaufgabe zeigt ein Beispiel für den Einsatz von Robotern in der Landwirtschaft. Roboter können nicht nur pflanzen, sondern auch bewässern, bestäuben oder Pflanzenschutzmittel gezielt verteilen.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Algorithmus: \href{https://de.wikipedia.org/wiki/Algorithmus}{\BrochureUrlText{https://de.wikipedia.org/wiki/Algorithmus}}
+  \item Anweisungen: \href{https://de.wikipedia.org/wiki/Anweisung_(Programmierung)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Anweisung\_(Programmierung)}}
+  \item Smart Farming: \href{https://de.wikipedia.org/wiki/Smart_Farming}{\BrochureUrlText{https://de.wikipedia.org/wiki/Smart\_Farming}}, \href{https://www.agroscope.admin.ch/agroscope/de/home/themen/wirtschaft-technik/smart-farming.html}{\BrochureUrlText{https://www.agroscope.admin.ch/agroscope/de/home/themen/wirtschaft-technik/smart-farming.html}}
+  \item Roboter in der Landwirtschaft: \href{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/de}{\BrochureUrlText{https://cordis.europa.eu/article/id/441912-robots-help-farmers-say-goodbye-to-repetitive-tasks/de}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Modelling and Simulation,
+  \item Evaluation
+\end{itemize}
+
+
+\end{document}

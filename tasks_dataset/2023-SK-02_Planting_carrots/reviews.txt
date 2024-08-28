@@ -1,0 +1,29 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Sarah Chan (svn: chan)
+on 2023-04-12
+Assigned review
+Cute! I like this task. I think it is a little bit harder than indicated. 
+An easier version would be to give them the starting mound and sequence and then ask where the seeds are planted.
+
+For the answer explanation, I don’t think it is necessary to show the sequences for the other answer options. Rather, leave this as an open activity for the reader. “Can you write a program for the rabbit that would plant seeds as shown in the other answer options? Will only one program work, or are there others?”
+========================================
+By: Ungyeol Jung (svn: purnagi)
+on 2023-04-21
+Assigned review
+It's a good task. It can look attractive to young students. However, it doesn't look novel because there are many similar old problems. How about an interactive approach that gives you a goal and combines the commands you need to achieve it?
+========================================
+By: Ionuț Gorgos (svn: gorgos)
+on 2023-04-21
+Non-assigned review
+[AGE] I think it is too hard for 6-8yo.
+[IDEA] Nice task. For the 6-8yo maybe we can give them the starting point.
+[TEXT] The text is clear and understandable.
+[EXPL] The explanation is ok, but I don't think it is necessary to explain in detail other answer options (the sequences).
+[TiI] The "It's informatics" section is available and is understandable.
+[TiCT] The "This is Computation Thinking" section is not available.
+[GRAPH] The figures are in SVG format and they are self-made.
+[AUTH] YES
+[NAME] YES
+[OTHER]
+========================================

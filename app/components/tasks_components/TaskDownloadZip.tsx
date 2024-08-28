@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import useDownloadZip from "@/app/hooks/useDownloadZip";
-import { GrDocumentZip } from "react-icons/gr";
-import Button from "../Button";
+import Button from "@/app/components/Button"
+import useDownloadZip from "@/app/hooks/useDownloadZip"
+import { GrDocumentZip } from "react-icons/gr"
 
 interface TaskDownloadZipProps {
-  taskId: string;
-  htmlContent: string;
-  mdContent: string;
-  texContent: string;
+  taskId: string
+  htmlContent: string
+  mdContent: string
+  texContent: string
 }
 
 export default function TaskDownloadZip({
@@ -22,7 +22,7 @@ export default function TaskDownloadZip({
     htmlContent,
     mdContent,
     texContent
-  );
+  )
 
   return (
     <div className="">
@@ -34,5 +34,5 @@ export default function TaskDownloadZip({
         iconSize="20"
       />
     </div>
-  );
+  )
 }

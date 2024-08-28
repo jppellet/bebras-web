@@ -1,0 +1,96 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Karlas Traumhaus}
+\renewcommand{\taskCountry}{DE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Karla hat drei Karten, die alle genau das gleiche Gebiet zeigen. Eine Karte zeigt die Wälder, eine die Flüsse und eine die Häuser in diesem Gebiet. Karlas Traumhaus liegt im Wald und in der Nähe eines Flusses.
+
+{\centering%
+\begin{tabular}{ @{} c c c @{} }
+  \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/2023-DE-04-Map_Forest-compatible-deu.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/2023-DE-04-Map_Rivers-compatible-deu.svg}} & \makecell[c]{\includesvg[scale=0.54]{\taskGraphicsFolder/./graphics/2023-DE-04-Map_Houses-compatible-deu.svg}} \\ 
+  Waldkarte & Flusskarte & Hauskarte
+\end{tabular}
+
+\par}
+
+
+
+% question (as \emph{})
+{\em
+Welches ist Karlas Traumhaus?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Das Haus oben links auf der Hauskarte ist Karlas Traumhaus:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/2023-DE-04-solution-compatible-deu.svg}\par}
+
+Um Karlas Traumhaus zu finden, müssen die Informationen aus allen drei Karten ausgewertet werden. Das Traumhaus muss sich in einem Waldgebiet und in der Nähe eines Flusses befinden.  Das trifft nur auf das Haus oben links zu. Dies ist leicht zu erkennen, wenn die Karten übereinander gelegt werden:
+
+{\centering%
+\includesvg[width=115.4px]{\taskGraphicsFolder/./graphics/2023-DE-04-Maps_Overlay-compatible-deu.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Wenn die Informationen über die Wälder, die Flüsse und die Häuser auf einer einzigen Karte dargestellt sind, ist es einfach, das gesuchte Haus zu finden.
+
+Ein \emph{Geoinformationssystem} (GIS) führt eine Vielzahl räumlicher Informationen (z.B. Wälder, Strassen, Landesgrenzen, Tankstellen, Rathäuser, Überschwemmungsgebiete usw.) zusammen und stellt diese auf einer Karte dar. Ein GIS dient also der Visualisierung und Analyse sogenannter \emph{Geodaten}. Mit Hilfe eines GIS ist es z.B. für Katastrophenschutzbeauftragte möglich, Informationen für Evakuierungspläne zusammenzustellen.
+
+Die Verwendung mehrerer Ebenen mit unterschiedlichen Bildinformationen ist auch aus Grafikprogrammen bekannt. Eine wichtige Frage ist immer, welche Ebene mit den darin enthaltenen Objekten die oberste ist und deshalb im Vordergrund dargestellt wird. Im Beispiel sollte die Hauskarte die oberste Ebene sein, damit die Häuser nicht von den Waldflächen verdeckt werden.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item GIS: \href{https://de.wikipedia.org/wiki/Geoinformationssystem}{\BrochureUrlText{https://de.wikipedia.org/wiki/Geoinformationssystem}}
+  \item Ebenen: \href{https://de.wikipedia.org/wiki/Ebenentechnik}{\BrochureUrlText{https://de.wikipedia.org/wiki/Ebenentechnik}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchluterK{} % \ifdefined\AuthorSchluterK \BrochureFlag{de}{} Kirsten Schlüter\fi
+\def\AuthorParviainenM{} % \ifdefined\AuthorParviainenM \BrochureFlag{fi}{} Marika Parviainen\fi
+\def\AuthorMatsuzawaY{} % \ifdefined\AuthorMatsuzawaY \BrochureFlag{jp}{} Yoshiaki Matsuzawa\fi
+\def\AuthorJeonH{} % \ifdefined\AuthorJeonH \BrochureFlag{kr}{} Hyun-seok Jeon\fi
+\def\AuthorChoudaryM{} % \ifdefined\AuthorChoudaryM \BrochureFlag{pk}{} Marios Omar Choudary\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

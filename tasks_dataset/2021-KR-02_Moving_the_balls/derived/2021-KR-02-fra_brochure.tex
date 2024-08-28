@@ -1,0 +1,100 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{3}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Jeu de balles}
+\renewcommand{\taskCountry}{KR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors aimeraient trier des balles par couleur. À la fin, toutes les balles doivent se trouver dans deux verres. Toutes les balles qui se trouvent dans un verre doivent avoir la même couleur. Ils doivent suivre les règles suivantes:
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule01.svg}} Règle $1$: Seule la balle la plus haute d’un verre peut être déplacée dans un autre verre.
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule02.svg}} Règle $2$: Une balle peut toujours être mise dans un verre vide.
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule03.svg}} Règle $3$: Une balle peut être mise dans un verre non vide uniquement s’il y reste de la place et que la balle en dessous a la même couleur que la balle déplacée.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Trie les balles en les déplaçant d’après les trois règles.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2021-KR-03-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Les balles peuvent être déplacées dans l’ordre suivant:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-solution.svg}\par}
+
+Il faut au moins six étapes pour réarranger les balles. Il existe d’autres possibilités de réarranger les balles en seulement six étapes.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, tu déplaces les balles comme un ordinateur gère les données enregistrées dans une \emph{pile}: il ne peut qu’\emph{empiler} (\emph{push} en anglais) un élément en haut de la pile et \emph{dépiler} (\emph{pop} en anlgais) l’élément du haut de la pile.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2021-KR-03-itsinformatics.svg}\par}
+
+L’ordinateur ne peut accéder aux éléments du bas que si les balles du dessus ont d’abord été retirées. L’élément qui a été enregistré en dernier va être retiré en premier par l’ordinateur. Ce principe est appelé \emph{dernier arrivé, premier sorti} en informatique.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Pile: \href{https://fr.wikipedia.org/wiki/Pile_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pile\_(informatique)}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorJunS{} % \ifdefined\AuthorJunS \BrochureFlag{kr}{} Soojin Jun\fi
+\def\AuthorYehH{} % \ifdefined\AuthorYehH \BrochureFlag{kr}{} Hongjin Yeh\fi
+\def\AuthorJeonY{} % \ifdefined\AuthorJeonY \BrochureFlag{kr}{} YongJu Jeon\fi
+\def\AuthorKimD{} % \ifdefined\AuthorKimD \BrochureFlag{kr}{} Dong Yoon Kim\fi
+\def\AuthorKimJ{} % \ifdefined\AuthorKimJ \BrochureFlag{kr}{} Jihye Kim\fi
+\def\AuthorVoborilF{} % \ifdefined\AuthorVoborilF \BrochureFlag{at}{} Florentina Voboril\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

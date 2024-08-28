@@ -1,0 +1,217 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-UA-01 Serratura a combinazione}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-UA-01 Serratura a combinazione}
+
+
+\subsection*{Body}
+
+Bob ha una serratura a combinazione sulla porta di casa.
+Per aprirla, è necessario inserire un codice numerico.
+Tutte le cifre del codice devono essere diverse.
+Attualmente, il codice è composto da cinque cifre e si legge così:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-code_compatible.svg}\par}
+
+Bob si è scritto il codice, ma lo maschera un po’:
+\emph{n} >\textcompwordmark{}> \emph{c} significa che nel codice ci sono esattamente \emph{n} cifre a sinistra della cifra \emph{c}
+che sono maggiori di \emph{c}.  Ad esempio, Bob annota che con
+
+$1$ >\textcompwordmark{}> 3
+
+a sinistra della cifra $3$ c’è esattamente una cifra (cioè $4$) che è maggiore di $3$.
+Ha scritto il codice numerico attuale in questo modo:
+
+$0$ >\textcompwordmark{}> $0$ ; $3$ >\textcompwordmark{}> $1$ ; $0$ >\textcompwordmark{}> $2$ ; $1$ >\textcompwordmark{}> $3$ ; $0$ >\textcompwordmark{}> 4
+
+Un codice di sole cinque cifre è troppo insicuro per Bob.
+Pertanto, pensa a un nuovo codice, dalle cifre da $0$ a $7$.
+Scrive il nuovo codice in questo modo:
+
+$3$ >\textcompwordmark{}> $0$ ; $2$ >\textcompwordmark{}> $1$ ; $4$ >\textcompwordmark{}> $2$ ; $4$ >\textcompwordmark{}> $3$ ; $1$ >\textcompwordmark{}> $4$ ; $1$ >\textcompwordmark{}> $5$ ; $1$ >\textcompwordmark{}> $6$ ; $0$ >\textcompwordmark{}> 7
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Qual è il nuovo codice?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-question_brochure.svg}\par}
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Trascina i numeri al posto giusto. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Die \enquote{Tasten} sind draggables, die in die gelben container gezogen werden können.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Ecco la risposta corretta:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-UA-01-solution_compatible.svg}\par}
+
+Per determinare il codice, analizziamo più da vicino la notazione di Bob, una per una per le cifre da $0$ a $7$.
+
+\begin{itemize}
+  \item $3$ >\textcompwordmark{}> $0$: ci sono esattamente $3$ cifre a sinistra di $0$ che sono maggiori di $0$.
+La cifra $0$ deve quindi trovarsi nella quarta posizione del codice.
+  \item $2$ >\textcompwordmark{}> $1$: ci sono esattamente $2$ cifre a sinistra di $1$ che sono superiori a $1$.
+La cifra $1$ deve quindi trovarsi nella terza posizione del codice.
+  \item $4$ >\textcompwordmark{}> $2$: ci sono esattamente $4$ cifre a sinistra di $2$ che sono maggiori di $2$.
+Poiché le cifre più piccole $1$ e $0$ sono già al terzo e quarto posto,
+le $4$ cifre più grandi devono essere al primo, secondo, quinto e sesto posto.
+La cifra $2$ deve quindi trovarsi nella settima posizione del codice.
+  \item $4$ >\textcompwordmark{}> $3$: ci sono esattamente $4$ cifre a sinistra di $3$ che sono maggiori di $3$.
+La cifra $3$ deve quindi trovarsi nell’ottava e ultima posizione del codice.
+  \item $1$ >\textcompwordmark{}> $4$: a sinistra di $4$ c’è esattamente $1$ cifra maggiore di $4$.
+La cifra $4$ deve quindi trovarsi nella seconda delle cifre rimanenti; si tratta della seconda cifra del codice.
+  \item $1$ >\textcompwordmark{}> $5$: a sinistra di $5$ c’è esattamente $1$ cifra maggiore di $5$.
+La cifra $5$ deve quindi trovarsi nella seconda delle cifre rimaste; si tratta della quinta cifra del codice.
+  \item $1$ >\textcompwordmark{}> $6$: a sinistra di $6$ c’è esattamente $1$ cifra maggiore di $6$.
+La cifra $6$ deve quindi trovarsi nella seconda delle cifre rimaste; si tratta della sesta cifra del codice.
+  \item $0$ >\textcompwordmark{}> $7$: non esiste una cifra superiore a $7$.
+La cifra $7$ deve trovarsi nell’ultima posizione libera, cioè nella prima posizione del codice.
+\end{itemize}
+
+
+\subsection*{This is Informatics}
+
+Bob descrive nella sua notazione come il codice si riferisce a una sequenza ordinata di cifre o numeri utilizzati.
+
+Vediamo di nuovo il codice a cinque cifre: $0$ $2$ $4$ $3$ $1$.
+Si crea prendendo i numeri ordinati $0$ $1$ $2$ $3$ $4$ e cambiandone la posizione.  Il risultato è chiamato anche \emph{permutazione} (dei numeri da $0$ a $4$).
+In una permutazione, i numeri possono essere \enquote{stravolti} per quanto riguarda il loro ordinamento.
+Ad esempio, nel codice, $4$ precede $3$, mentre nella sequenza ordinata $3$ precede $4$ (perché $3$ < $4$).
+Quindi il $3$ è \enquote{sbagliato} rispetto all’ordinamento. In combinatoria, una branca della matematica, questo si chiama \emph{inversione} o \emph{errore}.
+
+Il codice di Bob è quindi una permutazione, e la sua notazione indica per ogni numero quante volte è \enquote{invertito} in esso:
+Lo $0$ è corretto, l’$1$ fa parte di $3$ inversioni ($3$ >\textcompwordmark{}> $1$: tre numeri più grandi sono davanti all’$1$),
+il $2$ è corretto, il $3$ è invertito una volta, il $4$ è corretto.
+La sequenza di questi numeri di inversione è chiamata \emph{sequenza di inversione}.
+(A proposito, la somma dei numeri di inversione descrive il grado di non ordinabilità di una permutazione).
+
+Ora abbiamo tre sequenze - il codice (o permutazione), la sequenza ordinata e la sequenza di inversione - e le riassumiamo in questa tabella:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l l l l l l @{} }
+  \textbf{Codice / Permutazione} & 0 & 2 & 4 & 3 & 1 \\ 
+  \textbf{Sequenza ordinata} & 0 & 1 & 2 & 3 & 4 \\ 
+  \textbf{Sequenza di inversione} & 0 & 3 & 0 & 1 & 0
+\end{tabular}
+
+
+\end{adjustwidth}
+
+La descrizione della soluzione ha dimostrato che esiste un algoritmo efficiente che calcola la permutazione corrispondente dalla sequenza di inversione. È sufficiente ripercorrere una volta la sequenza di inversione. L’informatica si occupa spesso di problemi combinatori e conosce molti algoritmi per risolverli. Possono essere utilizzati per la soluzione automatica di rompicapo (come i Sudoku), ma anche per molti problemi \enquote{seri}. La maggior parte delle volte sono molto più complicati dell’algoritmo per la soluzione di questo compito del castoro.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Permutazione: \href{https://it.wikipedia.org/wiki/Permutazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Permutazione}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Decomposition: \href{https://en.wikipedia.org/wiki/Decomposition_(computer_science)}{\BrochureUrlText{https://en.wikipedia.org/wiki/Decomposition\_(computer\_science)}}
+\end{itemize}
+
+
+\end{document}

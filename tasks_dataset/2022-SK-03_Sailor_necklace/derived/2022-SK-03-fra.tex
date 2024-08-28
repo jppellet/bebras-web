@@ -1,0 +1,178 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-SK-03 Collier de marin}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-SK-03 Collier de marin}
+
+
+\subsection*{Body}
+
+Voici les instructions de Monica pour faire son collier de marin avec des perles blanches à vagues rouges et des perles unies bleues.
+
+Tu commences toujours par une perle à vagues puis une perle bleue, dans cet ordre:
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody1.svg}\par}
+
+Tu peux ensuite allonger le collier:
+
+\begin{itemize}
+  \item en ajoutant une perle bleue de chaque côté du fil (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}});
+  \item en ajoutant deux perles à vagues du côté droit du fil (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}).
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody2.svg}\par}
+
+Tu peux répéter ces actions plusieurs fois pour obtenir un collier de plus en plus long.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Lequel des colliers suivants n’est \textbf{pas} un collier de marin de Monica?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerA.svg}}
+
+B) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerB.svg}}
+
+C) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerC.svg}}
+
+D) \raisebox{-0.5ex}{\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerD.svg}}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est D).
+
+{\centering%
+\includesvg[scale=0.6]{\taskGraphicsFolder/graphics/2022-SK-03-answerD.svg}\par}
+
+Tu peux résoudre cet exercice de différentes manières.
+
+Par exemple, tu peux commencer par chercher les deux perles de départ dans chaque collier, puis effectuer une suite d’action \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+
+\begin{itemize}
+  \item Pour le collier A, tu peux commencer avec la deuxième et troisième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier B, tu peux commencer avec la troisième et quatrième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier C, tu peux commencer avec la deuxième et troisième perle et effectuer ensuite les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} - \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}}.
+  \item Pour le collier D, les deuxième et troisième perles devraient être les perles de départ. Tu pourrais ensuite effectuer l’action \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} une fois, mais il n’y a ensuite plus d’autres actions permettant d’obtenir le reste du collier.
+\end{itemize}
+
+Cette méthode ne fonctionne pas bien lorsque le collier est très long et a beaucoup de perles de départ possibles. Dans ce cas-là, une méthode déconstructive mène plus facilement à la solution. Pour cela, tu enlèves des perles petit à petit en effectuant les actions \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionblue.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2022-SK-03-taskbody_actionwave.svg}} à l’envers jusqu’à ce qu’il ne reste que deux perles.
+
+Une autre stratégie utilise la \emph{parité}. D’après les instructions pour fabriquer les colliers de marin, ils ont toujours un nombre pair de perles unies bleues et un nombre impair de perles blanches à vagues rouges (“parité impaire”). Tu vois pourquoi c’est le cas?
+
+Le collier D a un nombre pair des deux sortes de billes et ne peut donc pas âtre un collier de marin.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, tu ne peux ajouter des perles qu’aux bouts du collier. Tu ne peux pas insérer une perle au milieu, et tu ne peux pas non plus enlever une perle du milieu sans avoir d’abord enlevé les perles du bout du collier.
+
+Cette forme de structure de stockage, à laquelle il est facile d’ajouter et d’enlever des éléments aux bouts mais pas au milieu, s’appelle une \emph{file d’attente à double extrémité} ou \emph{deque} (de l’anglais “double-ended queue”).
+
+Les deques peuvent être utilisées pour enregistrer l’activité d’un browser, pour planifier des ordres d’impression ou encore pour vérifier la validité d’expressions mathématiques. Dans ce cas-là, on peut vérfifier qu’une parenthèse fermante correspond toujours à une parenthèse ouvrante de manière très similaire à celle utilisée pour vérifier si un collier est un collier de marin à Monica.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item deque: \href{https://fr.wikipedia.org/wiki/File_d\%27attente_\%C3\%A0_double_extr\%C3\%A9mit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/File\_d'attente\_à\_double\_extrémité}}
+\end{itemize}
+
+
+}
+\end{document}

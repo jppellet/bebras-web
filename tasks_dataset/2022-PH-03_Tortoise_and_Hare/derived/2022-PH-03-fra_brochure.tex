@@ -1,0 +1,114 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{1}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Le lièvre et la tortue}
+\renewcommand{\taskCountry}{PH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Une tortue \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2022-PH-03-tortoise.svg}} et un lièvre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2022-PH-03-hare.svg}} font la course. Ils utilisent la piste ci-dessous:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-taskbody.svg}\par}
+
+Ils partent en même temps de la case départ. Ils avancent de case en case en suivant les flèches.
+
+\begin{itemize}
+  \item La tortue avance d’une case par minute.
+  \item Le lièvre avance de deux cases par minute.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Sur quelle case le lièvre et la tortue se rencontrent-ils pour la première fois après le départ?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Le lièvre et la tortue se rencontrent pour la première fois sur la case \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}}. On peut le voir facilement en utilisant deux doigts.
+
+La table suivante indique les cases sur lesquelles le lièvre et la tortue se trouvent minute par minute:
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ @{} l c c c c c c c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Min. après \\ le départ}} & {\setstretch{1.0}\thead[cb]{0}} & {\setstretch{1.0}\thead[cb]{1}} & {\setstretch{1.0}\thead[cb]{2}} & {\setstretch{1.0}\thead[cb]{3}} & {\setstretch{1.0}\thead[cb]{4}} & {\setstretch{1.0}\thead[cb]{5}} & {\setstretch{1.0}\thead[cb]{6}} & {\setstretch{1.0}\thead[cb]{7}} & {\setstretch{1.0}\thead[cb]{8}} & {\setstretch{1.0}\thead[cb]{9}} & {\setstretch{1.0}\thead[cb]{10}} & {\setstretch{1.0}\thead[cb]{11}} & {\setstretch{1.0}\thead[cb]{12}} & {\setstretch{1.0}\thead[cb]{13}} & {\setstretch{1.0}\thead[cb]{…}} \\ 
+\midrule
+  \makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-hare.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field01.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field02.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field03.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field04.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field06.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field08.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field10.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field06.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field08.svg}} & … \\ 
+  \makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-tortoise.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field01.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field03.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & …
+\end{tabular}
+
+
+}
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-explanation.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La course de cet exercice a lieu sur une piste spéciale. Elle est constituée de cases et de flèches qui montrent la case suivante. Sa particularité est qu’elle se termine par un cercle sur lequel les coureurs peuvent courir indéfiniment. Dans cet exercice, le lièvre et la tortue ne peuvent se rencontrer que parce que six cases forment un cercle, ou un \emph{cycle}.
+
+En informatique, une piste comme celle décrite dans cet exercice serait appelée une \emph{liste}. Un cercle de cases qui renvoient les unes aux autres serait appelé un \emph{cycle}. Dans la liste, chaque nœud renvoie à un seul autre nœud au maximum. Il existe des listes avec un cycle, comme dans cet exercice, et des listes sans cycle.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-itsinformatics01.svg}\par}
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-itsinformatics02.svg}\par}
+
+Si une liste ne contient pas de cycle, elle est constituée d’une chaîne linéaire de nœuds. Il doit alors y avoir une case d’arrivée de laquelle ne part plus de flèche. Le célèbre informaticien Robert W. Floyd (1936$-2001$) a développé un algorithme qui peut déterminer de manière simple si une liste contient un cycle ou est constituée d’une chaîne linéaire. Comme dans notre exercice, il fait partir le lièvre et la tortue de la case départ; s’ils se rencontrent sur la même case, il y a un cycle dans la liste. Au moment où le lièvre atteint la case d’arrivée ou celle d’avant, on sait qu’il n’y a pas de cycle et l’algorithme se termine.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Liste: \href{https://fr.wikipedia.org/wiki/Liste_cha\%C3\%AEn\%C3\%A9e}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Liste\_chaînée}}
+  \item Cycle: \href{https://fr.wikipedia.org/wiki/Cycle_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cycle\_(théorie\_des\_graphes)}}
+  \item Nœud: \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Robert W. Floyd: \href{https://fr.wikipedia.org/wiki/Robert_Floyd}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Robert\_Floyd}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGonzalesM{} % \ifdefined\AuthorGonzalesM \BrochureFlag{ph}{} Mark Edward M.~Gonzales\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorEscherleN{} % \ifdefined\AuthorEscherleN \BrochureFlag{ch}{} Nora A.~Escherle\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

@@ -1,0 +1,111 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Labyrinthe}
+\renewcommand{\taskCountry}{UZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+L’école de magie a deux étages. Les étages sont exactement l’un au dessus de l’autre. Ils sont tous les deux divisés en cases, et il y a des murs entre certaines cases:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-taskbody.svg}\par}
+
+Ron, un élève magicien, a besoin d’une seconde pour passer d’une case à l’autre sans changer d’étage. Malheureusement, Ron a oublié comment passer à travers les murs; mais il peut passer d’une case sur un étage à la même case sur l’autre étage. Cela lui prend cinq secondes.
+
+Ron aimerait aller de la case A à la case B le plus vite possible.
+
+
+
+% question (as \emph{})
+{\em
+De combien de secondes au minimum Ron a-t-il besoin?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $6$ secondes
+
+B) $16$ secondes
+
+C) $18$ secondes
+
+D) $20$ secondes
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La réponse C) $18$ secondes est juste.
+
+Ron peut aller de la case A à la case B en $18$ secondes en suivant le chemin suivant:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-solution.svg}\par}
+
+Mais est-ce le chemin le plus rapide? Les “temps les plus courts” dont Ron a besoin pour passer de la case A à n’importe quelle autre case peuvent être calculés au fur et à mesure comme ceci:
+Le temps le plus court pour arriver à la case A est bien sûr $0$ secondes. Ensuite, on continue étape par étape comme ceci: on choisit entre toutes les cases pour lesquelles un temps le plus court a déjà été calculé celle avec la valeur la plus basse (au départ, on choisit donc la case A). À partir de la case choisie, on considère toutes les cases possibles à l’étape suivante et recherche le chemin le plus rapide pour y arriver; on inscrit les temps calculés dans les cases. C’est possible qu’un temps déjà inscirt plus tôt soit amélioré. La case choisie ne peut ensuite plus être prise en considération; elle ne peut donc pas être choisie aux étapes suivantes.
+
+Voici les temps les plus courts calculés avec cette méthode en partant de la case A:
+
+{\centering%
+\includesvg[scale=0.38]{\taskGraphicsFolder/graphics/2022-UZ-03-explanation-compatible.svg}\par}
+
+Ron a donc en effet besoin d’au moins $18$ secondes pour aller de la case A à la case B. La réponse A, $6$ secondes, serait juste s’il n’y avait pas de mur entre les cases. Si Ron changeait quand même une fois d’étage, le temps serait rallongé de $10$ secondes et on obtiendrait la réponse B, $16$ secondes. S’il n’y avait que l’étage avec les points A et B, $20$ secondes seraient nécessaires, et la réponse D serait juste.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il est souvent nécessaire de calculer les chemins les plus rapides ou les plus courts; la planification d’itinéraire par les applications de navigation modernes en sont un exemple évident. Le problème peut être fortement simplifié si les chemins sont composés d’étapes individuelles entre des points voisins et que le “coût” de ces étapes est connu: coût en temps, argent, consommation d’énergie, quelque soit la dimension importante dans le problème. Dans ce cas, les points, étapes et coûts des étapes peuvent être représentés dans un \emph{graphe}. Beaucoup d’algorithmes permettant de calculer le \emph{plus court chemin} dans un graphe de manière efficace sont connus en informatique. L’un d’entre eux, l’\emph{algorithme de Dijkstra}, décrit par l’informaticien Esdger Dijkstra, a été utilisé dans l’explication de la réponse ci-dessus.
+
+Les plus courts chemins jouent aussi un rôle important dans le développement de circuits pour les ordinateurs. Les composants du circuit doivent être reliés les uns aux autres au moindre coût. Les circuits modernes sont composés de plusieurs niveaux, et une connection entre deux niveaux est plus chère qu’une connection semblabe sur le même niveau – comme le changement d’étage dans cet exercice du Castor est plus cher qu’une étape sur le même étage.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Plus court chemin: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_plus_court_chemin}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_plus\_court\_chemin}}
+  \item Edsger Dijkstra: \href{https://fr.wikipedia.org/wiki/Edsger_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Edsger\_Dijkstra}}
+  \item Algorithme de Dijkstra: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Dijkstra}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorSitdikovT{} % \ifdefined\AuthorSitdikovT \BrochureFlag{uz}{} Timur Sitdikov\fi
+\def\AuthorBuckieG{} % \ifdefined\AuthorBuckieG \BrochureFlag{au}{} Graeme Buckie\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

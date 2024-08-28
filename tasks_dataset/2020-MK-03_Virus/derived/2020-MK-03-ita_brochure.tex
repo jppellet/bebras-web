@@ -1,0 +1,116 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Rete di comunicazione}
+\renewcommand{\taskCountry}{MK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Ai castori piace diffondere notizie tra di loro. A tale scopo utilizzano la rete di comunicazione qui sotto. Quando un castoro riceve un nuovo messaggio, lo inoltra a tutti coloro con cui è collegato da un canale di comunicazione diretta (una linea bianca). L’invio dei messaggi si effettua a turni. C’è sempre un turno tra l’invio e la ricezione.
+
+
+
+% question (as \emph{})
+{\em
+Da quale castoro un messaggio raggiunge tutti gli altri castori più velocemente, cioè nel minor numero di turni?
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta corretta è il castoro B. Può diffondere un messaggio a tutti gli altri castori in due turni.
+
+Nel primo turno, il castoro B invia il messaggio ai suoi vicini, cioè i castori A, D e J collegati ad un canale di comunicazione diretta. L’immagine sottostante mostra chi ha il messaggio dopo questo primo turno.
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation1-compatible.svg}\par}
+
+Nel secondo turno i castori A, D e J inviano il messaggio ai loro vicini: - Il castoro A invia il messaggio ai castori E e H;
+
+\begin{itemize}
+  \item Il castoro D invia il messaggio ai castori I e K;
+  \item Il castoro J invia il messaggio ai castori C, F, G e L.
+\end{itemize}
+
+Inoltre, il castoro B riceve il messaggio tre volte, perché anche lui è un vicino dei tre castori A, D e J. Poiché questo non è un messaggio nuovo per lui, il castoro B non lo invierà nei prossimi turni. Anche i castori A e D si invieranno di nuovo il messaggio attraverso il loro canale di comunicazione diretta, ma dopo di che non lo invieranno più perché non è più nuovo per loro.
+
+\begin{samepage}
+L’immagine sottostante mostra la situazione dopo il secondo turno.
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-MK-03_explanation2-compatible.svg}\par}
+\end{samepage}
+
+Così la notizia ha raggiunto tutti i castori in soli due turni.
+
+Non c’è un modo più veloce, perché altrimenti un castoro dovrebbe essere collegato a tutti gli altri castori con una linea bianca per inviare il messaggio direttamente a tutti gli altri castori in un unico turno.
+
+Il castoro B è anche l’unico dal quale un messaggio raggiunge tutti gli altri castori in soli due turni: per i castori C, E, F, G, H, J e L, il castoro I non sarebbe raggiungibile in due turni. E per i castori A, D, E, E, H, I e K, il castoro L non può essere raggiunto in due turni.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La rete di comunicazione dei castori può essere descritta da un \emph{grafo}. Ogni castoro si trova in un cosiddetto \emph{nodo}, che in questo caso è nominato con una lettera. Le linee bianche sono chiamate \emph{archi}, ognuna di esse collega due nodi. I messaggi si diffondono nella rete di comunicazione attraverso turni \emph{sincronizzati}, cioè tutti i castori inviano contemporaneamente. In un turno, ogni castoro invia nuovi messaggi a tutti i suoi vicini. Quello che i castori fanno qui è quello che gli informatici chiamano \emph{broadcasting} (inglese per “trasmettere”)  in una \emph{rete di comunicazioni}. Nel compito di cui sopra, abbiamo studiato la velocità con cui una tale trasmissione può essere completata, cioè la velocità con cui un nuovo messaggio può raggiungere tutti i partecipanti.
+
+Un compito ancora più complesso è quello di progettare le reti in modo tale che sia possibile una trasmissione veloce da tutti i nodi, ma con un numero di connessioni non troppo elevato.
+Il nodo del ricercato castoro B è chiamato poi il centro del grafo. In astratto, il centro è un nodo che riduce al minimo la distanza dai nodi più lontani. Non c’è quindi nessun altro nodo che avrebbe una distanza minore rispetto a tutti gli altri nodi. Nel presente compito c’è un solo centro. Tuttavia, a seconda del grafo, possono esserci diversi nodi, in modo che ognuno di essi minimizzi la distanza dai nodi più lontani da esso; quindi, un grafo può avere diversi centri.
+
+Trovare un centro non è sempre facile come in questo compito. Per prima cosa, potrebbe essere che ci vogliano diversi turni per il trasferimento tra alcuni nodi direttamente collegati. D’altra parte, i grafi possono essere semplicemente molto più grandi e complessi. Per tali grafi, si potrebbe, ad esempio, utilizzare l’algoritmo di Floyd-Warshall per trovare in modo efficiente un centro.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Grafo: \href{https://it.wikipedia.org/wiki/Grafo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo}}
+  \item Algoritmo di Floyd-Warshall: \href{https://it.wikipedia.org/wiki/Algoritmo_di_Floyd-Warshall}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_Floyd-Warshall}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorJovanovM{} % \ifdefined\AuthorJovanovM \BrochureFlag{mk}{} Mile Jovanov\fi
+\def\AuthorStankovE{} % \ifdefined\AuthorStankovE \BrochureFlag{mk}{} Emil Stankov\fi
+\def\AuthorLokarM{} % \ifdefined\AuthorLokarM \BrochureFlag{si}{} Matija Lokar\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

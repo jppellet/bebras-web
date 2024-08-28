@@ -1,0 +1,178 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-DE-02 Cœur composé}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-DE-02 Cœur composé}
+
+
+\subsection*{Body}
+
+Tina a deux formes: un rond et un carré. Elle les transforme en cœur.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-taskbody.svg}\par}
+
+Elle utilise pour cela ces trois transformations:
+
+\begin{itemize}
+  \item \emph{tourner}: tourner une forme autant que désiré
+  \item \emph{déplacer}: déplacer une forme autant que désiré
+  \item \emph{dupliquer}: dupliquer une forme de manière à ce que les deux formes restent au même endroit.
+\end{itemize}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quelles transformations a-t-elle effectuées et dans quel ordre?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) \emph{dupliquer} le rond, \emph{tourner} le carré, \emph{dépacer} le rond, \emph{déplacer} le rond
+
+B) \emph{dupliquer} le carré, \emph{tourner} le carré, \emph{déplacer} le carré, \emph{déplacer} le rond
+
+C) \emph{dupliquer} le rond, \emph{tourner} le rond, \emph{déplacer} le rond, \emph{déplacer} le carré
+
+D) \emph{déplacer} le rond, \emph{déplacer} le rond, \emph{dupliquer} le rond, \emph{déplacer} le carré
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Si l’on observe attentivement le cœur, on constate qu’il est formé de deux ronds et d’un carré tourné d’$1$/$8$ de tour. Les transformations doivent donc inclure \emph{dupliquer} le rond pour obtenir deux ronds et \emph{tourner} le carré pour que le carré soit tourné d’$1$/$8$ de tour. Les réponses B), C) et D) sont donc exclues, car:
+
+\begin{itemize}
+  \item Dans la réponse B), un carré est dupliqué et non un rond
+  \item Dans la réponse C), un rond est tourné, mais pas le carré
+  \item Dans la réponse D), aucune forme n’est tournée, donc le carré n’est pas tourné.
+\end{itemize}
+
+Mais la réponse A) est-elle juste? Les formes doivent encore être déplacées! Les transformations suivantes sont indiquées:
+
+\begin{itemize}
+  \item Ceci: \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-taskbody_shapes.svg}}
+  \item est transformé par la duplication du rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation1.svg}}
+  \item est transformé par la rotation du carré en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation2.svg}}
+  \item est transformé par le déplacement d’un rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation3.svg}}
+  \item est transformé par le déplacement de l’autre rond en \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2022-DE-02-explanation_heartpuzzle.svg}}
+\end{itemize}
+
+La réponse A) Dupliquer le rond, tourner le carré, délpacer le rond, déplacer le rond est donc correcte.
+
+
+\subsection*{It’s Informatics}
+
+Les logiciels de traitement d’images permettent de réaliser beaucoup de transformations sur une image. Dans cet exercice, il s’agit de transformations comme tourner, déplacer ou dupliquer. Cependant, cela n’est pas suffisant: il faut encore indiquer à l’ordinateur comment une forme doit être tournée ou vers quel endroit elle doit être déplacée.
+
+Tu pourrais bien sûr aussi décrire les étapes pour transformer un rond et un carré en cœur par un texte plus long, mais en informatique, c’est souvent mieux d’utiliser aussi peu de transformations de base que possible, et de les répéter ou de les effectuer de manières différentes. Le développement de solutions générales à partir d’exemples précis s’appelle la généralisation. De telles commandes pourraient par exemple avoir la forme suivante:
+
+\begin{itemize}
+  \item Tourner une forme: tourne la forme, angle
+  \item Déplacer une forme: déplace la forme, destination
+  \item Dupliquer une forme: duplique la forme
+\end{itemize}
+
+Le logiciel de traitement d’images de Tina peut paraître inhabituel: au lieu que l’image soit enregistrée sous forme de \emph{pixels} comme une photo, une description de la forme (par exemple “rond, rayon $2$ cm, couleur rouge”) est enregistrée. C’est ainsi possible que deux formes soient l’une sur l’autre, comme les ronds, et que l’une d’elles soit ensuite déplacée sans que l’autre n’ait été effacée. De tels images sont appelées \emph{images vectorielles}. Elles sont souvent utilisées pour dessiner des formes abstraites en haute qualité. Les autres images, appelées \emph{images matricielles}, sont souvent des photos ou des dessins réalistes.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Pixel: \href{https://fr.wikipedia.org/wiki/Pixel}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pixel}}
+  \item Image matricielle: \href{https://fr.wikipedia.org/wiki/Image_matricielle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Image\_matricielle}}
+  \item Image vectorielle: \href{https://fr.wikipedia.org/wiki/Image_vectorielle}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Image\_vectorielle}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,192 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-CH-15 Bateau-taxi}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-CH-15 Bateau-taxi}
+
+
+\subsection*{Body}
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody2.svg}\par}
+
+Les trois castors Alan, Bob et Conrad veulent prendre un bateau-taxi. Il n’y a qu’un bateau-taxi. Alan est prêt à payer $4$~francs castor (4\ensuremath{\times}\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody3.svg}}), Bob $5$~francs castor (5\ensuremath{\times}\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody3.svg}}) et Conrad seulement $3$~francs castor (3\ensuremath{\times}\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody3.svg}}). Le taxi peut transporter au maximum $20$~kg. Le chauffeur de taxi fait donc les pesées suivantes:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody4.svg}} \\
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody5.svg} \\
+\raisebox{-0.5ex}{\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-CH-15_taskbody6.svg}}\par}
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quel(s) castor(s) le chauffeur prend-il avec s’il veut gagner le plus d’argent possible?
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} r l @{} }
+  A) & Seulement Bob \\ 
+  B) & Alan et Bob \\ 
+  C) & Bob et Conrad \\ 
+  D) & Alan et Conrad \\ 
+  E) & Tous les trois: Alan, Bob et Conrad
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est C) Bob et Conrad.
+
+Pour pouvoir faire une liste de toutes les solutions possibles et les évaluer, nous devons d’abord savoir combien pèse chaque castor.
+
+Nous savons que les trois castors ensemble pèsent $30$~kg et que le chauffeur ne peut donc pas tous les prendre avec. Si nous ajoutons un copie de C(onrad) du côté gauche et du côté droit de la deuxième balance, cela donne à gauche ${A + B + C = 30}$~kg et à droite ${C + C + 12}$~kg. Donc, nous avons ${2C = 18}$ kg et ${C = 9}$~kg.
+
+Si nous ajoutons un copie de B(ob) du côté gauche et du côté droit de la troisième balance, nous obtenons à gauche ${A + B + C + 2}$~kg~=~$32$~kg et à droite  ${2B + 10}$~kg. Cela donne ${2B = 22}$ kg et donc ${B = 11}$~kg.
+
+Comme ${A + B + C = 30}$~kg, ${A = 10}$~kg.
+
+Le chauffeur de taxi peut donc:
+
+\begin{itemize}
+  \item Prendre Alan et Conrad avec et gagner ${4 + 3 = 7}$~francs castor.
+  \item Prendre Bob et Conrad avec et gagner ${5 + 3 = 8}$~francs castor.
+  \item Prendre Alan et Bob avec et gagner le plus avec $9$~francs castors, mais comme les deux castors pèsent ensemble plus de $21$ kg, le bateau-taxi est surchargé.
+\end{itemize}
+
+La bonne réponse est donc C).
+
+Ce n’est cependant pas la seule possibilité de déterminer le poids des castors. On aurait aussi pu remplacer ${A + B}$ par ${C + 12}$ à gauche de la première balance. Ceci donne ensuite ${2C + 12}$~kg~=~$30$~kg, et on peut en déduire que ${C = 9}$~kg.
+
+De manière plus formelle, les trois pesées peuvent être écrite comme un système d’équations:
+
+\begin{tabular}{ @{} l l @{} }
+  I. & ${A + B + C = 30}$~kg \\ 
+  II. & ${A + B - C = 12}$~kg \\ 
+  III. & ${A - B + C = 8}$~kg
+\end{tabular}
+
+Ces équations peuvent ensuite être soustraites les une aux autres. La différence I.~–~II. donne l’équation:
+
+\begin{adjustwidth}{1.5em}{0em}
+${2C = 18}$~kg \ensuremath{\rightarrow} ${C = 9}$~kg
+\end{adjustwidth}
+
+La différence I. –~III. donne:
+
+\begin{adjustwidth}{1.5em}{0em}
+${2B = 22}$~kg \ensuremath{\rightarrow} ${B = 11}$~kg
+\end{adjustwidth}
+
+On déduit ensuite de I. que ${A = 10}$~kg.
+
+
+\subsection*{It’s Informatics}
+
+Tous les problèmes d’optimisation discrète de la classe NP peuvent être représentés par des équations et des inéquations (on parle aussi de d’\emph{optimisation linéaire}). Les équations et inéquations sont appelées \emph{contraintes} et doivent être satisfaites par les valeurs des variables. On optimise ensuite la valeur d’une fonction des variables tout en respectant les contraintes. Dans cet exercice, on a trois variables booléennes, ${x_A}$, ${x_B}$ et ${x_C}$. Si ${x_A = 1}$, le castor ${A}$ prend le bateau, sinon ${x_A = 0}$. On optimise la fonction linéaire ${4x_A + 5x_B + 3x_C}$, pour laquelle on cherche la valeur maximale. La seule contrainte est:
+
+\begin{adjustwidth}{1.5em}{0em}
+${Poids(A) \cdot x_A + Poids(B) \cdot x_B + Poids(C) \cdot x_C \leq 20}$.
+\end{adjustwidth}
+
+On ne peut formuler l’exercice complètement que si l’on connaît le poids des castors. Cette instance de problème est un cas particulier du \emph{problème du sac à dos}. On doit mettre la plus grande valeur possible dans le sac à dos sans dépasser la valeur maximale.
+
+Il y a $80$ ans, ce genre de questions était encore du ressort des mathématiciens, mais comme des ordinateurs de plus en plus performants ont été à disposition, des méthodes de résolution (par exemple la méthode de \emph{séparation et évaluation} ou des \emph{plans sécants}) avec lesquelles de tels problèmes peuvent être résolus ont été développées. Aujourd’hui, ces méthodes de résolution sont utilisées par exemple dans l’optimisation de la production, la logistique ou les réseaux de transport public.
+
+Malgré tout, la résolution de problèmes d’optimisation est encore un exercice difficile en pratique qui demande une modélisation adroite et des algorithmes spécialement développés pour la structure et la taille du problème. Souvent, plusieurs méthodes de résolution sont combinées.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Optimisation linéaire en nombre entiers: \href{https://fr.wikipedia.org/wiki/Optimisation_lin\%C3\%A9aire_en_nombres_entiers}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_linéaire\_en\_nombres\_entiers}}
+  \item Contrainte: \href{https://fr.wikipedia.org/wiki/Contrainte_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Contrainte\_(mathématiques)}}
+  \item Séparation et évaluation: \href{https://fr.wikipedia.org/wiki/S\%C3\%A9paration_et_\%C3\%A9valuation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Séparation\_et\_évaluation}}
+  \item Méthode des plans sécants: \href{https://fr.wikipedia.org/wiki/M\%C3\%A9thode_des_plans_s\%C3\%A9cants}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Méthode\_des\_plans\_sécants}}
+\end{itemize}
+
+
+}
+\end{document}

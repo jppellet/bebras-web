@@ -1,0 +1,103 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{4}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Fontaine}
+\renewcommand{\taskCountry}{BR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+L’été est chaud dans la ville. La maire fait installer des fontaines d’eau potable.
+
+Les fontaines doivent être installées de manière à ce qu’il ne faille jamais parcourir plus de deux tronçons de rue pour atteindre une fontaine depuis n’importe quel coin de rue. La maire sera alors satisfaite.
+
+Voici un plan de la ville. Les lignes sont les tronçons de rue et les points les coins de rue. Il y a déjà des fontaines \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-fountain.svg}} à trois coins de rue.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-challenge.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Installe une fontaine supplémentaire pour satisfaire la maire.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-solution.svg}\par}
+
+Si une fontaine supplémentaire est intallée en bas au centre, il faut parcourir au maxium deux tronçons de rue pour atteindre une fontaine. La maire est alors satisfaite.
+
+Comment pouvons-nous déterminer à quel coin de rue installer une fontaine supplémentaire? Sur le plan, nous indiquons d’un \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=15.9px]{\taskGraphicsFolder/graphics/2023-BR-05-mark.svg}} tous les coins de rue se trouvant déjà à deux tronçons de rue d’une fontaine au maximum. La maire peut déjà être satisfaite de ces coins de rue.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-BR-05-explanation_compatible.svg}\par}
+
+Pour les cinq coins de rue A, B, C, D et E restants, nous ajoutons une fontaine au coin de rue C. Comme ça, ces coins-là sont aussi loin de deux tronçons au maximum d’une fontaine.
+
+Le coin C est le seul endroit où installer une nouvelle fontaine permettant de satisfaire la maire:
+Si l’on considère les coins de rue se trouvant à deux tronçons des coins A et E (entourés d’une ligne sur l’image), seul le coin C remplit cette condition pour les coins A \emph{et} E.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le plan de la ville peut être représenté par un \emph{graphe}. C’est un outil important en informatique qui permet de modéliser les relations entre des objets et de répondre à des questions sur ces relations. Ici, on peut représenter les coins de rue comme des objets et donc des \emph{nœuds} du graphe. Les relations entre deux objets sont modélisées par des \emph{arêtes} qui relient deux nœuds. Ici, une arête entre deux coins de rue veut dire qu’ils sont reliés par un tronçon de rue. On peut appeler cette relation “voisinage”. Les arêtes peuvent aussi représenter d’autres relations, comme l’amitié.
+
+Dans cet exercice du Castor, il faut trouver un sous-ensemble de nœuds (pour installer une fontaine) de manière à ce que chaque nœud à l’extérieur de ce sous-ensemble soit relié à un “nœud fontaine” par un chemin de deux arêtes de long au maximum. En langage technique informatique, on parlerait de la recherche d’un ensemble 2-dominant (\emph{distance$-2$ dominating set} en anglais). En général (pour toutes les longueurs de chemin ${d \geq 1}$), cette recherche d’un sous-ensemble de taille minimale fait partie des problèmes les plus difficiles rencontrés en informatique.
+
+Les “ensembles \emph{d}-dominants” jouent un rôle croissant actuellement, en particulier dans le domaine du \emph{social computing}: pour traiter des données venant de réseaux sociaux de manière automatique (par exemple pour détecter la diffusion de \emph{fake news}), les relations entre les utilisateurs (fan, follower, ami) sont modélisées sous forme de graphes. Ces graphes peuvent être si grands que seule une sélection représentative (aussi petite que possible) peut être prise en considération – par exemple, un set 3-dominant. Comme la sélection la plus petite possible ne peut pas être calculée efficacement, on développe des méthodes informatiques qui permettent de rapidement déterminer de petites sélections (mais pas forcément \emph{la} plus petite).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ensemble dominant: \href{https://fr.wikipedia.org/wiki/Ensemble_dominant}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_dominant}}
+  \item Théorie des graphes: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9orie_des_graphes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorie\_des\_graphes}}
+  \item Analyse des réseaux sociaux: \href{https://fr.wikipedia.org/wiki/Analyse_des_r\%C3\%A9seaux_sociaux}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Analyse\_des\_réseaux\_sociaux}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBarichelloL{} % \ifdefined\AuthorBarichelloL \BrochureFlag{br}{} Leonardo Barichello\fi
+\def\AuthorNataliaN{} % \ifdefined\AuthorNataliaN \BrochureFlag{id}{} Natalia Natalia\fi
+\def\AuthorLunaC{} % \ifdefined\AuthorLunaC \BrochureFlag{pe}{} Carlos Luna\fi
+\def\AuthorAlbaradeiS{} % \ifdefined\AuthorAlbaradeiS \BrochureFlag{sa}{} Somayah Albaradei\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

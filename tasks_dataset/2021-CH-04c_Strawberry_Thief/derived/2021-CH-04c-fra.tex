@@ -1,0 +1,161 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-CH-04c Voleur de fraise}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-CH-04c Voleur de fraise}
+
+
+\subsection*{Body}
+
+Anja veut créer une œuvre d’art dans le jardin et a ramassé pour cela différents objets: plusieurs glands, noisettes et cailloux ainsi qu’une fraise. Elle met quelques objets dans l’herbe.
+
+Ensuite, Anja dispose des branches entre ces objets. Elle suit pour cela la règle suivante: une branche ne doit pas se trouver entre deux objets pareils, par exemple entre deux glands. Voici l’œuvre d’art terminée:
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-taskbody.svg}\par}
+
+Le frère d’Anja vient et mange la fraise pendant qu’elle n’est pas là.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Peux-tu aider le frère d’Anja à dissimuler son méfait?
+
+Place un autre objet à la place de la fraise et enlève exactement une branche. L’œuvre d’art modifiée doit respecter la règle d’Anja.
+
+
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Lorsque l’on remplace la fraise par une noisette, la branche $3$ ne respecte plus la règle d’Anja: elle se trouve entre deux objets pareils, à savoir deux noisettes. Cette branche doit donc être enlevée.
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-solution.svg}\par}
+
+Les deux autres remplacements possibles nécessitent d’enlever plus d’une branche:
+
+\begin{itemize}
+  \item Si la fraise est remplacée par un gland, il faut enlever les branches $2$ et $4$.
+  \item Si la fraise est remplacée par un caillou, il faut enlever les branches $1$ et $5$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2021-CH-04c-explanation-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+L’œuvre d’Anja peut être représentée par un \emph{graphe}. Un graphe est composé de \emph{nœuds} (les emplacements des objets) et d’\emph{arêtes} (les branches) qui relient deux objets chacune. Les graphes sont des outils polyvalents et sont souvent utilisés lors de la modélisation de problèmes en informatique.
+
+Lorsque deux nœuds sont directement reliés par une arête, ils sont \emph{voisins} l’un de l’autre. Un groupe de nœuds dans lequel chaque nœud est voisin de chaque autre nœuds est appelé une \emph{clique}. Nous avons deux cliques de quatre nœuds dans notre graphe: la moitié gauche et la moitié droite du graphe (la noisette en haut et le point d’interrogation en bas appartiennent aux deux cliques).
+
+La règle d’Anja implique que tous les nœuds d’une clique doivent être occupés par des objets différents. Pour respecter la règle, nous avons donc besoin d’autant d’objets différents qu’il y a de nœuds dans une clique. Nous n’avons cependant plus que trois objets différents une fois que la fraise a été enlevée. Il ne peut donc rester que des cliques comportant au maximum $3$ nœuds si la règle doit être respectée. Il faut donc enlever une arête (une branche) afin de détruire les deux cliques à quatre nœuds.
+
+La règle d’Anja correspond à une règle du problème de \emph{coloration de graphe}: on assigne une couleur à chaque nœud d’un graphe, et les nœuds voisins doivent être de couleurs différentes (les couleurs correspondent ici aux différents types d’objets). Le but est souvent d’utiliser le moins de couleurs possibles. Le problème consistant à colorer un graphe avec le moins de couleurs possibles a beaucoup d’applications. Quelques exemple sont la planification d’une compétition, l’élaboration d’un plan de table et même la résolution d’un sudoku.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+  \item Coloration des arêtes d’un graphe: \href{https://fr.wikipedia.org/wiki/Coloration_des_ar\%C3\%AAtes_d\%27un_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_des\_arêtes\_d’un\_graphe}}
+  \item Clique: \href{https://fr.wikipedia.org/wiki/Clique_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Clique\_(théorie\_des\_graphes)}}
+\end{itemize}
+
+
+}
+\end{document}

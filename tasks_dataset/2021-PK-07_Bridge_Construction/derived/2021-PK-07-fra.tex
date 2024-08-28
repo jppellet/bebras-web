@@ -1,0 +1,151 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-PK-07 Construction de pont}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-PK-07 Construction de pont}
+
+
+\subsection*{Body}
+
+Bella aimerait construire un pont par-dessus un ruisseau. Elle a besoin d’un marteau, de clous, de planches et d’une corde. Elle trouve un marteau et une corde à la cave.
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-taskbody.svg}\par}
+
+Elle doit acheter les autres objets. En bas, tu vois trois magasins et ce qu’ils vendent.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Dans quels magasins Bella peut-elle acheter les autres objets?
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-solution.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, les magasins vendent en tout sept ojects différents: des ciseaux, un marteau, des clous, des briques, des planches, une corde et un seau. C’est un grand ensemble d’objets! Les objets que Bella doit acheter sont une \emph{partie de cet ensemble}. On peut le représenter de la façon suivante: on montre tous les objets de l’ensemble complet et note pour chaque objet s’il appartient au sous-ensemble que Bella doit acheter ou pas:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-itsinformatics01.svg}\par}
+
+De la même manière, on peut représenter quels objets sont vendus dans les magasins, par exemple dans le magasin de gauche:
+
+{\centering%
+\includesvg[scale=0.36]{\taskGraphicsFolder/graphics/2021-PK-07-itsinformatics02.svg}\par}
+
+On voit ainsi au premier coup d’œil ce que Bella peut acheter dans le magasin de gauche: Les clous sont marqué d’une coche verte dans le sous-ensemble de Bella et dans le sous-ensemble du magasin.
+
+Les programmes informatiques doivent aussi souvent comparer des ensembles. Pour chaque objet pouvant être présent, on a besoin d’un \emph{bit}. Un ordinateur peut enregistrer une de deux valeurs dans un bit, comme par exemple “oui” ou “non”. Dans notre cas, on enregistre si un objet appartient à un ensemble (“oui”) ou pas (“non”). Un programme peut ensuite comparer deux ensembles de la façon suivante: il vérifie si le bit correspondant à un objet vaut “oui” dans un ensemble et vaut aussi “oui” dans l’autre ensemble. Une telle comparaison de deux bits est très rapide pour un ordinateur. C’est pour cela qu’en informatique, les ensembles sont souvent décrits en utilisant des bits.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Ensemble: \href{https://fr.wikipedia.org/wiki/Ensemble_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_(informatique)}}
+  \item Bits: \href{https://fr.wikipedia.org/wiki/Bit}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Bit}}
+  \item Tableau de bits: \href{https://fr.wikipedia.org/wiki/Tableau_de_bits}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tableau\_de\_bits}}
+\end{itemize}
+
+
+}
+\end{document}

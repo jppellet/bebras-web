@@ -1,0 +1,107 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Déchampignonneur}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Au début de jeu du “déchampignonneur”, un seul champignon et quelques cases contenant des chiffres sont visibles. Toutes les autres cases du jeu sont cachées. Lorsque tu découvres une case, un champignon ou le nombre de champignons présents dans les cases voisines apparaît. Tu gagnes le jeu si tu arrives à découvrir uniquement toutes les cases sans champignon.
+
+Voici un exemple de jeu complètement découvert:
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-HU-04-taskbody.svg}\par}
+
+Tu commences un nouveau jeu – regarde en dessous.
+
+
+
+% question (as \emph{})
+{\em
+Sur quelles cases ne peut-il pas y avoir de champignon?
+
+{\centering%
+\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-HU-04-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne solution:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-solution.svg}\par}
+
+Afin d’expliquer la bonne réponse, nous assignons des lettres aux cases couvertes. Nous disons qu’un chiffre ${N}$ sur une case est épuisé lorsque que nous savons quelles ${N}$ cases voisines contiennent un champignon; il ne peut alors plus y avoir de champignon sur les autres cases voisines.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-explanation1.svg}\par}
+
+\begin{itemize}
+  \item Il n’y a pas de champignon sur la case D, parce que le chiffre $1$ à côté est épuisé.
+  \item Il n’y a pas de champignon sur les cases B, C, E et F, parce que le chiffre $1$ sur leur case voisine commune est épuisé.
+  \item Il y a un champignon sur la case A, car les chiffres $1$, $2$ et $1$ sur les cases voisines n’indiqueraient sinon pas le bon nombre de champignon sur les cases voisines.
+\end{itemize}
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2022-HU-04-explanation2.svg}\par}
+
+Il y a donc un champignon caché sur la case A. Les cases B, C, D, E et F peuvent être découvertes.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Comment avons-nous résolu cet exercice? Parfois, il faut commencer avec une supposition et continuer logiquement. Si l’on se trouve face à une contradiciton, on revient en arrière et continue avec la supposition suivante. Il s’agit alors d’une recherche “ciblée” et non pas aléatoire.
+
+Comment un ordinateur résoudrait-il cet exercice? Si au moins une case avec un champignon est découverte, de simples règles peuvent être énoncées. Par exemple, s’il y a déjà une case avec un champignon découvert à côté d’une case avec le chiffre $1$, il ne peut plus y avoir de champignon sur les autres cases voisines. Si l’on formule cette règle précisément pour tous les chiffres, un ordinateur peut l’utiliser comme \emph{instruction} à exécuter pas à pas. Nous obtienons ainsi un \emph{algorithme} que nous pouvons “simplement” exécuter pour gagner le jeu (si au moins un champignon est déjà découvert).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Démineur: \href{https://fr.wikipedia.org/wiki/D\%C3\%A9mineur_(genre_de_jeu_vid\%C3\%A9o)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Démineur\_(genre\_de\_jeu\_vidéo)}}
+  \item Instruction: \href{https://fr.wikipedia.org/wiki/Instruction_informatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Instruction\_informatique}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorKraljL{} % \ifdefined\AuthorKraljL \BrochureFlag{hr}{} Lidija Kralj\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

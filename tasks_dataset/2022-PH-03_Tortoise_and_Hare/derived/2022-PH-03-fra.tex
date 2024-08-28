@@ -1,0 +1,171 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-PH-03 Le lièvre et la tortue}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-PH-03 Le lièvre et la tortue}
+
+
+\subsection*{Body}
+
+Une tortue \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2022-PH-03-tortoise.svg}} et un lièvre \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2022-PH-03-hare.svg}} font la course. Ils utilisent la piste ci-dessous:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-taskbody.svg}\par}
+
+Ils partent en même temps de la case départ. Ils avancent de case en case en suivant les flèches.
+
+\begin{itemize}
+  \item La tortue avance d’une case par minute.
+  \item Le lièvre avance de deux cases par minute.
+\end{itemize}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Sur quelle case le lièvre et la tortue se rencontrent-ils pour la première fois après le départ?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+Clique sur une case pour la sélectionner. Clique à nouveau pour la désélectionner.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Le lièvre et la tortue se rencontrent pour la première fois sur la case \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}}. On peut le voir facilement en utilisant deux doigts.
+
+La table suivante indique les cases sur lesquelles le lièvre et la tortue se trouvent minute par minute:
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ @{} l c c c c c c c c c c c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Min. après \\ le départ}} & {\setstretch{1.0}\thead[cb]{0}} & {\setstretch{1.0}\thead[cb]{1}} & {\setstretch{1.0}\thead[cb]{2}} & {\setstretch{1.0}\thead[cb]{3}} & {\setstretch{1.0}\thead[cb]{4}} & {\setstretch{1.0}\thead[cb]{5}} & {\setstretch{1.0}\thead[cb]{6}} & {\setstretch{1.0}\thead[cb]{7}} & {\setstretch{1.0}\thead[cb]{8}} & {\setstretch{1.0}\thead[cb]{9}} & {\setstretch{1.0}\thead[cb]{10}} & {\setstretch{1.0}\thead[cb]{11}} & {\setstretch{1.0}\thead[cb]{12}} & {\setstretch{1.0}\thead[cb]{13}} & {\setstretch{1.0}\thead[cb]{…}} \\ 
+\midrule
+  \makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-hare.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field01.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field02.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field03.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field04.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field06.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field08.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field10.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field06.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field08.svg}} & … \\ 
+  \makecell[l]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-tortoise.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field01.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field03.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field05.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field07.svg}} & \makecell[c]{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-field09.svg}} & …
+\end{tabular}
+
+
+}
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-explanation.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+La course de cet exercice a lieu sur une piste spéciale. Elle est constituée de cases et de flèches qui montrent la case suivante. Sa particularité est qu’elle se termine par un cercle sur lequel les coureurs peuvent courir indéfiniment. Dans cet exercice, le lièvre et la tortue ne peuvent se rencontrer que parce que six cases forment un cercle, ou un \emph{cycle}.
+
+En informatique, une piste comme celle décrite dans cet exercice serait appelée une \emph{liste}. Un cercle de cases qui renvoient les unes aux autres serait appelé un \emph{cycle}. Dans la liste, chaque nœud renvoie à un seul autre nœud au maximum. Il existe des listes avec un cycle, comme dans cet exercice, et des listes sans cycle.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-itsinformatics01.svg}\par}
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2022-PH-03-itsinformatics02.svg}\par}
+
+Si une liste ne contient pas de cycle, elle est constituée d’une chaîne linéaire de nœuds. Il doit alors y avoir une case d’arrivée de laquelle ne part plus de flèche. Le célèbre informaticien Robert W. Floyd (1936$-2001$) a développé un algorithme qui peut déterminer de manière simple si une liste contient un cycle ou est constituée d’une chaîne linéaire. Comme dans notre exercice, il fait partir le lièvre et la tortue de la case départ; s’ils se rencontrent sur la même case, il y a un cycle dans la liste. Au moment où le lièvre atteint la case d’arrivée ou celle d’avant, on sait qu’il n’y a pas de cycle et l’algorithme se termine.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Liste: \href{https://fr.wikipedia.org/wiki/Liste_cha\%C3\%AEn\%C3\%A9e}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Liste\_chaînée}}
+  \item Cycle: \href{https://fr.wikipedia.org/wiki/Cycle_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cycle\_(théorie\_des\_graphes)}}
+  \item Nœud: \href{https://fr.wikipedia.org/wiki/Sommet_(th\%C3\%A9orie_des_graphes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sommet\_(théorie\_des\_graphes)}}
+  \item Robert W. Floyd: \href{https://fr.wikipedia.org/wiki/Robert_Floyd}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Robert\_Floyd}}
+  \item Algorithme: \href{https://fr.wikipedia.org/wiki/Algorithme}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme}}
+\end{itemize}
+
+
+}
+\end{document}

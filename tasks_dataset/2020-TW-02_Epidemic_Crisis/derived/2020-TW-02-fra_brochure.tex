@@ -1,0 +1,92 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Épidémiologie}
+\renewcommand{\taskCountry}{TW}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Castorland comporte $12$ villes qui sont reliées par des routes. Les villes qui sont reliées de manière directe ou indirecte forment une communauté commerciale. La carte dans sa forme actuelle montre donc une seule communauté commerciale de $12$ villes.
+
+Pour endiguer une épidémie, la circulation doit être réduite. Le parlement des castors décide de fermer exactement deux routes pour diviser les villes en trois communautés commerciales.
+
+Pour n’isoler personne plus que nécessaire, la plus petite communauté commerciale devrait compter autant de villes que possible
+
+
+
+% question (as \emph{})
+{\em
+Quelles sont les deux routes qui doivent être fermées? Biffe-les.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-TW-02_taskbody-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est: les routes F et I sur l’image ci-dessous doivent être fermées. De cette manière, trois communautés commerciales de $3$, $4$ et $5$ villes, respectivement, sont formées.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-TW-02_explanation1-compatible.svg}\par}
+
+C’est évident que nous ne devons considérer que les routes dont la fermeture engendre une division de la communauté commerciale car elles représentent une connexion unique. Nous avons en effet besoin de deux vraies divisions pour créer trois unités. Ça n’apporte donc rien de fermer la route B, par exemple, car on peut encore atteindre toutes les villes en passant par les routes A ou C. Les seules candidates pour la fermeture sont donc les routes F, G, H, I et M.
+
+On arrive à la réponse du dessus en essayant toutes les dix possibilités de fermer deux de ces cinq routes. En tant qu’être humain, on remarque de plus tout de suite que la fermeture des routes H ou M isolerait une seule ville et n’entre donc pas en question. Cela limite encore le nombre de possibilités à considérer.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+En informatique, on cherche souvent à diviser un certain réseau en \emph{composantes connexes}. Toutes les parts d’une composante connexe sont reliées de manière directe ou indirecte, alors qu’il n’y a aucun lien entre différentes composantes connexes. L’utilisation dans les réseaux informatiques dans lesquels il est important de déterminer quels ordinateurs peuvent être atteints depuis quels autres est évidente. C’est aussi important de déterminer quels points sont reliés dans la reconnaissance optique de caractères (OCR).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Composante connexe: \href{https://fr.wikipedia.org/wiki/Graphe_connexe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_connexe}}
+  \item Parcours d’arbre: \href{https://fr.wikipedia.org/wiki/Parcours_d\%27arbre}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Parcours\_d'arbre}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKuC{} % \ifdefined\AuthorKuC \BrochureFlag{tw}{} Chia-Yi Ku\fi
+\def\AuthorLinJ{} % \ifdefined\AuthorLinJ \BrochureFlag{tw}{} Judith Lin\fi
+\def\AuthorLiuL{} % \ifdefined\AuthorLiuL \BrochureFlag{tw}{} Lynn Liu\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorNemethA{} % \ifdefined\AuthorNemethA \BrochureFlag{hu}{} Ágnes Erdősné Németh\fi
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorGallenbacherJ{} % \ifdefined\AuthorGallenbacherJ \BrochureFlag{de}{} Jens Gallenbacher\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

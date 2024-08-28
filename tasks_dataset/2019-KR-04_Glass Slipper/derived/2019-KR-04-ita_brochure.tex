@@ -1,0 +1,121 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{4}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Pantaloni adatti}
+\renewcommand{\taskCountry}{KR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Christian ha bisogno di nuovi pantaloni. Nel negozio, i suoi pantaloni preferiti sono disponibili in sette lunghezze e sette larghezze. I pantaloni di tutte le $49$ taglie sono sullo scaffale, ordinati per lunghezza e larghezza.
+
+Poiché Christian non conosce la sua taglia, deve scoprirla provandola.
+A ogni prova, Christian nota se i pantaloni gli vanno bene o se ha bisogno di pantaloni più corti, più lunghi, più stretti o più larghi.
+Affinché un paio di pantaloni sia adatto, la lunghezza e la larghezza devono essere giuste.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-ita/2019-KR-04-taskbody_compatible-ita.svg}\par}
+
+La commessa si lamenta: \enquote{Trovare la taglia giusta in $49$ taglie può richiedere molto tempo.}
+
+Ma Christian ha ideato un metodo per trovare la taglia giusta con il minor numero possibile di prove.
+
+
+
+% question (as \emph{})
+{\em
+Di quante prove ha bisogno al massimo per trovare la taglia giusta con il metodo ideato da Christian?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La risposta giusta è $2$.
+
+Christian può essere fortunato e ottenere i pantaloni della taglia giusta alla prima prova. Ma non può affidarsi alla fortuna e dunque procede secondo questo metodo:
+
+Prima prova i pantaloni al centro (posizione + nell’immagine). Durante la prova, controlla la lunghezza e la larghezza dei pantaloni.
+
+\begin{itemize}
+  \item Se la lunghezza e la larghezza sono giuste, ha trovato i pantaloni della taglia giusta.
+  \item Se i pantaloni sono troppo corti e troppo larghi, i pantaloni corrispondenti si trovano nell’area $1$.
+  \item Se i pantaloni sono troppo corti ma hanno la larghezza giusta, i pantaloni corrispondenti si trovano nell’area $2$.
+  \item Se i pantaloni sono troppo corti e troppo stretti, i pantaloni abbinati si trovano nell’area $3$.
+  \item Ripete poi il metodo per le aree da $4$ a $8$.
+\end{itemize}
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/-ita/2019-KR-04-explanation_compatible-ita.svg}\par}
+
+Supponiamo che i pantaloni della taglia giusta siano nell’area $1$. Christian sceglie i pantaloni al centro dell’area $1$ per la seconda prova.
+
+Ora ci sono di nuovo diverse possibilità:
+
+\begin{itemize}
+  \item Se i pantaloni vanno bene, ha trovato la taglia giusta.
+  \item Se i pantaloni sono ancora troppo corti e troppo larghi, Christian sa che i pantaloni nella posizione A sono della taglia giusta.
+  \item Se i pantaloni sono troppo corti ma hanno la larghezza giusta, Christian sa che i pantaloni della posizione B sono della taglia giusta.
+  \item Si può continuare così per le altre posizioni intorno alla metà dell’area $1$.
+\end{itemize}
+
+Poiché in ogni area numerata il ripiano centrale ha solo un ripiano vicino in ogni direzione, non sono necessari altri controlli. Quindi Christian ha bisogno al massimo di due prove in ogni caso per trovare la taglia giusta.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il metodo utilizzato da Christian per l’adattamento è chiamato ricerca binaria in informatica. Il termine \emph{binario} deriva dalla parola latina bis (due volte). In una ricerca binaria di un oggetto in una sequenza di oggetti ordinati, l’oggetto centrale viene confrontato con quello cercato. Se l’oggetto centrale non è già quello che si sta cercando, si sa almeno in quale metà della sequenza si trova l’oggetto che si sta cercando e si cerca nuovamente in questa metà in modo binario. In ogni fase, la sequenza viene divisa in due parti - da qui \enquote{binaria}. In questo modo si arriva molto rapidamente all’oggetto cercato. Per $1.000$ oggetti sono necessari circa $10$ passi di ricerca, per $1.000$.$000$ di oggetti circa $20$. In generale, possiamo dire: per \emph{n} oggetti sono necessari circa log(\emph{n}) passi; la funzione log è il \enquote{logaritmo di due} o il logaritmo in base $2$. Poiché la ricerca binaria è così veloce, viene spesso utilizzata nei programmi informatici per la ricerca di dati ordinati.
+
+In questo compito, lo spazio di ricerca, cioè i pantaloni sullo scaffale, è ordinato in due dimensioni (lunghezza e larghezza). Pertanto, Christian può applicare immediatamente la ricerca binaria in entrambe le dimensioni. Poi l’insieme di ricerca viene diviso in un unico passaggio non in $2$, ma in $8$ parti, nel caso in cui Christian non abbia ottenuto direttamente la dimensione giusta.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Ricerca binaria: \href{https://it.wikipedia.org/wiki/Ricerca_dicotomica}{\BrochureUrlText{https://it.wikipedia.org/wiki/Ricerca\_dicotomica}}
+  \item Alrogitmo di ricerca: \href{https://it.wikipedia.org/wiki/Algoritmo_di_ricerca}{\BrochureUrlText{https://it.wikipedia.org/wiki/Algoritmo\_di\_ricerca}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorKimJ{} % \ifdefined\AuthorKimJ \BrochureFlag{kr}{} Jihye Kim\fi
+\def\AuthorAbdElAalE{} % \ifdefined\AuthorAbdElAalE \BrochureFlag{eg}{} Eslam AbdElAal\fi
+\def\AuthorFesakisG{} % \ifdefined\AuthorFesakisG \BrochureFlag{gr}{} Georgios Fesakis\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

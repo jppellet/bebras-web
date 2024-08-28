@@ -1,0 +1,137 @@
+{
+    "id": "2023-SK-07",
+    "title": "Wärmer und Kälter",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "hard",
+        "3": "medium",
+        "4": "easy",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "hard",
+        "12-14": "medium",
+        "14-16": "easy",
+        "16-19": "--"
+    },
+    "categories": [
+        "data structures and representations"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "interactive (click-on-object)",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg by Susanne Datzko",
+            "file_pattern": "*.svg",
+            "authors": [
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (contributor)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Manuel Wettstein, manuelwe@inf.ethz.ch, Switzerland (translation from English into German)",
+            "name": "Manuel Wettstein",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "manuelwe@inf.ethz.ch"
+        },
+        {
+            "src": "Giovanni Serafini, serafini@inf.ethz.ch, Switzerland (contributor)",
+            "name": "Giovanni Serafini",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "serafini@inf.ethz.ch"
+        },
+        {
+            "src": "Jia-Ling Koh, jlkoh@csie.ntnu.edu.tw, Taiwan (contributor)",
+            "name": "Jia-Ling Koh",
+            "country": "Taiwan",
+            "country_code": "TW",
+            "roles": [
+                "contributor"
+            ],
+            "email": "jlkoh@csie.ntnu.edu.tw"
+        },
+        {
+            "src": "Sophie Koh, sophiek@simcc.org, Singapore (contributor)",
+            "name": "Sophie Koh",
+            "country": "Singapore",
+            "country_code": "SG",
+            "roles": [
+                "contributor"
+            ],
+            "email": "sophiek@simcc.org"
+        },
+        {
+            "src": "Monika Tomcsányiová, monika.tomcsanyiova@fmph.uniba.sk, Slovakia (author)",
+            "name": "Monika Tomcsányiová",
+            "country": "Slovakia",
+            "country_code": "SK",
+            "roles": [
+                "author"
+            ],
+            "email": "monika.tomcsanyiova@fmph.uniba.sk"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (contributor, graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor",
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.1
+    },
+    "name": "Closer or Further",
+    "difficulties": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        0
+    ],
+    "lang_code": "deu",
+    "lang": "German",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "SK",
+        "country": "Slovakia",
+        "num": 7
+    }
+}

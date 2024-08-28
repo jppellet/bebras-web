@@ -1,0 +1,174 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CA-02 Ricca}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CA-02 Ricca}
+
+
+\subsection*{Body}
+
+Evelyn ha cinque foto dei Ricca. Descrive con delle frasi il loro aspetto.
+
+\raisebox{-0.5ex}{\includesvg[width=68.5px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca1.svg}}
+\raisebox{-0.5ex}{\includesvg[width=119.1px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca2.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca4.svg}}
+\raisebox{-0.5ex}{\includesvg[width=97.4px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca5.svg}}
+
+La sua amica Lydia le mostra una sesta foto di una Ricca:
+
+{\centering%
+\includesvg[width=79.4px]{\taskGraphicsFolder/graphics/2023-CA-02-riccaException.svg}\par}
+
+Ora Evelyn si rende conto di una cosa: una delle sue frasi sui Ricca è sicuramente sbagliata.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quale di queste frasi sui Ricca è sicuramente sbagliata?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) Tutti i Ricca hanno i denti.
+
+B) Alcuni Ricca hanno le ali.
+
+C) I Ricca hanno o corna o tre occhi, ma mai corna \emph{e} tre occhi.
+
+D) Se i Ricca hanno esattamente due braccia, allora hanno anche esattamente due gambe.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta D) è corretta: \emph{Se i Ricca hanno esattamente due braccia, allora hanno anche esattamente due gambe.}
+
+La risposta A) contiene un’affermazione che deve valere per tutti i Ricca. Se anche un solo Ricca non avesse i denti, l’affermazione sarebbe falsa. Tuttavia, tuttii e sei i Ricca che Evelyn conosce ora hanno i denti. Quindi la frase di Evelyn non può essere sicuramente sbagliata.
+
+La risposta B) contiene un’affermazione che dovrebbe valere solo per alcuni Ricca. Poiché uno dei sei Ricca che Evelyn conosce ora ha le ali, la frase è corretta per i sei Ricca. Ma anche se nessuno dei sei Ricca avesse le ali, altri Ricca potrebbero averle e la frase sarebbe comunque vera. La frase può essere sicuramente falsa solo se Evelyn conosceva tutti i Ricca e nessuno aveva le ali.
+
+La risposta C) collega due affermazioni con \enquote{o} e \enquote{o}. L’affermazione collegata è vera se è vera esattamente una delle due affermazioni. Questo è il caso di tutti e sei i Ricca: quattro Ricca hanno le corna ma non tre occhi,gli altre due Ricca non hanno le corna ma tre occhi. Affinché la frase sia falsa, dovrebbe esserci almeno un Ricca con tre occhi e corna o un Ricca senza corna e con un numero diverso da tre occhi. Tra i sei Ricca che Evelyn conosce ora, non c’è nessun Ricca di questo tipo.  Quindi la frase è corretta per i sei Ricca, e non certamente sbagliata.
+
+Rimane la frase della risposta D). È formulata nella forma di un’affermazione \enquote{se} e \enquote{allora}. Se la condizione \enquote{se} è vera, deve essere vera anche l’affermazione \enquote{allora}. La condizione è vera per tutte le sei Ricca che Evelyn conosce: tutti hanno esattamente due bracci.  Anche tutte le Ricche delle prime cinque immagini di Evelyn hanno esattamente due gambe; quindi per loro la frase di Evelyn è vera.  Tuttavia, la Ricca nella foto di Lydia ha più di due gambe, cioè cinque. Pertanto, la frase è sicuramente sbagliata.
+
+
+\subsection*{This is Informatics}
+
+Il numero di ali, braccia gambe e occhi e il fatto che i Ricca abbiano o meno i denti o le ali sono \emph{caratteristiche} dei Ricca. Quando si descrivono i Ricca, si formulano delle \enquote{affermazioni} su queste proprietà. Questo porta a un \emph{modello} di ciò che i Ricca sono.
+
+Anche i computer hanno molti modelli. Alcuni sono formulati esplicitamente, come ad esempio un modello di studenti composto da nome, data di nascita e indirizzo di casa in un database. Altri modelli sono formati dai computer a partire dai dati, ad esempio quando vengono fornite immagini da confrontare per l’addestramento di una rete neurale.
+
+Le frasi di Evelyn - cioè il suo modello dei Ricca in questo compito - sono formulate come \emph{espressioni logiche}. Alcune hanno dei \emph{quantificatori} (\enquote{(per) tutti} o \enquote{ci sono}/\enquote{alcuni}), altre usano degli \emph{operatori logici} (\enquote{o}-\enquote{o} o \enquote{se}-\enquote{allora}). Queste espressioni logiche sono \emph{formalizzate}: cioè, c’è una specificazione di come usarle e di cosa significano.
+
+Sulla base di queste specifiche
+
+\begin{itemize}
+  \item Le espressioni (semplici) possono essere collegate a espressioni più complesse con l’aiuto di quantificatori e operatori.
+  \item il significato delle espressioni più complesse può essere calcolato a partire da quelle più semplici.
+\end{itemize}
+
+Le espressioni logiche sono un metodo comune per descrivere i modelli in informatica.
+
+
+\subsection*{This is Computational Thinking}
+
+Il processo che Evelyn esegue si chiama \emph{riconoscimento di schemi}. Cerca caratteristiche o affermazioni comuni che si applicano a tutti i Ricca. Questo riconoscimento di schemi non è solo essenziale per gli esseri umani, che formano concetti con l’aiuto di tali schemi (ad esempio: \enquote{ha quattro zampe e ringhia \ensuremath{\rightarrow} deve essere un cane}), ma è essenziale anche per i computer (ad esempio, per le auto a guida autonoma che devono riconoscere i segnali di stop a diverse ore del giorno e della notte e con diversi dintorni).
+
+Per i computer, questo processo si chiama \emph{apprendimento automatico}, e la maggior parte delle sensazionali \enquote{intelligenze artificiali} fanno proprio questo: imparare quanto è probabile che un certo input (come l’immagine di una telecamera) produca un certo risultato (come interpretare che qualcosa è un segnale di stop). Questo porta a \emph{classificazioni} di oggetti.
+
+Proprio come gli esseri umani, i computer non sono immuni da pregiudizi. Ad esempio, se un umano non ha mai visto un gatto e si trova in braccio un gatto che fa le fusa, potrebbe interpretarlo come un cane che ringhia. Pertanto, anche i dati di addestramento per le \enquote{intelligenze artificiali} devono essere scelti con attenzione, altrimenti si verificheranno errori di categorizzazione. È per questo che molte \enquote{intelligenze artificiali} oggi devono essere \enquote{addestrate} a non avere una certa tendenza a discriminare, ma alla fine riflettono solo la nostra società senza filtri.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+Apprendimento automatico: \href{https://it.wikipedia.org/wiki/Apprendimento_automatico}{\BrochureUrlText{https://it.wikipedia.org/wiki/Apprendimento\_automatico}}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+Mustererkennung: \href{https://de.wikipedia.org/wiki/Mustererkennung}{\BrochureUrlText{https://de.wikipedia.org/wiki/Mustererkennung}}
+
+
+\end{document}

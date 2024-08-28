@@ -1,0 +1,90 @@
+To add or update a review, go to https://review.bebras.org.
+
+By: Jiří Vaníček (svn: vanicek)
+on 2023-04-09
+Assigned review
+Anja can participate in all activities as long as she doesn't stay there the whole time. In other words, I feel a wrong description of the situation in the Body section, the author must add that Anja wants (or must) attend only the whole activities (which is hard to imagine in a real ZOO, where it is easy to leave any activity compared to e.g. leaving the carousel or roller coasters at Disneyland).
+The description of activities which sounds only as lookig at some animal species does not help comprehension because only watching animals can be broken any time. Activities should be named like activities: elephant showering, monkey basketball, tiger feeding, combing horses, light show in aquarium...) or is necessary to change the topic of the story (to e.g. a film festival).
+Graphics is OK.
+Answers are correct but the explanation needs to decide whether authors want to support decomposition or algorithmics. Now this part explains decomposition but the settings does not support it. We must to do something (to erase fully overlapping activities) to get three independent parts of s day programme. The description of an algorithm in Informatics part sounds me more suitable to the constelation of activities in the settings as is. For the explanation used (based on decomposition), I recommend the set of activities could be split into two or more parts in first step of the solution, without any previous activity. Or change the explanation and use that greedy algorithm used in Informatics part (and avoid decomposition in CT part because it is not used in this solution).
+Third paragraph of CT part is too general, I recommend to delete it.
+
+========================================
+By: Jinbao Zhang (svn: zhang)
+on 2023-04-12
+Assigned review
+[AGE] OK
+[IDEA] The idea is nice and clear.
+[TEXT] The task is clear. Check the grammar.
+[EXPL] The explanation is nice and detailed.
+[TiI] OK
+[TiCT] “This is Computational Thinking” section is available.
+[GRAPH] Please adjust the position of the image to the middle.
+[AUTH] Names and emails are provided.
+[NAME] Comply with the format.
+[OTHER] Please check the font size. Better to add CT keywords.
+========================================
+By: reem alotaibi (svn: alotaibi)
+on 2023-04-17
+Non-assigned review
+[AGE] Its appropriate for 12yo_14yo, but it is difficult 10yo-12yo
+[IDEA] The idea is beautiful and attractive to students. 
+[TEXT] The text is clear.
+[EXPL] The explanation is clear. 
+[TiI] Its understandable, and connected to the task. 
+[GRAPH] The graphics is self-made and in SVG format.
+[AUTH] Authors are listed with e-mail and country names.
+[NAME] Names comply with the format.
+[OTHER] I agree with Mr. Jerry's remark, putting some restrictions on attending activities makes the task more effective.
+========================================
+By: Esraa almajhad (svn: majhad)
+on 2023-04-18
+Non-assigned review
+The idea is nice and beautiful, but the text needs to be more clear since when I read it, I feel Anja can attend more than five activities if they don't overlap (but not the whole time). Therefore, some put constraints on activities like (when Aaja starts one activity, she can't exit until the period ends.
+
+[TiI] ,[TiCT] I like it 
+Wording and Phrases missing
+========================================
+By: sayah karima (svn: sayah)
+on 2023-04-18
+Non-assigned review
+I think the task is not hard but I suggest it hard for 10-12 Years and Medium for 12-14 Years
+
+The task present a good scheduler algorithm
+========================================
+By: Rostyslav Shpakovych (svn: shpakovych)
+on 2023-04-19
+Non-assigned review
+Well designed task. Of course, you need to add the condition that Anja chooses only those activities that she will see from their beginning to their end.
+========================================
+By: Angy Coronel-Suarez (svn: coronel)
+on 2023-04-20
+Non-assigned review
+The task is good, but I think the writing should be arranged so that it reads like a game, without more explanation than necessary. Also, you should remove the gender from the text. I include my suggestion:
+
+Alice created the game "Guess the number" and tells her friend about her:
+You must choose an integer from 1 to 10 and do the following calculations:
+- If the number is even, you must add 1,
+- otherwise, you must subtract 2.
+Then, you must tell me how many operations you had to perform until you got 1 and I will tell you the number you chose.
+
+In option B of the answers I would say, "There are more than 2 possibilities...".
+
+I think I could go down a notch in level: hard for 10-12, medium for 12-14 and easy for 14-16. It's too easy for 16-19.
+
+EXPL, TiI, TiCT, AUTH and NAME are present and, once changes are made based on the suggestions, they would be clear and appropriate for the task and age.
+========================================
+By: Nora Anna Escherle (svn: escherle)
+on 2023-04-21
+Assigned review
+[AGE] The age/difficulty level is specified and seems appropriate for the task and question. If turned into an interactive task (drag and drop of blocks and maybe with one block already given), it would also be suitable for younger students.
+[IDEA] Not extremely original idea but nice and relatable. It does require some computational thinking skill to be understood and solved.
+[TEXT]  Very short and concise. It needs to be clarified that Anja wnats to attend the activities in their entirety. Otherwise she could attend all of them theoretically. 
+[EXPL]  The “Answer Explanation” section is available. It is understandable by students of the appropriate level. There is a clear reason why the correct answer is correct.
+[TiI] The “It’s informatics” section is available. It is understandable by students of the appropriate level, well connected to the task, describes the background of the "story" and the connection to the informatics (computer science) of this task.
+[TiCT] “This is Computational Thinking” section is available and it describes the solving process. One skill needed to solve the task is named. Decomposition might also be named here though since it is relevant to the solving process as becomes clear in the description of the solving process.
+[GRAPH] The figures are clear and appealing. Maybe a little "childish" for the age group. They are CC-licensed and may be re-used and modified. They are available in SVG format (i.e., as vector graphics).
+[AUTH] The name(s) and mail address(es) of the author(s) are available.
+[NAME] The names of the task folder and file(s) comply with the prescribed format.
+[OTHER]
+========================================

@@ -1,0 +1,95 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Bibliothèque}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Susi est à la bibliothèque des castors avec Tim. Ils veulent emprunter un livre appelé “Construire de grands barrages”.
+
+Tim va vers l’étagère $1$, regarde dans la rangée $4$ et sort le livre du casier $0$. Susi est impressionnée. Tim explique à Susi comment on détermine l’emplacement d’un livre:
+
+On prend la première lettre de chaque mot du titre du livre et détermine sa position dans l’alphabet. On additionne ensuite ces positions après avoir multiplié par $3$ la valeur obtenue à l’addition précédente.
+
+Le livre désiré donne $140$. L’emplacement du livre est ainsi tout de suite clair.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04a-taskbody1-fra-compatible.svg}\par}
+
+Susi écrit maintenant les calculs correspondant à ses livres préférés, mais elle a fait une erreur pour l’un d’entre eux.
+
+
+
+% question (as \emph{})
+{\em
+Lequel?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerA-fra-compatible.svg}} & B) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerB-fra-compatible.svg}} \\ 
+  C) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerC-fra-compatible.svg}} & D) & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-answerD-fra-compatible.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Susi a presque tout fait juste: elle a toujours additionné les bonnes positions et a multiplié les résultats intermédiaires par $3$ — avec une exception: elle a oublié une multiplication dans la réponse B.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/fra/2021-AT-04-solution-fra-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le système d’expressions correspondant à l’emplacement des livres permet aux visiteurs de la bibliothèque de déterminer l’endroit exact où les livres sont rangés. Comme ça, personne ne doit chercher longtemps. La bibliothèque et les visiteurs doivent cependant faire attention à une chose: différents livres peuvent avoir la même expression et donc le même résultat. Par exemple, les livres “Guide des grands fleuves” et “Guide des grandes familles” sont dans le même casier. Les casiers doivent donc être assez grands ou pouvoir être agrandis selon les besoins.
+
+C’est aussi une bonne idée que l’endroit auxquel les données sont enregistrées dans un ordinateur puisse être calculé directement à partir des données elles-même. Pour cela, des \emph{fonctions de hachage} ont été développées en en informatique: des fonctions mathématiques qui calculent une valeur à partir du contenu des données ou d’une partie des données, valeur qui indique directement l’emplacement mémoire — comme dans cet exercice du castor. De bonnes fonctions de hachage minimisent le nombre de fois où la même valeur est calculée. Si un tel conflit a lieu, l’informatique dispose de bonnes méthodes pour le gérer.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Fonction de hachage: \href{https://fr.wikipedia.org/wiki/Fonction_de_hachage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_de\_hachage}}
+  \item Table de hachage: \href{https://fr.wikipedia.org/wiki/Table_de_hachage}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Table\_de\_hachage}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

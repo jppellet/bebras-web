@@ -1,0 +1,110 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Raccordement}
+\renewcommand{\taskCountry}{NZ}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Des enfants ont emménagé sur l’île tout à gauche. Bianca doit construire des ponts permettant aux enfants d’aller à l’école sur l’île tout à droite.
+
+La carte des îles montre combien il y a de troncs sur chaque île. Bianca peut prendre ces troncs pour construire des ponts sur les lignes. Le chiffre au-dessus d’une ligne indique combien de troncs sont nécessaires pour y contruire un pont. Dès qu’un pont entre deux îles est construit, Bianca peut le traverser en prenant avec les troncs qu’il lui reste. Elle ne peut bien sûr utiliser chaque tronc que pour un seul pont.
+
+Bianca commence sur l’île de gauche. Son but est d’utiliser le moins de troncs possible.
+
+
+
+% question (as \emph{})
+{\em
+Sur quelles lignes Bianca doit-elle construire des ponts pour atteindre son but?
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Voici la bonne réponse:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2023-NZ-01-solution_compatible.svg}\par}
+
+Les lignes vertes montrent les ponts que Bianca a construits. Les flèches rouges montrent comment elle a traversé les ponts:
+
+\begin{itemize}
+  \item Sur l’île A, elle prend trois troncs et en utilise deux pour construire le premier pont. Elle traverse le pont avec le tronc restant et a ${3 - 2 + 2 = 3}$ troncs sur l’île B. Cela ne suffit pas pour construire un pont vers l’île D.
+  \item Elle construit donc un pont vers l’île C avec deux troncs. Elle traverse le pont, prend les trois troncs de l’île C et revient. Elle a maintenant ${3 - 2 + 3 = 4}$ troncs.
+  \item Avec ces quatre troncs, elle construit un pont vers l’île D, le traverse et prend les deux troncs de l’île D.
+  \item Avec ces deux troncs, elle construit un pont vers l’île E, le traverse et prend les trois troncs. Elle construit des ponts vers les îles F et G. Sur l’île E, Bianca a trois troncs; sur l’île F, ${3 - 1 + 1 = 3}$ troncs et sur l’île G ecore deux troncs.
+  \item Ces deux troncs suffisent exactement pour construire un pont vers l’île H, où se trouve l’école.
+\end{itemize}
+
+Bianca a donc pu construire des ponts pour faire un chemin de l’île A à l’île H en utilisant $14$ troncs en tout. Mais est-ce possible avec moins de troncs? Pour le savoir, il faut étudier tous les chemins possibles. Comme tous les chemins passent par la longue île D, le problème peut être divisé en deux: de l’île A à l’île D, et de l’île D à l’île H:
+
+\begin{itemize}
+  \item Bianca a utilisé $8$ troncs pour les ponts entre l’île A et l’île D, et est arrivée sans tronc sur l’île D. On note son chemin ainsi: ${2-[2,2]-4}$ (de l’île A par la ligne avec le $2$ jusqu’à l’île B, puis aller-retour entre B et C par le ligne $2$, puis par la ligne $4$ jusqu’à D). Un chemin utilisant moins de troncs serait ${3-4}$, mais il ne peut être construit qu’avec un détour (${3-[2,2]-4}$) et nécessite donc neuf troncs; Bianca arrive alors sur l’île D avec un tronc en réserve. Tous les autres chemins entre A et D utilisent neuf troncs ou plus.
+  \item Bianca a utilisé six troncs pour les ponts entre les îles D et H. Elle ne peut pas construire le chemin direct ${3-2}$, même avec un tronc en réserve. Tous les autres chemins de l’île D à l’île H utilisent $6$ troncs ou plus.
+\end{itemize}
+
+Ce n’est donc pas possible de construire des ponts permettant aux enfants de l’île-village A d’aller à l’île-école H avec moins de $14$ troncs. Bianca a atteint son but.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+La carte des îles avec les lignes représentant des ponts possibles peut être représentée par un \emph{graphe}: une structure mathématique qui relie par des arêtes des paires d’objets (aussi appelés \emph{nœuds}). Dans un graphe, les îles sont représentées par des nœuds et les lignes par des \emph{arêtes}. Dans ce cas, les arêtes ont des \emph{poids} (le nombre de troncs nécessaires à la construction d’un pont), mais les nœuds également (le nombre de troncs disponibles sur l’île), ce qui est inhabituel. En informatique, on connaît plusieurs algorithmes efficaces pour calculer le plus court chemin (le chemin avec la plus petite somme des poids des arêtes) entre deux nœuds d’un graphe dont seules les arêtes ont un poids.
+
+Le problème que Bianca veut résoudre de manière optimale dans cet exercice est plus compliqué: elle souhaite également trouver le plus court chemin, mais a encore une autre contrainte: la différence entre la somme des poids de tous les nœuds sur son chemin jusqu’ici (les troncs qu’elle a pu prendre) et la somme des poids des arêtes sur son chemin (les troncs utilisés pour les ponts) doit être plus grande que le poids de l’arête où Bianca souhaite construire le prochain pont. Pour trouver le chemin optimal, il faut ici essayer toutes les possibilité. C’est utile de diviser le problème en deux pour réduire le nombre de possibilités, et les contraintes nous permettent d’exclure beaucoup de chemins avant de les avoir complètement parcourus. En informatique, on appelle une telle méthode (essayer et exclure) le \emph{retour sur trace} (voir aussi l’exercice “Jardin potager”).
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Retour sur trace: \href{https://fr.wikipedia.org/wiki/Retour_sur_trace}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Retour\_sur\_trace}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorAtlasJ{} % \ifdefined\AuthorAtlasJ \BrochureFlag{nz}{} James Atlas\fi
+\def\AuthorHendersonT{} % \ifdefined\AuthorHendersonT \BrochureFlag{nz}{} Tracy Henderson\fi
+\def\AuthorBellT{} % \ifdefined\AuthorBellT \BrochureFlag{nz}{} Tim Bell\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorTruuA{} % \ifdefined\AuthorTruuA \BrochureFlag{ee}{} Ahto Truu\fi
+\def\AuthorSayehK{} % \ifdefined\AuthorSayehK \BrochureFlag{dz}{} Karima Sayeh\fi
+\def\AuthorKaleliogluF{} % \ifdefined\AuthorKaleliogluF \BrochureFlag{tr}{} Filiz Kalelioğlu\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

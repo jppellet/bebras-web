@@ -1,0 +1,116 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Journée tranquille}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors vivant dans un petit village tranquille sont très détendus. Ils divisent leurs journées en seulement $8$ tranches horaires de $3$ heures chacune. La tranche horaire en cours est indiquée par trois drapeaux sur l’hôtel de ville comme représenté sur l’image ci-dessous. Les castors utilisent deux sortes de drapeaux, un carré rouge et un triangle bleu.
+
+L’arrangement des drapeaux ci-dessus ne demande le changement que d’un seul drapeau à presque chaque transition. Il n’y a qu’à minuit où trois drapeaux doivent être changés d’un coup. Les castors aimeraient trouver un arrangement plus commode qui permette de ne changer qu’un seul drapeau à chaque transition.
+
+
+
+% question (as \emph{})
+{\em
+Trouve un tel arrangement commode pour les castors et dessine les trois drapeaux de chaque tranche horaire.
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-18_taskbody-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+On peut utiliser des nombres binaires à trois chiffres pour représenter les $8$ motifs de drapeaux: $0$ représente un carré rouge et $1$ un triangle bleu.
+
+{\centering%
+\begin{tabular}{ @{} c c c c c c c c @{} }
+  000 & 001 & 010 & 011 & 100 & 101 & 110 & 111 \\ 
+  \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation000.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation001.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation010.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation011.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation100.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation101.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation110.svg}} & \makecell[c]{\includesvg[width=36.1px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation111.svg}}
+\end{tabular}
+
+\par}
+
+Les $8$ motifs sont donc $000$, $001$, $010$, $011$, $100$, $101$, $110$, $111$. Nous devons à présent mettre ces nombres dans un ordre dans lequel les nombres voisins ainsi que le premier et dernier nombre ne diffèrent qu’à une seule position.
+
+On peut y arriver par tâtonnement. Une solution possible est $111$, $011$, $001$, $101$, $100$, $000$, $010$, $110$. Voici l’horloge correspondante:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-18_explanation-compatible.svg}\par}
+
+On peut trouver une solution de manière systématique avec la méthode suivante:
+
+Nous ne considérons d’abord que les nombres qui commencent avec deux zéros, donc $000$ et $001$. Ici, il y a deux ordres possibles, et les deux remplissent la condition décrite plus haut. Nous choisissons $000$, $001$.
+
+Maintenant, nous écrivons les deux mêmes nombres dans l’ordre inverse après les deux premiers (donc $001$, $000$), mais en changeant la deuxième position de $0$ à $1$ (donc $011$, $010$). Nous obtenons ainsi la suite de nombres $000$, $001$, $011$, $010$. Elle remplit également la condition.
+
+Nous écrivons à nouveau cette nouvelle suite de nombre à l’envers à la suite de la précédente en changeant cette fois la première position de $0$ à $1$. Nous obtenons ainsi $000$, $001$, $011$, $010$, $110$, $111$, $101$, $100$, ce qui remplit à nouveau notre condition. Nous avons trouvé la solution recherchée.
+
+Cette méthode (la symétrie de la suite de nombre existante et le changement de la position supérieure de $0$ à $1$) peut être répétée autant de fois que nécessaire pour obtenir de tels arrangements pour n’importe quel nombre de drapeaux au lieu de trois. On peut se demander pourquoi cette méthode fonctionne toujours et si tous les motifs possibles sont toujours utilisés.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Un tel arrangement de nombres binaires s’appelle le \emph{code de Gray} et a beaucoup d’applications. Le fait qu’un seul bit diffère entre deux nombres voisins peut par exemple servir à économiser de l’énergie. Le changement de plusieurs bits demande plus d’énergie, et il y a souvent plusieurs bits qui changent en même temps lors de l’énumération ascendante normale dans le système binaire.
+
+Une application connue du code de gray en ingénierie est la mesure des angles d’une plaque tournante (appelée roue codeuse). On dessine le code de gray sur la plaque comme montré en dessous, en blanc pour $0$ et en noir pour $1$. Les points rouges sont des détecteurs installés en ligne droite pouvant différencier le blanc du noir. Les détecteurs peuvent ainsi lire un nombre binaire qui code la valeur de l’angle de la roue.
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=122.7px]{\taskGraphicsFolder/graphics/2020-CH-18_graydisk-compatible.svg}}~~~
+\raisebox{-0.5ex}{\includesvg[width=122.7px]{\taskGraphicsFolder/graphics/2020-CH-18_bindisk-compatible.svg}}\par}
+
+Sur l’image de gauche, on voit que le quatrième détecteur se trouve exactement à la limite entre le blanc et le noir. Le détecteur va donc lire soit $001010$ soit $001110$. Les deux options sont acceptables, étant donné que la valeur de l’angle se situe exactement au milieu des deux codes. Si l’on n’utilise pas de code de Gray, la situation est plus difficile. Considérons le code binaire normal sur l’image de droite. Ici, les codes $111010$ et $111001$ se suivent. Si les détecteurs se trouvent exactement entre ces deux codes, les deux derniers détecteurs ne peuvent pas différencier entre le blanc et le noir. Les détecteurs pourraient donc lire le code $111011$ qui se trouve plus loin sur la roue. Dans le pire des cas, les détecteurs se trouvent à la limite entre le code blanc $000000$ et le code noir $111111$, et chaque détecteur peut arbitrairement lire soit $0$, soit $1$, ce qui rend la mesure de l’angle complètement inutilisable.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Code de Gray: \href{https://fr.wikipedia.org/wiki/Code_de_Gray}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_de\_Gray}}
+  \item Roue codeuse: \href{https://fr.wikipedia.org/wiki/Roue_codeuse}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Roue\_codeuse}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorRossmanithP{} % \ifdefined\AuthorRossmanithP \BrochureFlag{de}{} Peter Rossmanith\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorJungU{} % \ifdefined\AuthorJungU \BrochureFlag{kr}{} Ungyeol Jung\fi
+\def\AuthorMoonK{} % \ifdefined\AuthorMoonK \BrochureFlag{kr}{} Kwangsik Moon\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

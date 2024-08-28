@@ -1,0 +1,94 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Decodifica}
+\renewcommand{\taskCountry}{RU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+In un codice speciale per i testi, ogni lettera è codificata da un codice composto dalle cifre da $0$ a $9$.
+Si applica questa regola: nessuna parola in codice può iniziare con la parola in codice di un’altra lettera.
+
+Per esempio, la lettera \BrochureInlineCode{X} è codificata da $12$. Ora \BrochureInlineCode{Y} può essere codificata da $2$, perché $12$ non inizia con $2$ (e $2$ non inizia con $12$). Ora \BrochureInlineCode{Z} può essere codificata da $11$, perché né $12$ né $2$ iniziano con $11$ e $11$ non inizia né con $12$ né con $2$. Tuttavia, $21$ non sarebbe ammessa come parola chiave per \BrochureInlineCode{Z} perché inizia con $2$, che è la parola chiave di \BrochureInlineCode{Y}.
+
+La parola \BrochureInlineCode{MEMORY} è codificata dalla sequenza di cifre $12112233321$.
+
+
+
+% question (as \emph{})
+{\em
+Divide la sequenza di numeri nelle parole in codice delle singole lettere!
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Questo è la risposta corretta: $1$ $21$ $1$ $22$ $33$ 321
+
+Si parte da sinistra all’inizio della sequenza di cifre. Se \BrochureInlineCode{M} fosse codificata da $12$, \BrochureInlineCode{E} avrebbe necessariamente la parola chiave $1$, perché dietro di essa ci sarebbe di nuovo $12$ per la seconda \BrochureInlineCode{M}. Tuttavia, ciò sarebbe in contraddizione con la regola: La parola in codice per \BrochureInlineCode{M} inizierebbe con $1$, la parola in codice per E. Anche i pezzi iniziali più lunghi della sequenza di cifre ($121$, $1211$, $12112$ ecc.) non possono essere la parola in codice per \BrochureInlineCode{M}, perché questa parola in codice deve comparire due volte, ma questi pezzi sono contenuti una sola volta nella sequenza di cifre. Di conseguenza, la parola in codice per `M’ è la cifra $1$.
+
+Ora deve seguire la parola in codice per \BrochureInlineCode{E} - e dietro di essa ancora quella per M, cioè l’$1$. Quindi, la parola in codice per \BrochureInlineCode{E} può essere solo una delle seguenti sequenze di cifre: $2$, $21$ o $211223332$. Non può essere $2$ perché sennò la parola inizierebbe con MEMM. Non può essere $211223332$, siccome in tal caso la parola nel suo insieme sarebbe solo MEM. Di conseguenza, la parola in codice per `E’ è la sequenza di cifre $21$. Ora è chiaro che $1$ $21$ $1$ è la codifica per MEM.
+
+Il resto della sequenza di cifre, cioè $2233321$, codifica le lettere ORY. Il $2$ da solo non può essere la parola in codice per \BrochureInlineCode{O}, altrimenti avremmo \BrochureInlineCode{OO} all’inizio. La parola in codice per \BrochureInlineCode{O} deve quindi contenere almeno il $22$. Alla fine, $1$ e $21$ sono già assegnati come parole in codice rispettivamente per \BrochureInlineCode{M} e \BrochureInlineCode{E}. La parola in codice per \BrochureInlineCode{Y} deve quindi essere almeno la sequenza $321$. Tra $22$ e $321$ c’è $33$, che deve essere la parola in codice per \BrochureInlineCode{R}: L’unica altra parola in codice possibile per \BrochureInlineCode{R} sarebbe $3$. Quindi $3321$ dovrebbe essere la parola in codice per \BrochureInlineCode{Y} - e inizierebbe con la parola in codice per \BrochureInlineCode{R}; questo è contrario alla regola. La divisione della parte posteriore è quindi $22$ $33$ $321$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Il codice descritto in questo task è un esempio di \emph{codice prefisso}. Un prefisso è una stringa di caratteri all’inizio di un’altra stringa di caratteri. In un codice prefisso, nessuna parola in codice può essere un prefisso di un’altra parola in codice. Cioè, nessuna parola in codice può iniziare con un’altra parola in codice.
+
+Nei codici a prefisso, le parole in codice hanno lunghezze diverse. Il vantaggio della regola del prefisso è che non è necessario alcun simbolo di separazione tra le parole in codice. È sempre possibile vedere dove inizia la parola in codice successiva. Se si scelgono parole in codice brevi per le lettere che ricorrono frequentemente, è possibile codificare i testi in modo molto efficiente e memorizzare grandi quantità di testo in modo da risparmiare spazio.
+
+La codifica Huffman è un metodo per trovare un prefisso ottimale. È ampiamente utilizzato ed è, ad esempio, alla base di noti formati di dati come JPEG e MP3.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Codice prefisso: \href{https://it.wikipedia.org/wiki/Codice_prefisso}{\BrochureUrlText{https://it.wikipedia.org/wiki/Codice\_prefisso}}
+  \item Codifica di Huffman: \href{https://it.wikipedia.org/wiki/Codifica_di_Huffman}{\BrochureUrlText{https://it.wikipedia.org/wiki/Codifica\_di\_Huffman}}
+  \item Crittografia: \href{https://it.wikipedia.org/wiki/Crittografia}{\BrochureUrlText{https://it.wikipedia.org/wiki/Crittografia}}
+  \item Crittoanalisi: \href{https://it.wikipedia.org/wiki/Crittoanalisi}{\BrochureUrlText{https://it.wikipedia.org/wiki/Crittoanalisi}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPozdniakovS{} % \ifdefined\AuthorPozdniakovS \BrochureFlag{ru}{} Sergey Pozdniakov\fi
+\def\AuthorPosovI{} % \ifdefined\AuthorPosovI \BrochureFlag{ru}{} Ilya Posov\fi
+\def\AuthorPrettiJ{} % \ifdefined\AuthorPrettiJ \BrochureFlag{ca}{} JP Pretti\fi
+\def\AuthorMalchiodiD{} % \ifdefined\AuthorMalchiodiD \BrochureFlag{it}{} Dario Malchiodi\fi
+\def\AuthorWeigendM{} % \ifdefined\AuthorWeigendM \BrochureFlag{de}{} Michael Weigend\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorGiangC{} % \ifdefined\AuthorGiangC \BrochureFlag{ch}{} Christian Giang\fi
+
+\newpage}{}

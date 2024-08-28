@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Biberburg AG}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Eine Biberburg besteht aus $4$ Teilen, die alle teilweise unter und teilweise über Wasser liegen.
+Beim Bau einer Biberburg ist jeder beteiligte Arbeiter entweder nur unter Wasser \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}}  oder nur über Wasser \raisebox{-0.5ex}{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}} tätig.
+Bei jedem Teil wird gleichzeitig über und unter Wasser gearbeitet.
+Die Tabelle zeigt für jedes Teil, wie lange die Biberbau AG braucht und wie viele Arbeiter unter und über Wasser dafür benötigt werden.
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} l c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{Teile}} & {\setstretch{1.0}\thead[cb]{Wohnraum \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-living.svg}}}} & {\setstretch{1.0}\thead[cb]{Schlafhöhle \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}}}} & {\setstretch{1.0}\thead[cb]{Dach \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}}}} & {\setstretch{1.0}\thead[cb]{Damm \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-dam.svg}}}} \\ 
+\midrule
+  Baudauer & $4$ Tage & $3$ Tage & $5$  Tage & $8$ Tage \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-underwater.svg}} & $3$ Biber & $5$ Biber & $2$ Biber & $4$ Biber \\ 
+  \makecell[l]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-overwater.svg}} & $2$ Biber & $1$ Biber & $2$ Biber & $2$ Biber
+\end{tabular}
+
+
+\end{adjustwidth}
+
+Das Dach \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-roof.svg}} kann erst gebaut werden, wenn die Schlafhöhle \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.7]{\taskGraphicsFolder/graphics/2023-HU-37-symbol-cave.svg}} fertig ist!  Bei allen anderen Teilen ist die Reihenfolge egal.
+
+Für den Bau einer neuen Burg stehen höchstens $7$ Unterwasser-Arbeiter und $5$ Überwasser-Arbeiter zur Verfügung.
+Sie können auch gleichzeitig verschiedene Teile bauen.
+Hier ist ein Arbeitsplan, mit dem die Biberburg in $20$ Tagen fertig wird.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-deu/2023-HU-37-question-compatible-symbols-deu.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Überlege dir einen Plan, mit dem die Biberburg nach möglichst wenigen Tagen fertig wird.
+Wie viele Tage sind das?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+$12$ Tage ist die richtige Antwort.
+
+Dies ist ein Plan, mit dem die Biberburg in $12$ Tagen fertig wird:
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/-deu/2023-HU-37-solution-compatible-symbols-deu.svg}\par}
+
+Einen solchen Plan mit der kürzesten Bauzeit kann man in zwei Schritten bestimmen:
+
+\begin{enumerate}
+  \item Zuerst muss die Schlafhöhle vor dem Dach eingeplant werden. Da die Schlafhöhle $5$ Unterwasser-Arbeiter benötigt, der Damm $3$ und der Wohnraum $4$, kann die Schlafhöhle – bei der Beschränkung auf $7$ Unterwasser-Arbeiter – auch nicht gleichzeitig mit Damm oder Wohnraum gebaut werden. Die Schlafhöhle muss also zuerst gebaut werden und alle drei anderen Teile danach.
+  \item Damm und Wohnraum können gleichzeitig nach der Schlafhöhle gebaut werden, oder eines der beiden Teile gleichzeitig mit dem Dach. Es ist aber nicht möglich, alle drei Teile gleichzeitig zu bauen, weil sie zusammen ${3 + 4 + 2 = 9}$ Unterwasser-Arbeiter benötigen –~mehr als zur Verfügung stehen. Die kürzeste Bauzeit kann erzielt werden, wenn die beiden Teile mit den kürzeren Bauzeiten (Dach und Wohnraum) hintereinander und der Damm gleichzeitig zu diesen gebaut werden.
+\end{enumerate}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Einen optimalen, möglichst zügigen Ablauf eines Projekts zu planen, ist eine schwierige Aufgabe, bei der einige Bedingungen zu berücksichtigen sind. Zwischen Teilaufgaben eines Projekts bestehen oft zeitliche Abhängigkeiten; z.B. kann es Teilaufgaben geben die erst nach Beendigung einer anderen Teilaufgabe begonnen werden können – wie hier bei Dach und Schlafhöhle.  Ausserdem braucht jede Teilaufgabe bestimmte Ressourcen wie Arbeitskraft, Zeit und Geräte. Bei der Erstellung von Projektplänen hilft es, wenn man den Plan gut darstellen kann. Die in dieser Biberaufgabe gezeigten Diagramme sind eine Art von Gantt-Diagrammen, die von Henry Gantt (1861$-1919$) zwischen $1910$ und $1915$ entwickelt wurden; ähnliche Darstellungen wurden unabhängig von Gantt zur gleichen Zeit auch in Deutschland verwendet. Sie zeigen die Nutzung von Ressourcen (in diesem Fall die beiden Arten von Arbeitskräften) im Zeitverlauf.
+
+Den optimalen Plan für die Biberburg kann man sich im Kopf überlegen und dabei alle erlaubten Möglichkeiten ausprobieren.  Bei grösseren Projekten würde das zu lange dauern und zu unübersichtlich werden. Hier können Computerprogramme helfen, und deshalb ist die Erstellung von Zeitplänen (engl. \emph{Scheduling}) ein wichtiges Thema der Informatik. Wie häufig bei schwierigen Problemen wurden Verfahren entwickelt, die statt eines garantiert optimalen Plans einen Plan mit etwas grösserem, aber immer noch sehr gutem Zeitbedarf erstellen. Scheduling wird auch bei der Steuerung von Computern selbst angewandt, deren Prozesse um Ressourcen (Rechenleistung, Speicherzugriff, Zugriff auf externe Geräte wie Speichergeräte, Drucker oder Netzwerkschnittstellen) konkurrieren.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Schedule: \href{https://de.wikipedia.org/wiki/Scheduling}{\BrochureUrlText{https://de.wikipedia.org/wiki/Scheduling}}
+  \item Gantt-Diagramm: \href{https://de.wikipedia.org/wiki/Gantt-Diagramm}{\BrochureUrlText{https://de.wikipedia.org/wiki/Gantt-Diagramm}}
+  \item Software für Projektmanagement: \href{https://de.wikipedia.org/wiki/Projektmanagement-Software}{\BrochureUrlText{https://de.wikipedia.org/wiki/Projektmanagement-Software}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+
+\newpage}{}

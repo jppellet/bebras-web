@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="15.235312mm"
+   height="21.508951mm"
+   viewBox="0 0 15.235312 21.508951"
+   version="1.1"
+   id="svg7508"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="2023-BE-01-inline-meinstandort.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7510"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.0460067"
+     inkscape:cx="126.34367"
+     inkscape:cy="78.934247"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs7505" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-31.519207,-102.6322)">
+    <g
+       transform="matrix(0.26964481,0,0,0.26964481,-57.66875,-74.593755)"
+       id="g1705"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round">
+      <path
+         d="m 359,735.83 c 8.473,-22.482 26.486,-28.946 27.056,-49.464 0.384,-13.852 -9.054,-27.785 -27.056,-27.913 -17.538,-0.125 -26.665,12.157 -27.036,27.836 -0.463,19.56 18.878,28.72 27.036,49.541 z"
+         style="fill:#008000;stroke:#000000;stroke-width:2.39px;stroke-linejoin:round;stroke-miterlimit:1.5"
+         id="path1703" />
+    </g>
+    <g
+       transform="matrix(0.3561027,0,0,0.26964481,-90.182126,-74.961262)"
+       id="g1729"
+       style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round">
+      <ellipse
+         cx="363.01001"
+         cy="687.62903"
+         rx="11.105"
+         ry="14.371"
+         style="fill:#ffffff;stroke:#000000;stroke-width:2.04px;stroke-linejoin:round;stroke-miterlimit:1.5"
+         id="ellipse1727" />
+    </g>
+  </g>
+</svg>

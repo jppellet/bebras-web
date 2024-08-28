@@ -1,0 +1,164 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Transport d’argent}
+\renewcommand{\taskCountry}{IR}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Bina aime bien nager. Pour aller dans l’eau, elle met sa monnaie dans des sachets étanches pour que le métal ne commence pas à rouiller. Hier, Bina avait pris trois sachets avec $1$, $3$ et $4$ pièces de monnaie. Comme cela, elle a pu payer une poire exactement (sans qu’on ne lui rende de monnaie) sans devoir ouvrir de sachet, mais pas de pomme.
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-IR-03_taskbody-optimized.svg}\par}
+
+Aujourd’hui, Bina a pris $63$ pièces pareilles. Elle aimeraient les répartir dans différents sachets de manière à pouvoir payer tous les montants entre $1$ et $63$ pièces exactement et sans devoir ouvrir de sachet.
+
+
+
+% question (as \emph{})
+{\em
+Quel est le plus petit nombre de sachets dont Bina a besoin?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & $4$ sachets \\ 
+  B) & $5$ sachets \\ 
+  C) & $6$ sachets \\ 
+  D) & $7$ sachets \\ 
+  E) & $8$ sachets \\ 
+  F) & $15$ sachets \\ 
+  G) & $16$ sachets \\ 
+  H) & $31$ sachets \\ 
+  I) & $32$ sachets ou plus
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) $6$ sachets:
+
+{\centering%
+\includesvg[width=360.8px]{\taskGraphicsFolder/graphics/2020-IR-03_solution-compatible.svg}\par}
+
+Bina peut répartir les sachets de la manière suivante:
+
+\begin{itemize}
+  \item Sachet $1$: $1$ pièce
+  \item Sachet $2$: $2$ pièces
+  \item Sachet $3$: $4$ pièces
+  \item Sachet $4$: $8$ pièces
+  \item Sachet $5$: $16$ pièces
+  \item Sachet $6$: $32$ pièces
+\end{itemize}
+
+Bina a donc ainsi ${1 + 2 + 4 + 8 + 16 + 32 = 63}$ pièces dans les sachets et peut payer chaque montant entre $1$ et $63$ pièces exactement sans qu’on ne lui rende de monnaie et sans devoir ouvrir de sachet.
+
+Pour payer $13$ pièces, elle peut par exemple utiliser les sachets $1$, $3$ et $4$.
+
+\begin{samepage}
+La table ci-dessous montre comment chaque montant peut être payé exactement en sélectionnant les bons sachets parmi les $6$. Une cellule contient un $1$ si Bina utilise le sachet correspondant pour payer et un $0$ sinon.
+
+\nopagebreak
+
+{\centering%
+\begin{tabular}{ @{} c c c c c c c l l c c c c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Montant}} & {\setstretch{1.0}\thead[cb]{32}} & {\setstretch{1.0}\thead[cb]{16}} & {\setstretch{1.0}\thead[cb]{8}} & {\setstretch{1.0}\thead[cb]{4}} & {\setstretch{1.0}\thead[cb]{2}} & {\setstretch{1.0}\thead[cb]{1}} & {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{Montant}} & {\setstretch{1.0}\thead[cb]{32}} & {\setstretch{1.0}\thead[cb]{16}} & {\setstretch{1.0}\thead[cb]{8}} & {\setstretch{1.0}\thead[cb]{4}} & {\setstretch{1.0}\thead[cb]{2}} & {\setstretch{1.0}\thead[cb]{1}} \\ 
+\midrule
+  \textbf{0} & 0 & 0 & 0 & 0 & 0 & 0 &  &  & \textbf{32} & 1 & 0 & 0 & 0 & 0 & 0 \\ 
+  \textbf{1} & 0 & 0 & 0 & 0 & 0 & 1 &  &  & \textbf{33} & 1 & 0 & 0 & 0 & 0 & 1 \\ 
+  \textbf{2} & 0 & 0 & 0 & 0 & 1 & 0 &  &  & \textbf{34} & 1 & 0 & 0 & 0 & 1 & 0 \\ 
+  \textbf{3} & 0 & 0 & 0 & 0 & 1 & 1 &  &  & \textbf{35} & 1 & 0 & 0 & 0 & 1 & 1 \\ 
+  \textbf{4} & 0 & 0 & 0 & 1 & 0 & 0 &  &  & \textbf{36} & 1 & 0 & 0 & 1 & 0 & 0 \\ 
+  \textbf{5} & 0 & 0 & 0 & 1 & 0 & 1 &  &  & \textbf{37} & 1 & 0 & 0 & 1 & 0 & 1 \\ 
+  \textbf{6} & 0 & 0 & 0 & 1 & 1 & 0 &  &  & \textbf{38} & 1 & 0 & 0 & 1 & 1 & 0 \\ 
+  \textbf{7} & 0 & 0 & 0 & 1 & 1 & 1 &  &  & \textbf{39} & 1 & 0 & 0 & 1 & 1 & 1 \\ 
+  \textbf{8} & 0 & 0 & 1 & 0 & 0 & 0 &  &  & \textbf{40} & 1 & 0 & 1 & 0 & 0 & 0 \\ 
+  \textbf{9} & 0 & 0 & 1 & 0 & 0 & 1 &  &  & \textbf{41} & 1 & 0 & 1 & 0 & 0 & 1 \\ 
+  \textbf{10} & 0 & 0 & 1 & 0 & 1 & 0 &  &  & \textbf{42} & 1 & 0 & 1 & 0 & 1 & 0 \\ 
+  \textbf{11} & 0 & 0 & 1 & 0 & 1 & 1 &  &  & \textbf{43} & 1 & 0 & 1 & 0 & 1 & 1 \\ 
+  \textbf{12} & 0 & 0 & 1 & 1 & 0 & 0 &  &  & \textbf{44} & 1 & 0 & 1 & 1 & 0 & 0 \\ 
+  \textbf{13} & 0 & 0 & 1 & 1 & 0 & 1 &  &  & \textbf{45} & 1 & 0 & 1 & 1 & 0 & 1 \\ 
+  \textbf{14} & 0 & 0 & 1 & 1 & 1 & 0 &  &  & \textbf{46} & 1 & 0 & 1 & 1 & 1 & 0 \\ 
+  \textbf{15} & 0 & 0 & 1 & 1 & 1 & 1 &  &  & \textbf{47} & 1 & 0 & 1 & 1 & 1 & 1 \\ 
+  \textbf{16} & 0 & 1 & 0 & 0 & 0 & 0 &  &  & \textbf{48} & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+  \textbf{17} & 0 & 1 & 0 & 0 & 0 & 1 &  &  & \textbf{49} & 1 & 1 & 0 & 0 & 0 & 1 \\ 
+  \textbf{18} & 0 & 1 & 0 & 0 & 1 & 0 &  &  & \textbf{50} & 1 & 1 & 0 & 0 & 1 & 0 \\ 
+  \textbf{19} & 0 & 1 & 0 & 0 & 1 & 1 &  &  & \textbf{51} & 1 & 1 & 0 & 0 & 1 & 1 \\ 
+  \textbf{20} & 0 & 1 & 0 & 1 & 0 & 0 &  &  & \textbf{52} & 1 & 1 & 0 & 1 & 0 & 0 \\ 
+  \textbf{21} & 0 & 1 & 0 & 1 & 0 & 1 &  &  & \textbf{53} & 1 & 1 & 0 & 1 & 0 & 1 \\ 
+  \textbf{22} & 0 & 1 & 0 & 1 & 1 & 0 &  &  & \textbf{54} & 1 & 1 & 0 & 1 & 1 & 0 \\ 
+  \textbf{23} & 0 & 1 & 0 & 1 & 1 & 1 &  &  & \textbf{55} & 1 & 1 & 0 & 1 & 1 & 1 \\ 
+  \textbf{24} & 0 & 1 & 1 & 0 & 0 & 0 &  &  & \textbf{56} & 1 & 1 & 1 & 0 & 0 & 0 \\ 
+  \textbf{25} & 0 & 1 & 1 & 0 & 0 & 1 &  &  & \textbf{57} & 1 & 1 & 1 & 0 & 0 & 1 \\ 
+  \textbf{26} & 0 & 1 & 1 & 0 & 1 & 0 &  &  & \textbf{58} & 1 & 1 & 1 & 0 & 1 & 0 \\ 
+  \textbf{27} & 0 & 1 & 1 & 0 & 1 & 1 &  &  & \textbf{59} & 1 & 1 & 1 & 0 & 1 & 1 \\ 
+  \textbf{28} & 0 & 1 & 1 & 1 & 0 & 0 &  &  & \textbf{60} & 1 & 1 & 1 & 1 & 0 & 0 \\ 
+  \textbf{29} & 0 & 1 & 1 & 1 & 0 & 1 &  &  & \textbf{61} & 1 & 1 & 1 & 1 & 0 & 1 \\ 
+  \textbf{30} & 0 & 1 & 1 & 1 & 1 & 0 &  &  & \textbf{62} & 1 & 1 & 1 & 1 & 1 & 0 \\ 
+  \textbf{31} & 0 & 1 & 1 & 1 & 1 & 1 &  &  & \textbf{63} & 1 & 1 & 1 & 1 & 1 & 1
+\end{tabular}
+
+\par}
+
+
+\end{samepage}
+
+Bina ne peut pas atteindre son but avec moins de $6$ sachets. Elle peut utiliser ou non chaque sachet pour payer, il y a donc exactement deux possibilités par sachet. Avec $5$ sachets ou moins, elle n’aurait au maximum que ${2^5 = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 32}$ possibilités de les combiner. Elle pourrait donc payer exactement au maximum $32$ montant différents, ce qui n’est pas suffisant pour tous les montants de $1$ à $63$ pièces.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice traite des \emph{nombres binaires}. Les nombres binaires sont étudiés de manière différente en mathématiques et en informatique. En mathématiques, on se concentre surtout sur leurs propriétés, alors qu’en informatique, on s’intéresse à leurs applications. Les ordinateurs utilisent les nombres binaires pour représenter toutes sortes d’informations différentes: des documents, des images, des voix, des vidéos et des nombres, même les programmes et les apps que nous utilisons tous sont codées en nombres binaires. L’unité utilisée est le \emph{bit} (de l’anglais “\emph{b}inary dig\emph{it}”, chiffre binaire) qui peut valoir soit $0$ soit $1$. Un bit ne peut donc représenter que deux possibilités. Avec deux bits, on peut par contre déjà représenter $4$ possibilités: $00$, $01$, $10$ et $11$. Dans l’exercice ci-dessus, Bina utilise $6$ bits (sachets) afin de représenter ${2^6 = 64}$ montants.
+
+Les ordinateurs rassemblent habituellement les bits en groupes de $8$; un tel groupe de $8$ s’appelle un octet. Un octet peut représenter ${2^8 = 256}$ nombres différents, de $0$ à $255$.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Nombre binaire: \href{https://fr.wikipedia.org/wiki/Code_binaire}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_binaire}}
+  \item Représentation de données
+  \item Logique
+  \item \href{https://fr.wikipedia.org/wiki/Bit}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Bit}}, \href{https://fr.wikipedia.org/wiki/Octet}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Octet}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDjazbiA{} % \ifdefined\AuthorDjazbiA \BrochureFlag{ir}{} Amirmohammad Djazbi\fi
+\def\AuthorMohebbiH{} % \ifdefined\AuthorMohebbiH \BrochureFlag{ir}{} Hamed Mohebbi\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

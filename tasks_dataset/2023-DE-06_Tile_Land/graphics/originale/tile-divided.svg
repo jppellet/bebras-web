@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="144px"
+   width="144px"
+   version="1.1"
+   viewBox="-8 -8 144 144"
+   id="svg9155"
+   sodipodi:docname="tile-divided.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9159" />
+  <sodipodi:namedview
+     id="namedview9157"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="5.7638889"
+     inkscape:cx="72.086747"
+     inkscape:cy="72.086747"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9155" />
+  <g
+     id="g40772"
+     transform="matrix(1.9994843,0,0,1.9994843,-560.26272,-712.28207)">
+    <g
+       id="Wasser-16"
+       transform="translate(280.85602,355.68209)">
+      <rect
+         class="st0"
+         width="64"
+         height="64"
+         id="rect32852"
+         style="fill:#009fe3"
+         x="0"
+         y="0" />
+    </g>
+    <g
+       id="Linie_1-91"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="Linie_x0020_1"
+         d="m 32,0 c 0,1.71 0.93,3.46 0.39,5.04 C 24.12,29.27 28.22,37.71 59.58,31.7 61.02,31.42 62.5,32 64,32"
+         id="path32855"
+         style="opacity:0.75;fill:none;stroke:#ffffff;stroke-width:3;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Linie_2-7"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="Linie_x0020_2"
+         d="m 32,0 c 0,1.71 0.93,3.46 0.39,5.04 C 24.12,29.27 28.22,37.71 59.58,31.7 61.02,31.42 62.5,32 64,32"
+         id="path32858"
+         style="opacity:0.45;fill:none;stroke:#ffffff;stroke-width:8;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Linie_3-69"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="Linie_x0020_3"
+         d="m 32,0 c 0,1.71 0.93,3.46 0.39,5.04 C 24.12,29.27 28.22,37.71 59.58,31.7 61.02,31.42 62.5,32 64,32"
+         id="path32861"
+         style="opacity:0.45;fill:none;stroke:#ffffff;stroke-width:16;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Land-6"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="st1"
+         d="m 32,0 c 0,1.71 0.93,3.46 0.39,5.04 C 24.12,29.27 28.22,37.71 59.58,31.7 61.02,31.42 62.5,32 64,32 V 0 Z"
+         id="path32864"
+         style="fill:#95c11f;stroke:#95c11f;stroke-width:0.2;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Seen-88"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="st2"
+         d="m 37.44,13.77 c 0.13,6.66 1.79,8.32 -0.13,9.99 -1.92,1.67 -1.92,2.82 -0.51,3.84 1.41,1.02 14.81,0.49 15.24,-2.69 1.53,-11.4 -14.73,-17.8 -14.6,-11.14 z"
+         id="path32867"
+         style="fill:#009fe3;stroke:#ffffff;stroke-width:0.2;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Utensilien-92"
+       transform="translate(280.85602,355.68209)">
+      <path
+         class="st3"
+         d="m 28.55,39.3 c -0.42,0.28 -0.85,0.46 -1.21,0.5 0.04,-0.37 0.22,-0.79 0.5,-1.21 -0.03,-0.74 -0.34,-4.48 -3.8,-6.1 3.63,1.21 4.91,3.97 5.2,4.74 0.39,-0.24 0.78,-0.4 1.11,-0.44 -0.04,0.34 -0.2,0.72 -0.44,1.11 0.77,0.29 3.53,1.57 4.74,5.2 -1.62,-3.46 -5.36,-3.77 -6.1,-3.8 z m -1.79,1.83 c 0.33,-0.46 0.54,-0.93 0.58,-1.33 -0.4,0.05 -0.87,0.26 -1.33,0.58 z"
+         id="path32870"
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.5669;stroke-miterlimit:10" />
+      <path
+         class="st3"
+         d="m 16.41,36.4 c -0.42,0.28 -0.85,0.46 -1.21,0.5 0.04,-0.37 0.22,-0.79 0.5,-1.21 -0.03,-0.74 -0.34,-4.48 -3.8,-6.1 3.63,1.21 4.91,3.97 5.2,4.74 0.39,-0.24 0.77,-0.4 1.11,-0.44 -0.04,0.34 -0.2,0.72 -0.44,1.11 0.77,0.29 3.53,1.57 4.74,5.2 -1.62,-3.46 -5.36,-3.77 -6.1,-3.8 z m -1.79,1.84 c 0.33,-0.46 0.54,-0.93 0.58,-1.33 -0.4,0.05 -0.87,0.26 -1.33,0.58 z"
+         id="path32872"
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.5669;stroke-miterlimit:10" />
+      <path
+         class="st3"
+         d="m 25.63,53.38 c -0.42,0.28 -0.85,0.46 -1.21,0.5 0.04,-0.37 0.22,-0.79 0.5,-1.21 -0.03,-0.74 -0.34,-4.48 -3.8,-6.1 3.63,1.21 4.91,3.97 5.2,4.74 0.39,-0.24 0.77,-0.4 1.11,-0.44 -0.04,0.34 -0.2,0.72 -0.44,1.11 0.77,0.29 3.53,1.57 4.74,5.2 -1.62,-3.46 -5.36,-3.78 -6.1,-3.8 z m -1.79,1.83 c 0.33,-0.46 0.54,-0.93 0.58,-1.33 -0.4,0.05 -0.87,0.26 -1.33,0.58 z"
+         id="path32874"
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.5669;stroke-miterlimit:10" />
+    </g>
+    <g
+       id="Bäume-8"
+       transform="translate(280.85602,355.68209)" />
+  </g>
+  <line
+     style="fill: rgb(216, 216, 216); stroke: rgb(48, 48, 48);"
+     x1="-8"
+     y1="64"
+     x2="136"
+     y2="64"
+     id="line9151" />
+  <line
+     style="fill: rgb(216, 216, 216); stroke: rgb(48, 48, 48);"
+     x1="-9.16"
+     y1="67.34"
+     x2="134.84"
+     y2="67.34"
+     transform="matrix(0, 1, -1, 0, 131.34, 1.16)"
+     id="line9153" />
+</svg>

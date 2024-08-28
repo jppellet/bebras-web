@@ -1,0 +1,165 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2022 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2022-KR-03 Recette de hamburger}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2022-KR-03 Recette de hamburger}
+
+
+\subsection*{Body}
+
+Le castor Jess prépare des hamburgers. Il suit pour cela trois règles:
+
+\begin{enumerate}
+  \item La sauce est mise directement sur la viande.
+  \item La viande et le fromage sont mis sous les cornichons, la salade et les oignons.
+  \item Les oignons ne touchent pas le pain.
+\end{enumerate}
+
+\textbf{Ingrédients des hamburgers:}
+
+\begin{tabular}{ @{} c c c c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{pain}} & {\setstretch{1.0}\thead[cb]{viande}} & {\setstretch{1.0}\thead[cb]{sauce}} & {\setstretch{1.0}\thead[cb]{cornichons}} & {\setstretch{1.0}\thead[cb]{salade}} & {\setstretch{1.0}\thead[cb]{oignons}} & {\setstretch{1.0}\thead[cb]{fromage}} \\ 
+\midrule
+  \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_bread.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_meat.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_sauce.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_cucumber.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_salad.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_onion.svg}} & \makecell[c]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-taskbody_cheese.svg}}
+\end{tabular}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Lequel des hamburgers a été préparé en suivant les trois règles?
+
+}
+
+
+\subsection*{Interactivity Instructions}
+
+
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerB.svg}} & C) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerD.svg}}
+\end{tabularx}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La bonne réponse est D.
+\raisebox{-0.5ex}{\includesvg[scale=0.2]{\taskGraphicsFolder/graphics/2022-KR-03-answerD.svg}}
+
+Pour trouver la solution, nous devons regarder si chaque hamburger a été préparé en suivant les trois règles.
+
+A) Ce hamburger correspond aux règles $1$ et $2$, mais les oignons touchent le pain du haut. Il ne respecte donc pas la règle $3$.
+
+B) Ce hamburger correspond à la règle $1$, mais la salade est sous la viande et le fromage. Il ne respecte donc pas la règle $2$.
+
+C) Ce hamburger correspond à la règle $2$, car la viande et le fromage sont sous les cornichons, la salade et les oignons. Il correspond aussi à la règle $3$, car les oignons ne touchent pas le pain. Par contre, la sauce n’est pas directement sur la viande; il ne respecte donc pas la règle $1$.
+
+D) Ce hamburger respecte toutes les règles. Le hamburger D est donc un vrai hamburger de castor.
+
+
+\subsection*{It’s Informatics}
+
+Les hamburgers de cet exercice sont préparés en suivant trois règles. Castor Jess doit suivre chacune des trois règles pour chaque hamburger qu’il prépare. Si l’une des règles n’est pas respectée, il ne s’agit pas d’un vrai hamburger de castor. Chacune des règles est une condition qui doit être remplie pour que le hamburger soit un hamburger de castor.
+
+En informatique, il faut souvent vérifier des conditions ou \emph{contraintes} (\emph{Constraint Checking}) pour savoir si une solution respecte toutes les règles données. Lors de cette vérification, toutes les règles sont reliées par \emph{et}, ce qui veut dire que toutes les règles (les contraintes) doivent être respectées en même temps.
+
+La vérification qu’une solution satisfait l’ensemble des contraintes est fondamentalement différente de la recherche de solution. On appelle cela un \emph{problème de satisfaction de contraintes}. Il est souvent beaucoup plus difficile de trouver une solution qui satisfait toutes les contraintes que de vérifier si une solution les satisfait, même pour un ordinateur.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Programmation par contraintes: \href{https://fr.wikipedia.org/wiki/Programmation_par_contraintes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_par\_contraintes}}
+  \item Problème de satisfaction de contraintes: \href{https://fr.wikipedia.org/wiki/Probl\%C3\%A8me_de_satisfaction_de_contraintes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Problème\_de\_satisfaction\_de\_contraintes}}
+  \item ET (fonction logique): \href{https://fr.wikipedia.org/wiki/Fonction_ET}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_ET}}
+  \item NP (complexité): \href{https://fr.wikipedia.org/wiki/NP_(complexit\%C3\%A9)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/NP\_(complexité)}}
+\end{itemize}
+
+
+}
+\end{document}

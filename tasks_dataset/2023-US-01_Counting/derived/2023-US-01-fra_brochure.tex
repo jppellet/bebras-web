@@ -1,0 +1,124 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{3}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Randonnée}
+\renewcommand{\taskCountry}{US}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Pendant ses vacances, Mia aime faire des randonnées où elle dort chaque nuit à un endroit différent. Mia a une carte de la région de ses prochaines vacances. La carte montre son point de départ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}}, son but \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}} et tous les endroits où elle peut passer la nuit \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-US-01-haus.svg}}.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/2023-US-01-question-deu.svg}\par}
+
+Mia a divisé la région en sections à l’aide de lignes traitillées. Elle ne peut parcourir qu’une ou deux régions par jour en marchant. Elle a déjà noté deux des randonnées qu’elle peut faire sur la carte:
+
+\begin{itemize}
+  \item La randonnée $1$ dure trois nuits,
+  \item La randonnée $2$ dure quatre nuits.
+\end{itemize}
+
+Mia peut encore faire d’autres randonnées.
+
+
+
+% question (as \emph{})
+{\em
+Combien de randonnées différentes Mia peut-elle faire? Compte aussi les randonnées 1 et 2.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+A) $2$ randonnées
+
+B) $3$ randonnées
+
+C) $4$ randonnées
+
+D) $5$ randonnées
+
+E) $6$ randonnées
+
+F) $7$ randonnées
+
+G) $8$ randonnées
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est E) $6$ randonnées.
+
+{\centering%
+\includesvg[width=0.9\linewidth]{\taskGraphicsFolder/graphics/2023-US-01-explanation-deu.svg}\par}
+
+D’abord, nous constatons que Mia doit passer la nuit à \textbf{B} et \textbf{C}, car la distance entre ces deux endroits ($2$) est la distance maximale qu’elle peut parcourir en un jour. Mia n’a donc qu’une possibilité de faire le chemin entre \textbf{B} et \textbf{C}.
+
+Nous pouvons maintenant calculer le nombre de possibilités pour les autres parties de sa randonnée: Mia peut faire le chemin du départ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2023-US-01-start.svg}} à \textbf{B} en une fois ou passer la nuit à \textbf{A}, ce sont deux possibilités (comme pour les randoonnées $1$ et $2$). Mia doit parcourir trois sections entre \textbf{C} et le but \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}} et elle peut passer la nuit à chacun des deux endroits \textbf{D} et \textbf{E}. Elle peut donc diviser le chemin en toutes les combinaisons possibles d’une et deux sections:
+
+\begin{adjustwidth}{1.5em}{0em}
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};  \\
+\textbf{C \ensuremath{\rightarrow} E \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}};      \\
+\textbf{C \ensuremath{\rightarrow} D \ensuremath{\rightarrow} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=28.9px]{\taskGraphicsFolder/graphics/2023-US-01-end.svg}}}.
+\end{adjustwidth}
+
+Le nombre total de randonnées que Mia peut faire est donc ${2 \times 1 \times 3 = 6}$.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Parfois, le nombre total de possibilités de compléter une tâche est très grand. Il y a par exemple environ $14$ millions de possibilités de tirer $6$ nombres différents parmi les nombres entre $1$ et $49$. Et il y a environ un demi-milliard de possibilités d’écrire les nombres de $1$ à $12$ dans des ordres différents. Même un ordinateur a besoin d’un peu de temps pour le faire.
+
+Dans cet exercice du Castor, heureusement qu’il n’y a pas de possibilité de passer la nuit après la troisième section et que l’on peut ainsi diviser l’exercice en trois parties! Le problème est ainsi partagé en trois plus petits problèmes. En informatique, des méthodes divisant un problème en sous-problèmes sont souvent utilisées lors de la conception d’algorithmes. Ce principe est aussi connu sous le nom de \emph{diviser pour régner}.
+
+Plusieurs algorithmes de tri importants fonctionnent d’après ce principe. La \emph{programmation dynamique}, une méthode de résolution algorithmique de problèmes d’optimisation (décrite par Richard Bellman en $1957$), se base aussi sur ce principe: si l’on voit que la solution optimale d’un problème est composée des solutions optimales de sous-problèmes, on peut l’utiliser et commencer “petit”. On calcule d’abord directement les solutions des plus petits sous-problèmes, puis on utilise les solutions pour résoudre les problèmes plus grands, et ainsi de suite jusqu’à trouver la solution du problème complet. Comme les solutions de sous-problèmes peuvent souvent être utilisées pour résoudre plusieurs problèmes plus grands, elles sont enregistrées pour éviter de devoir répéter les mêmes calculs. La programmation dynamique peut aussi être utile pour compter le nombre de solutions possibles à un problème donné.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Diviser pour régner: \href{https://fr.wikipedia.org/wiki/Diviser_pour_r\%C3\%A9gner_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Diviser\_pour\_régner\_(informatique)}}
+  \item Programmation dynamique: \href{https://fr.wikipedia.org/wiki/Programmation_dynamique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Programmation\_dynamique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorSchrijversE{} % \ifdefined\AuthorSchrijversE \BrochureFlag{us}{} Eljakim Schrijvers\fi
+\def\AuthorStijfA{} % \ifdefined\AuthorStijfA \BrochureFlag{nl}{} Alieke Stijf\fi
+\def\AuthorDauksaiteJ{} % \ifdefined\AuthorDauksaiteJ \BrochureFlag{nl}{} Justina Dauksaite\fi
+\def\AuthorWillekesK{} % \ifdefined\AuthorWillekesK \BrochureFlag{nl}{} Kyra Willekes\fi
+\def\AuthorKamperM{} % \ifdefined\AuthorKamperM \BrochureFlag{nl}{} Merel Kämper\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

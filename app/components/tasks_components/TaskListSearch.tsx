@@ -1,31 +1,31 @@
-"use client";
+"use client"
 
-import qs from "query-string";
-import { useSearchParams, useRouter } from "next/navigation";
-import { ChangeEvent, useState, KeyboardEvent } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BsGearWideConnected } from "react-icons/bs";
-import { RxCross2 } from "react-icons/rx";
-import Button from "../Button";
+import Button from "@/app/components/Button"
+import { useRouter, useSearchParams } from "next/navigation"
+import qs from "query-string"
+import { ChangeEvent, KeyboardEvent, useState } from "react"
+import { AiOutlineSearch } from "react-icons/ai"
+import { BsGearWideConnected } from "react-icons/bs"
+import { RxCross2 } from "react-icons/rx"
 
-const SEARCH_KEY = "search";
+const SEARCH_KEY = "search"
 
 export default function TaskListSearch() {
-  const router = useRouter();
-  const params = useSearchParams();
+  const router = useRouter()
+  const params = useSearchParams()
 
-  const currentSearch = params.get(SEARCH_KEY);
+  const currentSearch = params.get(SEARCH_KEY)
   const [searchText, setSearchText] = useState(
     currentSearch ? currentSearch : ""
-  );
+  )
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setSearchText(event.target.value);
+    setSearchText(event.target.value)
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
-      pushSearchParams(searchText);
+      pushSearchParams(searchText)
     }
   }
 
@@ -33,7 +33,7 @@ export default function TaskListSearch() {
     const query = {
       ...qs.parse(params.toString()),
       search: value,
-    };
+    }
 
     const url = qs.stringifyUrl(
       {
@@ -41,8 +41,8 @@ export default function TaskListSearch() {
         query: query,
       },
       { skipNull: true, skipEmptyString: true }
-    );
-    router.push(url);
+    )
+    router.push(url)
   }
 
   return (
@@ -74,5 +74,5 @@ export default function TaskListSearch() {
         />
       </div>
     </div>
-  );
+  )
 }

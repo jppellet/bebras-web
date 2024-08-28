@@ -1,0 +1,107 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Arbres digitaux}
+\renewcommand{\taskCountry}{AT}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Un arbre digital est fait de tronçons d’arbre comme celui-ci: \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=5.1px]{\taskGraphicsFolder/graphics/2020-AT-01_taskbody1-compatible.svg}}.
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Il pousse étape par étape d’après une règle de croissance définie. & \multirow{2}{*}{\makecell[l]{\includesvg[width=185.4px]{\taskGraphicsFolder/graphics/2020-AT-01_taskbody_example1-compatible.svg}}} \\ 
+  La règle de croissance indique de quelle manière un tronçon est remplacé par une structure composée de nouveaux tronçons. Lors de chaque étape, chaque tronçon est remplacé de cette manière. Une pointe de flèche indique où et dans quelle direction les tronçons sont assemblés. \\ 
+  Les exemples à droite montrent deux règles de croissance et les deux premières étapes de croissance correspondantes. & \makecell[l]{\includesvg[width=185.4px]{\taskGraphicsFolder/graphics/2020-AT-01_taskbody_example2-compatible.svg}}
+\end{tabularx}
+
+L’arbre suivant a poussé en trois étapes:
+
+{\centering%
+\includesvg[width=157.3px]{\taskGraphicsFolder/graphics/2020-AT-01_taskbody6-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+D’après quelle règle de croissance l’arbre digital a-t-il poussé?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L r L r L @{} }
+  A) & \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerA.svg}} & B) & \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerB.svg}} & C) & \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerC.svg}} & D) & \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B) \raisebox{-0.5ex}{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerB.svg}}.
+
+\begin{tabularx}{\columnwidth}{ @{} l l J @{} }
+  {\setstretch{1.0}\thead[lb]{Règle de \\ croissance}} & {\setstretch{1.0}\thead[lb]{Trois étapes \\ de croissance}} & {\setstretch{1.0}\thead[lb]{Description}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerA.svg}} & \makecell[l]{\includesvg[width=98.9px]{\taskGraphicsFolder/graphics/2020-AT-01_explanationA-compatible.svg}} & Le reste de l’arbre est toujours ajouté à la branche dirigée tout droit vers le haut. Il se forme ainsi un tronc droit avec des branches toutes orientées à gauche. \\ 
+  \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerB.svg}} & \makecell[l]{\includesvg[width=149.4px]{\taskGraphicsFolder/graphics/2020-AT-01_explanationB-compatible.svg}} & Le reste de l’arbre est toujours ajouté à la branche dirigée vers la gauche et le haut. L’arbre est donc penché vers la gauche. \\ 
+  \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerC.svg}} & \makecell[l]{\includesvg[width=149.4px]{\taskGraphicsFolder/graphics/2020-AT-01_explanationC-compatible.svg}} & Le reste de l’arbre est toujours ajouté à la branche du milieu. Les deux branchements à gauche et à droite génèrent une structure régulière et symétrique. \\ 
+  \makecell[l]{\includesvg[width=50.5px]{\taskGraphicsFolder/graphics/2020-AT-01_answerD.svg}} & \makecell[l]{\includesvg[width=163.1px]{\taskGraphicsFolder/graphics/2020-AT-01_explanationD-compatible.svg}} & Le reste de l’arbre est toujours ajouté à la branche dirigée vers la droite et le haut. L’arbre est donc penché vers la droite.
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, on voit comment l’application répétée de règles simples peuvent générer des structures compliquées. De telles figures formées de parties semblables à la figure complète sont aussi appelées des \emph{fractales}. En informatique, on recourt très souvent aux fractales, par exemple pour créer des paysages ou des effets spéciaux pour des films.
+
+En biologie, on utilise ce qu’on appelle des \emph{systèmes de Lindenmayer} (ou \emph{L-systèmes}) pour simuler la croissance des plantes. Ce système génère également des fractales. Dans cet exercice, nous avons vu des exemples très simples de L-systèmes.
+
+Les arbres dans cet exercice sont générés par l’application d’une règle sur chaque tronçon d’arbre, puis à nouveau sur chaque tronçon ainsi généré, et ainsi de suite. De tels procédés sont appelés \emph{récursifs}. La concept de la récursivité est important en informatique. Grâce à la récursivité, il est possible de décrire de manière très simple beaucoup de choses compliquées.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Fractale: \href{https://fr.wikipedia.org/wiki/Fractale}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fractale}}
+  \item L-système: \href{https://fr.wikipedia.org/wiki/L-Syst\%C3\%A8me}{\BrochureUrlText{https://fr.wikipedia.org/wiki/L-Système}}, \href{http://paulbourke.net/fractals/lsys/}{\BrochureUrlText{http://paulbourke.net/fractals/lsys/}}
+  \item Récursivité: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9cursivit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Récursivité}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

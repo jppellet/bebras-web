@@ -1,0 +1,127 @@
+{
+    "id": "2023-PE-02",
+    "title": "Le village de Martina",
+    "ages": {
+        "0": "--",
+        "1": "--",
+        "2": "hard",
+        "3": "medium",
+        "4": "easy",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "--",
+        "10-12": "hard",
+        "12-14": "medium",
+        "14-16": "easy",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice with images",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "2*.svg by Alisher Ikramov, refinded by Susanne Datzko",
+            "file_pattern": "2*.svg",
+            "authors": [
+                "Alisher Ikramov",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Juan Gutiérrez, jgutierreza@utec.edu.pe, Peru (author)",
+            "name": "Juan Gutiérrez",
+            "country": "Peru",
+            "country_code": "PE",
+            "roles": [
+                "author"
+            ],
+            "email": "jgutierreza@utec.edu.pe"
+        },
+        {
+            "src": "Carlos Luna, carlos.luna@generaciontec.com, Peru (contributor)",
+            "name": "Carlos Luna",
+            "country": "Peru",
+            "country_code": "PE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "carlos.luna@generaciontec.com"
+        },
+        {
+            "src": "Kirsten Schlüter, kirsten.schlueter@sonnwendjoch.de, Germany (contributor)",
+            "name": "Kirsten Schlüter",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "kirsten.schlueter@sonnwendjoch.de"
+        },
+        {
+            "src": "Giovanni Serafini, serafini@inf.ethz.ch, Switzerland (contributor)",
+            "name": "Giovanni Serafini",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "contributor"
+            ],
+            "email": "serafini@inf.ethz.ch"
+        },
+        {
+            "src": "Alisher Ikramov, ikramov.alisher@list.ru, Uzbekistan (graphics)",
+            "name": "Alisher Ikramov",
+            "country": "Uzbekistan",
+            "country_code": "UZ",
+            "roles": [
+                "graphics"
+            ],
+            "email": "ikramov.alisher@list.ru"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.de, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.de"
+        },
+        {
+            "src": "Elsa Pellet, elsa.pellet@gmx.net, Switzerland (translation from German into French)",
+            "name": "Elsa Pellet",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into French"
+            ],
+            "email": "elsa.pellet@gmx.net"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.4
+    },
+    "name": "Thomas and his friends",
+    "difficulties": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        0
+    ],
+    "lang_code": "fra",
+    "lang": "French",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "PE",
+        "country": "Peru",
+        "num": 2
+    }
+}

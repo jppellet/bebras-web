@@ -1,0 +1,173 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{3}
+\setcounter{taskAgeDifficulty7to8}{2}
+\setcounter{taskAgeDifficulty9to10}{1}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Que la lumière soit!}
+\renewcommand{\taskCountry}{AU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le jeu “Que la lumière soit!” est composé de $8$ interrupteurs pouvant être actifs ou inactifs. Des fils relient ces interrupteurs à un panneau publicitaire lumineux en passant par différents composants.
+
+{\centering%
+\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody01.svg}\par}
+
+Les fils sortant des interrupteurs sont actifs lorsque l’interrupteur correspondant est allumé. La sortie du composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}} est active seulement lorsque les deux fils entrants sont actifs. La sortie du composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}} est active seulement lorsqu’un seul des deux fils entrants est actif.
+
+
+
+% question (as \emph{})
+{\em
+Quels interrupteurs doivent être allumés \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation03.svg}} afin d’allumer le panneau publicitaire?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Une des solutions possibles est la suivante:
+
+{\centering%
+\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation01.svg}\par}
+
+On arrive facilement à la solution en commençant à résoudre le problème par la fin. Le fil $1$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}}. Pour que la sortie de ce composant soit \emph{active}, les deux fils entrants, $2$ et $3$, doivent être \emph{actifs}.
+
+\begin{itemize}
+  \item Le fil $2$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}}. Pour que sa sortie soit \emph{active}, les deux fils entrants, $3$ et $4$, doivent être \emph{actifs}.
+  \item Le fil $3$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}}. Pour que sa sortie soit \emph{active}, seul l’un des deux fils entrants peut être \emph{actif}, par exemple le fil $7$. Le fil $6$ doit alors être \emph{inactif}.
+  \item Le fil $4$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}}. Pour que sa sortie soit \emph{active}, les deux fils entrants, $8$ et $9$, doivent être \emph{actifs}; les deux interrupteurs A et B doivent donc aussi être \emph{allumés}: \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation03.svg}}.
+  \item Le fil $5$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}}. Pour que sa sortie soit \emph{active}, seul l’un des deux fils entrants peut être \emph{actif}, par exemple le fil $11$. Le fil $10$ doit alors être \emph{inactif}. L’interrupteur C doit donc être \emph{éteint} \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation02.svg}} et l’interrupteur D \emph{allumé} \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation03.svg}}.
+  \item Le fil $6$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}}. Pour que sa sortie soit \emph{inactive}, au moins l’un des deux fils entrants, $12$ et $13$, doit être \emph{inactif}; les deux interrupteurs E et F peuvent donc être les deux \emph{éteints}: \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation02.svg}}.
+  \item Le fil $7$ est relié à un composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}}. Pour que sa sortie soit \emph{active}, seul l’un des deux fils entrants peut être \emph{actif}, par exemple le fil $15$. Le fil $14$ doit alors être \emph{inactif}. L’interrupteur G doit donc être \emph{éteint} \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation02.svg}} et l’interrupteur H \emph{allumé} \raisebox{-0.5ex}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-explanation03.svg}}.
+\end{itemize}
+
+Les composants \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}} laissent des alternatives, car ils permettent de décider lequel des deux fils entrants est \emph{actif}. De plus, pour le composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}} avec fil $6$ sortant, on peut décider si aucun des deux fils entrants ou seul l’un des deux est \emph{inactif} afin que la sortie reste \emph{inactive}. Si la sortie du composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}} est \emph{active}, les deux fils entrants doivent également être \emph{actifs}, les deux entrées du composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}} avec le fil $7$ sortant doivent être soit les deux \emph{actifs}, soit les deux \emph{inactifs}. Cela donne au total $16$ différentes combinaisons possibles:
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ @{} c c c c c c c c c c @{} }
+  \multicolumn{8}{c}{{\setstretch{1.0}\thead[cb]{Interrupteur}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Fil}}} \\ 
+\midrule
+  {\setstretch{1.0}\thead[cb]{A}} & {\setstretch{1.0}\thead[cb]{B}} & {\setstretch{1.0}\thead[cb]{C}} & {\setstretch{1.0}\thead[cb]{D}} & {\setstretch{1.0}\thead[cb]{E}} & {\setstretch{1.0}\thead[cb]{F}} & {\setstretch{1.0}\thead[cb]{G}} & {\setstretch{1.0}\thead[cb]{H}} & {\setstretch{1.0}\thead[cb]{6}} & {\setstretch{1.0}\thead[cb]{7}} \\ 
+\midrule
+  \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Toujours \\ \emph{allumés}}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Un seul \\ \emph{allumé}}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Les deux \emph{allumés} si \\ fil 6 \emph{actif}, sinon \\ au plus un \emph{allumé}}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Un seul \emph{allumé} si fil 7 \\ \emph{actif}, sinon les deux \\ \emph{allumés} ou \emph{éteints}}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Un seul \\ \emph{actif}}}} \\ 
+\midrule
+  allumé & allumé & allumé & éteint & allumé & allumé & allumé & allumé & actif & inactif \\ 
+  allumé & allumé & éteint & allumé & allumé & allumé & allumé & allumé & actif & inactif \\ 
+  allumé & allumé & allumé & éteint & allumé & allumé & éteint & éteint & actif & inactif \\ 
+  allumé & allumé & éteint & allumé & allumé & allumé & éteint & éteint & actif & inactif \\ 
+  allumé & allumé & allumé & éteint & allumé & éteint & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & allumé & éteint & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & allumé & éteint & allumé & éteint & éteint & allumé & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & allumé & éteint & éteint & allumé & inactif & actif \\ 
+  allumé & allumé & allumé & éteint & éteint & allumé & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & éteint & allumé & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & allumé & éteint & éteint & allumé & éteint & allumé & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & éteint & allumé & éteint & allumé & inactif & actif \\ 
+  allumé & allumé & allumé & éteint & éteint & éteint & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & éteint & éteint & allumé & éteint & inactif & actif \\ 
+  allumé & allumé & allumé & éteint & éteint & éteint & éteint & allumé & inactif & actif \\ 
+  allumé & allumé & éteint & allumé & éteint & éteint & éteint & allumé & inactif & actif
+\end{tabular}
+
+
+}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le courant peut passer ou non à travers les fils de cet exercice, les interrupteurs sont donc soit éteints, soit allumés. En informatique, de tels états représentent les valeurs de \emph{variables booléennes}, qui sont souvent nommés \emph{VRAI} et \emph{FAUX} ou \emph{1} et \emph{0}.
+
+Les ordinateurs actuels fonctionnent en règle générale uniquement avec ces variables, comme le jeu de cet exercice. Cela vient entre autre du fait que des milliards de \emph{transistors} dont l’état est aussi \emph{actif} ou \emph{inactif} sont présents au cœur de l’ordinateur.
+
+On peut construire des portes logiques avec plusieurs transistors. Deux de ces portes sont présentes dans cet exercice: le composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody03.svg}} est une \emph{porte ET} dont la sortie est VRAI lorsque les deux entrées sont VRAI.   Le composant \raisebox{\dimexpr -0.5ex -0.6ex \relax}{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AU-03-taskbody02.svg}} est une \emph{porte OU exclusif} dont la sortie est VRAI lorsqu’exactement une des deux entrées est VRAI. On peut aussi les représenter dans une \emph{table de vérité}:
+
+\begin{tabular}{ @{} c c c c c c @{} }
+  \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Entrées}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Porte ET}}} & \multicolumn{2}{c}{{\setstretch{1.0}\thead[cb]{Porte OU exclusif}}} \\ 
+\midrule
+  {\setstretch{1.0}\thead[cb]{Entrée A}} & {\setstretch{1.0}\thead[cb]{Entrée B}} & {\setstretch{1.0}\thead[cb]{Image}} & {\setstretch{1.0}\thead[cb]{Sortie C}} & {\setstretch{1.0}\thead[cb]{Image}} & {\setstretch{1.0}\thead[cb]{Sortie C}} \\ 
+\midrule
+  VRAI & VRAI & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-AND11.svg}} & VRAI & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-OR11.svg}} & FAUX \\ 
+  VRAI & FAUX & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-AND10.svg}} & FAUX & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-OR10.svg}} & VRAI \\ 
+  FAUX & VRAI & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-AND01.svg}} & FAUX & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-OR01.svg}} & VRAI \\ 
+  FAUX & FAUX & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-AND00.svg}} & FAUX & \makecell[c]{\includesvg[scale=0.15]{\taskGraphicsFolder/graphics/2022-AT-03-itsinformatics-OR00.svg}} & FAUX
+\end{tabular}
+
+D’autres portes répandues sont la \emph{porte OU}, dont la sortie est VRAI lorsqu’au moins l’un des deux entrées est VRAI, et la \emph{porte NON}, dont la sortie est VRAI lorsque l’entrée est FAUX. Souvent, on utilise des combinaisons de portes ET et de porte NON dans la construction de circuits, car cela demande peu de transistors. Les tables de vérité sont:
+
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Entrée A}} & {\setstretch{1.0}\thead[cb]{Entrée B}} & {\setstretch{1.0}\thead[cb]{Sortie porte OU}} & {\setstretch{1.0}\thead[cb]{Sortie porte NON-ET}} \\ 
+\midrule
+  VRAI & VRAI & VRAI & FAUX \\ 
+  VRAI & FAUX & VRAI & VRAI \\ 
+  FAUX & VRAI & VRAI & VRAI \\ 
+  FAUX & FAUX & FAUX & VRAI
+\end{tabular}
+
+\begin{tabular}{ @{} c c @{} }
+  {\setstretch{1.0}\thead[cb]{Entrée}} & {\setstretch{1.0}\thead[cb]{Sortie porte NON}} \\ 
+\midrule
+  VRAI & FAUX \\ 
+  FAUX & VRAI
+\end{tabular}
+
+Un ordinateur peut effectuer des calculs compliqués très rapidement en utilisant des combinaisons de \emph{portes logiques} adaptées.
+
+À un plus haut niveau, les portes logiques sont aussi utilisées en programmation: lorsque l’exécution d’une partie de programme dépend de plusieurs conditions, ces conditions peuvent être décrites par des combinaisons d’\emph{opérateurs logiques} qui fonctionnent de la même manière que les portes logiques. On les trouve dans les programmes informatiques; parfois, un ordinateur doit décider quelle action exécuter sur la base de ce qui a eu lieu précédemment.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Variable booléenne: \href{https://fr.wikipedia.org/wiki/Bool\%C3\%A9en}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Booléen}}
+  \item Transistor: \href{https://fr.wikipedia.org/wiki/Transistor}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Transistor}}
+  \item Électronique numérique: \href{https://fr.wikipedia.org/wiki/\%C3\%89lectronique_num\%C3\%A9rique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Électronique\_numérique}}
+  \item Porte ET: \href{https://fr.wikipedia.org/wiki/Fonction_ET}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_ET}}
+  \item Porte OU exclusif: \href{https://fr.wikipedia.org/wiki/Fonction_NON-ET}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_NON-ET}}
+  \item Table de vérité: \href{https://fr.wikipedia.org/wiki/Table_de_v\%C3\%A9rit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Table\_de\_vérité}}
+  \item Porte OU: \href{https://fr.wikipedia.org/wiki/Fonction_OU}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_OU}}
+  \item Porte NON: \href{https://fr.wikipedia.org/wiki/Fonction_NON}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_NON}}
+  \item Porte logique: \href{https://fr.wikipedia.org/wiki/Fonction_logique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fonction\_logique}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorGrodeckA{} % \ifdefined\AuthorGrodeckA \BrochureFlag{au}{} Adam Grodeck\fi
+\def\AuthorQuidillaS{} % \ifdefined\AuthorQuidillaS \BrochureFlag{au}{} Susannah Quidilla\fi
+\def\AuthorStijfA{} % \ifdefined\AuthorStijfA \BrochureFlag{nl}{} Alieke Stijf\fi
+\def\AuthorBaumannL{} % \ifdefined\AuthorBaumannL \BrochureFlag{at}{} Liam Baumann\fi
+\def\AuthorSpielerB{} % \ifdefined\AuthorSpielerB \BrochureFlag{ch}{} Bernadette Spieler\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorPluharZ{} % \ifdefined\AuthorPluharZ \BrochureFlag{hu}{} Zsuzsa Pluhár\fi
+\def\AuthorHirschB{} % \ifdefined\AuthorHirschB \BrochureFlag{at}{} Benjamin Hirsch\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

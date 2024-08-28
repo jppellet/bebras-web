@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2021 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2021-KR-02 Jeu de balles}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2021-KR-02 Jeu de balles}
+
+
+\subsection*{Body}
+
+Les castors aimeraient trier des balles par couleur. À la fin, toutes les balles doivent se trouver dans deux verres. Toutes les balles qui se trouvent dans un verre doivent avoir la même couleur. Ils doivent suivre les règles suivantes:
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule01.svg}} Règle $1$: Seule la balle la plus haute d’un verre peut être déplacée dans un autre verre.
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule02.svg}} Règle $2$: Une balle peut toujours être mise dans un verre vide.
+
+\raisebox{\dimexpr -0.5ex -.3ex \relax}{\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-rule03.svg}} Règle $3$: Une balle peut être mise dans un verre non vide uniquement s’il y reste de la place et que la balle en dessous a la même couleur que la balle déplacée.
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-taskbody.svg}\par}
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Trie les balles en les déplaçant d’après les trois règles.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2021-KR-03-question.svg}\par}
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Les balles peuvent être déplacées dans l’ordre suivant:
+
+{\centering%
+\includesvg[scale=0.3]{\taskGraphicsFolder/graphics/2021-KR-03-solution.svg}\par}
+
+Il faut au moins six étapes pour réarranger les balles. Il existe d’autres possibilités de réarranger les balles en seulement six étapes.
+
+
+\subsection*{It’s Informatics}
+
+Dans cet exercice, tu déplaces les balles comme un ordinateur gère les données enregistrées dans une \emph{pile}: il ne peut qu’\emph{empiler} (\emph{push} en anglais) un élément en haut de la pile et \emph{dépiler} (\emph{pop} en anlgais) l’élément du haut de la pile.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2021-KR-03-itsinformatics.svg}\par}
+
+L’ordinateur ne peut accéder aux éléments du bas que si les balles du dessus ont d’abord été retirées. L’élément qui a été enregistré en dernier va être retiré en premier par l’ordinateur. Ce principe est appelé \emph{dernier arrivé, premier sorti} en informatique.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Pile: \href{https://fr.wikipedia.org/wiki/Pile_(informatique)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Pile\_(informatique)}}
+\end{itemize}
+
+
+}
+\end{document}

@@ -1,0 +1,140 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{4}
+\setcounter{taskAgeDifficulty7to8}{4}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Emma erledigt}
+\renewcommand{\taskCountry}{BE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Emma ist zu Hause \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-meinstandort.svg}}.  Sie soll drei Aufgaben erledigen
+und zurückkommen:
+
+\begin{itemize}
+  \item beim Kiosk \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-kiosk.svg}} ein Päckchen abholen,
+  \item auf dem Markt \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-markt.svg}} Obst kaufen und
+  \item in der Apotheke \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-apotheke.svg}} ein Medikament besorgen.
+\end{itemize}
+
+Emma weiss nicht, wie lange sie in jedem Geschäft brauchen wird.
+Aber zumindest ihr Weg soll so kurz wie möglich sein.
+
+Auf einem Plan hat Emma eingetragen, wie viele Minuten sie für die
+Strecken zwischen einzelnen Orten ihrer Stadt benötigt.
+Ausserdem hat sie im Plan markiert, welche Strecke sie auf ihrem Weg geht.
+
+Für diesen Weg benötigt Emma insgesamt ${6 + 3 + 7 + 9 + 3 + 6 + 4 = 38}$ Minuten.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-challenge.svg}\par}
+
+Emma überlegt, ob es noch schneller geht.
+Vielleicht hilft es, manche Strecken hin und zurück zu gehen?
+
+
+
+% question (as \emph{})
+{\em
+Bestimme den kürzesten Weg, den Emma gehen kann, um ihre drei Aufgaben zu erledigen.
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-challengebrochure.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+So ist es richtig:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-deu-solution.svg}\par}
+
+Emma kann so entlang der ausgewählten Strecken gehen (oder in die Gegenrichtung):
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/2023-BE-01-weg.svg}\par}
+
+Für diesen Weg braucht sie ${6 + 3 + 3 + 4 + 4 + 3 + 3 + 6 + 4 = 36}$ Minuten.
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Nun wollen wir begründen, warum es keinen noch kürzeren Weg geben kann. Dazu benutzen wir eine vereinfachte Darstellung des Plans. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph1.svg}} \\ 
+  Die grau gezeichneten Strecken können wir ignorieren. Es gibt kürzere Wege zwischen den durch die Strecken verbundenen Orte, nämlich über andere Orte. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph2.svg}} \\ 
+  Auch den Park können wir ignorieren.  Emma muss nicht zum Park. Zudem gibt es für jeden Weg, der über den Park geht, eine kürzere Alternative. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph3.svg}} \\ 
+  Emma muss zur Apotheke \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-apotheke.svg}} und zum Kiosk \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-kiosk.svg}} gehen.  Dorthin kommt sie jeweils nur von der Bäckerei \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-baeckerei.svg}} bzw. der Schule \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=15.2px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-schule.svg}}. Sie muss jeweils die Strecke zwischen diesen Orten hin- und her gehen. Das dauert jeweils ${3 + 3 = 6}$, ingesamt also $12$ Minuten. Das merken wir uns und fassen nun die beiden Orte oben mit denen darunter zu einem zusammen. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph4.svg}} \\ 
+  Nun bleibt nur noch der Plan rechts übrig.  Start und Ende des Weges ist hier \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=11.5px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-meinstandort.svg}}. Diese drei Orte (\raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=14.4px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-baeckerei.svg}} \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=15.2px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-schule.svg}} \raisebox{\dimexpr -0.5ex -0.2ex \relax}[0pt][0pt]{\includesvg[width=10.8px]{\taskGraphicsFolder/graphics/2023-BE-01-inline-markt.svg}}) müssen besucht werden. Der kürzeste Weg, der das erfüllt, geht über alle fünf Orte und entlang aller Strecken ausser der grauen und dauert ${4 + 6 + 4 + 4 + 6 = 24}$ Minuten. Mit den $12$ Minuten von oben macht das $36$ Minuten. Die vorherigen Überlegungen zeigen, dass es keinen kürzeren Weg geben kann. & \makecell[l]{\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph5.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Für die Begründung der richtigen Antwort wurde eine vereinfachte Darstellung des Plans benutzt.
+Es wäre möglich gewesen, den Plan noch deutlich abstrakter darzustellen:
+
+{\centering%
+\includesvg[scale=0.35]{\taskGraphicsFolder/graphics/graph1-abstract-compatible.svg}\par}
+
+Diese Darstellung enthält alle für Emmas Weg wichtigen Informationen, nämlich
+
+\begin{itemize}
+  \item Objekte: die Orte, wobei die für den Weg wichtigen Orte markiert sind;
+  \item und Beziehungen zwischen den Objekten: die Strecken zwischen den Orten, für die jeweils eine Länge angegeben ist.
+\end{itemize}
+
+Ein wichtiges Werkzeug zur Modellierung von Beziehungen zwischen Objekten sind \emph{Graphen}.
+Graphen bestehen aus Knoten (für die Objekte) und Kanten (Paare von Objekten, für die Beziehungen).
+Emmas Plan lässt sich als \emph{gewichteter Graph} modellieren,
+bei denen die einzelnen Beziehungen mit Zahlenwerten (den \emph{Gewichten}) versehen werden.
+
+Die Informatik interessiert sich für Fragen, die in Bezug auf Graphen gestellt werden können,
+und für Algorithmen, mit denen man die Fragen beantworten kann.
+Eine für gewichtete Graphen bedeutsame Frage lautet:
+Was ist der kürzeste (oder schnellste) Weg zwischen zwei Knoten?
+Die \enquote{Graphen-Frage} in dieser Biberaufgabe ist ähnlich:
+Was ist der kürzeste Rundweg von einem Knoten aus, bei dem eine Menge anderer Knoten besucht werden?
+Die Informatik kennt viele Algorithmen, die kürzeste Wege in Graphen effizient bestimmen können.
+Solche Algorithmen werden zum Beispiel in Software zur Routenplanung implementiert.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Weg (in Graphen): \href{https://de.wikipedia.org/wiki/Weg_(Graphentheorie)}{\BrochureUrlText{https://de.wikipedia.org/wiki/Weg\_(Graphentheorie)}}
+  \item Kürzeste Wege:  Abenteuer Informatik, Kapitel $1$  (\href{http://abenteuer-informatik.de/dasbuch.html}{\BrochureUrlText{http://abenteuer-informatik.de/dasbuch.html}})
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorDatzkoThutS{} % \ifdefined\AuthorDatzkoThutS \BrochureFlag{de}{} Susanne Datzko-Thut\fi
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+
+\newpage}{}

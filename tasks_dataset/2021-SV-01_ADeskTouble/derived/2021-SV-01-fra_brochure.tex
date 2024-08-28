@@ -1,0 +1,118 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Sacrés pupitres}
+\renewcommand{\taskCountry}{SV}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Dans la salle de classe, il y a des pupitres dont la hauteur est réglable électriquement. Tous les pupitres doivent être réglés à $60$ cm pour les cours. La hauteur peut être changée à l’aide des touches \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}}, \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} d’une télécommande. Quelqu’un a joué avec la télécommande et l’a reprogrammée. Maintenant, les trois touches fonctionnent comme cela:
+
+\begin{itemize}
+  \item \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} monte les pupitres $1$, $2$ et $3$ de $10$ cm chacun.
+  \item \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} baisse les pupitres $2$, $3$ et $4$ de $10$ cm chacun.
+  \item \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} monte les pupitres $1$, $3$ et $4$ de $10$ cm chacun.
+\end{itemize}
+
+Ces actions sont exécutées chaque fois que l’on appuie sur le bouton.
+
+En ce moment, les hauteurs des pupitres $1$, $2$, $3$ et $4$ sont de à $10$ cm, $70$ cm, $50$ cm et $80$ cm:
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-taskbody.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Comment peut-on régler la hauteur des quatre pupitres à 60 cm?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L @{} }
+  A) & Appuie $4$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}}, $5$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et $1$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}. \\ 
+  B) & Appuie $5$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}}, $1$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et $0$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}. \\ 
+  C) & Appuie $3$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}}, $4$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et $2$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}. \\ 
+  D) & Appuie $2$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}}, $4$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et $6$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}.
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C) Appuie $3$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} , $4$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et $2$ \ensuremath{\times} sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}.
+
+Tu peux constater que les trois touches de la télécommande changent la hauteur de $10$ cm, donc toujours de la même distance. Deux des touches font monter les pupitres (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}) et seulement un touche les fait descendre (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}}). De plus, chacune des trois touches modifie la hauteur de trois pupitres; il y a donc toujours un pupitre dont la hauteur ne change pas. La touche \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} n’a aucun effet sur le pupitre $1$, on ne peut donc pas le faire descendre.
+
+Le pupitre $1$ est $50$ cm trop bas. On peut en déduire que l’on doit appuyer exactement $5$ fois sur les touches \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} ou \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} (la somme des nombres de fois où les touches \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} sont utilisées doit être égale à $5$). On peut exprimer cela par l’équation ${T + M = 5}$. On peut donc éliminer la solution D), car ${T + M = 8}$ pour cette solution. D’après la suite de touches de la solution D), la pupitre $1$ serait haut de ${10 + 20 + 60 = 90}$ cm, c’est à dire la hauteur de départ ${10}$ cm plus ${2 \ast 10}$ cm pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} plus ${6 \ast 10}$ cm pour \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}}.
+
+le pupitre $2$ est $10$ cm trop haut. \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} n’a pas d’effet sur le pupitre $2$. La bonne solution doit donc satisfaire l’équation ${T - O = -1}$. On peut donc éliminer la solution B), car en l’utilisant, le pupitre $2$ aurait à la fin une hauteur de ${70 + 50 - 10 = 110}$ cm.
+
+Le pupitre $3$ est $10$ cm trop bas, ce qui donne l’équation ${T - O + M = 1}$. Les solutions A) et B) peuvent donc être éliminées. Avec la solution A), le pupitre aurait la même hauteur à la fin qu’au début: ${50 + 40 - 50 + 10 = 50}$ cm; avec la solution B, la hauteur du puptire serait ${50 + 50 - 10 = 90}$ cm. Toutes les solutions excepté la solution C) ont maintenant été éliminées.
+
+Il faut encore vérifier que la solution C) met aussi le pupitre $4$ à la bonne hauteur. Le pupitre $4$ est $20$ cm trop haut et la touche \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} n’a aucun effet sur sa hauteur. Il faut donc appuyer deux fois sur \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonO.svg}} et une fois de plus pour chaque fois que la touche \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} est utilisée. La suite de touches de la solution C) donne la hauteur ${80 - 40 + 20 = 60}$ cm.
+
+Comme on a déjà constaté plus haut que la solution C) permettait de mettre les pupitres $1$, $2$ et $3$ à la bonne hauteur, on est maintenant sûr que cette solution fonctionne.
+
+Un autre moyen de trouver la solution est de résoudre quatre équations linéaires. Pour chaque pupitre, on écrit une équation décrivant quelles touches changent sa hauteur et quelle est le changement de hauteur désiré. Par exemple, la hauteur du pupitre $1$ ne change qu’avec les touches \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonT.svg}} et \raisebox{-0.5ex}[0pt][0pt]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2021-SV-01-buttonM.svg}} et le changement désiré est de ${50}$ cm, ce que l’on peut obtenir en appuyant sur $5$ touches (étant donné que pression sur une touche change la hauteur de ${10}$ cm).
+
+Comme il y a quatre pupitres et trois touches, on obtient quatre équations linéaires avec trois inconnues:
+
+\begin{tabularx}{\columnwidth}{ @{} l J @{} }
+  ${\begin{aligned} T + M &= 5 \\ T - O &= -1 \\ T - O + M &= 1 \\ - O + M &= -2 \end{aligned}}$ & En soustrayant la troisième équation de la première, on obtient ${O = 4}$. en substituant dans la deuxièeme équation, on obtient ${T = 3}$. Toutes les équations sont résolues juste en prenant ${M = 2}$. C’est donc la seule bonne solution.
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice est un problème typique du domaine de l’\emph{optimisation linéaire en nombres entiers}, aussi appelée \emph{programmation linéaire en nombres entiers}. Le problème est donné par un certain nombre de contraintes. Dans ce cas particulier, on peut toutes les formuler sous la forme d’équations linéaires. L’optimisation est un but typique en informatique: on cherche une suite d’action permettant d’arriver à un but prédéfini.
+On pourrait même décrire tout l’exercice par la recherche d’un chemin dans un espace quadridimensionnel avec trois déplacments possibles pour passer du point ${(10,70,50,80)}$ au point ${(60,60,60,60)}$. Cet exercice n’a qu’une solution, mais de tels problèmes ont souvent de multiples solutions, rendant l’optimisation possible. On cherche alors le minimum de la fonction linéaire ${T + M + O}$.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Optimisation linéaire en nombres entiers: \href{https://fr.wikipedia.org/wiki/Optimisation_lin\%C3\%A9aire_en_nombres_entiers}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_linéaire\_en\_nombres\_entiers}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorParadaG{} % \ifdefined\AuthorParadaG \BrochureFlag{sv}{} Gabriela Lourdes Rodríguez Parada\fi
+\def\AuthorSantamariaR{} % \ifdefined\AuthorSantamariaR \BrochureFlag{sv}{} Rodrigo Santamaría\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorKinciusV{} % \ifdefined\AuthorKinciusV \BrochureFlag{lt}{} Vaidotas Kinčius\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

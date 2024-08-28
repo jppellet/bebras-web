@@ -1,0 +1,150 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2020 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2020-UZ-02 L’archipel des castors}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2020-UZ-02 L’archipel des castors}
+
+
+\subsection*{Body}
+
+Dans l’archipel des castors, il y a dix îles qui sont reliées par des ponts, comme sur la carte ci-dessous. Le nombre près de chaque pont indique le poids maximal en tonnes d’un camion pour qu’il puisse le traverser.
+
+Le castor Knuth aimerait amener du sable sur une plage de l’île de Borkum. Il veut donc transporter autant de sable que possible de l’île d’Ameland à l’île de Borkum en un seul voyage. La longueur de la route à parcourir lui est égale, mais il ne veut prendre aucun pont plus d’une fois.
+
+{\em
+
+\subsection*{Question/Challenge}
+
+Quelle route devrait-il emprunter avec son camion pour atteindre Borkum? Dessine-la sur la carte.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-UZ-02_taskbody-interactive-compatible.svg}\par}
+
+}\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+Le poids maximal d’un camion pour ce voyage est de $32$ tonnes. Il suit par exemple la route suivante:
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-UZ-02_explanation1-compatible.svg}\par}
+
+Afin de trouver ce chemin, nous pouvons par exemple commencer par virtuellement enlever tous les ponts de la carte. Nous les trions par capacité de charge. Nous commençons par ajouter à la carte les ponts ayant la plus grande capacité, puis ceux ayant une capacité de charge moindre, et ainsi de suite. Sur la carte suivante, les ponts avec une capacité de charge de $43$, $42$, $41$, $39$, $37$, $36$ et $35$ tonnes sont indiqués en noir.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-UZ-02_explanation2-compatible.svg}\par}
+
+Si l’ajout d’un pont crée un cycle, donc un chemin qui tourne en rond, nous le laissons de côté, car toutes les îles de ce cycle peuvent déjà être atteintes en passant par des ponts avec une plus grande capacité. Dans le diagramme ci-dessous, le pont suivant avec une capacité de charge de $35$ tonnes a été ajouté, mais il ne ferait que raccourcir une route déjà présente.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-UZ-02_explanation3-compatible.svg}\par}
+
+Nous répétons ce procédé jusqu’à ce que toutes les îles soient reliées. Il n’y a maintenant qu’une seule route possible entre chaque paire d’île et le pont avec la plus petite capacité de charge nous indique le poids maximal.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2020-UZ-02_explanation4-compatible.svg}\par}
+
+
+\subsection*{It’s Informatics}
+
+Une application réelle de la solution de l’exercice de l’archipel des castors est d’identifier le “goulot d’étranglement” dans un réseau informatique, c’est-à-dire la vitesse de transfert maximale entre deux ordinateurs dans le réseau. Dans cet exercice, le goulot d’étranglement est le poids maximal d’un camion en route entre deux îles. Celui-ci est déterminé par la capacité de charge du pont le plus faible. Dans un réseau informatique, ce serait la connexion avec la plus petite bande passante.
+
+Pour trouver une solution, on peut comme plus haut commencer par modéliser le réseau, donc le simplifier. Dans notre cas, l’\emph{algorithme de Kruskal} est utilisé pour générer un \emph{arbre couvrant} de poids maximal dans lequel le goulot d’étranglement est apparent.
+
+{\raggedright
+
+\subsection*{Keywords and Websites}
+
+\begin{itemize}
+  \item Graphe: \href{https://fr.wikipedia.org/wiki/Graphe_(math\%C3\%A9matiques_discr\%C3\%A8tes)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Graphe\_(mathématiques\_discrètes)}}
+  \item Arbre couvrant de poids minimal: \href{https://fr.wikipedia.org/wiki/Arbre_couvrant}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Arbre\_couvrant}}
+  \item Algorithme de Kruskal: \href{https://fr.wikipedia.org/wiki/Algorithme_de_Kruskal}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Algorithme\_de\_Kruskal}}
+\end{itemize}
+
+
+}
+\end{document}

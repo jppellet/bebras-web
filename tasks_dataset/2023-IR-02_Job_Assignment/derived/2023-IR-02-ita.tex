@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-IR-02 Assegnazione di lavoro}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-IR-02 Assegnazione di lavoro}
+
+
+\subsection*{Body}
+
+Una scuola di lingue ha in programma quattro corsi estivi.
+Le linee nell’immagine mostrano quale insegnante della scuola è adatto a quale corso.
+
+{\centering%
+\includesvg[width=324.7px]{\taskGraphicsFolder/graphics/2023-IR-02-taskbody.svg}\par}
+
+Un insegnante può insegnare solo un corso.
+Tuttavia, ci sono diversi modi per assegnare un insegnante adatto a ciascun corso.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Assegna un insegnante appropriato a ciascun corso.
+A tal fine, segna la linea tra la persona e il corso.
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+Fa clic su una linea per segnarla. Fa nuovamente clic per rimuovere il contrassegno. Al termine, fa clic su \enquote{Salva risposta}.
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+Interaktive Frage. Der Teilnehmer klickt auf eine Kante und dadurch wird diese hervorgehoben. Der Teilnehmer muss eine gültige Zuteilung für alle Kurse vornehmen. Die Zuteilung ist für diese Situation nicht eindeutig, es gibt mehrere Möglichkeiten für eine Zuordnung.
+
+Zur interaktiven Version alternative Multiple-Choice-Fragen.
+
+Welche Antwort ist falsch?
+
+a) Wenn B, F und G ausfallen, muss ein Kurs ausfallen
+
+b) D wird den Spanischkurs durchführen.
+
+c) E wird den Italienischkurs durchführen.
+
+d) $4$ Lehrer bekommen keinen Sommerkurs zugeteilt.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  D è l’unico insegnante che può insegnare il corso di ungherese. Deve essere assegnato a questo corso e non può insegnare altri corsi. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation01-compatible-ita.svg}} \\ 
+  L’insegnante E è ora l’unico adatto per il corso di spagnolo. Deve essere assegnato a questo corso e non può insegnare altri corsi. & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation02-compatible-ita.svg}} \\ 
+  Per i due corsi rimanenti (inglese e italiano), si può scegliere liberamente. Tuttavia, B e F possono essere assegnati a un solo corso, anche se sono adatti a entrambi & \makecell[l]{\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/-ita/2023-IR-02-explanation03-compatible-ita.svg}}
+\end{tabularx}
+
+Questo dà un totale di $10$ possibilità di assegnare un insegnante adatto a ciascun corso:
+
+\begin{adjustwidth}{1.5em}{0em}
+\begin{tabular}{ @{} c c c c @{} }
+  {\setstretch{1.0}\thead[cb]{Inglese}} & {\setstretch{1.0}\thead[cb]{Italiano}} & {\setstretch{1.0}\thead[cb]{Ungherese}} & {\setstretch{1.0}\thead[cb]{Spagnolo}} \\ 
+\midrule
+  A & B & D & E \\ 
+  A & F & D & E \\ 
+  A & G & D & E \\ 
+  B & F & D & E \\ 
+  B & G & D & E \\ 
+  C & B & D & E \\ 
+  C & F & D & E \\ 
+  C & G & D & E \\ 
+  F & B & D & E \\ 
+  F & G & D & E
+\end{tabular}
+
+
+\end{adjustwidth}
+
+
+\subsection*{This is Informatics}
+
+Un \emph{grafo} è costituito da \emph{nodi} (punti) collegati da \emph{bordi} (linee). Una classe speciale di grafi è costituita dai \emph{grafi bipartiti}: i nodi possono essere suddivisi in due sottoinsiemi separati, in modo che esistano solo bordi tra nodi di sottoinsiemi diversi.
+
+{\centering%
+\includesvg[scale=0.1]{\taskGraphicsFolder/graphics/2023-IR-02-itsinformatics.svg}\par}
+
+La situazione in questo compito può essere rappresentata da un grafo bipartito: Un sottoinsieme è costituito dai corsi e l’altro dai docenti. I grafi bipartiti sono ottimi per modellare e risolvere i problemi di assegnazione. Nella vita di tutti i giorni incontriamo spesso problemi di assegnazione, ad esempio negli orari o nella distribuzione del lavoro ai dipendenti o alle macchine. Per i problemi più piccoli è facile trovare un’assegnazione ottimale; per quelli più grandi, invece, diventa molto complesso in tempi relativamente brevi. Per questo motivo, in informatica sono stati sviluppati diversi algoritmi per trovare il maggior numero possibile di coppie corrispondenti nel minor tempo possibile.
+
+Ad esempio, il cosiddetto problema del matrimonio viene rappresentato anche con l’aiuto di un grafo bipartito. In questo caso, un insieme di uomini che vogliono sposarsi viene confrontato con un insieme di donne che vogliono sposarsi. Lo scopo della procedura è quello di far sposare tutti gli uomini o tutte le donne, tenendo conto dei rispettivi desideri. Il matematico inglese Philip Hall ha formulato le condizioni per cui tale allocazione è possibile nel teorema del matrimonio nel $1935$.
+
+Nella nostra variante, non si tratta di un’assegnazione completa, ma piuttosto di assegnare il maggior numero possibile di nodi di un sottoinsieme (i corsi) a un nodo dell’altro sottoinsieme.
+
+
+\subsection*{This is Computational Thinking}
+
+—
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Grafo bipartito: \href{https://it.wikipedia.org/wiki/Grafo_bipartito}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo\_bipartito}}
+  \item Problema di assegnazione: \href{https://it.wikipedia.org/wiki/Problema_di_assegnazione}{\BrochureUrlText{https://it.wikipedia.org/wiki/Problema\_di\_assegnazione}}
+  \item Programma per la risoluzione del compito: \href{https://www.coding4you.at/dachu_2023/ir02/index.html}{\BrochureUrlText{https://www.coding4you.at/dachu\_2023/ir02/index.html}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Logic
+  \item Decomposition
+\end{itemize}
+
+
+\end{document}

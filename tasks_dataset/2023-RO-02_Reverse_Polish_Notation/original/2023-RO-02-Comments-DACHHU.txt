@@ -1,0 +1,7 @@
+CD: Mention real-life calculators like the HP 35S
+SD: Der kleine Biber muss da nicht rein. Ich finde die Aufgabe zu „trocken“.
+WP: Der Transfer zwischen textueller Notation und Syntaxbaum; das ist ein ziemlich originelles Thema.
+
+lineare Textnotation zu einem Syntax-Baum
+
+Erklärung durch Beispiel

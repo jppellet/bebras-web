@@ -1,0 +1,188 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+\frenchbsetup{ThinColonSpace=true}
+\renewcommand*{\FBguillspace}{\hskip .4\fontdimen2\font plus .1\fontdimen3\font minus .3\fontdimen4\font \relax}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-fra}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-CA-02 Riccas}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-CA-02 Riccas}
+
+
+\subsection*{Body}
+
+Évelyne a cinq images de riccas. Elle écrit des phrases qui les décrivent.
+
+\raisebox{-0.5ex}{\includesvg[width=68.5px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca1.svg}}
+\raisebox{-0.5ex}{\includesvg[width=119.1px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca2.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=83px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca4.svg}}
+\raisebox{-0.5ex}{\includesvg[width=97.4px]{\taskGraphicsFolder/graphics/2023-CA-02-ricca5.svg}}
+
+Son amie Lydia lui montre une sixième image de ricca:
+
+{\centering%
+\includesvg[width=79.4px]{\taskGraphicsFolder/graphics/2023-CA-02-riccaException.svg}\par}
+
+Évelyne remarque alors qu’une de ses phrases sur les riccas est fausse.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Laquelle de ces phrases sur les riccas est fausse?
+
+}
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+A) Tous les riccas ont des dents.
+
+B) Certains riccas ont des ailes.
+
+C) Les riccas ont soit des cornes, soit trois yeux, mais jamais des cornes \emph{et} trois yeux.
+
+D) Si un ricca a exactement deux bras, alors il a aussi exactement deux jambes.
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La réponse D) est la bonne réponse: \emph{Si un ricca a exactement deux bras, alors il a aussi exactement deux jambes.}
+
+La réponse A) est une affirmation qui doit être vraie pour tous les riccas. Si un seul ricca n’avait pas de dents, l’affirmation serait fausse. Comme tous les riccas qu’Évelyne connaît ont des dents, la phrase de la réponse A) n’est pas forcément fausse.
+
+La réponse B) est une affirmation qui ne doit être vraie que pour certains riccas. Comme un des six riccas qu’Évelyne connaît a des ailes, cette phrase est juste pour les six riccas. Même si aucun des six riccas n’avait d’ailes, ce serait possible que d’autres riccas en aient, et la phrase pourrait quand même être juste. Cette phrase ne serait forcément fausse que si Évelyne connaissait tous les riccas et qu’aucun n’avait d’ailes.
+
+La réponse C) relie deux affirmations avec “soit-soit”. Cette affirmation reliée est vraie lorsqu’exactement une des deux affirmations simples est vraie. C’est le cas pour les six images: quatre riccas ont des cornes mais n’ont pas trois yeux et les deux autres riccas n’ont pas de cornes, mais trois yeux. Pour que la phrase soit fausse, il faudrait qu’il y ait un ricca avec des cornes \emph{et} trois yeux, ou un ricca sans cornes et avec un autre nombre d’yeux que trois. Ce n’est le cas d’aucun des six riccas qu’Évelyne ne connaît; la phrase n’est donc pas forcément fausse.
+
+Il reste la phrase de la réponse D). Elle est formulée à l’aide d’une condition “si-alors”: l’affirmation qui suit le “alors” doit être vraie chaque fois que l’affirmation qui suit le “si” est vraie. La condition “si” est vraie pour tous les six riccas qu’Évelyne connaît: ils ont tous exactement deux bras. Tous les riccas sur les cinq premières images d’Évelyne ont également deux jambes; pour eux, la phrase d’Évelyne est donc juste. Par contre, le ricca sur l’image de Lydia a plus de deux jambes, cinq exactement. Cette phrase est donc forcément fausse.
+
+
+\subsection*{This is Informatics}
+
+Le nombre d’ailes, de bras, de jambes et d’yeux, et la présence de dents ou de cornes sont des \emph{propriétés} des riccas. Lorsque l’on décrit des riccas, on formule des \emph{affirmations} sur ces propriétés. Cela mène à un \emph{modèle} de ce que sont les riccas.
+
+Les ordinateurs utilisent beaucoup de modèles. Certains sont formulés de manière explicite, comme un modèle des écolières et écoliers sous forme d’une banque de données contenant noms, dates de naissance et adresses. D’autres modèles sont construits par les ordinateurs lorsqu’on leur donne, par exemple, des images à comparer pour entraîner un réseau de neurones.
+
+Les phrases d’Évelyne – donc son modèle des riccas dans cet exercice – sont formulées sous la forme d’\emph{affirmations logiques}. Certaines ont des quantifications (“tous”, “certains”, “il existe”), d’autres utilisent des \emph{opérateurs logiques} (“soit-soit”, “si-alors”). Ces expressions logiques sont \emph{formalisées}: cela veut dire que leur utilisation et signification sont bien définies.
+
+\begin{samepage}
+Cette définition permet de:
+
+\nopagebreak
+
+\begin{itemize}
+  \item relier des affirmations (simples) à l’aide de quantifications et d’opérateurs pour en faire des affirmations complexes,
+  \item dériver la signification des affirmations complexes à partir des affirmations simples.
+\end{itemize}
+
+
+\end{samepage}
+
+Les affirmations logiques sont une méthode répandue pour décrire des modèles en informatique.
+
+
+\subsection*{This is Computational Thinking}
+
+L’opération effectuée par Évelyne s’appelle la \emph{reconnaissance de motifs}. Elle cherche les propriétés communes et les affirmations valables pour tous les riccas. Une telle reconnaissance de motifs n’est pas seulement essentielle pour l’être humain (par exemple “a quatre pattes et ronronne \ensuremath{\rightarrow} doit être un chat”), mais aussi pour les ordinateurs (par exemple pour les véhicules autonomes qui doivent reconnaître les panneaux de circulation de jour, de nuit et dans différents environnements).
+
+En informatique, on appelle ce processus l’\emph{apprentissage automatique} (\emph{machine learning} en anglais), et la plupart des spectaculaires “intelligences artificielles” font exactement cela: elles apprennent quelle est la probabilité qu’une certaine entrée (comme une image) génère une certaine sortie (comme l’interprétation de l’image en tant que panneau de circulation). Cela mène à la \emph{classification} d’objets.
+
+Comme les êtres humains, les ordinateurs ne sont pas sans préjugés. Si un être humain n’ayant jamais vu de chat tenait un chat ronronnant dans ses bras, il pourrait le prendre pour un chien ronronnant. Les données utilisées pour entraîner une “intelligence articielle” doivent donc être choisies avec soin pour éviter les erreurs de catégorisation. C’est la raison pour laquelle beaucoup d’“intelligences artificielles” doivent être ré-entraînées pour éliminer une tendance à la discrimination – qui ne fait que refléter notre société.
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Modèle: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A8le}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modèle}}
+  \item Modélisation: \href{https://fr.wikipedia.org/wiki/Mod\%C3\%A9lisation}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Modélisation}}
+  \item Apprentissage automatique: \href{https://fr.wikipedia.org/wiki/Apprentissage_automatique}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Apprentissage\_automatique}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+\begin{itemize}
+  \item Reconnaissance de motifs: \href{https://fr.wikipedia.org/wiki/Reconnaissance_de_formes}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Reconnaissance\_de\_formes}}
+\end{itemize}
+
+
+\end{document}

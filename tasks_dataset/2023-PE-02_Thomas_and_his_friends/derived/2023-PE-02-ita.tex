@@ -1,0 +1,172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[italian]{babel}
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
+\usepackage{etoolbox}
+
+\usepackage[margin=2cm]{geometry}
+\usepackage{changepage}
+\makeatletter
+\renewenvironment{adjustwidth}[2]{%
+    \begin{list}{}{%
+    \partopsep\z@%
+    \topsep\z@%
+    \listparindent\parindent%
+    \parsep\parskip%
+    \@ifmtarg{#1}{\setlength{\leftmargin}{\z@}}%
+                 {\setlength{\leftmargin}{#1}}%
+    \@ifmtarg{#2}{\setlength{\rightmargin}{\z@}}%
+                 {\setlength{\rightmargin}{#2}}%
+    }
+    \item[]}{\end{list}}
+\makeatother
+
+\newcommand{\BrochureUrlText}[1]{\texttt{#1}}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\renewcommand\theadfont{\bfseries}
+\renewcommand{\tabularxcolumn}[1]{>{}m{#1}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{J}{>{\arraybackslash}X}
+
+\newcommand{\BrochureInlineCode}[1]{{\ttfamily #1}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[babel=true,maxlevel=3]{csquotes}
+\DeclareQuoteStyle{bebras-ch-eng}{“}[” ]{”}{‘}[”’ ]{’}\DeclareQuoteStyle{bebras-ch-deu}{«}[» ]{»}{“}[»› ]{”}
+\DeclareQuoteStyle{bebras-ch-fra}{«\thinspace{}}[» ]{\thinspace{}»}{“}[»\thinspace{}› ]{”}
+\DeclareQuoteStyle{bebras-ch-ita}{«}[» ]{»}{“}[»› ]{”}
+\setquotestyle{bebras-ch-ita}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeversion=1,inkscapearea=page}
+\usepackage{wrapfig}
+
+\usepackage{enumitem}
+\setlist{nosep,itemsep=.5ex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\raggedbottom
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\scriptsize © 2023 Bebras (CC BY-SA 4.0)}
+\cfoot{\scriptsize\itshape 2023-PE-02 Il villaggio di Martina}
+\rfoot{\scriptsize Page~\thepage{}/\pageref*{LastPage}}
+
+\newcommand{\taskGraphicsFolder}{..}
+
+\begin{document}
+
+\section*{\centering{} 2023-PE-02 Il villaggio di Martina}
+
+
+\subsection*{Body}
+
+Nel villaggio di Martina ci sono sei case.
+Ci sono anche sentieri che possono essere utilizzati per camminare da una casa all’altra.
+Martina ha bisogno della stessa quantità di tempo per tutti questi percorsi.
+
+Martina ha disegnato una mappa speciale del villaggio.
+In essa ha disegnato i percorsi esatti che può utilizzare per raggiungere le altre case.
+
+{\centering%
+\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-taskbody.svg}\par}
+
+C’è anche una vera e propria mappa del villaggio, con tutti i sentieri.
+
+{\em
+
+
+\subsection*{Question/Challenge - for the brochures}
+
+Quale di questi disegni non può essere la mappa corretta?
+
+}
+
+
+\subsection*{Interactivity instruction - for the online challenge}
+
+leer; bei MC gibt es keine instruction
+
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\subsection*{Answer Options/Interactivity Description}
+
+\begin{tabular}{ @{} c c @{} }
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerA.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerB.svg}} \\ 
+  A) & B) \\ 
+  \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}} & \makecell[c]{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerD.svg}} \\ 
+  C) & D)
+\end{tabular}
+
+\endgroup
+
+\subsection*{Answer Explanation}
+
+La risposta C è corretta: \raisebox{-0.5ex}{\includesvg[scale=0.4]{\taskGraphicsFolder/graphics/2023-PE-02-answerC.svg}}
+
+La mappa di Martina mostra che il modo più veloce per raggiungere la casa all’estrema destra è attraverso tre percorsi. Se C fosse la mappa giusta del villaggio, Martina potrebbe raggiungere questa casa più velocemente, cioè attraverso due sentieri. Quindi C non può essere la mappa giusta del villaggio.
+
+Con le mappe A, B e D non c’è modo di raggiungere una delle altre case più velocemente che attraverso i percorsi della mappa speciale di Martina. Quindi queste mappe potrebbero essere vere e proprie mappe del villaggio.
+
+
+\subsection*{This is Informatics}
+
+Martina è un’esperta di informatica. Ha disegnato la sua mappa come un \emph{grafo}. I grafi sono costituiti da \emph{nodi} (qui le case) che possono essere collegati da \emph{bordi} (qui i percorsi). Sono adatti a modellare la realtà in molte aree dell’informatica e anche in questo compito.
+
+Martina sa che esiste un’intera gamma di algoritmi per i grafi, ad esempio la cosiddetta ricerca in ampiezza, per risolvere compiti come \enquote{Qual è il modo più veloce per raggiungere un’altra casa?}. Forse ha creato la sua particolare mappa del villaggio utilizzando una ricerca in ampiezza su un grafo più grande, la vera mappa del villaggio con tutti i percorsi.
+
+Nella teoria dei grafi, che si occupa di grafi e algoritmi di grafi, la mappa di Martina corrisponde a un sottografo della mappa complessiva del villaggio. Il sottografo di Martina ha due caratteristiche particolari:
+
+\begin{itemize}
+  \item Tutti i nodi sono collegati direttamente (tramite un bordo) o indirettamente (tramite più bordi).
+  \item Non importa quali due nodi si scelgano a caso, esiste sempre un solo percorso tra i due.
+\end{itemize}
+
+Un grafo con queste caratteristiche è chiamato \emph{albero} in informatica. La casa di Martina rappresenta la \emph{radice} dell’albero. Dalla radice, Martina può raggiungere tutti gli altri nodi (le altre case del villaggio) lungo un unico percorso. Il sottografo di Martina è quindi un albero; inoltre, contiene tutti i nodi dell’intero grafo (l’intera mappa del villaggio) - ma forse non tutti i bordi. Un sottografo con queste proprietà è chiamato \emph{albero ricoprente} dell’intero grafo.
+
+In informatica ci sono molte applicazioni per gli algoritmi a grafo, soprattutto nel contesto delle reti (reti di traffico, reti di telecomunicazione, …), ad esempio nel calcolo dei percorsi nei sistemi di navigazione. Gli alberi ricoprenti possono essere utilizzati per la costruzione di reti a basso costo e possono essere utili per risolvere problemi particolarmente difficili.
+
+
+\subsection*{This is Computational Thinking}
+
+Optional - not to be filled 2023
+
+
+\subsection*{Informatics Keywords and Websites}
+
+\begin{itemize}
+  \item Grapho: \href{https://it.wikipedia.org/wiki/Grafo}{\BrochureUrlText{https://it.wikipedia.org/wiki/Grafo}}
+  \item Albero: \href{https://it.wikipedia.org/wiki/Albero_(grafo)}{\BrochureUrlText{https://it.wikipedia.org/wiki/Albero\_(grafo)}}
+  \item Ricerca in ampiezza: \href{https://it.wikipedia.org/wiki/Ricerca_in_ampiezza}{\BrochureUrlText{https://it.wikipedia.org/wiki/Ricerca\_in\_ampiezza}}
+  \item Albero ricoprente: \href{https://it.wikipedia.org/wiki/Albero_ricoprente}{\BrochureUrlText{https://it.wikipedia.org/wiki/Albero\_ricoprente}}
+\end{itemize}
+
+
+\subsection*{Computational Thinking Keywords and Websites}
+
+–
+
+
+\end{document}

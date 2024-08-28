@@ -1,0 +1,115 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Sac de pièces}
+\renewcommand{\taskCountry}{IE}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Il existe quatre sortes de pièces de monnaie différentes dans le pays d’Émile. Tu peux voir ici les deux côtés de ces pièces ainsi que le sac d’Émile avec ses pièces.
+
+{\centering%
+\begin{tabular}{ @{} c c @{} }
+  \makecell[c]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-taskbody1.svg}} & \makecell[c]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-taskbody2.svg}}
+\end{tabular}
+
+\par}
+
+Émile secoue son sac de pièces.
+
+
+
+% question (as \emph{})
+{\em
+Quel sac est celui d’Émile?
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabularx}{\columnwidth}{ @{} r L r L @{} }
+  A) & \makecell[l]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-answerA.svg}} & B) & \makecell[l]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-answerB.svg}} \\ 
+  C) & \makecell[l]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-answerC.svg}} & D) & \makecell[l]{\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-answerD.svg}}
+\end{tabularx}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est C:
+
+{\centering%
+\includesvg[scale=0.12]{\taskGraphicsFolder/graphics/2021-IE-02-answerC.svg}\par}
+
+Dans le sac d’Émile, il y a:
+
+\begin{itemize}
+  \item $4$ pièces \raisebox{-0.5ex}{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-greenyellow.svg}},
+  \item $2$ pièces \raisebox{-0.5ex}{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-bluered.svg}},
+  \item une pièce \raisebox{-0.5ex}{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-orange.svg}}
+  \item et une pièce \raisebox{-0.5ex}{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-purple.svg}}.
+\end{itemize}
+
+{\centering%
+\begin{tabular}{ @{} l c c c c c @{} }
+  {\setstretch{1.0}\thead[lb]{}} & {\setstretch{1.0}\thead[cb]{Sac d’Émile}} & {\setstretch{1.0}\thead[cb]{\textnormal{Sac A}}} & {\setstretch{1.0}\thead[cb]{\textnormal{Sac B}}} & {\setstretch{1.0}\thead[cb]{Sac C}} & {\setstretch{1.0}\thead[cb]{\textnormal{Sac D}}} \\ 
+\midrule
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-greenyellow.svg}} & \textbf{4} & 3 & 4 & \textbf{4} & 2 \\ 
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-bluered.svg}} & \textbf{2} & 3 & 1 & \textbf{2} & 4 \\ 
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-orange.svg}} & \textbf{1} & 1 & 2 & \textbf{1} & 1 \\ 
+  \makecell[l]{\includesvg[width=72.2px]{\taskGraphicsFolder/graphics/2021-IE-02-coin-purple.svg}} & \textbf{1} & 1 & 1 & \textbf{1} & 1
+\end{tabular}
+
+\par}
+
+Seul le sac C contient le même nombre de chaque sorte de pièces que le sac d’Émile. C’est donc la bonne solution.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Dans cet exercice, il faut reconnaître les différentes sortes de pièces sans en voir les deux côtés. On n’a qu’une information partielle. Dans un système informatique, les objets du monde réel sont enregistrés avec leurs caractéristiques essentielles. Souvent, il suffit de connaître une partie de ces caractéristiques pour pouvoir reconnaître un objet. La caméra d’un véhicule autonome ne voit qu’une partie de la réalité, mais doit quand même être en mesure de reconnaître des véhicules et usagers de la route et de réagir au traffic de manière adaptée. L’intelligence artificielle des systèmes informatiques apprend peu à peu et de mieux en mieux à reconnaître des objets à partir de fragments, comme les êtres humains le font.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Multiensemble: \href{https://fr.wikipedia.org/wiki/Multiensemble}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Multiensemble}}
+  \item Informations non structurées: \href{https://fr.wikipedia.org/wiki/Informations_non_structur\%C3\%A9es}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Informations\_non\_structurées}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorNaughtonT{} % \ifdefined\AuthorNaughtonT \BrochureFlag{ie}{} Tom Naughton\fi
+\def\AuthorLehtimakiT{} % \ifdefined\AuthorLehtimakiT \BrochureFlag{ie}{} Taina Lehtimäki\fi
+\def\AuthorFutschekG{} % \ifdefined\AuthorFutschekG \BrochureFlag{at}{} Gerald Futschek\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

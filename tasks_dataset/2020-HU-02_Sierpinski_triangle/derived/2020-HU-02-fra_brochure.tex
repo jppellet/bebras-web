@@ -1,0 +1,104 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{2}
+\setcounter{taskAgeDifficulty11to13}{1}
+\renewcommand{\taskTitle}{Triangle de Sierpiński}
+\renewcommand{\taskCountry}{HU}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Pour obtenir un triangle de Sierpiński, on dessine d’abord un triangle équilatéral blanc, puis on procède étape par étape. À chaque étape, chaque triangle blanc existant est divisé en quatre triangles plus petits et celui du centre est coloré en noir, comme montré ci-dessous:
+
+{\centering%
+\includesvg[width=331.9px]{\taskGraphicsFolder/graphics/2020-HU-02_taskbody1-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Dessine la figure obtenue après trois étapes. Pour cela, colorie les bons petits triangles en noir.
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_question-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Après la première étape, le triangle central est noir et il y a trois triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation1-compatible.svg}\par}
+
+Lors de la deuxième étape, les trois triangles blancs sont également divisés en quatre triangles plus petits, et chaque triangle central est coloré en noir. Il y a maintenant ${3 \cdot 3 = 9}$ petits triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation2-compatible.svg}\par}
+
+Lors de la troisième et dernière étape, ces neufs triangles blancs sont à nouveau divisés en quatre triangles chacun, et chaque triangle central est coloré en noir. Il en résulte la figure suivante avec  ${3 \cdot 9 = 27}$ triangles blancs:
+
+{\centering%
+\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-HU-02_explanation3-compatible.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Le triangle de Sierpiński est une \emph{fractale} qui a été décrite pour la première fois par le mathématicien polonais Waclaw Franciszek Sierpiński ($1882$–$1969$) en $1915$. Les fractales sont des figures dans lesquelles apparaissent des éléments toujours plus petits, éléments qui sont semblables à la figure complète. C’est un travail très fastidieux de dessiner des images de fractales. Lorsque des ordinateurs capable de faire les calculs nécessaires sont apparus au XX\textsuperscript{e} siècle, les fractales sont devenues très populaires. Le \emph{flocon de Koch} et l’\emph{ensemble de Mandelbrot} sont des fractales connues.
+
+La construction du triangle de Sierpiński est récursive (du latin \emph{re-currere}: se reproduire). Cela signifie que les règles de construction contiennent une instruction stipulant qu’il faut répéter l’application des règles. Dans cet exercice, cette instruction dit: “Divise le triangle blanc en quatre triangles plus petits, colore le triangle central en noir, puis répète cette instruction pour les triangles blancs résultants.” Une application de l’instruction s’appelle une \emph{étape récursive}, et l’instruction demandant de réappliquer les règles s’appelle un \emph{appel récursif} (dans l’exemple, il y a trois appels récursifs par étape récursive). Comme chaque appel récursif contient d’autres appels récursifs, on doit encore et toujours répéter l’étape récursive, ce qui peut durer indéfiniment. On peut éviter cela avec une condition de terminaison. Dans l’exemple, les appels récursifs s’arrêtent lorsque les triangles deviennent trop petits.
+
+Le concept de la récursivité a un large domaine d’application en informatique, car beaucoup d’objects complexes – par exemple les fractales – peuvent être décrits de manière compacte grâce à la récursivité, et beaucoup de tâches complexes – par exemple les tours de Hanoï – peuvent être résolues à l’aide d’algorithmes récursifs très simples.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Triangle de Sierpiński: \href{https://fr.wikipedia.org/wiki/Triangle_de_Sierpi\%C5\%84ski}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Triangle\_de\_Sierpiński}}
+  \item Récursivité: \href{https://fr.wikipedia.org/wiki/R\%C3\%A9cursivit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Récursivité}}
+  \item Fractale: \href{https://fr.wikipedia.org/wiki/Fractale}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Fractale}}
+  \item \href{https://fr.wikipedia.org/wiki/Wac\%C5\%82aw_Sierpi\%C5\%84ski}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Wacław\_Sierpiński}}
+  \item \href{https://fr.wikipedia.org/wiki/Tours_de_Hano\%C3\%AF\#Solution_r\%C3\%A9cursive}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Tours\_de\_Hanoï\#Solution\_récursive}}
+  \item \href{https://fr.wikipedia.org/wiki/Flocon_de_Koch}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Flocon\_de\_Koch}}
+  \item \href{https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Ensemble\_de\_Mandelbrot}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorJungU{} % \ifdefined\AuthorJungU \BrochureFlag{kr}{} Ungyeol Jung\fi
+\def\AuthorMoonK{} % \ifdefined\AuthorMoonK \BrochureFlag{kr}{} Kwangsik Moon\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

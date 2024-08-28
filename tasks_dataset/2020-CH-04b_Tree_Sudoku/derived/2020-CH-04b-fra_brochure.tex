@@ -1,0 +1,119 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{2}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Sudoku boisé 3×3}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors plantent des rangées de sapins. Les sapins ont trois hauteurs différentes ($1$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}, $2$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}} et $3$ \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}}) et il y a exactement un sapin de chaque hauteur sur chaque rangée.
+
+\begin{wrapfigure}{R}{202px}
+\raisebox{-.46cm}[\dimexpr \height-.92cm \relax][-.46cm]{\includesvg[width=202px]{\taskGraphicsFolder/graphics/2020-CH-04b_taskbody-compatible.svg}}
+\end{wrapfigure}
+
+Lorsque les castors observent une rangée de sapin depuis l’une de ses extrémités, il ne peuvent \textbf{pas} voir les plus petits sapins qui sont cachés derrière de plus grands sapins.
+
+C’est écrit sur un panneau au bout de chaque rangée combien de sapins l’on peut voir depuis cet endroit-là.
+
+Les castors plantent à présent neuf sapins sur un champ de 3\ensuremath{\times}$3$ cases, comme dans l’exemple à droite.
+
+Pour cela, les règles suivantes s’appliquent:
+
+\begin{itemize}
+  \item dans chaque ligne, il y a exactement un sapin de chaque hauteur;
+  \item dans chaque colonne, il y a exactement un sapin de chaque hauteur;
+  \item les panneaux indiquant le nombre de sapins visibles sont plantés tout autour du champ de 3\ensuremath{\times}$3$ cases.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Écris dans chaque case la hauteur du sapin qui s’y trouve.
+
+{\centering%
+\includesvg[width=384.6px]{\taskGraphicsFolder/graphics/2020-CH-04b_question.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Il y a dans le champ deux panneaux indiquant que l’on peut voir trois sapins depuis leurs positions. On ne peut voir trois sapins dans une rangée que lorsque les sapins sont dans un ordre croissant, donc \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}} \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}} depuis cette position. La colonne de gauche et la ligne du haut sont ainsi déterminées:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-04b_solution_step1.svg}\par}
+
+Le panneau avec le $2$ à droite indique que l’on peut voir deux sapins depuis là, il doit donc y avoir un sapin de hauteur $3$ au milieu \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}} et la ligne centrale est ainsi $2$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}}), $3$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=10.1px]{\taskGraphicsFolder/graphics/2020-CH-04_tree3.svg}}), $1$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}).
+
+Les cases suivante sont remplies d’après la règle du “sudoku” qui oblige chaque rangée à avoir exactement un sapin de chaque hauteur.
+
+Il doit y avoir un sapin de hauteur $1$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=7.2px]{\taskGraphicsFolder/graphics/2020-CH-04_tree1.svg}}) au milieu de la ligne du bas, car les deux autres hauteurs de sapin sont déjà présentes dans la colonne du milieu. Il manque un sapin de hauteur $2$ (\raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=8.7px]{\taskGraphicsFolder/graphics/2020-CH-04_tree2.svg}}) tout en bas à droite pour compléter la rangée.
+
+Voici la solution complète:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-04b_solution.svg}\par}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice est centré sur trois compétences fondamentales pour les informaticiennes et informaticiens.
+
+Premièrement, il s’agit de trouver une solution respectant certaines contrainte, ou si nécessaire de corriger une solution proposée.
+
+Deuxièmement, il s’agit de la capacité de reconstruire des objets en se basant sur leur représentation à partir d’informations partielles. Ceci est lié à la génération d’objets (représentation d’objets) à partir d’informations disponibles limitées lorsque leur conformité aux lois est connue. On peut aussi utiliser de tels procédés dans la compression de données.
+
+Troisièmement, on peut utiliser de tels champs d’arbres avec des panneaux pour créer des codes correcteurs. Des erreurs arrivant lors de l’entrée des données ou du transfert d’information peuvent ainsi être automatiquement reconnues ou même corrigées.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Sudoku: \href{https://fr.wikipedia.org/wiki/Sudoku}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Sudoku}}
+  \item Détection et correction d’erreurs: \href{https://fr.wikipedia.org/wiki/Code_correcteur}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Code\_correcteur}}
+  \item Reconstruction d’objets à partir d’informations partielles
+  \item Vérification de l’exactitude de la représentation de données
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorMunozX{} % \ifdefined\AuthorMunozX \BrochureFlag{es}{} Xavier Muñoz\fi
+\def\AuthorBarcelonaM{} % \ifdefined\AuthorBarcelonaM \BrochureFlag{es}{} Museum of Mathematics of Catalonia in Barcelona\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorPhillippsM{} % \ifdefined\AuthorPhillippsM \BrochureFlag{nz}{} Margot Phillipps\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

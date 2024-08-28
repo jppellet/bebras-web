@@ -1,0 +1,103 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{1}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Arrosage}
+\renewcommand{\taskCountry}{SK}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Le jardin de Daniel est composé de cases carrées. Il a planté des fleurs dans certaines de ces cases:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-SK-03b_taskbody1-compatible.svg}\par}
+
+En été, il aimerait arroser ces fleurs avec des tourniquets arroseurs. Il ne peut pas mettre d’arroseur dans les cases avec des fleurs. Un arroseur arrose toutes les fleurs dans les $8$ cases autour de lui:
+
+{\centering%
+\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-SK-03b_taskbody2-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Place aussi peu d’arroseurs que nécessaire pour arroser toutes les cases fleuries. Indique-le en cochant les cases correspondantes dans le jardin de Daniel.
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La solution suivante nécessite deux arroseurs pour arroser toutes les cases fleuries:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation.svg}\par}
+
+Entre la case fleurie tout à gauche et la cas fleurie tout à droite se trouvent trois cases. Un seul arroseur ne peut pas arroser deux cases si éloignées l’une de l’autre.
+
+Il n’y a pas non plus d’autre solution que celle-ci en n’utilisant que deux arroseurs.
+
+\begin{tabularx}{\columnwidth}{ @{} J l @{} }
+  Pour arroser la case fleurie tout à droite et celle en bas au centre en même temps, il doit y avoir un arroseur là où il est placé dans la solution. S’il était placé plus haut pour arroser aussi la case fleurie en haut au centre, il ne pourrait plus arroser la case fleurie en bas au centre, et on ne pourrait pas arroser les trois cases fleuries restante avec un seul autre arroseur, car on ne peut pas en mettre dans une case fleurie. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation2.svg}} \\ 
+  Pour arroser la case fleurie tout à gauche et celle en haut au centre, un arroseur doit être mis soit comme dans la solution, soit une case plus haut. Si cet arroseur doit aussi arroser la case fleurie de la deuxième colonne depuis la gauche et troisième ligne depuis le haut, il ne peut pas être mis tout en haut. & \makecell[l]{\includesvg[width=144.3px]{\taskGraphicsFolder/graphics/2020-SK-03b_explanation3.svg}}
+\end{tabularx}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Cet exercice est un problème d’\emph{optimisation} typique: alors qu’il est clair que toutes les cases fleuries doivent être arrosées, le nombre d’arroseurs est variable et doit être le plus petit possible. Des problèmes d’optimisation similaires existent par exemple si l’on veut placer des stations de pompiers pour protéger une ville ou couvrir des maisons avec le réseau natel.
+
+En informatique, on parle également de \emph{problèmes de couverture}. Ces problèmes font partie d’une classe de problèmes très difficiles en informatique. Le placement d’un nombre minimal d’arroseurs dans cet exercice était encore très simple, mais la difficulté augmente tellement fortement avec le nombre de cases qu l’on ne peut bientôt plus trouver de solution optimale en un temps raisonnable, même à l’aide d’ordinateurs.
+
+Une possibilité dans de tels cas est de se satisfaire de solutions qui ne sont peut-être pas optimales mais qui sont quand même bonnes. Ça ne fait pas grande différence si l’on place $101$ au lieu $100$ stations de pompiers, ou $1000$ antennes natel au lieu de seulement $990$, mais cela rend souvent le problème beaucoup plus facile à résoudre.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Optimisation: \href{https://fr.wikipedia.org/wiki/Optimisation_(math\%C3\%A9matiques)}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Optimisation\_(mathématiques)}}
+  \item Problème de couverture
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorTomcsanyiovaM{} % \ifdefined\AuthorTomcsanyiovaM \BrochureFlag{sk}{} Monika Tomcsányiová\fi
+\def\AuthorBudinskaL{} % \ifdefined\AuthorBudinskaL \BrochureFlag{sk}{} Lucia Budinská\fi
+\def\AuthorTomcsanyiP{} % \ifdefined\AuthorTomcsanyiP \BrochureFlag{sk}{} Peter Tomcsányi\fi
+\def\AuthorVanicekJ{} % \ifdefined\AuthorVanicekJ \BrochureFlag{cz}{} Jiří Vaníček\fi
+\def\AuthorBellettiniC{} % \ifdefined\AuthorBellettiniC \BrochureFlag{it}{} Carlo Bellettini\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorBaumannW{} % \ifdefined\AuthorBaumannW \BrochureFlag{at}{} Wilfried Baumann\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

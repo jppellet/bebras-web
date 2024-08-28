@@ -1,0 +1,110 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{3}
+\setcounter{taskAgeDifficulty11to13}{2}
+\renewcommand{\taskTitle}{Table incomplète}
+\renewcommand{\taskCountry}{CH}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les castors utilisent un code secret dans lequel chaque lettre est remplacée par un tout nouveau symbole. La table ci-dessous décrit comment les nouveaux symboles sont assemblés. Malheureusement, la table est incomplète car certaines parties ont été effacées.
+
+{\centering%
+\includesvg[width=296.6px]{\taskGraphicsFolder/graphics/2020-CH-03_taskbody-compatible.svg}\par}
+
+
+
+% question (as \emph{})
+{\em
+Reconstruis le texte original à partir du cryptogramme suivant (déchiffre le cryptogramme). Laquelle des quatre solutions proposées est-elle juste?
+
+{\centering%
+\includesvg[width=432.9px]{\taskGraphicsFolder/graphics/2020-CH-03a_question_fra-compatible.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & INFORMATIQUE MALINE \\ 
+  B) & ELECTRONIQUE MALINE \\ 
+  C) & INFORMATION SECRETE \\ 
+  D) & INFORMEZ EXACTEMENT
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est A), le texte clair est: INFORMATIQUE MALINE.
+
+Voici la table de chiffrage complète:
+
+{\centering%
+\includesvg[width=216.5px]{\taskGraphicsFolder/graphics/2020-CH-03_explanation.svg}\par}
+
+C’est facile de compléter la table. Les lettres de l’alphabet latin sont écrites dans l’ordre, horizontalement et de gauche à droite. On remarque que la partie inférieure des nouveaux symboles correspond à l’intitulé des rangées et la partie supérieure à l’intitulé des colonnes de la table. La seule partie inférieure présente dans le cryptogramme qui manque dans la table est le \raisebox{-0.5ex}[0pt][0pt]{\includesvg[width=21.6px]{\taskGraphicsFolder/graphics/2020-CH-03a-explanation2.svg}}. C’est donc ce symbole qui est l’intitulé de la première rangée. On peut tout aussi rapidement déterminer les trois symboles manquants dans les colonnes.
+
+Ce n’est cependant pas nécessaire de compléter la table. On peut placer les lettres que l’on peut directement lire dans la table incomplète. On obtient alors le texte à trous suivant:
+
+I N \_ O \_ \_ \_ \_ I \_ \_ \_ \_ \_ L I N \_
+
+Ce texte à trous permet d’éliminer toutes les solutions sauf A): B) ne commence pas par “IN”, C) et D) ne finissent pas par “LIN\_”.
+
+Une autre solution possible est de remarquer que le cryptogramme possède les deux mêmes symboles à son début et en avant-dernière position. La seule solution avec cette même répétition est la solution B).
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Garder des informations secrètes ou protéger des données est une tâche vielle de $4000$ ans. D’innombrables écritures secrètes ont été développées et utilisées dans ce but. Aujourd’hui, la sécurité des données est l’un des thèmes majeurs de l’informatique. Une des méthodes pour empêcher la lecture non autorisée de données est de les \emph{chiffrer}. Le chiffrement transforme un \emph{texte clair} en \emph{cryptogramme}. La reconstruction du texte clair à partir du cryptogramme s’appelle \emph{déchiffrement}. L’étude des cryptogrammes s’appelle \emph{cryptologie}.
+
+Les cultures antiques utilisaient le plus souvent des écritures secrètes remplaçant des lettres par d’autres lettres ou de tout nouveaux symboles. L’écriture secrète utilisée ici a été développée spécialement pour le Castor Informatique, mais se base sur un concept venant de la Palestine antique. À l’époque, la règle de sécurité était que seules des écriture secrètes faciles à apprendre par cœur pouvaient être utilisées. C’était considéré comme un trop grand risque de garder une description écrite de l’écriture secrète. Une table comme celle utilisée ici est facile à apprendre par cœur. Le célèbre chiffre des francs-maçon se base sur ce principe.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Cryptologie: \href{https://fr.wikipedia.org/wiki/Cryptologie}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Cryptologie}}
+  \item Cryptogramme
+  \item Chiffrer
+  \item Déchiffrer
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorLacherR{} % \ifdefined\AuthorLacherR \BrochureFlag{ch}{} Regula Lacher\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorIkramovA{} % \ifdefined\AuthorIkramovA \BrochureFlag{uz}{} Alisher Ikramov\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorDagieneV{} % \ifdefined\AuthorDagieneV \BrochureFlag{lt}{} Valentina Dagienė\fi
+\def\AuthorJungU{} % \ifdefined\AuthorJungU \BrochureFlag{kr}{} Ungyeol Jung\fi
+\def\AuthorMoonK{} % \ifdefined\AuthorMoonK \BrochureFlag{kr}{} Kwangsik Moon\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

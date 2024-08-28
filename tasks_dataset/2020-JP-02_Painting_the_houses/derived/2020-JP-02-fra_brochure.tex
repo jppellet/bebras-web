@@ -1,0 +1,136 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{2}
+\setcounter{taskAgeDifficulty7to8}{1}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{0}
+\renewcommand{\taskTitle}{Quartier coloré}
+\renewcommand{\taskCountry}{JP}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Les habitants d’une rue veulent peindre leurs maisons blanches en couleur. Chaque maison doit être peinte en l’une de ces trois couleurs: vert clair, rouge ou bleu foncé. Pour que ça n’ait pas l’air ennuyeux, ils suivent les règles suivantes:
+
+\begin{itemize}
+  \item Deux maisons directement l’une à côté de l’autre ne doivent pas être de la même couleur.
+  \item Deux maisons directement face à face dans la rue ne doivent pas avoir la même couleur.
+\end{itemize}
+
+Quelques habitants ont déjà peint leur maison en couleur. Les autres habitants doivent maintenant peindre leur maison de manière à respecter les règles.
+
+
+
+% question (as \emph{})
+{\em
+Trouve les couleurs appropriées pour les habitants.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_taskbody-interactive.svg}\par}
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+Le plus facile est de trouver la couleur de chaque maison l’une après l’autre.
+
+Les deux maisons blanches du côté supérieur de la route sont chacune entourées de deux maisons de couleurs différentes à gauche et à droite. On ne peut donc les peindre qu’en une seule couleur si l’on suit les règles: La maison blanche en haut à gauche en vert clair et la maison blanche en haut à droite en rouge.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution1-interactive.svg}\par}
+
+Ensuite, on peut voir que la maison blanche en bas à gauche doit être peinte en rouge, car la maison directement à sa gauche est bleu foncé et la maison directement en face est vert clair:
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution2-interactive.svg}\par}
+
+On peut faire presque le même raisonnement pour la maison au milieu du côté inférieur de la rue: Elle doit être peinte en vert clair, car directement à sa droite est la maison que l’on vient de peindre en rouge et directement en face se trouve une maison bleu foncé.
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution3-interactive.svg}\par}
+
+\begin{samepage}
+Finalement, on peut aussi trouver la couleur appropriée pour la maison blanche en bas à droite: la maison directement à sa droite et celle directement en face sont les deux rouges, mais comme la maison directement à sa gauche est maintenant vert clair, il ne reste plus que la possibilité de peindre la maison en bleu foncé:
+
+\nopagebreak
+
+{\centering%
+\includesvg[width=288.6px]{\taskGraphicsFolder/graphics/2020-JP-02_solution4-interactive.svg}\par}
+\end{samepage}
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Vu de manière abstraite, il s’agit dans cet exercice de trouver une solution qui satisfasse certaines contraintes (règles). C’est un problème rencontré très souvent en informatique.
+
+Les maisons et leur voisinage direct (aussi bien à gauche qu’à droite et que de l’autre côté de la rue en face) peuvent très bien être représentées à l’aide d’un \emph{graphe}, une structure de données très répandue en informatique. Dans ce graphe, chaque maison est un \emph{nœud} est chaque lien de voisinage direct est une \emph{arête}:
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-JP-02_itsinformatics1.svg}\par}
+
+Sur l’image, les nœuds sont déjà colorés comme les maisons correspondantes. Les maisons devaient suivre la règle de ne pas avoir la même couleur que leurs voisines. C’est pour cela que les nœuds reliés directement par une arête sur l’image ne sont jamais de la même couleur. Le fait qu’il existe une \emph{coloration valable} du graphe avec trois couleurs ne va pas de soi. Si l’on ajoute deux arêtes au graphe comme sur l’image suivante, il n’y a plus de coloration valable: qu’importe comment on répartit les couleurs dans ce graphe, il y a toujours deux nœuds directement reliés qui sont de la même couleur.
+
+{\centering%
+\includesvg[width=180.4px]{\taskGraphicsFolder/graphics/2020-JP-02_itsinformatics2.svg}\par}
+
+C’est à nouveau possible en utilisant quatre couleurs. Peut-être que c’est toujours possible avec quatre couleurs? La réponse est à nouveau non. Mais il existe au moins une certaine sorte de graphe que l’on peut toujours colorer de manière valable avec quatre couleurs: on les appelle les graphes planaires. Ce sont des graphes que l’on peut dessiner sans que leurs arêtes ne se croisent (le graphe sur la dernière image n’est pas planaire à cause des liens entre les quatre nœuds à gauche). Le fait que les graphes planaires aient toujours une coloration à quatre couleurs valable est décrit par le \emph{théorème des quatre couleurs}.
+
+Le théorème des quatre couleurs est spécialement intéressant pour la réalisation de cartes géographiques. Si l’on se représente chaque pays comme un nœud et que l’on relie les pays voisins par une arête, on obtient toujours un graphe planaire (pour être exact, nous devons pour cela exclure l’existence d’enclaves et d’exclaves, c’est-à-dire de parties de pays se trouvant au milieu d’un autre pays). On peut donc colorer ces graphes de manière valable avec quatre couleurs, et on peut donc aussi colorier ces pays sur la carte de manière à ce que les pays voisins ne soient jamais de la même couleur.
+
+La preuve que quatre couleurs suffisent n’est pas facile à faire. On savait déjà il y a $200$ ans que cinq couleurs suffisent. La preuve que quatre couleurs suffisent a été faite en $1976$ par les mathématiciens Kenneth Appel and Wolfgang Haken. Ils ont pour cela utilisé un ordinateur pour tester un grand nombre d’exceptions et de contre-exemples. L’ordinateur a eu besoin de plus de mille heures pour faire cela. Cela aurait été totalement impossible à faire à la main. Beaucoup de mathématiciens se sont demandé si une telle preuve était valable, car il faut pour cela faire confiance à l’ordinateur.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Théorème des quatre couleurs: \href{https://fr.wikipedia.org/wiki/Th\%C3\%A9or\%C3\%A8me_des_quatre_couleurs}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Théorème\_des\_quatre\_couleurs}}
+  \item Coloration de graphe: \href{https://fr.wikipedia.org/wiki/Coloration_de_graphe}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Coloration\_de\_graphe}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorManabeH{} % \ifdefined\AuthorManabeH \BrochureFlag{jp}{} Hiroki Manabe\fi
+\def\AuthorShimabukuM{} % \ifdefined\AuthorShimabukuM \BrochureFlag{jp}{} Maiko Shimabuku\fi
+\def\AuthorIshizukaT{} % \ifdefined\AuthorIshizukaT \BrochureFlag{jp}{} Takeharu Ishizuka\fi
+\def\AuthorLeonardM{} % \ifdefined\AuthorLeonardM \BrochureFlag{fr}{} Marielle Léonard\fi
+\def\AuthorBellettiniC{} % \ifdefined\AuthorBellettiniC \BrochureFlag{it}{} Carlo Bellettini\fi
+\def\AuthorCoolsaetK{} % \ifdefined\AuthorCoolsaetK \BrochureFlag{be}{} Kris Coolsaet\fi
+\def\AuthorDatzkoC{} % \ifdefined\AuthorDatzkoC \BrochureFlag{hu}{} Christian Datzko\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorRoffeyC{} % \ifdefined\AuthorRoffeyC \BrochureFlag{uk}{} Chris Roffey\fi
+\def\AuthorShahV{} % \ifdefined\AuthorShahV \BrochureFlag{in}{} Vipul Shah\fi
+\def\AuthorMorpurgoA{} % \ifdefined\AuthorMorpurgoA \BrochureFlag{it}{} Anna Morpurgo\fi
+\def\AuthorAlSudaniF{} % \ifdefined\AuthorAlSudaniF \BrochureFlag{nl}{} Faisal Al-Sudani\fi
+\def\AuthorErniH{} % \ifdefined\AuthorErniH \BrochureFlag{ch}{} Hanspeter Erni\fi
+\def\AuthorPohlW{} % \ifdefined\AuthorPohlW \BrochureFlag{de}{} Wolfgang Pohl\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

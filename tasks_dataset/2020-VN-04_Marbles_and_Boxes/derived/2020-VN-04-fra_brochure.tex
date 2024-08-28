@@ -1,0 +1,145 @@
+% Definition of the meta information: task difficulties, task ID, task title, task country; definition of the variables as well as their scope is in commands.tex
+\setcounter{taskAgeDifficulty3to4}{0}
+\setcounter{taskAgeDifficulty5to6}{0}
+\setcounter{taskAgeDifficulty7to8}{0}
+\setcounter{taskAgeDifficulty9to10}{0}
+\setcounter{taskAgeDifficulty11to13}{3}
+\renewcommand{\taskTitle}{Des cases et des billes}
+\renewcommand{\taskCountry}{VN}
+
+% include this task only if for the age groups being processed this task is relevant
+\ifthenelse{
+  \(\boolean{age3to4} \AND \(\value{taskAgeDifficulty3to4} > 0\)\) \OR
+  \(\boolean{age5to6} \AND \(\value{taskAgeDifficulty5to6} > 0\)\) \OR
+  \(\boolean{age7to8} \AND \(\value{taskAgeDifficulty7to8} > 0\)\) \OR
+  \(\boolean{age9to10} \AND \(\value{taskAgeDifficulty9to10} > 0\)\) \OR
+  \(\boolean{age11to13} \AND \(\value{taskAgeDifficulty11to13} > 0\)\)}{
+
+\newchapter{\taskTitle}
+
+% task body
+Hira a une boite qui est divisée en $9$ cases, et un nombre de billes illimité:
+
+{\centering%
+\includesvg[width=252.5px]{\taskGraphicsFolder/graphics/2020-VN-04_taskbody-compatible.svg}\par}
+
+Hira met des billes dans les cases de la boîte. Elle suit les règles suivantes:
+
+\begin{itemize}
+  \item elle met au maximum une bille dans chaque case;
+  \item le nombre de billes total dans chaque ligne et chaque colonne est pair quand elle a fini.
+\end{itemize}
+
+
+
+% question (as \emph{})
+{\em
+Combien de motifs différents Hira peut-elle créer?
+
+(La boîte ne peut pas être tournée. Le motif avec une bille en haut à gauche est par exemple différent du motif avec un bille en haut à droite.)
+
+
+}
+
+% answer alternatives (as \begin{enumerate}[A)]) or interactivity
+\begin{tabular}{ @{} r l @{} }
+  A) & 12 \\ 
+  B) & 16 \\ 
+  C) & 64 \\ 
+  D) & 512
+\end{tabular}
+
+
+
+% from here on this is only included if solutions are processed
+\ifthenelse{\boolean{solutions}}{
+\newpage
+
+% answer explanation
+\section*{\BrochureSolution}
+La bonne réponse est B) $16$.
+
+De combien de manières différente Hira peut-elle remplir la première ligne? Il doit y avoir un nombre pair de billes dans la première ligne, donc $0$ ou $2$. Il y a donc $4$ possibilités de remplir la première ligne:
+
+{\centering%
+\raisebox{-0.5ex}{\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation1.svg}}
+\raisebox{-0.5ex}{\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation2.svg}}
+
+\raisebox{-0.5ex}{\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation3.svg}}
+\raisebox{-0.5ex}{\includesvg[width=129.9px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation4.svg}}\par}
+
+De la même manière, Hira a $4$ possibilités de remplir la deuxième ligne. Pour la troisième ligne, elle ne peut plus choisir, car il doit aussi y avoir un nombre pair de bille dans chacune des trois colonnes. S’il y a un nombre impair de billes dans les deux cases du haut d’une colonne (donc exactement une bille), Hira doit mettre une bille dans la troisième case de cette colonne, comme illustré dans les deux premières ligne de l’exemple suivant (billes rouges):
+
+{\centering%
+\includesvg[width=151.5px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation5.svg}\par}
+
+S’il y a un nombre pair de billes dans les deux premières cases d’une colonne (donc $0$ ou $2$ billes), elle ne peut pas mettre de bille dans la troisième case de cette colonne, comme c’est le cas dans la troisième colonne de l’exemple en dessus.
+
+Comme le choix pour la première ligne est complètement indépendant du choix pour la deuxième ligne, Hira a $4$ possibilités pour la première ligne, et a ensuite à nouveau $4$ possibilités pour la deuxième ligne pour chacune de ces quatre possibilités. Elle a donc en tout  ${4 \cdot 4 = 16}$ possibilités.
+
+Un autre option pour compter les possibilités est la suivante: on commence par considérer une partie de la boîte faisant 2\ensuremath{\times}$2$ cases.
+
+{\centering%
+\includesvg[width=108.2px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation6.svg}\par}
+
+Dans cette partie de la boîte, il y a $4$ cases qui peuvent chacune contenir une bille ou pas. Il y a donc ${2^4 = 16}$ possibilités de remplir cette partie de boîte avec des billes.
+
+Une observation importante est la suivante: une fois que les billes ont été placées dans cette partie de la boîte, Hira n’a plus aucun choix concernant le remplissage des cases restantes. Pour chaque case restante au bord à droite ou dans la ligne du bas, Hira doit obligatoirement soit mettre un bille dans la case, soit la laisser vide, afin que le nombre total de bille soit pair.
+
+Hira pourrait par exemple remplir la partie de boîte de 2\ensuremath{\times}$2$ que l’on considère comme cela:
+
+{\centering%
+\includesvg[width=151.5px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation7.svg}\par}
+
+Comme la première colonne ne contient qu’un bille, Hira doit mettre une bille dans la case A pour que le nombre de billes dans cette colonne soit pair. Dans la deuxième colonne, il y a déjà un nombre pair de billes, donc Hira ne peut pas mettre de billes dans la case B. Avec le même raisonnement, on voit que la case D doit rester vide et que Hira doit mettre une bille dans la case C.
+
+{\centering%
+\includesvg[width=151.5px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation8.svg}\par}
+
+Le nombre de billes dans ${A + B}$ est pair seulement lorsque le nombre de billes dans la partie de boîte de 2\ensuremath{\times}$2$ cases est pair. Le même chose est vraie pour la somme de ${C + D}$. Si ces deux sommes sont paires, la case E doit rester vide; si ces deux sommes sont impaires, Hira doit mettre une bille dans la case E.
+
+{\centering%
+\includesvg[width=151.5px]{\taskGraphicsFolder/graphics/2020-VN-04_explanation9.svg}\par}
+
+Ceci montre que Hira peut mettre des billes de $16$ façons différentes dans les cases de la boîte.
+
+
+
+% it's informatics
+\section*{\BrochureItsInformatics}
+Une tâche importante de l’informatique est la transmission de données de manière sûre. Une manière d’assurer la transmission de données contre les erreurs de transmission est d’instaurer une \emph{convention de parité}.
+
+Un \emph{bit de parité} est calculé sur la base des données à transmettre et est ajouté à la fin des données. Le bit de parité peut à nouveau être calculé lors de la réception des données. Si les données ne correspondent pas au bit de parité, on sait qu’il y a eu une erreur lors de la transmission.
+
+Dans cet exercice, les cases de la dernière ligne et colonne servent de bits de parité. Si le nombre de billes dans les cases est transmis en tant que données, le destinataire peut calculer la somme des lignes et des colonnes. Si celles-ci ne sont pas paires, le destinataire peut informer Hira qu’il y a eu une erreur lors de la transmission.
+
+Un autre compétence informatique est la capacité à compter toutes les solutions ayant certaines propriétés et ainsi de déterminer leur nombre.
+
+
+
+% keywords and websites (as \begin{itemize})
+\section*{\BrochureWebsitesAndKeywords}
+{\raggedright
+\begin{itemize}
+  \item Bit de parité: \href{https://fr.wikipedia.org/wiki/Somme_de_contr\%C3\%B4le\#Exemple_:_bit_de_parit\%C3\%A9}{\BrochureUrlText{https://fr.wikipedia.org/wiki/Somme\_de\_contrôle\#Exemple\_:\_bit\_de\_parité}}
+\end{itemize}
+
+
+}
+
+% end of ifthen for excluding the solutions
+}{}
+
+% all authors
+% ATTENTION: you HAVE to make sure an according entry is in ../main/authors.tex.
+% Syntax: \def\AuthorLastnameF{} (Lastname is last name, F is first letter of first name, this serves as a marker for ../main/authors.tex)
+\def\AuthorLuanV{} % \ifdefined\AuthorLuanV \BrochureFlag{vn}{} Vũ Văn Luân\fi
+\def\AuthorAndersenT{} % \ifdefined\AuthorAndersenT \BrochureFlag{no}{} Tony René Andersen\fi
+\def\AuthorChanS{} % \ifdefined\AuthorChanS \BrochureFlag{ca}{} Sarah Chan\fi
+\def\AuthorBarotM{} % \ifdefined\AuthorBarotM \BrochureFlag{ch}{} Michael Barot\fi
+\def\AuthorDatzkoS{} % \ifdefined\AuthorDatzkoS \BrochureFlag{ch}{} Susanne Datzko\fi
+\def\AuthorHromkovicJ{} % \ifdefined\AuthorHromkovicJ \BrochureFlag{ch}{} Juraj Hromkovič\fi
+\def\AuthorFreiF{} % \ifdefined\AuthorFreiF \BrochureFlag{ch}{} Fabian Frei\fi
+\def\AuthorPelletE{} % \ifdefined\AuthorPelletE \BrochureFlag{ch}{} Elsa Pellet\fi
+
+\newpage}{}

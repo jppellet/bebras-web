@@ -1,0 +1,138 @@
+{
+    "id": "2023-CA-01",
+    "title": "L'albero magico",
+    "ages": {
+        "0": "--",
+        "1": "hard",
+        "2": "medium",
+        "3": "easy",
+        "4": "--",
+        "5": "--",
+        "6-8": "--",
+        "8-10": "hard",
+        "10-12": "medium",
+        "12-14": "easy",
+        "14-16": "--",
+        "16-19": "--"
+    },
+    "categories": [
+        "algorithms and programming"
+    ],
+    "computational_thinking_skills": [],
+    "answer_type": "multiple choice",
+    "keywords": [],
+    "support_files": [
+        {
+            "src": "*.svg from https://uxwing.com/ (CC BY-SA 4.0), improved by Sarah Chan, improved by Susanne Datzko",
+            "file_pattern": "*.svg from https://uxwing.com/ (CC BY-SA 4.0), improved",
+            "authors": [
+                "Sarah Chan",
+                "Susanne Datzko"
+            ]
+        }
+    ],
+    "contributors": [
+        {
+            "src": "Sarah Chan, sarah.chan@uwaterloo.ca, Canada (author,graphics)",
+            "name": "Sarah Chan",
+            "country": "Canada",
+            "country_code": "CA",
+            "roles": [
+                "author",
+                "graphics"
+            ],
+            "email": "sarah.chan@uwaterloo.ca"
+        },
+        {
+            "src": "Valentina Dagienė, valentina.dagiene@mif.vu.lt, Lithuania (contributor)",
+            "name": "Valentina Dagienė",
+            "country": "Lithuania",
+            "country_code": "LT",
+            "roles": [
+                "contributor"
+            ],
+            "email": "valentina.dagiene@mif.vu.lt"
+        },
+        {
+            "src": "Bence Gaál, gaalbenc@inf.elte.hu, Hungary (contributor)",
+            "name": "Bence Gaál",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "gaalbenc@inf.elte.hu"
+        },
+        {
+            "src": "Christian Datzko, christian@bebras.services, Hungary (contributor)",
+            "name": "Christian Datzko",
+            "country": "Hungary",
+            "country_code": "HU",
+            "roles": [
+                "contributor"
+            ],
+            "email": "christian@bebras.services"
+        },
+        {
+            "src": "Wilfried Baumann, baumann@ocg.at, Austria (translation from English into German)",
+            "name": "Wilfried Baumann",
+            "country": "Austria",
+            "country_code": "AT",
+            "roles": [
+                "translation from English into German"
+            ],
+            "email": "baumann@ocg.at"
+        },
+        {
+            "src": "Susanne Datzko, datzko@bwinf.ch, Germany (graphics)",
+            "name": "Susanne Datzko",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "graphics"
+            ],
+            "email": "datzko@bwinf.ch"
+        },
+        {
+            "src": "Wolfgang Pohl, pohl@bwinf.de, Germany (contributor)",
+            "name": "Wolfgang Pohl",
+            "country": "Germany",
+            "country_code": "DE",
+            "roles": [
+                "contributor"
+            ],
+            "email": "pohl@bwinf.de"
+        },
+        {
+            "src": "Christian Giang, christian.giang@supsi.ch, Switzerland (translation from German into Italian)",
+            "name": "Christian Giang",
+            "country": "Switzerland",
+            "country_code": "CH",
+            "roles": [
+                "translation from German into Italian"
+            ],
+            "email": "christian.giang@supsi.ch"
+        }
+    ],
+    "equivalent_tasks": "--",
+    "settings": {
+        "default_image_scale": 0.21
+    },
+    "name": "Magic Tree",
+    "difficulties": [
+        0,
+        3,
+        2,
+        1,
+        0,
+        0
+    ],
+    "lang_code": "ita",
+    "lang": "Italian",
+    "parsed_id": {
+        "year": 2023,
+        "country_code": "CA",
+        "country": "Canada",
+        "num": 1
+    }
+}
